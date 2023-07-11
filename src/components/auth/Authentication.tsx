@@ -1,9 +1,16 @@
 import React, { FunctionComponent } from "react";
-import { GestureResponderEvent, TouchableOpacity, Image, ImageSourcePropType } from "react-native";
+import {
+  GestureResponderEvent,
+  TouchableOpacity,
+  Image,
+  ImageSourcePropType,
+} from "react-native";
 import { View } from "react-native";
 import google from "../../assets/icons/google.png";
 import apple from "../../assets/icons/apple.png";
-import SmallText from "../../constants/fonts/SmallText";
+import SmallText from "../../constants/fonts/MediumText";
+import LightText from "../../constants/fonts/LightText";
+import MediumText from "../../constants/fonts/MediumText";
 
 interface CustomImageProps {
   source: ImageSourcePropType;
@@ -20,9 +27,8 @@ interface ImagesSectionProps {
 
 const Authentication: FunctionComponent<ImagesSectionProps> = ({
   onPressGoogle,
-  onPressApple
+  onPressApple,
 }) => {
-
   const handlePressGoogle = (event: GestureResponderEvent) => {
     // Handle the onPressGoogle event
     //onPressGoogle(event);
@@ -35,10 +41,10 @@ const Authentication: FunctionComponent<ImagesSectionProps> = ({
 
   return (
     <View className="items-center mt-5">
-      <SmallText className="">Or continue with</SmallText>
+      <MediumText className="">Or continue with</MediumText>
       <View className="flex-row mt-1 justify-between w-32">
         <TouchableOpacity onPress={onPressGoogle}>
-          <CustomImage source={google}/>
+          <CustomImage source={google} />
         </TouchableOpacity>
         <TouchableOpacity onPress={onPressApple}>
           <CustomImage source={apple} />
