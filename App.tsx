@@ -12,6 +12,18 @@ import AchievementsCard from "./src/screens/profile/cards/achievements";
 import OtherAchievementCard from "./src/screens/profile/cards/otherAchievements";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "LightText": require("./src/assets/fonts/Poppins-Light.ttf"),
+    "RegularText": require("./src/assets/fonts/Poppins-Regular.ttf"),
+    "MediumText": require("./src/assets/fonts/Poppins-Medium.ttf"),
+    "SemiboldText": require("./src/assets/fonts/Poppins-SemiBold.ttf"),
+    "BoldText": require("./src/assets/fonts/Poppins-Bold.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <ScrollView style={styles.container}>
       {/* <ProfileScreen /> */}
