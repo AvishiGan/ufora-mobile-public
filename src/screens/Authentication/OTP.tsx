@@ -7,13 +7,12 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import logo from "../assets/icons/logo.png";
-import MediumText from "../constants/fonts/MediumText";
-import { COLORS } from "../constants/theme";
-import RegularButton from "../components/Buttons/RegularButton";
+import logo from "../../../assets/ufora-icon.png";
+import MediumText from "../../constants/fonts/MediumText";
+import RegularButton from "../../components/buttons/RegularButton";
 import { GestureResponderEvent } from "react-native";
 import { TouchableOpacity } from "react-native";
-import BoldText from "../constants/fonts/BoldText";
+import BoldText from "../../constants/fonts/BoldText";
 
 interface CustomImageProps {
   source: ImageSourcePropType;
