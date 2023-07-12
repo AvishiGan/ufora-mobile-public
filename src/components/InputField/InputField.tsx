@@ -1,4 +1,4 @@
-import { Eye, EyeOff } from "lucide-react-native";
+//import { Eye, EyeOff } from "lucide-react-native";
 import React, { useState } from "react";
 import { TextInput, View, TouchableOpacity, Image } from "react-native";
 
@@ -34,7 +34,7 @@ const InputField: React.FC<InputFieldProps> = ({
       />
       {showPasswordToggle && (
         <TouchableOpacity onPress={togglePasswordVisibility} style={{ marginLeft: 8 }}>
-          <Image source={showPassword ? Eye : EyeOff} />
+          {/*<Image source={showPassword ? Eye : EyeOff} />*/}
         </TouchableOpacity>
       )}
     </View>

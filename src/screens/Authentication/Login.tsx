@@ -7,25 +7,24 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import logo from "../assets/icons/logo.png";
-import google from "../assets/icons/google.png";
-import apple from "../assets/icons/apple.png";
-import User from "../assets/icons/user.png";
-import Password from "../assets/icons/password.png";
-import Eyeoff from "../assets/icons/eye-off.png";
-import { COLORS } from "../constants/theme";
-import RegularButton from "../components/Buttons/RegularButton";
+import logo from "../../../assets/logo.png";
+import google from "../../../assets/icons/google.png";
+import apple from "../../../assets/icons/google.png";
+import User from "../../../assets/icons/user.png";
+import Password from "../../../assets/icons/password.png";
+import Eyeoff from "../../../assets/icons/eye-off.png";
+import RegularButton from "../../components/buttons/RegularButton";
 import { GestureResponderEvent } from "react-native";
 import { TouchableOpacity } from "react-native";
 import Authentication, {
   handlePressGoogle,
   handlePressApple,
-} from "../components/Auth/Authentication";
-import InputField from "../components/InputField/InputField";
-import BoldText from "../constants/fonts/BoldText";
-import RegularText from "../constants/fonts/RegularText";
-import LightText from "../constants/fonts/LightText";
-import MediumText from "../constants/fonts/MediumText";
+} from "../../components/auth/Authentication";
+import InputField from "../../components/inputField/InputField";
+import BoldText from "../../constants/fonts/BoldText";
+import RegularText from "../../constants/fonts/RegularText";
+import LightText from "../../constants/fonts/LightText";
+import MediumText from "../../constants/fonts/MediumText";
 
 interface CustomImageProps {
   source: ImageSourcePropType;
