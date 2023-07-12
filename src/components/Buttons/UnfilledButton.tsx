@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { COLORS } from "../../constants/theme";
 import RegularText from "../../constants/fonts/RegularText";
 import styled from "styled-components";
 import { GestureResponderEvent, TouchableOpacity } from "react-native";

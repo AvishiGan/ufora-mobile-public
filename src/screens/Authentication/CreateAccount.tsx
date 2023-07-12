@@ -7,24 +7,23 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import logo from "../assets/icons/logo.png";
-import google from "../assets/icons/google.png";
-import apple from "../assets/icons/apple.png";
-import User from "../assets/icons/user.png";
-import Password from "../assets/icons/password.png";
-import Eyeoff from "../assets/icons/eye-off.png";
-import Mail from "../assets/icons/mail.png";
-import { COLORS } from "../constants/theme";
+import logo from "../../../assets/ufora-icon.png";
+import google from "../../../assets/icons/google.png";
+import apple from "../../../assets/icons/google.png";
+import User from "../../../assets/icons/user.png";
+import Password from "../../../assets/icons/password.png";
+import Eyeoff from "../../../assets/icons/eye-off.png";
+import Mail from "../../../assets/icons/mail.png";
 import { GestureResponderEvent } from "react-native";
 import { TouchableOpacity } from "react-native";
 import Authentication, {
   handlePressGoogle,
   handlePressApple,
-} from "../components/Auth/Authentication";
-import BoldText from "../constants/fonts/BoldText";
-import MediumText from "../constants/fonts/MediumText";
-import LightText from "../constants/fonts/LightText";
-import RegularButton from "../components/Buttons/RegularButton";
+} from "../../components/auth/Authentication";
+import BoldText from "../../constants/fonts/BoldText";
+import MediumText from "../../constants/fonts/MediumText";
+import LightText from "../../constants/fonts/LightText";
+import RegularButton from "../../constants/fonts/RegularText";
 
 interface CustomImageProps {
   source: ImageSourcePropType;
