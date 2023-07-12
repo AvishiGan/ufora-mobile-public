@@ -1,27 +1,22 @@
 import React, { FunctionComponent } from "react";
 import { StatusBar } from "expo-status-bar";
 import { ImageSourcePropType, Text, View, Image } from "react-native";
-import logo from "../assets/icons/logo.png";
-import google from "../assets/icons/google.png";
-import apple from "../assets/icons/apple.png";
-
-import { COLORS } from "../constants/theme";
-import RegularButton from "../components/Buttons/RegularButton";
-import UnfilledButton from "../components/Buttons/UnfilledButton";
+import logo from "../../../assets/logo.png";
+import google from "../../../assets/icons/google.png";
+import apple from "../../../assets/icons/apple.png";
+import RegularButton from "../../components/buttons/RegularButton";
+import UnfilledButton from "../../components/buttons/UnfilledButton";
 import { GestureResponderEvent } from "react-native";
 import { TouchableOpacity } from "react-native";
-import SmallButton from "../components/Buttons/SmallButton";
-//import Authentication from "../components/Auth/Authentication";
+import SmallButton from "../../components/buttons/SmallButton";
 import Authentication, {
   handlePressGoogle,
   handlePressApple,
-} from "../components/Auth/Authentication";
-import LightText from "../constants/fonts/LightText";
-import BoldText from "../constants/fonts/BoldText";
-import MediumText from "../constants/fonts/MediumText";
-import RegularText from "../constants/fonts/RegularText";
-//import handlePressGoogle from "../components/Auth/Authentication";
-//import handlePressApple from "../components/Auth/Authentication";
+} from "../../components/auth/Authentication";
+import LightText from "../../constants/fonts/LightText";
+import BoldText from "../../constants/fonts/BoldText";
+import MediumText from "../../constants/fonts/MediumText";
+import RegularText from "../../constants/fonts/RegularText";
 
 //navigation
 {
@@ -52,7 +47,7 @@ const Welcome: FunctionComponent<WelcomeProps> = () => {
         <View className="items-center mt-32 justify-center">
           <CustomImage source={logo} />
           <View className="items-center mt-2">
-            <BoldText className=" text-4xl mb-1">Welcome!</BoldText>
+            <BoldText className="text-4xl mb-1">Welcome!</BoldText>
             <RegularText className="flex-wrap text-base">
               Login to your account,{" "}
             </RegularText>

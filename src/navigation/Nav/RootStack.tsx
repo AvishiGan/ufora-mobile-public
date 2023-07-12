@@ -1,9 +1,9 @@
 import React, {FunctionComponent} from "react";
-import Welcome from "../app/Welcome";
-import Login from "../app/Login";
-import ForgotPassword from "../app/ForgotPassword";
-import CreateAccount from "../app/CreateAccount";
-import OTP from "../app/OTP";
+import Welcome from "../../screens/Authentication/Welcome";
+import Login from "../../screens/Authentication/Login";
+import ForgotPassword from "../../screens/Authentication/ForgotPassword";
+import CreateAccount from "../../screens/Authentication/CreateAccount";
+import OTP from "../../screens/Authentication/OTP";
 
 //React Navigation
 import { NavigationContainer } from "@react-navigation/native";
