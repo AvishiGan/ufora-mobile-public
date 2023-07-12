@@ -4,9 +4,8 @@ import styled from "styled-components/native";
 
 {/*weight-400*/}
 const StyledText = styled.Text`
-  font-family: RegularText; 
-  font-size: 16px;
-  //font-weight: 400
+  font-family: Text; 
+  font-weight: 400
 `;
 
 const RegularText: FunctionComponent<TextProps> = (props) => {

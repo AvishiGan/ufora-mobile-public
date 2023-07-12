@@ -7,20 +7,19 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import logo from "../assets/icons/logo.png";
-import User from "../assets/icons/user.png";
-import { COLORS } from "../constants/theme";
-import RegularButton from "../components/Buttons/RegularButton";
+import logo from "../../../assets/logo.png";
+import User from "../../../assets/icons/user.png";
+import RegularButton from "../../components/buttons/RegularButton";
 import { GestureResponderEvent } from "react-native";
 import { TouchableOpacity } from "react-native";
 
 //React Navigation
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import BoldText from "../constants/fonts/BoldText";
-import MediumText from "../constants/fonts/MediumText";
-import LightText from "../constants/fonts/LightText";
-import RegularText from "../constants/fonts/RegularText";
+import BoldText from "../../constants/fonts/BoldText";
+import MediumText from "../../constants/fonts/MediumText";
+import LightText from "../../constants/fonts/LightText";
+import RegularText from "../../constants/fonts/RegularText";
 
 interface CustomImageProps {
   source: ImageSourcePropType;

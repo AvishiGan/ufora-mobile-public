@@ -4,7 +4,8 @@ import styled from "styled-components/native";
 
 {/*weight-600 */}
 const StyledText = styled.Text`
-  font-family: SemiboldText;
+  font-family: Text;
+  font-weight: 600;
 `;
 
 const SemiboldText: FunctionComponent<TextProps> = (props) => {
