@@ -1,23 +1,20 @@
-import React from "react";
-import { StyleSheet, View, Text, ScrollView } from "react-native";
-import ProfileScreen from "./src/screens/profile/index";
-import IntroCard from "./src/screens/profile/cards/intro/index";
-import BasicInfoCard from "./src/screens/profile/cards/basicInfo/index";
-import { LucidCake } from "./assets";
-import EducationCard from "./src/screens/profile/cards/education";
-import BadgesCard from "./src/screens/profile/cards/badges";
-import SkillHexagonCard from "./src/screens/profile/cards/skillHexagon";
-import ClubsAndSocietiesCard from "./src/screens/profile/cards/clubsAndSocieties";
-import AchievementsCard from "./src/screens/profile/cards/achievements";
-import OtherAchievementCard from "./src/screens/profile/cards/otherAchievements";
+import { StatusBar } from "expo-status-bar";
+import { Text, View } from "react-native";
+import Welcome from "./src/screens/Authentication/Welcome";
+import RootNavigator from "./src/navigation/Nav/RootStack";
+import { NavigationContainer } from "@react-navigation/native";
+
+//custom fonts
+import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font";
+
+//React Navigation
+import RootStack from "./src/navigation/Nav/RootStack";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    "LightText": require("./src/assets/fonts/Poppins-Light.ttf"),
-    "RegularText": require("./src/assets/fonts/Poppins-Regular.ttf"),
-    "MediumText": require("./src/assets/fonts/Poppins-Medium.ttf"),
-    "SemiboldText": require("./src/assets/fonts/Poppins-SemiBold.ttf"),
-    "BoldText": require("./src/assets/fonts/Poppins-Bold.ttf"),
+    "Text": require("./assets/fonts/Switzer-Variable.ttf"),
+    "ItalicText": require("./assets/fonts/Switzer-VariableItalic.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -25,20 +22,9 @@ export default function App() {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      {/* <ProfileScreen /> */}
-      <IntroCard />
-      <BasicInfoCard />
-      <EducationCard />
-      <BadgesCard />
-      <SkillHexagonCard />
-      <ClubsAndSocietiesCard />
-      <AchievementsCard />
-      <OtherAchievementCard />
-      {/* <LucidCake width={45} height={45} /> */}
-      {/* <LucidCake /> */}
-      {/* <Text>Open up App.tsx to start working on your app!</Text> */}
-    </ScrollView>
+    <> 
+    <RootStack />
+    </>
   );
 }
 
