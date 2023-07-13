@@ -9,11 +9,12 @@ import { styles } from "./styles";
 
 type ButtonProps = TouchableOpacityProps & {
   onPress: () => void;
-  title: string;
+  // title: string;
+  title: React.ReactNode; // Updated type
 };
 
 /**
- * 
+ *
  * @param param0 | ButtonProps
  * @returns | React.FC<ButtonProps>
  */

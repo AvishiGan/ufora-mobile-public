@@ -1,25 +1,40 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import ProfileButton from "../../components/buttons/profile";
+import { View, Image, Text } from "react-native";
+import { styles } from "./styles";
+import ProfileButton from "../../components/buttons/profile/index";
 
-const MyScreen: React.FC = () => {
-  const handleButtonPress = () => {
-    console.log("Button pressed!");
-  };
-
+const ProfileSection: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <ProfileButton onPress={handleButtonPress} title="Press me" />
+    <View style={styles.profileSection}>
+      <Image source={require("./assets/images/profile/ProfilePicture.png")} />
+      <Text style={styles.profileName}>Isuru Ranawaka</Text>
+      <Text style={styles.profileText}>Undergrad at University of Colombo</Text>
+      <View style={styles.horizontalContainer}>
+        <Text style={styles.profileText}>145 Friends</Text>
+        <Text style={styles.profileText}>35 Posts</Text>
+        <Text style={styles.profileText}>5 Blogs</Text>
+        <Text style={styles.profileText}>4 Projects</Text>
+      </View>
+      <View style={styles.horizontalContainer}>
+        <ProfileButton onPress={handleButtonPress} title="Edit Profile" />
+        <ProfileButton onPress={handleButtonPress} title="Share Profile" />
+      </View>
+      <View style={styles.horizontalContainer}>
+        <ProfileButton onPress={handleButtonPress} title="About" />
+        <ProfileButton onPress={handleButtonPress} title="Posts" />
+        <ProfileButton onPress={handleButtonPress} title="Blogs" />
+        <ProfileButton onPress={handleButtonPress} title="Portfolio" />
+      </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+/**
+ * This function is called when the button is pressed
+ */
+const handleButtonPress = () => {
+  // Code logic to be executed when the button is pressed
+  console.log("Button pressed!");
+};
 
-export default MyScreen;
+export default ProfileSection;
