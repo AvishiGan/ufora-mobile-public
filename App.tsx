@@ -1,11 +1,15 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import ProfileScreen from "./src/screens/profile/index";
+import IntroCard from "./src/screens/profile/cards/intro/index";
+import BasicInfoCard from "./src/screens/profile/cards/basicInfo/index";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ProfileScreen />
+      {/* <ProfileScreen /> */}
+      <IntroCard />
+      <BasicInfoCard />
       {/* <Text>Open up App.tsx to start working on your app!</Text> */}
     </View>
   );
