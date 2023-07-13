@@ -2,14 +2,12 @@ import { StyleSheet } from "react-native";
 
 
 export const styles = StyleSheet.create({
-    container: {
-    //   alignItems: "center",
-      margin: 37,
+    smallContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      alignSelf: 'stretch',
     },
-    // listHeader: {
-    //   fontWeight: "bold",
-    //   marginBottom: 10,
-    // },
     listItem: {
       marginLeft: 20,
     },

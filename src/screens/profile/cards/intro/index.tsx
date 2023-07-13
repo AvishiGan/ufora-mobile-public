@@ -2,17 +2,18 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Card, Button, Title, Paragraph } from "react-native-paper";
 import { styles } from "./styles";
+import { cstyles } from "../cstyles";
 
 const IntroCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={cstyles.container}>
       <Card.Content>
-        <Title style={styles.title}>Intro</Title>
+        <Title style={cstyles.title}>Intro</Title>
       </Card.Content>
       <Card.Content>
-        <Paragraph style={styles.paragraph}>
+        <Paragraph style={cstyles.normalText}>
           Hey I am Isuru, an undergrad at UCSC. I love designing and creating
-          websites and posters 
+          websites and posters
           <Text style={styles.seeMore}>... see more</Text>
         </Paragraph>
       </Card.Content>
