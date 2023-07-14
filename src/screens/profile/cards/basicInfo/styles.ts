@@ -9,6 +9,6 @@ export const styles = StyleSheet.create({
       alignSelf: 'stretch',
     },
     listItem: {
-      marginLeft: 20,
+      marginLeft: 50,
     },
   });
