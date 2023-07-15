@@ -9,6 +9,7 @@ import BadgesCard from "./src/screens/profile/cards/badges";
 import SkillHexagonCard from "./src/screens/profile/cards/skillHexagon";
 import ClubsAndSocietiesCard from "./src/screens/profile/cards/clubsAndSocieties";
 import AchievementsCard from "./src/screens/profile/cards/achievements";
+import OtherAchievementCard from "./src/screens/profile/cards/otherAchievements";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       <SkillHexagonCard />
       <ClubsAndSocietiesCard />
       <AchievementsCard />
+      <OtherAchievementCard />
       {/* <LucidCake width={45} height={45} /> */}
       {/* <LucidCake /> */}
       {/* <Text>Open up App.tsx to start working on your app!</Text> */}

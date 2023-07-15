@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
     italicText: {
       fontStyle: 'italic',
     },
-    lightText: {
+    light: {
       color: "#87929D",
     }
   });
