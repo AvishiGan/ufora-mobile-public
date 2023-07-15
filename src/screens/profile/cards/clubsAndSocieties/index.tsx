@@ -15,7 +15,7 @@ const ClubsAndSocietiesCard: React.FC = () => {
         <Card.Content key={index}>
           <View style={styles.infoContainer}>
             <Text style={[styles.listItem, styles.boldText]}>{club.title}</Text>
-            <Text style={[styles.listItem, styles.light]}>{club.date}</Text>
+            <Text style={[styles.listItem, styles.light]}>{club.period}</Text>
           </View>
         </Card.Content>
       ))}
