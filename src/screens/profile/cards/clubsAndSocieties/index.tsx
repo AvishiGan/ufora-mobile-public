@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import { Card, Title } from "react-native-paper";
 import { cstyles } from "../cstyles";
 import { styles } from "./styles";
+import { clubData } from "./clubData";
 
 const ClubsAndSocietiesCard: React.FC = () => {
   return (
@@ -10,46 +11,14 @@ const ClubsAndSocietiesCard: React.FC = () => {
       <Card.Content>
         <Title style={cstyles.title}>Clubs and Societies</Title>
       </Card.Content>
-      <Card.Content>
-        <View style={styles.infoContainer}>
-          <Text style={[styles.listItem, styles.boldText]}>
-            PR Director at Rotaract Club of UCSC
-          </Text>
-          <Text style={[styles.listItem, styles.light]}>2023-Present</Text>
-        </View>
-      </Card.Content>
-      <Card.Content>
-        <View style={styles.infoContainer}>
-          <Text style={[styles.listItem, styles.boldText]}>
-            Web team lead at IEEE Student Branch of UCSC
-          </Text>
-          <Text style={[styles.listItem, styles.light]}>2023-Present</Text>
-        </View>
-      </Card.Content>
-      <Card.Content>
-        <View style={styles.infoContainer}>
-          <Text style={[styles.listItem, styles.boldText]}>
-            Member of Gavel Club of UOC
-          </Text>
-          <Text style={[styles.listItem, styles.light]}>2022-2023</Text>
-        </View>
-      </Card.Content>
-      <Card.Content>
-        <View style={styles.infoContainer}>
-          <Text style={[styles.listItem, styles.boldText]}>
-            General Member of Rotaract Club of UCSC
-          </Text>
-          <Text style={[styles.listItem, styles.light]}>2022-2023</Text>
-        </View>
-      </Card.Content>
-      <Card.Content>
-        <View style={styles.infoContainer}>
-          <Text style={[styles.listItem, styles.boldText]}>
-            Web team member at IEEE Student Branch of UCSC
-          </Text>
-          <Text style={[styles.listItem, styles.light]}>2022-2023</Text>
-        </View>
-      </Card.Content>
+      {clubData.map((club, index) => (
+        <Card.Content key={index}>
+          <View style={styles.infoContainer}>
+            <Text style={[styles.listItem, styles.boldText]}>{club.title}</Text>
+            <Text style={[styles.listItem, styles.light]}>{club.date}</Text>
+          </View>
+        </Card.Content>
+      ))}
     </Card>
   );
 };
