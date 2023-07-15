@@ -3,25 +3,22 @@ import { Text, View } from "react-native";
 import { Card, Title } from "react-native-paper";
 import { cstyles } from "../cstyles";
 import { styles } from "./styles";
-import { educationData } from "./data";
+import { otherAchievementData } from "./data";
 
-const EducationCard: React.FC = () => {
+const otherAchievementCard: React.FC = () => {
   return (
     <Card style={cstyles.container}>
       <Card.Content>
-        <Title style={cstyles.title}>Education</Title>
+        <Title style={cstyles.title}>Other Achievements</Title>
       </Card.Content>
-      {educationData.map((education, index) => (
+      {otherAchievementData.map((otherAchievement, index) => (
         <Card.Content key={index}>
           <View style={styles.infoContainer}>
             <Text style={[styles.listItem, styles.boldText]}>
-              {education.general}
+              {otherAchievement.title}
             </Text>
-            <Text style={[styles.listItem, styles.italicText]}>
-              {education.university}
-            </Text>
-            <Text style={[styles.listItem, styles.lightText]}>
-              {education.period}
+            <Text style={[styles.listItem, styles.light]}>
+              {otherAchievement.contest}
             </Text>
           </View>
         </Card.Content>
@@ -29,5 +26,4 @@ const EducationCard: React.FC = () => {
     </Card>
   );
 };
-
-export default EducationCard;
+export default otherAchievementCard;

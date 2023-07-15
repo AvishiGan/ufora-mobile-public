@@ -11,4 +11,7 @@ export const styles = StyleSheet.create({
     listItem: {
       marginLeft: 50,
     },
+    infoContainer: {
+      marginTop: 10, // Add margin to create a gap between each set of info
+    },
   });

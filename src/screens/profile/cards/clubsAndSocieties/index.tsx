@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 import { Card, Title } from "react-native-paper";
 import { cstyles } from "../cstyles";
 import { styles } from "./styles";
-import { clubData } from "./clubData";
+import { clubData } from "./data";
 
 const ClubsAndSocietiesCard: React.FC = () => {
   return (
