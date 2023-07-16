@@ -1,29 +1,32 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-import Welcome from "./src/screens/Authentication/Welcome";
-import RootNavigator from "./src/navigation/Nav/RootStack";
-import { NavigationContainer } from "@react-navigation/native";
-
-//custom fonts
-import AppLoading from "expo-app-loading";
-import { useFonts } from "expo-font";
-
-//React Navigation
-import RootStack from "./src/navigation/Nav/RootStack";
+import React from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
+import IntroCard from "./src/screens/profile/cards/intro/index";
+import BasicInfoCard from "./src/screens/profile/cards/basicInfo/index";
+import EducationCard from "./src/screens/profile/cards/education/index";
+import DigitalBadgeCard from "./src/screens/profile/cards/badges/index";
+import SkillHexagonCard from "./src/screens/profile/cards/skillHexagon/index";
+import ClubCard from "./src/screens/profile/cards/clubsAndSocieties/index";
+import AchievementCard from "./src/screens/profile/cards/achievements/index";
+import OtherAchievementCard from "./src/screens/profile/cards/otherAchievements/index";
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    "Text": require("./assets/fonts/Switzer-Variable.ttf"),
-    "ItalicText": require("./assets/fonts/Switzer-VariableItalic.ttf"),
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-
   return (
-    <> 
-    <RootStack />
-    </>
+    <ScrollView style={styles.container}>
+      <IntroCard />
+      <BasicInfoCard />
+      <EducationCard />
+      <DigitalBadgeCard />
+      <SkillHexagonCard />
+      <ClubCard />
+      <AchievementCard />
+      <OtherAchievementCard />
+    </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+});

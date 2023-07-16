@@ -2,7 +2,6 @@ import React from "react";
 import { Text, View } from "react-native";
 import { Card, Title } from "react-native-paper";
 import { cstyles } from "../cstyles";
-import { styles } from "./styles";
 import { educationData } from "./data";
 
 const EducationCard: React.FC = () => {
@@ -13,14 +12,14 @@ const EducationCard: React.FC = () => {
       </Card.Content>
       {educationData.map((education, index) => (
         <Card.Content key={index}>
-          <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.boldText]}>
+          <View style={cstyles.infoContainer}>
+            <Text style={[cstyles.listItem, cstyles.boldText]}>
               {education.general}
             </Text>
-            <Text style={[styles.listItem, styles.italicText]}>
+            <Text style={[cstyles.listItem, cstyles.italicText]}>
               {education.university}
             </Text>
-            <Text style={[styles.listItem, styles.lightText]}>
+            <Text style={[cstyles.listItem, cstyles.lightText]}>
               {education.period}
             </Text>
           </View>
