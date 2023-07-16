@@ -8,18 +8,20 @@ import SkillHexagonCard from "./src/screens/profile/cards/skillHexagon/index";
 import ClubCard from "./src/screens/profile/cards/clubsAndSocieties/index";
 import AchievementCard from "./src/screens/profile/cards/achievements/index";
 import OtherAchievementCard from "./src/screens/profile/cards/otherAchievements/index";
+import ProfileSection from "./src/screens/profile";
 
 export default function App() {
   return (
     <ScrollView style={styles.container}>
-      <IntroCard />
+      <ProfileSection />
+      {/* <IntroCard />
       <BasicInfoCard />
       <EducationCard />
       <DigitalBadgeCard />
       <SkillHexagonCard />
       <ClubCard />
       <AchievementCard />
-      <OtherAchievementCard />
+      <OtherAchievementCard /> */}
     </ScrollView>
   );
 }
