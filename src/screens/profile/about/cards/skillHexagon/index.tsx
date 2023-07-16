@@ -1,13 +1,13 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Card, Button, Title, Paragraph } from "react-native-paper";
-import { cstyles } from "../cstyles";
+import { styles } from "../styles";
 
 const SkillHexagonCard: React.FC = () => {
   return (
-    <Card style={cstyles.container}>
+    <Card style={styles.container}>
       <Card.Content>
-        <Title style={cstyles.title}>Skill Hexagon</Title>
+        <Title style={styles.title}>Skill Hexagon</Title>
       </Card.Content>
     </Card>
   );

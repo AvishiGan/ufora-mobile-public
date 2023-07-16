@@ -1,15 +1,13 @@
 import React from "react";
-import { View, Image, Text } from "react-native";
-import { styles } from "./commonSection/styles";
-import ProfileButton from "../../components/profile/buttons/index";
-import CommonSection from "./commonSection";
+import { View, StyleSheet, ScrollView } from "react-native";
+import ProfileAboutSection from "../profile/about/index";
 
-const ProfileSection: React.FC = () => {
+const MyProfile: React.FC = () => {
   return (
-    <View style={styles.profileSection}>
-      <CommonSection />
+    <View>
+      <ProfileAboutSection />
     </View>
   );
 };
 
-export default ProfileSection;
+export default MyProfile;

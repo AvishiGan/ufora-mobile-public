@@ -3,7 +3,7 @@ import { View, Image, Text } from "react-native";
 import { styles } from "./styles";
 import ProfileButton from "../../../components/profile/buttons/index";
 
-const CommonSection: React.FC = () => {
+const ProfileCommonSection: React.FC = () => {
   return (
     <View style={styles.profileSection}>
       <Image source={require("./assets/images/profile/ProfilePicture.png")} />
@@ -37,4 +37,4 @@ const handleButtonPress = () => {
   console.log("Button pressed!");
 };
 
-export default CommonSection;
+export default ProfileCommonSection;
