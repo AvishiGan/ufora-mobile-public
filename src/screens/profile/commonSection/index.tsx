@@ -6,7 +6,7 @@ import ProfileButton from "../../../components/profile/buttons/index";
 const ProfileCommonSection: React.FC = () => {
   return (
     <View style={styles.profileSection}>
-      <Image source={require("./assets/images/profile/ProfilePicture.png")} />
+      {/* <Image source={require("./assets/images/profile/ProfilePicture.png")} /> */}
       <Text style={styles.profileName}>Isuru Ranawaka</Text>
       <Text style={styles.profileText}>Undergrad at University of Colombo</Text>
       <View style={styles.horizontalContainer}>
