@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const cstyles = StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
         display: 'flex',
         width: 405,
