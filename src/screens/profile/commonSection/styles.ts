@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     gap: 15,
   },
+  // Profile name
   profileName: {
     color: "var(--brand-black, #111)",
     leadingTrim: "both",
@@ -26,8 +27,9 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontStyle: "normal",
     fontWeight: "600",
-    lineHeight: 200,
+    // lineHeight: 200,
   },
+  // Name of the university
   uniName: {
     color: "var(--brand-grey, #4F4E4E)",
     leadingTrim: "both",
@@ -38,6 +40,7 @@ export const styles = StyleSheet.create({
     fontWeight: "400",
     // lineHeight: "normal",
   },
+  // Container of profile name and university name
   nameUniContainer: {
     display: "flex",
     flexDirection: "column",
@@ -46,11 +49,13 @@ export const styles = StyleSheet.create({
   },
   statusContainer: {
     display: "flex",
+    flexDirection: "row", // // Update to horizontal layout
     alignItems: "center",
     gap: 15,
   },
   individualStatusContainer:{
     display: "flex",
+    flexDirection: "row", // // Update to horizontal layout
     justifyContent: "center",
     alignItems: "center",
     gap: 5,
@@ -86,6 +91,7 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     display: "flex",
+    flexDirection: "row",
     width: 282,
     alignItems: "flex-start",
     gap: 15,
