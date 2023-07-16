@@ -25,4 +25,8 @@ export const styles = StyleSheet.create({
     // lineHeight: 'normal',
     lineHeight: 20, // The height of a line box
   },
+  buttonIcon: {
+    width: 16,
+    height: 16,
+  },
 });
