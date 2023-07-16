@@ -2,7 +2,6 @@ import React from "react";
 import { Text, View } from "react-native";
 import { Card, Title } from "react-native-paper";
 import { cstyles } from "../cstyles";
-import { styles } from "./styles";
 import { clubData } from "./data";
 
 const ClubsAndSocietiesCard: React.FC = () => {
@@ -13,9 +12,11 @@ const ClubsAndSocietiesCard: React.FC = () => {
       </Card.Content>
       {clubData.map((club, index) => (
         <Card.Content key={index}>
-          <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.boldText]}>{club.title}</Text>
-            <Text style={[styles.listItem, styles.light]}>{club.period}</Text>
+          <View style={cstyles.infoContainer}>
+            <Text style={[cstyles.listItem, cstyles.boldText]}>
+              {club.title}
+            </Text>
+            <Text style={[cstyles.listItem, cstyles.lightText]}>{club.period}</Text>
           </View>
         </Card.Content>
       ))}

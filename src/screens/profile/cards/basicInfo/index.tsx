@@ -2,7 +2,6 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Card, Button, Title, Paragraph } from "react-native-paper";
 import { cstyles } from "../cstyles";
-import { styles } from "./styles";
 import { basicData } from "./data";
 
 const BasicInfoCard: React.FC = () => {
@@ -13,10 +12,10 @@ const BasicInfoCard: React.FC = () => {
       </Card.Content>
       {basicData.map((basicInfo, index) => (
         <Card.Content key={index}>
-          <View style={styles.infoContainer}>
-            <Text style={styles.listItem}>{basicInfo.birthday}</Text>
-            <Text style={styles.listItem}>{basicInfo.mobileNo}</Text>
-            <Text style={styles.listItem}>{basicInfo.email}</Text>
+          <View style={cstyles.infoContainer}>
+            <Text style={cstyles.listItem}>{basicInfo.birthday}</Text>
+            <Text style={cstyles.listItem}>{basicInfo.mobileNo}</Text>
+            <Text style={cstyles.listItem}>{basicInfo.email}</Text>
           </View>
         </Card.Content>
       ))}
