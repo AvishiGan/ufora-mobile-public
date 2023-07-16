@@ -1,15 +1,14 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Card, Button, Title, Paragraph } from "react-native-paper";
-import { cstyles } from "../cstyles";
-import { styles } from "./styles";
+import { styles } from "../styles";
 import { basicData } from "./data";
 
 const BasicInfoCard: React.FC = () => {
   return (
-    <Card style={cstyles.container}>
+    <Card style={styles.container}>
       <Card.Content>
-        <Title style={cstyles.title}>Basic Info</Title>
+        <Title style={styles.title}>Basic Info</Title>
       </Card.Content>
       {basicData.map((basicInfo, index) => (
         <Card.Content key={index}>

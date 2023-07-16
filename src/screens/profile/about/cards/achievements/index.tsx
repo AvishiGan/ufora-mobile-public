@@ -1,15 +1,15 @@
 import React from "react";
 import { Text, View } from "react-native";
 import { Card, Title } from "react-native-paper";
-import { cstyles } from "../cstyles";
-import { styles } from "./styles";
+import { styles } from "../styles";
+// import { styles } from "./styles";
 import { achievementData } from "./data";
 
 const AchievementCard: React.FC = () => {
   return (
-    <Card style={cstyles.container}>
+    <Card style={styles.container}>
       <Card.Content>
-        <Title style={cstyles.title}>Achievements</Title>
+        <Title style={styles.title}>Achievements</Title>
       </Card.Content>
       {achievementData.map((achievement, index) => (
         <Card.Content key={index}>
@@ -17,7 +17,7 @@ const AchievementCard: React.FC = () => {
             <Text style={[styles.listItem, styles.boldText]}>
               {achievement.title}
             </Text>
-            <Text style={[styles.listItem, styles.light]}>
+            <Text style={[styles.listItem, styles.lightText]}>
               {achievement.contest}
             </Text>
           </View>
