@@ -1,11 +1,14 @@
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 import MyProfile from "./src/screens/profile";
+import SafeViewAndroid from "./src/components/SafeViewAndroid";
 
 export default function App() {
   return (
-    <ScrollView>
-      <MyProfile />
-    </ScrollView>
+    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
+      <ScrollView>
+        <MyProfile />
+      </ScrollView>
+    </SafeAreaView>
   );
 }

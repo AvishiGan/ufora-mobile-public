@@ -11,6 +11,7 @@ npm-debug.*
 web-build/
 .vscode
 knowledge.md
+App1.tsx
 
 # macOS
 .DS_Store
