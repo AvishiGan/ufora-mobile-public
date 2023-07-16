@@ -17,7 +17,7 @@ const AchievementCard: React.FC = () => {
             <Text style={[cstyles.listItem, cstyles.boldText]}>
               {achievement.title}
             </Text>
-            <Text style={[cstyles.listItem, cstyles.light]}>
+            <Text style={[cstyles.listItem, cstyles.lightText]}>
               {achievement.contest}
             </Text>
           </View>
