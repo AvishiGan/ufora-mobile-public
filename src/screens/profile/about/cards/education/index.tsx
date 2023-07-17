@@ -13,13 +13,13 @@ const EducationCard: React.FC = () => {
       {educationData.map((education, index) => (
         <Card.Content key={index}>
           <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.boldText]}>
+            <Text style={[styles.listItem, styles.mainDetail]}>
               {education.general}
             </Text>
-            <Text style={[styles.listItem, styles.italicText]}>
+            <Text style={[styles.listItem, styles.italicDetail]}>
               {education.university}
             </Text>
-            <Text style={[styles.listItem, styles.lightText]}>
+            <Text style={[styles.listItem, styles.lightDetail]}>
               {education.period}
             </Text>
           </View>
