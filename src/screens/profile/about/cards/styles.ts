@@ -1,18 +1,29 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    container: {
+    allCardsContainer: {
+      // display: "inline-flex",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 15,
+    },
+    // container -> individualCardContainer
+    individualCardContainer: {
         display: 'flex',
-        width: 405,
+        // width: 405,
+        width: 385, // CHANGE THIS! MANUALLY ADDED
         paddingVertical: 20,
         paddingHorizontal: 10,
         flexDirection: 'column',
         alignItems: 'flex-start',
         gap: 10,
         borderRadius: 15,
-        backgroundColor: '#FEFEFE'
+        backgroundColor: '#FEFEFE',
+        flexShrink: 0,
     },
-    title: {
+    // title -> cardTitle
+    cardTitle: {
         color: '#111',
         leadingTrim: 'both',
         textEdge: 'cap',
@@ -22,8 +33,10 @@ export const styles = StyleSheet.create({
         fontWeight: '600',
         lineHeight: 24,
     },
-    normalText: {
-        width: 385,
+    // introContainer: {
+    //   width: 385,
+    // },
+    introText: {
         // color: var(--brand-black, #111);
         color: '#111',
         leadingTrim: 'both',
@@ -32,10 +45,24 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontStyle: 'normal',
         fontWeight: '400',
-        // line-height: 16px; /* 114.286% */
-        lineHeight: 16,
+        lineHeight: 16, /* 114.286% */
     },
-    smallContainer: {
+    // normalText -> cardTBodText
+    // cardBodyText: {
+    //     width: 385,
+    //     // color: var(--brand-black, #111);
+    //     color: '#111',
+    //     leadingTrim: 'both',
+    //     textEdge: 'cap',
+    //     // fontFamily: 'Poppins',
+    //     fontSize: 14,
+    //     fontStyle: 'normal',
+    //     fontWeight: '400',
+    //     // line-height: 16px; /* 114.286% */
+    //     lineHeight: 16,
+    // },
+    // smallContainer -> iconAndDetailsContainer
+    iconAndDetailsContainer: {
         display: 'flex',
         alignItems: 'center',
         gap: 10,
@@ -44,38 +71,81 @@ export const styles = StyleSheet.create({
       listItem: {
         marginLeft: 50,
       },
-      textContainer: {
+      /**
+       * Include in education, clubs and societies, achievements
+       */
+      detailsContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        gap: 5,
+        // flex: 1 0 0;
+        flex: 1,
+      },
+      // textContainer -> eachDetailContainer
+      individualDetailContainer: {
           // display: -webkit-box;
           display: 'flex',
           webkitBoxOrient: 'vertical',
           webkitLineClamp: 1,
           alignSelf: 'stretch',
       },
-      text: {
-          overflow: 'hidden',
-          color: 'var(--brand-black, #111)',
-          leadingTrim: 'both',
-          textEdge: 'cap',
-          textOverflow: 'ellipsis',
-          fontFamily: 'Poppins',
-          fontSize: 14,
-          fontStyle: 'normal',
-          fontWeight: 400,
-          lineHeight: 16, /* 114.286% */
-      },
-      university: {
+      // text: {
+      //     overflow: 'hidden',
+      //     color: 'var(--brand-black, #111)',
+      //     leadingTrim: 'both',
+      //     textEdge: 'cap',
+      //     textOverflow: 'ellipsis',
+      //     fontFamily: 'Poppins',
+      //     fontSize: 14,
+      //     fontStyle: 'normal',
+      //     fontWeight: 400,
+      //     lineHeight: 16, /* 114.286% */
+      // },
+      // university -> firstDetail
+      // Each detail container first detail
+      mainDetail: {
           overflow: 'hidden',
           webkitBoxOrient: 'vertical',
           webkitLineClamp: 1,
-          color: 'var(--brand-black, #111)',
+          // color: 'var(--brand-black, #111)',
+          color: '#111',
           leadingTrim: 'both',    
           textEdge: 'cap',
           textOverflow: 'ellipsis',
           fontFamily: 'Poppins',
           fontSize: 14,
           fontStyle: 'normal',
-          fontWeight: 500,
+          fontWeight: "500",
+          // fontWeight: 'bold',
           lineHeight: 16, /* 114.286% */
+      },
+      // This is only for the university text
+      italicDetail: {
+        overflow: 'hidden',
+        // color: 'var(--brand-black, #111)',
+        color: '#111',
+        leadingTrim: 'both',
+        textEdge: 'cap',
+        textOverflow: 'ellipsis',
+        fontFamily: 'Poppins',
+        fontSize: 12,
+        fontStyle: 'italic',
+        fontWeight: "400",
+        lineHeight: 16, /* 133.333% */
+      },
+      // This is only for the light colored text
+      lightDetail: {
+        // color: 'var(--form-field-outline, #87929D)',
+        color: '#87929D',
+        leadingTrim: 'both',
+        textEdge: 'cap',
+        fontFamily: 'Poppins',
+        fontSize: 12,
+        fontStyle: 'normal',
+        fontWeight: "400",
+        lineHeight: 24, /* 200% */
       },
       infoContainer: {
         marginTop: 10, // Add margin to create a gap between each set of info
@@ -101,3 +171,11 @@ export const styles = StyleSheet.create({
         lineHeight: 16,
     }
 });
+
+// Missed style
+// Italic detail
+// Layout
+// display: flex;
+// justify-content: center;
+// align-items: center;
+// gap: 10px;

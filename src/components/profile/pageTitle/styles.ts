@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    fullContainer: {
+    topSectionContainer: {
         display: "flex",
         width: 404,
         justifyContent: "space-between",

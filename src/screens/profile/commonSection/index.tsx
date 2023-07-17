@@ -16,29 +16,28 @@ const ProfileCommonSection: React.FC = () => {
   };
 
   return (
-    <View>
-      <PageTitleBar title={profileData.titleBarName} />
-      <View style={styles.infoContainer}>
-        <View style={styles.imageNameContainer}>
-          <View style={styles.nameUniContainer}>
-            <Text style={styles.profileName}>{profileData.name}</Text>
-            <Text style={styles.uniName}>{profileData.university}</Text>
+      <View style={styles.topSectionContainer}>
+        <View style={styles.userDetailsContainer}>
+          <View style={styles.profilepicNameUniContainer}>
+            <View style={styles.nameUniContainer}>
+              <Text style={styles.profileName}>{profileData.name}</Text>
+              <Text style={styles.uniName}>{profileData.university}</Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.statusContainer}>
-          <View style={styles.individualStatusContainer}>
-            <StatusCount count={profileData.friendsCount} name="Friends" />
-            <StatusCount count={profileData.postsCount} name="Posts" />
-            <StatusCount count={profileData.blogsCount} name="Blogs" />
-            <StatusCount count={profileData.projectsCount} name="Projects" />
+          <View style={styles.statusContainer}>
+            <View style={styles.individualStatusContainer}>
+              <StatusCount count={profileData.friendsCount} name="Friends" />
+              <StatusCount count={profileData.postsCount} name="Posts" />
+              <StatusCount count={profileData.blogsCount} name="Blogs" />
+              <StatusCount count={profileData.projectsCount} name="Projects" />
+            </View>
           </View>
-        </View>
-        <View style={styles.buttonContainer}>
-          <ProfileButton onPress={handleButtonPress} title="Edit Profile" />
-          <ProfileButton onPress={handleButtonPress} title="Share Profile" />
+          <View style={styles.buttonContainer}>
+            <ProfileButton onPress={handleButtonPress} title="Edit Profile" />
+            <ProfileButton onPress={handleButtonPress} title="Share Profile" />
+          </View>
         </View>
       </View>
-    </View>
   );
 };
 

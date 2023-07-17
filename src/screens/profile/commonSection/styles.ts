@@ -1,14 +1,21 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  fullContainer: {
-    width: 430,
-    height: 321,
+  // topSectionContainer: {
+  //   width: 430,
+  //   height: 321,
+  //   flexShrink: 0,
+  // },
+  topSectionContainer: {
+    flex: 1,
+    flexGrow: 0,
     flexShrink: 0,
-  },
-  infoContainer: {
+    height: 150, // CHANGE THIS! MANUALLY ADDED
+  },  
+  userDetailsContainer: {
     display: "flex",
     width: 405,
+    // flexGrow: 1,
     height: 140,
     flexDirection: "column",
     justifyContent: "center",
@@ -18,14 +25,15 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: "var(--brand-white, #FEFEFE)",
   },
-  imageNameContainer: {
+  profilepicNameUniContainer: {
     display: "flex",
     alignItems: "center",
     gap: 15,
   },
   // Profile name
   profileName: {
-    color: "var(--brand-black, #111)",
+    // color: "var(--brand-black, #111)",
+    color: "#111",
     leadingTrim: "both",
     textEdge: "cap",
     fontFamily: "Poppins",
@@ -36,7 +44,8 @@ export const styles = StyleSheet.create({
   },
   // Name of the university
   uniName: {
-    color: "var(--brand-grey, #4F4E4E)",
+    // color: "var(--brand-grey, #4F4E4E)",
+    color: "##4F4E4E",
     leadingTrim: "both",
     textEdge: "cap",
     fontFamily: "Poppins",
@@ -97,8 +106,11 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     display: "flex",
     flexDirection: "row",
-    width: 282,
+    flexGrow: 1,
+    // width: 282,
     alignItems: "flex-start",
     gap: 15,
   },
 });
+
+// background: var(--graph, radial-gradient(678.36% 138.22% at 100.00% 95.42%, rgba(242, 242, 242, 0.30) 0%, rgba(224, 223, 223, 0.30) 50.24%, rgba(238, 238, 238, 0.30) 100%), #FFF);
