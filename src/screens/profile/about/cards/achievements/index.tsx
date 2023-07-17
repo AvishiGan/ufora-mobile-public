@@ -14,10 +14,10 @@ const AchievementCard: React.FC = () => {
       {achievementData.map((achievement, index) => (
         <Card.Content key={index}>
           <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.boldText]}>
+            <Text style={[styles.listItem, styles.mainDetail]}>
               {achievement.title}
             </Text>
-            <Text style={[styles.listItem, styles.lightText]}>
+            <Text style={[styles.listItem, styles.lightDetail]}>
               {achievement.contest}
             </Text>
           </View>

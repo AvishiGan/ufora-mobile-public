@@ -13,8 +13,10 @@ const ClubsAndSocietiesCard: React.FC = () => {
       {clubData.map((club, index) => (
         <Card.Content key={index}>
           <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.boldText]}>{club.title}</Text>
-            <Text style={[styles.listItem, styles.lightText]}>
+            <Text style={[styles.listItem, styles.mainDetail]}>
+              {club.title}
+            </Text>
+            <Text style={[styles.listItem, styles.lightDetail]}>
               {club.period}
             </Text>
           </View>
