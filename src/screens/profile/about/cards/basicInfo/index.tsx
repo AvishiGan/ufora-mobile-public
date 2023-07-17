@@ -6,13 +6,13 @@ import { basicData } from "./data";
 
 const BasicInfoCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.title}>Basic Info</Title>
+        <Title style={styles.cardTitle}>Basic Info</Title>
       </Card.Content>
       {basicData.map((basicInfo, index) => (
         <Card.Content key={index}>
-          <View style={styles.infoContainer}>
+          <View style={styles.iconAndDetailsContainer}>
             <Text style={styles.listItem}>{basicInfo.birthday}</Text>
             <Text style={styles.listItem}>{basicInfo.mobileNo}</Text>
             <Text style={styles.listItem}>{basicInfo.email}</Text>

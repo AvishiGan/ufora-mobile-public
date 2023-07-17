@@ -5,9 +5,9 @@ import { styles } from "../styles";
 
 const DigitalBadgesCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.title}>Digital Badges</Title>
+        <Title style={styles.cardTitle}>Digital Badges</Title>
       </Card.Content>
     </Card>
   );

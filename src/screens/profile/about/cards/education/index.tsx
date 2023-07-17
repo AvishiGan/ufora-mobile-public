@@ -6,9 +6,9 @@ import { educationData } from "./data";
 
 const EducationCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.title}>Education</Title>
+        <Title style={styles.cardTitle}>Education</Title>
       </Card.Content>
       {educationData.map((education, index) => (
         <Card.Content key={index}>

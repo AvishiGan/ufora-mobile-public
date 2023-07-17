@@ -6,9 +6,9 @@ import { otherAchievementData } from "./data";
 
 const otherAchievementCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.title}>Other Achievements</Title>
+        <Title style={styles.cardTitle}>Other Achievements</Title>
       </Card.Content>
       {otherAchievementData.map((otherAchievement, index) => (
         <Card.Content key={index}>
