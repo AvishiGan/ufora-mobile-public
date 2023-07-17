@@ -1,6 +1,11 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  fullContainer: {
+    width: 430,
+    height: 321,
+    flexShrink: 0,
+  },
   infoContainer: {
     display: "flex",
     width: 405,

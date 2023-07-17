@@ -6,16 +6,14 @@ import { clubData } from "./data";
 
 const ClubsAndSocietiesCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.title}>Clubs and Societies</Title>
+        <Title style={styles.cardTitle}>Clubs and Societies</Title>
       </Card.Content>
       {clubData.map((club, index) => (
         <Card.Content key={index}>
           <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.boldText]}>
-              {club.title}
-            </Text>
+            <Text style={[styles.listItem, styles.boldText]}>{club.title}</Text>
             <Text style={[styles.listItem, styles.lightText]}>
               {club.period}
             </Text>

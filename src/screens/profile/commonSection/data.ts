@@ -9,6 +9,7 @@ export interface ProfileData {
     postsCount: number;
     blogsCount: number;
     projectsCount: number;
+    titleBarName: string;
   }
   
   /**
@@ -22,5 +23,6 @@ export interface ProfileData {
     postsCount: 35,
     blogsCount: 5,
     projectsCount: 4,
+    titleBarName: "isurur",
   };
   
