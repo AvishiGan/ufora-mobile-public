@@ -16,7 +16,7 @@ type PageTitleBarProps = {
  * @returns | React.FC<PageTitleBarProps>
  */
 const PageTitleBar: React.FC<PageTitleBarProps> = ({ title }) => (
-  <View style={styles.fullContainer}>
+  <View style={styles.topSectionContainer}>
     <View style={styles.nameBackContainer}>
       <Text style={styles.name}>{title}</Text>
     </View>
