@@ -7,10 +7,13 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import logo from "../../../assets/ufora-icon.png";
+import logo from "../../../assets/logo.png";
 import google from "../../../assets/icons/google.png";
 import apple from "../../../assets/icons/google.png";
 import User from "../../../assets/icons/user.png";
+import UserWhite from "../../../assets/icons/user-white.png";
+import Business from "../../../assets/icons/business.png"
+import BusinessWhite from "../../../assets/icons/building-white.png";
 import Password from "../../../assets/icons/password.png";
 import Eyeoff from "../../../assets/icons/eye-off.png";
 import Mail from "../../../assets/icons/mail.png";
@@ -20,10 +23,15 @@ import Authentication, {
   handlePressGoogle,
   handlePressApple,
 } from "../../components/auth/Authentication";
-import BoldText from "../../constants/fonts/BoldText";
-import MediumText from "../../constants/fonts/MediumText";
-import LightText from "../../constants/fonts/LightText";
-import RegularButton from "../../constants/fonts/RegularText";
+import BoldText from "../../constants/fonts/BoldHeading";
+import MediumText from "../../constants/fonts/SmallMedium";
+import RegularBig from "../../constants/fonts/RegularBig";
+import Logo from "../../components/logo/Logo";
+import RegularNormal from "../../constants/fonts/RegularNormal";
+import RegularButton from "../../components/buttons/RegularButton";
+import SemiBoldBig from "../../constants/fonts/SemiboldBig";
+import UnfilledButton from "../../components/buttons/UnfilledButton";
+
 
 interface CustomImageProps {
   source: ImageSourcePropType;
@@ -33,137 +41,144 @@ const CustomImage: FunctionComponent<CustomImageProps> = ({ source }) => {
   return <Image source={source} />;
 };
 
-const CreateAccount: FunctionComponent = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+interface CreateAccountProps {
+  onStudentClick: () => void;
+  onBusinessClick: () => void;
+  }
 
-  const handleNameChange = (text: string) => {
-    setName(text);
+const CreateAccount: FunctionComponent<CreateAccountProps> = (onStudentClick, onBusinessClick) => {
+  const [activeButton, setActiveButton] = useState("");
+
+  const handleStudentClick = () => {
+    setActiveButton("student");
+    onStudentClick();
   };
 
-  const handleEmailChange = (text: string) => {
-    setEmail(text);
-  };
-
-  const handleUsernameChange = (text: string) => {
-    setUsername(text);
-  };
-
-  const handlePasswordChange = (text: string) => {
-    setPassword(text);
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const handleBusinessClick = () => {
+    setActiveButton("business");
+    onBusinessClick();
   };
 
   return (
     <>
       <StatusBar />
-
       <View>
         {/* Top section */}
-        <View className="items-center mt-40 justify-center">
-          <CustomImage source={logo} />
-          <View className="items-center mt-2">
-            <BoldText className="">Create Account</BoldText>
-            <MediumText className="flex-wrap">
-              Create Account to get started
-            </MediumText>
-          </View>
-        </View>
+        <Logo source={logo} mainText="Create Account" subText="Choose an Account type to get started "/>
 
         {/* Bottom section */}
-        <View className="px-10 mt-6">
-          <View className="mb-1">
-            <LightText className="text-gray-600 mb-1">Name *</LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-1 p-1">
-              <View className="p-2">
-                <Image source={User} />
-              </View>
-              <TextInput
-                placeholder="Saman Perera"
-                value={name}
-                onChangeText={handleNameChange}
-              />
-            </View>
-          </View>
+        <TouchableOpacity
+        onPress={handleStudentClick}
+        style={{marginTop: 130,marginLeft: 50,flexDirection: 'row',alignItems: 'center',}}
+      >
+        <View
+          onPress={handleStudentClick}
+        >
+          {activeButton === 'student' && (
+            <View/>
+          )}
+        </View>
 
-          <View className="mb-1">
-            <LightText className="text-gray-600 mb-1">
-              Email / Phone Number *
-            </LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-1 p-1">
-              <View className="p-2">
-                <Image source={Mail} />
-              </View>
-              <TextInput
-                placeholder="samanperera@gmail.com"
-                value={email}
-                onChangeText={handleEmailChange}
-              />
+        <View>
+          <TouchableOpacity
+            onPress={handleStudentClick}
+            style={{borderColor: activeButton === 'student' ? '#2656FF' : '#B8B8B8',borderWidth: 1,borderRadius: 15,backgroundColor: activeButton === 'student' ? '#2656FF' : 'transparent',justifyContent: 'center',alignItems: 'center',height: 106,width: 280, }}
+          >
+              <View>
+              {activeButton === 'student' ? (
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Image
+                    style={{ height: 40, width: 40 }}
+                    source={UserWhite}
+                  />
+                </View>
+              ) : (
+                <Image
+                  style={{ height: 40, width: 40}}
+                  source={User}
+                />
+              )}
             </View>
-          </View>
 
-          <View className="mb-1">
-            <LightText className="text-gray-600 mb-1">Username *</LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-1 p-1">
-              <View className="p-2">
-                <Image source={User} />
-              </View>
-              <TextInput
-                placeholder="SamanPerera"
-                value={username}
-                onChangeText={handleUsernameChange}
-              />
-            </View>
-          </View>
+            <SemiBoldBig
+              fontColor="#B8B8B8"
+              style={{color: activeButton === 'student' ? '#FEFEFE' : '#B8B8B8'}}
+            >
+              Student
+            </SemiBoldBig>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
 
-          <View className="mb-1">
-            <LightText className="text-gray-600 mb-1">Password *</LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-1 p-1">
-              <View className="p-2">
-                <Image source={Password} />
-              </View>
-              <TextInput
-                className="text-x2"
-                placeholder="*********"
-                value={password}
-                secureTextEntry={!showPassword}
-                onChangeText={handlePasswordChange}
-              />
-              <TouchableOpacity className="flex justify-end ml-40">
-                <Image source={Eyeoff} />
-              </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleBusinessClick}
+          style={{marginTop: 10,marginLeft: 50,flexDirection: 'row',alignItems: 'center'}}
+        >
+          <TouchableOpacity
+            onPress={handleBusinessClick}
+          >
+            {activeButton === 'business' && (
+              <View/>
+            )}
+          </TouchableOpacity>
+
+          <View>
+            <TouchableOpacity
+              onPress={handleBusinessClick}
+              style={{borderColor: activeButton === 'business' ? '#2656FF' : '#B8B8B8',borderWidth: 1,borderRadius: 15,backgroundColor: activeButton === 'business' ? '#2656FF' : 'transparent',justifyContent: 'center',alignItems: 'center',height: 106,width: 280}}
+            >
+              <View>
+              {activeButton === 'business' ? (
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Image
+                    style={{ height: 40, width: 40 }}
+                    source={BusinessWhite}
+                  />
+                </View>
+              ) : (
+                <Image
+                  style={{ height: 40, width: 40}}
+                  source={Business}
+                />
+              )}
             </View>
-            <Text className="text-xs mt-1">
-              I agree to the Terms &amp; conditions and the privacy policy
-            </Text>
+            <SemiBoldBig fontColor="#B8B8B8" style={activeButton === 'business' ? { color: '#FEFEFE' } : { color: '#B8B8B8' }}>
+              Business
+            </SemiBoldBig>
+
+            </TouchableOpacity>
           </View>
+        </TouchableOpacity>
+
 
           {/* Button */}
-          <View className="mt-2 items-center">
-            <RegularButton className="" onPress={() => {}}>
-              <Text className="text-white">Log In</Text>
+          <View style={{ marginTop: 30, alignItems: "center", marginLeft:42, marginRight:42}}>
+            <RegularButton onPress={() => {}}>
+              <Text style={{ color: "#FEFEFE" }}>Next</Text>
             </RegularButton>
           </View>
 
-          <View className="mt-2 items-center">
-            <MediumText>
-              <Text className="text-sm items-center">
-                Already have an account? Login
-              </Text>
-            </MediumText>
+          <View style={{ marginTop: 20, alignItems: "center" }}>
+            <RegularNormal style={{alignItems: "center" }}>
+              Already have an account? Login
+            </RegularNormal>
           </View>
         </View>
         <Authentication
           onPressGoogle={handlePressGoogle}
           onPressApple={handlePressApple}
         />
-      </View>
+
     </>
   );
 };

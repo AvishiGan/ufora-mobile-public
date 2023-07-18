@@ -25,7 +25,7 @@ const CustomImage: FunctionComponent<CustomImageProps> = ({ source }) => {
   return <Image source={source} />;
 };
 
-const OTP: FunctionComponent = () => {
+const UniOTP: FunctionComponent = () => {
   const [num1, setNum1] = useState("");
   const [num2, setNum2] = useState("");
   const [num3, setNum3] = useState("");
@@ -69,7 +69,7 @@ const OTP: FunctionComponent = () => {
 
       <View>
         {/* Top section */}
-        <Logo source={logo} mainText="OTP" subText="Please enter the OTP sent to your Email"/>
+        <Logo source={logo} mainText="Uni OTP" subText="Please enter the OTP sent to your Uni Email"/>
 
 
         {/* Bottom section */}
@@ -139,4 +139,4 @@ const OTP: FunctionComponent = () => {
   );
 };
 
-export default OTP;
+export default UniOTP;
