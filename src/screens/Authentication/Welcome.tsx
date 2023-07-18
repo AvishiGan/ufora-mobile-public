@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { StatusBar } from "expo-status-bar";
-import { ImageSourcePropType, Text, View, Image } from "react-native";
+import { ImageSourcePropType, Text, View, Image, TextStyle  } from "react-native";
 import logo from "../../../assets/logo.png";
 import google from "../../../assets/icons/google.png";
 import apple from "../../../assets/icons/apple.png";
@@ -13,62 +13,39 @@ import Authentication, {
   handlePressGoogle,
   handlePressApple,
 } from "../../components/auth/Authentication";
-import LightText from "../../constants/fonts/LightText";
-import BoldText from "../../constants/fonts/BoldText";
-import MediumText from "../../constants/fonts/MediumText";
-import RegularText from "../../constants/fonts/RegularText";
+import BoldHeading from "../../constants/fonts/BoldHeading";
+import SmallMedium from "../../constants/fonts/SmallMedium";
+import RegularBig from "../../constants/fonts/RegularBig";
+import Logo from "../../components/logo/Logo"
 
-//navigation
-{
-  /*import { RootStackParamList } from "../nav/RootStack";
-import {StackScreenProps} from "@react-navigation-stack";
+import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { StackScreenProps } from "@react-navigation/stack";
+import { useNavigation } from '@react-navigation/native';
+type Props = StackScreenProps<RootStackParamList, "Welcome">;
 
-type Props = StackScreenProps<RootStackParamList, "Welcome">;*/
-}
-
-interface CustomImageProps {
-  source: ImageSourcePropType;
-}
-
-const CustomImage: FunctionComponent<CustomImageProps> = ({ source }) => {
-  return <Image source={source} />;
-};
-
-interface WelcomeProps {}
-
-//const Welcome: FunctionComponent<Props> = ({navigation}) => {
-const Welcome: FunctionComponent<WelcomeProps> = () => {
+const Welcome: FunctionComponent<Props> = ({navigation}) => {
+  
   return (
     <>
       <StatusBar />
       {/* welcome container */}
       <View>
         {/* Top section */}
-        <View className="items-center mt-32 justify-center">
-          <CustomImage source={logo} />
-          <View className="items-center mt-2">
-            <BoldText className="text-4xl mb-1">Welcome!</BoldText>
-            <RegularText className="flex-wrap text-base">
-              Login to your account,{" "}
-            </RegularText>
-            <RegularText className="flex-shrink-0 mb-8 text-base">
-              or Create Account to get started
-            </RegularText>
-          </View>
-        </View>
+        <Logo source={logo} mainText="Welcome" subText="Login to your account, " additionalText="or Create Account to get started" />
 
         {/* Bottom section */}
-        {/*Buttons */}
-        <View className="flex-row mt-80 justify-between ml-7 mr-7">
-          <UnfilledButton className="bg-transparent" onPress={() => {}}>
-            <Text className="text-blue-500">Create Account</Text>
+        {/* Buttons */}
+        <View
+          style={{flexDirection: "row",marginTop: 380,justifyContent: "space-between",alignItems: "center",marginLeft: 20,marginRight: 20,gap: 10,}}
+        >
+
+          <UnfilledButton onPress={() => {navigation.navigate("CreateAccount")}}>
+            <Text style={{ color: "#2656FF" }}>Create Account</Text>
           </UnfilledButton>
 
-          <SmallButton className="" onPress={() => {}}>
-            <Text className="text-white">Log In</Text>
+          <SmallButton onPress={() => {navigation.navigate("Login")}}>
+            <Text style={{ color: "#FEFEFE" }}>Log In</Text>
           </SmallButton>
-
-          
         </View>
 
         <Authentication

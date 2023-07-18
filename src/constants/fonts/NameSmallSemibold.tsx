@@ -2,14 +2,17 @@ import React, { FunctionComponent } from 'react';
 import {TextProps} from "./types";
 import styled from "styled-components/native";
 
-{/*weight-400*/}
+{/*weight-600 */}
 const StyledText = styled.Text`
-  font-family: Text; 
-  font-weight: 400
+    font-family: Text;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    //line-height: normal;
 `;
 
-const RegularText: FunctionComponent<TextProps> = (props) => {
+const NameSmallSemibold: FunctionComponent<TextProps> = (props) => {
   return <StyledText style={props.textStyles}>{props.children} </StyledText>
 };
 
-export default RegularText;
+export default NameSmallSemibold;
