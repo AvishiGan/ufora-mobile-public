@@ -43,6 +43,10 @@ const Login: FunctionComponent<Props> = ({navigation}) => {
     password: '',
   };
 
+/**
+ * 
+ * @returns | 
+ */
   //const handleLogin = (values: FormValues) => {
   const handleLogin = () => Alert.alert("Login")
     // Making the API request
