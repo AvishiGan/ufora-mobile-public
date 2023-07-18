@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import RegularText from "../../constants/fonts/RegularText";
+import SemiBoldBig from "../../constants/fonts/SemiboldBig";
 import styled from "styled-components";
 import { GestureResponderEvent, TouchableOpacity } from "react-native";
 
@@ -10,10 +10,11 @@ interface ButtonProps {
 
 const UnfilledButton: FunctionComponent<ButtonProps> = (props) => {
   return (
-    <TouchableOpacity className="items-center justify-center bg-transparent px-2 py-2 rounded-xl w-40 border-blue-500 border-2">
-      <RegularText className="text-blue-500 "> {props.children}</RegularText>
+    <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: 'transparent', paddingHorizontal: 24, paddingVertical: 12, borderRadius: 12, width: 167, height:45, borderColor: '#2656FF', borderWidth: 1 }}>
+      <SemiBoldBig style={{ color: '#2656FF' }}>{props.children}</SemiBoldBig>
     </TouchableOpacity>
   );
 };
 
 export default UnfilledButton;
+

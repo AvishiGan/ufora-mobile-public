@@ -2,14 +2,17 @@ import React, { FunctionComponent } from 'react';
 import {TextProps} from "./types";
 import styled from "styled-components/native";
 
-{/*weight-600 */}
+{/*weight-500 */}
 const StyledText = styled.Text`
-  font-family: ItalicText;
-  font-weight: 600;
+    font-family: Text;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    //line-height: normal;
 `;
 
-const SemiboldItalicText: FunctionComponent<TextProps> = (props) => {
+const ButtonMedium: FunctionComponent<TextProps> = (props) => {
   return <StyledText style={props.textStyles}>{props.children} </StyledText>
 };
 
-export default SemiboldItalicText;
+export default ButtonMedium;
