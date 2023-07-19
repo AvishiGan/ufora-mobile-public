@@ -15,7 +15,7 @@ type PageTitleBarProps = {
  * @param param0 | PageTitleBarProps
  * @returns | React.FC<PageTitleBarProps>
  */
-const PageTitleBar: React.FC<PageTitleBarProps> = ({ title }) => (
+const UserProfileTopBar: React.FC<PageTitleBarProps> = ({ title }) => (
   <View style={styles.topSectionContainer}>
     <View style={styles.nameBackContainer}>
       <Text style={styles.name}>{title}</Text>
@@ -23,4 +23,4 @@ const PageTitleBar: React.FC<PageTitleBarProps> = ({ title }) => (
   </View>
 );
 
-export default PageTitleBar;
+export default UserProfileTopBar;
