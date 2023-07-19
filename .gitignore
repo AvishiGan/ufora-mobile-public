@@ -11,7 +11,11 @@ npm-debug.*
 web-build/
 .vscode
 knowledge.md
-App1.tsx
+package.json
+package-lock.json
+yarn.lock
+declarations.d.ts
+metro.config.js
 
 # macOS
 .DS_Store
