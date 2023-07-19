@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexGrow: 0,
     flexShrink: 0,
-    height: 150, // CHANGE THIS! MANUALLY ADDED
+    height: 200, // CHANGE THIS! MANUALLY ADDED
   },  
   userDetailsContainer: {
     display: "flex",
