@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 import ProfileButton from "../../../components/profile/buttons/index";
 import { profileData } from "./data";
-import PageTitleBar from "../../../components/profile/pageTitle";
+import PageTitleBar from "../../../components/profile/userProfileTopBar";
 import ProfileSlider from "../../../components/profile/profileSlider/index";
 
 const ProfileCommonSection: React.FC = () => {
