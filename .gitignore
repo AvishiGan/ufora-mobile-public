@@ -16,6 +16,7 @@ package-lock.json
 yarn.lock
 declarations.d.ts
 metro.config.js
+settings.json
 
 # macOS
 .DS_Store
