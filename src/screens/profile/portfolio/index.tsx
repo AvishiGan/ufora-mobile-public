@@ -6,11 +6,12 @@ import { View, StyleSheet } from "react-native";
 import ProjectCard from "../../profile/portfolio/projectCard/index";
 import { mobileApp, hostel, robotic } from "../../../../assets/images";
 import { styles } from "./styles";
+import ContentAdditionBar from "../../../components/profile/contentAdditionBar";
 
 const ProfilePortfolioSection = () => {
   return (
     <View style={styles.projectActionContainer}>
-      {/* Add a new post bar comes here */}
+      <ContentAdditionBar title="Add a new project" />
       <ProjectCard
         projectImage={mobileApp}
         projectTitle="University Social Media App"
