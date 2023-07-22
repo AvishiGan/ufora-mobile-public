@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    // Previous posts and add a new blog container
+    // Previous blogs and add a new blog container
     blogActionContainer: {
         // display:"inline-flex",
         display: "flex",
