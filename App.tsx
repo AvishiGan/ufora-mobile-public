@@ -8,6 +8,7 @@ import PostCard from "./src/screens/profile/posts";
 import ProfileHeader from "./src/components/profile/profileHeader/index";
 import ProfilePostSection from "./src/screens/profile/posts";
 import ProfileBlogSection from "./src/screens/profile/blogs";
+import ProfilePortfolioSection from "./src/screens/profile/portfolio";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         {/* <ProfileHeader /> */}
         {/* <ProfilePostSection /> */}
         {/* <ProfileBlogSection /> */}
+        <ProfilePortfolioSection />
       </ScrollView>
     </SafeAreaView>
   );
