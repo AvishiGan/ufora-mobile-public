@@ -169,7 +169,7 @@ export const styles = StyleSheet.create({
         fontStyle: 'normal',
         fontWeight: '700',
         lineHeight: 16,
-    }
+    },
 });
 
 // Missed style
