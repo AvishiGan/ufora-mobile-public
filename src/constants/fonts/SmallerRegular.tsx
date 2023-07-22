@@ -8,7 +8,6 @@ const StyledText = styled.Text`
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
-    //line-height: normal;
 `;
 
 const SmallerRegular: FunctionComponent<TextProps> = (props) => {

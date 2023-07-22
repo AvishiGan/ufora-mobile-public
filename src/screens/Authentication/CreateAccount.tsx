@@ -5,75 +5,55 @@ import {
   Text,
   View,
   Image,
-  TextInput,
 } from "react-native";
 import logo from "../../../assets/logo.png";
-import google from "../../../assets/icons/google.png";
-import apple from "../../../assets/icons/google.png";
 import User from "../../../assets/icons/user.png";
 import UserWhite from "../../../assets/icons/user-white.png";
 import Business from "../../../assets/icons/business.png"
 import BusinessWhite from "../../../assets/icons/building-white.png";
-import Password from "../../../assets/icons/password.png";
-import Eyeoff from "../../../assets/icons/eye-off.png";
-import Mail from "../../../assets/icons/mail.png";
-import { GestureResponderEvent } from "react-native";
 import { TouchableOpacity } from "react-native";
 import Authentication, {
   handlePressGoogle,
   handlePressApple,
 } from "../../components/auth/Authentication";
-import BoldText from "../../constants/fonts/BoldHeading";
-import MediumText from "../../constants/fonts/SmallMedium";
-import RegularBig from "../../constants/fonts/RegularBig";
 import Logo from "../../components/logo/Logo";
 import RegularNormal from "../../constants/fonts/RegularNormal";
 import RegularButton from "../../components/buttons/RegularButton";
 import SemiBoldBig from "../../constants/fonts/SemiboldBig";
-import UnfilledButton from "../../components/buttons/UnfilledButton";
+import CreateBusinessAccount from "./CreateBusinessAccount";
 
+//navigation
+import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { StackScreenProps } from "@react-navigation/stack";
+type Props = StackScreenProps<RootStackParamList, "CreateAccount">;
 
 interface CustomImageProps {
   source: ImageSourcePropType;
 }
 
-const CustomImage: FunctionComponent<CustomImageProps> = ({ source }) => {
-  return <Image source={source} />;
-};
-
-interface CreateAccountProps {
-  onStudentClick: () => void;
-  onBusinessClick: () => void;
-  }
-
-const CreateAccount: FunctionComponent<CreateAccountProps> = (onStudentClick, onBusinessClick) => {
+const CreateAccount: FunctionComponent<Props> = ({navigation}) => {
   const [activeButton, setActiveButton] = useState("");
 
   const handleStudentClick = () => {
     setActiveButton("student");
-    onStudentClick();
   };
 
   const handleBusinessClick = () => {
     setActiveButton("business");
-    onBusinessClick();
   };
 
   return (
     <>
       <StatusBar />
-      <View>
+      <View style={{alignItems: "center"}}>
         {/* Top section */}
         <Logo source={logo} mainText="Create Account" subText="Choose an Account type to get started "/>
 
         {/* Bottom section */}
         <TouchableOpacity
-        onPress={handleStudentClick}
-        style={{marginTop: 130,marginLeft: 50,flexDirection: 'row',alignItems: 'center',}}
-      >
-        <View
           onPress={handleStudentClick}
-        >
+          style={{marginTop: 130,flexDirection: 'row',alignItems: 'center',}} >
+        <View onPress={handleStudentClick} >
           {activeButton === 'student' && (
             <View/>
           )}
@@ -87,28 +67,15 @@ const CreateAccount: FunctionComponent<CreateAccountProps> = (onStudentClick, on
               <View>
               {activeButton === 'student' ? (
                 <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Image
-                    style={{ height: 40, width: 40 }}
-                    source={UserWhite}
-                  />
+                  style={{justifyContent: 'center',alignItems: 'center'}}>
+                  <Image style={{ height: 40, width: 40 }} source={UserWhite}/>
                 </View>
               ) : (
-                <Image
-                  style={{ height: 40, width: 40}}
-                  source={User}
-                />
+                <Image style={{ height: 40, width: 40}} source={User}/>
               )}
             </View>
 
-            <SemiBoldBig
-              fontColor="#B8B8B8"
-              style={{color: activeButton === 'student' ? '#FEFEFE' : '#B8B8B8'}}
-            >
+            <SemiBoldBig fontColor="#B8B8B8" style={{color: activeButton === 'student' ? '#FEFEFE' : '#B8B8B8'}}>
               Student
             </SemiBoldBig>
           </TouchableOpacity>
@@ -117,7 +84,7 @@ const CreateAccount: FunctionComponent<CreateAccountProps> = (onStudentClick, on
 
         <TouchableOpacity
           onPress={handleBusinessClick}
-          style={{marginTop: 10,marginLeft: 50,flexDirection: 'row',alignItems: 'center'}}
+          style={{marginTop: 10,flexDirection: 'row',alignItems: 'center'}}
         >
           <TouchableOpacity
             onPress={handleBusinessClick}
@@ -135,43 +102,45 @@ const CreateAccount: FunctionComponent<CreateAccountProps> = (onStudentClick, on
               <View>
               {activeButton === 'business' ? (
                 <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Image
-                    style={{ height: 40, width: 40 }}
-                    source={BusinessWhite}
-                  />
+                  style={{justifyContent: 'center',alignItems: 'center'}}>
+                  <Image style={{ height: 40, width: 40 }} source={BusinessWhite}/>
                 </View>
               ) : (
-                <Image
-                  style={{ height: 40, width: 40}}
-                  source={Business}
-                />
+                <Image style={{ height: 40, width: 40}} source={Business}/>
               )}
             </View>
             <SemiBoldBig fontColor="#B8B8B8" style={activeButton === 'business' ? { color: '#FEFEFE' } : { color: '#B8B8B8' }}>
               Business
             </SemiBoldBig>
-
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
 
 
           {/* Button */}
-          <View style={{ marginTop: 30, alignItems: "center", marginLeft:42, marginRight:42}}>
-            <RegularButton onPress={() => {}}>
+          <View style={{ marginTop: 30, width: 300}}>
+            <RegularButton onPress={() => {
+              if (activeButton === 'student'){
+                navigation.navigate("CreateStudentAccount");
+              } else if (activeButton === 'business'){
+                navigation.navigate("CreateBusinessAccount")
+              }
+            }}>
               <Text style={{ color: "#FEFEFE" }}>Next</Text>
             </RegularButton>
           </View>
 
-          <View style={{ marginTop: 20, alignItems: "center" }}>
-            <RegularNormal style={{alignItems: "center" }}>
-              Already have an account? Login
+          <View style={{ marginTop: 20, alignItems: "center", flexDirection: "row", }}>
+            <RegularNormal>
+            <Text style={{ alignItems: "center" }}>Already have an account?</Text>
             </RegularNormal>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <View>
+                <RegularNormal>
+                 <Text style={{ color: "#2656FF" }}>Login</Text>
+                </RegularNormal>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
         <Authentication
