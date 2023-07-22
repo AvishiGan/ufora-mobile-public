@@ -68,11 +68,13 @@ export const styles = StyleSheet.create({
         width: 373,
         justifyContent: 'space-between',
         alignItems: 'center',
+        flexDirection: 'row',
     },
     likeButtonAndNamesContainer: {
         display: 'flex',
         alignItems: 'center',
         gap: 5,
+        flexDirection: 'row',
     },
     likeButton: {
         width: 20,
@@ -100,17 +102,33 @@ export const styles = StyleSheet.create({
         // lineHeight: "normal",
         lineHeight: 14, /* 116.667% */
     },
-    likedCount: {
+    commentsCountContainer: {
         display: 'flex',
         height: 12,
         alignItems: 'flex-end',
         gap: 10,
     },
+    commentsCountText: {
+        display: 'flex',
+        height: 12,
+        alignItems: 'flex-end',
+        gap: 10,
+        color: "var(--form-field-outline, #87929D)",
+        leadingTrim: "both",
+        textEdge: "cap",
+        fontFamily: "Poppins",
+        fontSize: 12,
+        fontStyle: "normal",
+        fontWeight: "400",
+        // lineHeight: "normal",
+        lineHeight: 14, /* 116.667% */
+    },
     likeShareCommentButtonContainer: {
         display: 'flex',
         // width: 373,
         width: 406,
-        flexDirection: 'column',
+        // flexDirection: 'column',
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         gap: 10,
