@@ -17,13 +17,12 @@ export const styles = StyleSheet.create({
         display: 'flex',
         width: 404,
         // padding: '15px 10px 0px 10px',
-        padding: 15, // All sides have padding of 15px
-        paddingLeft: 10, // Left padding overridden to 10px
-        paddingTop: 0, // Top padding overridden to 0px
-        paddingRight: 10, // Right padding overridden to 10px
+        padding: 15,
+        paddingLeft: 10,
+        paddingTop: 0,
+        paddingRight: 10,
         paddingVertical: 15,
         paddingHorizontal: 10,
-
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',

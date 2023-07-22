@@ -23,8 +23,7 @@ const PostCard: React.FC<PostCardData> = ({
   commentsCount,
 }) => {
   return (
-    <View style={styles.allPostsContainer}>
-      <View style={styles.singlePostContainer}></View>
+    <View style={styles.singlePostContainer}>
       <Text style={styles.postDescription}>
         {postDescription}
         <Text style={styles.seeMore}>... see more</Text>

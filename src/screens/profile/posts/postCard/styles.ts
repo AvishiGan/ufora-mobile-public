@@ -1,21 +1,25 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    allPostsContainer: {
-        display: 'flex',
-        width: 404,
-        // padding: '15px 10px 0px 10px',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 15,
-        borderRadius: 15,
-        backgroundColor: "var(--brand-white, #FEFEFE)",
-    },
+    // allPostsContainer: {
+    //     display: 'flex',
+    //     width: 404,
+    //     // padding: '15px 10px 0px 10px',
+    //     flexDirection: 'column',
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     gap: 15,
+    //     borderRadius: 15,
+    //     backgroundColor: "var(--brand-white, #FEFEFE)",
+    // },
     singlePostContainer: {
         display: 'flex',
         width: 404,
         // padding: '15px 10px 0px 10px',
+        padding: 15,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingTop: 0,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
