@@ -6,6 +6,8 @@ import LucideCake from "./assets/LucideCake.svg";
 import PostCard from "./src/screens/profile/posts";
 // import ProfileHeader from "./src/components/profile/profileHeader/index1";
 import ProfileHeader from "./src/components/profile/profileHeader/index";
+import ProfilePostSection from "./src/screens/profile/posts";
+import ProfileBlogSection from "./src/screens/profile/blogs";
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
         {/* <PostCard /> */}
         {/* <MyProfile /> */}
         {/* <ProfileHeader /> */}
+        {/* <ProfilePostSection /> */}
+        {/* <ProfileBlogSection /> */}
       </ScrollView>
     </SafeAreaView>
   );

@@ -1,3 +1,4 @@
-export * from '../images/myProfile/posts/index';
-export * from '../images/myProfile/blogs/index';
+export * from './myProfile/posts/index';
+export * from './myProfile/blogs/index';
+export * from './myProfile/portfolio/index';
 

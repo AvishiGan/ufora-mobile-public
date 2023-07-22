@@ -1,5 +1,5 @@
 /**
- * This file contains all the posts information
+ * This file contains all the blogs information
  */
 
 import React from "react";
