@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
         gap: 10,
         borderRadius: 15,
         backgroundColor: "var(--brand-white, #FEFEFE)",
+        flexDirection: 'row',
     },
     blogImage: {
         flex: 1, // Flex grow is set to 1
@@ -68,6 +69,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
         borderRadius: 5,
+        flexDirection: 'row',
     },
     dateTime: {
         color: "var(--brand-grey, #4F4E4E)",

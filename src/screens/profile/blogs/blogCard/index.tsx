@@ -1,74 +1,58 @@
-// /**
-//  * This code is a common code for creating one single post card which we can use later to create multiple post cards
-//  */
+/**
+ * This code is a common code for creating one single blog card which we can use later to create multiple blog cards
+ */
 
-// import React from "react";
-// import { View, Text, StyleSheet, Image } from "react-native";
-// import { styles } from "./styles";
-// import PropTypes from "prop-types";
+import React from "react";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { styles } from "./styles";
+import PropTypes from "prop-types";
+import { Paragraph } from "react-native-paper";
 
-// interface PostCardData {
-//   postDescription: string;
-//   postImage: any;
-//   likedNames: string;
-//   likedCount: number;
-//   commentsCount: number;
-// }
+interface BlogCardData {
+  blogImage: any;
+  blogTitle: string;
+  blogDescription: string;
+  date: string;
+  time: string;
+}
 
-// const PostCard: React.FC<PostCardData> = ({
-//   postDescription,
-//   postImage,
-//   likedNames,
-//   likedCount,
-//   commentsCount,
-// }) => {
-//   return (
-//     <View style={styles.allPostsContainer}>
-//       <View style={styles.singlePostContainer}></View>
-//       <Text style={styles.postDescription}>
-//         {postDescription}
-//         <Text style={styles.seeMore}>... see more</Text>
-//       </Text>
-//       <Image style={styles.postImage} source={postImage} />
-//       <View style={styles.feedbackContainer}>
-//         <View style={styles.likesCommentsContainer}>
-//           <View style={styles.likeButtonAndNamesContainer}>
-//             {/* thumbsUpIcon or Like button comes here */}
-//             <Text style={styles.likedNames}>{likedNames}</Text>
-//             <Text style={styles.andOthers}>{`& ${likedCount} others`}</Text>
-//           </View>
-//           <View style={styles.commentsCountContainer}>
-//             <Text
-//               style={styles.commentsCountText}
-//             >{`${commentsCount} comments`}</Text>
-//           </View>
-//         </View>
-//         <View style={styles.likeShareCommentButtonContainer}>
-//           {/* Each button comes here */}
-//           <View style={styles.eachButtonContainer}>
-//             <Text style={styles.eachButtonText}>Like</Text>
-//           </View>
-//           <View style={styles.eachButtonContainer}>
-//             <Text style={styles.eachButtonText}>Comment</Text>
-//           </View>
-//           <View style={styles.eachButtonContainer}>
-//             <Text style={styles.eachButtonText}>Share</Text>
-//           </View>
-//         </View>
-//       </View>
-//     </View>
-//   );
-// };
+const BlogCard: React.FC<BlogCardData> = ({
+  blogImage,
+  blogTitle,
+  blogDescription,
+  date,
+  time,
+}) => {
+  return (
+    <View style={styles.singleBlogContainer}>
+      {/* Blog image comes here */}
+      {/* <Image style={styles.postImage} source={postImage} /> */}
+      <View style={styles.blogContentContainer}>
+        <View style={styles.blogArticleContainer}>
+          <Text style={styles.blogTitle}>{blogTitle}</Text>
+          <Paragraph style={styles.blogDescription}>
+            {blogDescription}
+          </Paragraph>
+          <View style={styles.dateTimeContainer}>
+            <Text style={styles.dateTime}>{date}</Text>
+            {/* Dot icon comes here */}
+            <Text style={styles.dateTime}>{time}</Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
 
-// /**
-//  * This is a type checking for the props which we are passing to the PostCard component
-//  */
-// PostCard.propTypes = {
-//   postDescription: PropTypes.string.isRequired,
-//   postImage: PropTypes.any.isRequired,
-//   likedNames: PropTypes.string.isRequired,
-//   likedCount: PropTypes.number.isRequired,
-//   commentsCount: PropTypes.number.isRequired,
-// };
+/**
+ * This is a type checking for the props which we are passing to the BlogCard component
+ */
+BlogCard.propTypes = {
+  blogImage: PropTypes.any.isRequired,
+  blogTitle: PropTypes.string.isRequired,
+  blogDescription: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+};
 
-// export default PostCard;
+export default BlogCard;
