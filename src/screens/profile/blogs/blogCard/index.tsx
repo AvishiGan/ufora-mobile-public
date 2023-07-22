@@ -25,8 +25,7 @@ const BlogCard: React.FC<BlogCardData> = ({
 }) => {
   return (
     <View style={styles.singleBlogContainer}>
-      {/* Blog image comes here */}
-      {/* <Image style={styles.postImage} source={postImage} /> */}
+      <Image style={styles.blogImage} source={blogImage} />
       <View style={styles.blogContentContainer}>
         <View style={styles.blogArticleContainer}>
           <Text style={styles.blogTitle}>{blogTitle}</Text>
