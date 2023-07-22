@@ -8,7 +8,6 @@ const StyledText = styled.Text`
   font-weight: 700;
   font-size: 36px;
   font-style: normal;
-  //line-height: normal;
 `;
 
 const BoldHeading: FunctionComponent<TextProps> = (props) => {

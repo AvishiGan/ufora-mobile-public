@@ -13,7 +13,7 @@ interface LogoProps {
 const Logo: FunctionComponent<LogoProps> = ({ source, mainText, subText, additionalText }) => {
   return (
     <View style={{ alignItems: "center", marginTop: 100, justifyContent: "center" }}>
-      <Image source={source} style={{ width: 143, height: 47 }} />
+      <Image source={source} style={{ width: 143, height: 47 }} /> 
       <View style={{ alignItems: "center", marginTop: 14 }}>
         <BoldHeading>{mainText}</BoldHeading>
         <RegularBig style={{ flexWrap: "wrap", marginTop: 5 }}>{subText}</RegularBig>

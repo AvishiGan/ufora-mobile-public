@@ -10,11 +10,24 @@ interface ButtonProps {
 
 const UnfilledButton: FunctionComponent<ButtonProps> = (props) => {
   return (
-    <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: 'transparent', paddingHorizontal: 24, paddingVertical: 12, borderRadius: 12, width: 167, height:45, borderColor: '#2656FF', borderWidth: 1 }}>
-      <SemiBoldBig style={{ color: '#2656FF' }}>{props.children}</SemiBoldBig>
+    <TouchableOpacity
+      style={{
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "transparent",
+        paddingHorizontal: 24,
+        paddingVertical: 12,
+        borderRadius: 12,
+        width: 167,
+        height: 45,
+        borderColor: "#2656FF",
+        borderWidth: 1,
+      }}
+      onPress={props.onPress}
+    >
+      <SemiBoldBig style={{ color: "#2656FF" }}>{props.children}</SemiBoldBig>
     </TouchableOpacity>
   );
 };
 
 export default UnfilledButton;
-
