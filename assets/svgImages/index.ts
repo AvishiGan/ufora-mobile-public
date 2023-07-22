@@ -1,0 +1,1 @@
+export { default as thumbsUpIcon } from './lucide_thumbs-up.svg';
