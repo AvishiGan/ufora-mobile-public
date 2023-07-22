@@ -7,12 +7,12 @@ import { View, StyleSheet } from "react-native";
 import BlogCard from "../../profile/blogs/blogCard/index";
 import { marketing, security, HCI, office } from "../../../../assets/images";
 import { styles } from "./styles";
+import ContentAdditionBar from "../../../components/profile/contentAdditionBar";
 
 const ProfileBlogSection = () => {
   return (
     <View style={styles.blogActionContainer}>
-      {/* Add a new post bar comes here */}
-      {/* <View style={styles.allPostsContainer}> */}
+      <ContentAdditionBar title="Add a new blog article" />
       <BlogCard
         blogImage={marketing}
         blogTitle="Digital Marketing"

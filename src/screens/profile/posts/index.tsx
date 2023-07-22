@@ -12,11 +12,12 @@ import {
   office,
 } from "../../../../assets/images";
 import { styles } from "./styles";
+import ContentAdditionBar from "../../../components/profile/contentAdditionBar";
 
 const ProfilePostSection = () => {
   return (
     <View style={styles.postActionContainer}>
-      {/* Add a new post bar comes here */}
+      <ContentAdditionBar title="Add a new post" />
       <View style={styles.allPostsContainer}>
         <PostCard
           postDescription="This is an amazing architectural concept which we can implement in our group project"
