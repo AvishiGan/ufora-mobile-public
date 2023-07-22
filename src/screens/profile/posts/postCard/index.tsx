@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { styles } from "./styles";
 import { Paragraph } from "react-native-paper";
 // import { ProfileHeaderData } from "./data";
-import ProfileHeader from "../../../../components/profile/profileHeader";
+// import ProfileHeader from "../../../../components/profile/profileHeader/index1";
 import { architecture } from "../../../../../assets/images";
 import Svg, { Circle } from "react-native-svg";
 import { thumbsUpIcon } from "../../../../../assets/svgImages";
