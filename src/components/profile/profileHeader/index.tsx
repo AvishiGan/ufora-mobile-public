@@ -1,24 +1,40 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { styles } from "./styles";
-import { ProfileHeaderData } from "./data";
 
-const ProfileHeader: React.FC = () => {
+interface ProfileHeaderData {
+  profileName: string;
+  uniName: string;
+  time: string;
+  // profilePic: string;
+}
+
+interface ProfileHeaderProps {
+  data: ProfileHeaderData;
+}
+
+const ProfileHeader: React.FC<ProfileHeaderProps> = ({ data }) => {
   return (
-    <>
-      {ProfileHeaderData.map((PHData, index) => (
-        <View style={styles.userDetailsContainer} key={index}>
-          <View style={styles.profilepicNameUniContainer}>
-            <View style={styles.nameUniContainer}></View>
-            <View style={styles.profileNameAndTwoIconsContainer}></View>
-            <Text style={styles.profileName}>{PHData.profileName}</Text>
-            <Text style={styles.uniName}>{PHData.university}</Text>
-            <View style={styles.timeAndGlobeIconContainer}></View>
-            <Text style={styles.time}>{PHData.time}</Text>
+    <View style={styles.userDetailsContainer}>
+      <View style={styles.profilepicNameUniContainer}>
+        {/* profile pic comes here */}
+        <View style={styles.nameUniContainer}>
+          <View style={styles.profileNameAndTwoIconsContainer}>
+            <Text style={styles.profileName}>{data.profileName}</Text>
+            <View style={styles.twoIconsContainer}>
+              {/* Two icons come here */}
+            </View>
+          </View>
+          <Text style={styles.uniName}>{data.uniName}</Text>
+          <View style={styles.timeAndGlobeIconContainer}>
+            <Text style={styles.time}>{data.time}</Text>
+            {/* Dot icon comes here */}
+            {/* Globe icon comes here */}
           </View>
         </View>
-      ))}
-    </>
+      </View>
+      {/* More icon comes here */}
+    </View>
   );
 };
 

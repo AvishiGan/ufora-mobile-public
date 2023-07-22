@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
         width: 373,
         justifyContent: "space-between",
         alignItems: "center",
+        flexDirection: "row",
     },
     profilepicNameUniContainer: {
         display: "flex",
@@ -22,8 +23,9 @@ export const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         gap: 5,
+        flexDirection: "row",
     },
-    verificationIconAndLogoutContainer: {
+    twoIconsContainer: {
         display: "flex",
         alignItems: "flex-start",
         gap: 5,
@@ -80,6 +82,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         gap: 5,
+        flexDirection: "row",
     },
     time: {
         color: "var(--brand-grey, #4F4E4E)",
