@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         flexDirection: "row",
     },
-    profilepicNameUniContainer: {
+    profilePicNameUniContainer: {
         display: "flex",
         alignItems: "center",
         gap: 15,

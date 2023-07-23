@@ -9,6 +9,7 @@ import ProfileHeader from "./src/components/profile/profileHeader/index";
 import ProfilePostSection from "./src/screens/profile/posts";
 import ProfileBlogSection from "./src/screens/profile/blogs";
 import ProfilePortfolioSection from "./src/screens/profile/portfolio";
+import ContentAdditionBar from "./src/components/profile/contentAdditionBar";
 
 export default function App() {
   return (
@@ -20,7 +21,9 @@ export default function App() {
         {/* <ProfileHeader /> */}
         {/* <ProfilePostSection /> */}
         {/* <ProfileBlogSection /> */}
-        <ProfilePortfolioSection />
+        {/* <ProfilePortfolioSection /> */}
+        {/* <ContentAdditionBar title="Posts" /> */}
+        
       </ScrollView>
     </SafeAreaView>
   );

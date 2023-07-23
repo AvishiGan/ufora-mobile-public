@@ -16,7 +16,7 @@ interface ProfileHeaderProps {
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({ data }) => {
   return (
     <View style={styles.userDetailsContainer}>
-      <View style={styles.profilepicNameUniContainer}>
+      <View style={styles.profilePicNameUniContainer}>
         {/* profile pic comes here */}
         <View style={styles.nameUniContainer}>
           <View style={styles.profileNameAndTwoIconsContainer}>
