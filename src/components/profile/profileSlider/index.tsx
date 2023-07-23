@@ -3,14 +3,14 @@ import { View, Text, StyleSheet } from "react-native";
 import { styles } from "./styles";
 
 type ProfileSliderProps = {
-  titles: string[];
+  slideTitles: string[];
 };
 
-const ProfileSlider: React.FC<ProfileSliderProps> = ({ titles }) => (
+const ProfileSlider: React.FC<ProfileSliderProps> = ({ slideTitles }) => (
   <View style={styles.allSlidesContainer}>
-    {titles.map((title, index) => (
+    {slideTitles.map((slideTitle, index) => (
       <View style={styles.individualSlideContainer} key={index}>
-        <Text style={styles.individualSlideText}>{title}</Text>
+        <Text style={styles.individualSlideText}>{slideTitle}</Text>
       </View>
     ))}
   </View>
