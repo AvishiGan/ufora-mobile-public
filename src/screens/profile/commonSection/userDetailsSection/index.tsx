@@ -3,7 +3,6 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 import ProfileButton from "../../../../components/profile/buttons/index";
 import { profileData } from "./data";
-import PageTitleBar from "../../../../components/profile/userProfileTopBar";
 import ProfileSlider from "../../../../components/profile/profileSlider/index";
 
 const UserDetailsContainer: React.FC = () => {
@@ -39,9 +38,6 @@ const UserDetailsContainer: React.FC = () => {
           {/* Button icons come here */}
           <ProfileButton onPress={handleButtonPress} title="Edit Profile" />
           <ProfileButton onPress={handleButtonPress} title="Share Profile" />
-        </View>
-        <View>
-          <ProfileSlider titles={["About", "Posts", "Blogs", "Portfolio"]} />
         </View>
       </View>
     </View>

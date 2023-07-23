@@ -10,6 +10,7 @@ export interface ProfileData {
     blogsCount: number;
     projectsCount: number;
     titleBarName: string;
+    slideTitles: string[];
   }
   
   /**
@@ -24,5 +25,6 @@ export interface ProfileData {
     blogsCount: 5,
     projectsCount: 4,
     titleBarName: "isurur",
+    slideTitles: ["Posts", "Blogs", "Projects"],
   };
   

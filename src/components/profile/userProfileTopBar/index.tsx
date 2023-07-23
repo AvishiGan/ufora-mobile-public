@@ -7,7 +7,7 @@ import { styles } from "./styles";
  *
  */
 type PageTitleBarProps = {
-  title: string;
+  titleBarName: string;
 };
 
 /**
@@ -15,11 +15,11 @@ type PageTitleBarProps = {
  * @param param0 | PageTitleBarProps
  * @returns | React.FC<PageTitleBarProps>
  */
-const UserProfileTopBar: React.FC<PageTitleBarProps> = ({ title }) => (
+const UserProfileTopBar: React.FC<PageTitleBarProps> = ({ titleBarName }) => (
   <View style={styles.headerIconsContainer}>
     <View style={styles.backIconNameContainer}>
       {/* Back icon comes here */}
-      <Text style={styles.profileName}>{title}</Text>
+      <Text style={styles.profileName}>{titleBarName}</Text>
     </View>
     <View style={styles.chatSearchIconsContainer}>
       {/* Chat and Search icons come here */}
