@@ -16,42 +16,29 @@ interface BlogCardData {
   time: string;
 }
 
-const BlogCard: React.FC<BlogCardData> = ({
-  blogImage,
-  blogTitle,
-  blogDescription,
-  date,
-  time,
-}) => {
+interface BlogCardProps {
+  data: BlogCardData;
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
   return (
     <View style={styles.singleBlogContainer}>
-      <Image style={styles.blogImage} source={blogImage} />
+      <Image style={styles.blogImage} source={data.blogImage} />
       <View style={styles.blogContentContainer}>
         <View style={styles.blogArticleContainer}>
-          <Text style={styles.blogTitle}>{blogTitle}</Text>
+          <Text style={styles.blogTitle}>{data.blogTitle}</Text>
           <Paragraph style={styles.blogDescription}>
-            {blogDescription}
+            {data.blogDescription}
           </Paragraph>
           <View style={styles.dateTimeContainer}>
-            <Text style={styles.dateTime}>{date}</Text>
+            <Text style={styles.dateTime}>{data.date}</Text>
             {/* Dot icon comes here */}
-            <Text style={styles.dateTime}>{time}</Text>
+            <Text style={styles.dateTime}>{data.time}</Text>
           </View>
         </View>
       </View>
     </View>
   );
-};
-
-/**
- * This is a type checking for the props which we are passing to the BlogCard component
- */
-BlogCard.propTypes = {
-  blogImage: PropTypes.any.isRequired,
-  blogTitle: PropTypes.string.isRequired,
-  blogDescription: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
 };
 
 export default BlogCard;
