@@ -16,9 +16,13 @@ type PageTitleBarProps = {
  * @returns | React.FC<PageTitleBarProps>
  */
 const UserProfileTopBar: React.FC<PageTitleBarProps> = ({ title }) => (
-  <View style={styles.topSectionContainer}>
-    <View style={styles.nameBackContainer}>
-      <Text style={styles.name}>{title}</Text>
+  <View style={styles.headerIconsContainer}>
+    <View style={styles.backIconNameContainer}>
+      {/* Back icon comes here */}
+      <Text style={styles.profileName}>{title}</Text>
+    </View>
+    <View style={styles.chatSearchIconsContainer}>
+      {/* Chat and Search icons come here */}
     </View>
   </View>
 );
