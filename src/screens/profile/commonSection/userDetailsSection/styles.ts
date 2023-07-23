@@ -56,12 +56,12 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
     // lineHeight: 200,
   },
-  twoIconsContainer: {
+  verifiedAndUforaIconContainer: {
     display: "flex",
     alignItems: "flex-start",
     gap: 5,
   },
-  verificationIcon: {
+  verifiedIcon: {
     display: "flex",
     width: 20,
     height: 20,

@@ -19,18 +19,18 @@ export const styles = StyleSheet.create({
         alignItems: "flex-start",
         gap: 5,
     },
-    profileNameAndTwoIconsContainer: {
+    profileNameAndverifiedAndUforaIconContainer: {
         display: "flex",
         alignItems: "center",
         gap: 5,
         flexDirection: "row",
     },
-    twoIconsContainer: {
+    verifiedAndUforaIconContainer: {
         display: "flex",
         alignItems: "flex-start",
         gap: 5,
     },
-    verificationIcon: {
+    verifiedIcon: {
         display: "flex",
         width: 16,
         height: 16,

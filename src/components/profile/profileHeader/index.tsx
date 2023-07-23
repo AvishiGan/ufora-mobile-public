@@ -19,9 +19,9 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ data }) => {
       <View style={styles.profilePicNameUniContainer}>
         {/* profile pic comes here */}
         <View style={styles.nameUniContainer}>
-          <View style={styles.profileNameAndTwoIconsContainer}>
+          <View style={styles.profileNameAndverifiedAndUforaIconContainer}>
             <Text style={styles.profileName}>{data.profileName}</Text>
-            <View style={styles.twoIconsContainer}>
+            <View style={styles.verifiedAndUforaIconContainer}>
               {/* Two icons come here */}
             </View>
           </View>
