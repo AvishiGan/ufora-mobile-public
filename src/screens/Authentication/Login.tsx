@@ -40,6 +40,9 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
       // Making the API request
       //console.log(values);
       navigation.navigate("Feed");
+      // navigation.navigate("Feed",
+      //     {email: JSON.stringify($email), 
+      //     password: JSON.stringify($password)}),
     };
 
     return (
