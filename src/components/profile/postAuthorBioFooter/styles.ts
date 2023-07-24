@@ -81,5 +81,19 @@ export const styles = StyleSheet.create({
         borderRadius: 30,
         // background: 'url(<path-to-image>), lightgray 50% / cover no-repeat',
     },
+    /**
+     * Addition style for author bio in project post 
+     */
+    date: {
+        color: 'var(--brand-grey, #4F4E4E)',
+        leadingTrim: 'both',
+        textEdge: 'cap',
+        fontFamily: 'Poppins',
+        fontSize: 10,
+        fontStyle: 'normal',
+        fontWeight: '400',
+        // lineHeight: 'normal',
+        lineHeight: 24, /* 240% */
+    },
 });
 
