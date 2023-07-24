@@ -13,13 +13,18 @@ interface ProfileHeaderProps {
   data: ProfileHeaderData;
 }
 
+/**
+ * 
+ * @param param0 | This is the data which we are passing to the ProfileHeader component
+ * @returns | This component returns the header of the user profile
+ */
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({ data }) => {
   return (
     <View style={styles.userDetailsContainer}>
       <View style={styles.profilePicNameUniContainer}>
         {/* profile pic comes here */}
         <View style={styles.nameUniContainer}>
-          <View style={styles.profileNameAndverifiedAndUforaIconContainer}>
+          <View style={styles.profileNameAndTwoIconsContainer}>
             <Text style={styles.profileName}>{data.profileName}</Text>
             <View style={styles.verifiedAndUforaIconContainer}>
               {/* Two icons come here */}

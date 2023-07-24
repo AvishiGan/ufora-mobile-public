@@ -16,7 +16,8 @@ interface PostAuthorBioFooterProps {
 /**
  *
  * @param param0 | This is the data which we are passing to the PostAuthorBioFooter component
- * @returns | This component returns the bio of author in a blog post
+ * @returns | This component returns the author bio of the post
+ * @description | This component is used in the blog and project post to show the bio of the author
  */
 const PostAuthorBioFooter: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
   return (
