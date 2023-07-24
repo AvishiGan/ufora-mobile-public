@@ -2,22 +2,23 @@ import React from "react";
 import { View, Text } from "react-native";
 import { styles } from "./styles";
 
-interface BlogPostBioFooter {
+interface PostAuthorBioFooter {
   profilePic: any;
   profileName: string;
   university: string;
+  date?: string; // 'date' prop is optional
 }
 
-interface BlogPostBioFooterProps {
-  data: BlogPostBioFooter;
+interface PostAuthorBioFooterProps {
+  data: PostAuthorBioFooter;
 }
 
 /**
  *
- * @param param0 | This is the data which we are passing to the BlogPostBioFooter component
+ * @param param0 | This is the data which we are passing to the PostAuthorBioFooter component
  * @returns | This component returns the bio of author in a blog post
  */
-const BlogPostBioFooter: React.FC<BlogPostBioFooterProps> = ({ data }) => {
+const PostAuthorBioFooter: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
   return (
     <View style={styles.authorBioContainer}>
       {/* Profile pic comes here */}
@@ -28,8 +29,9 @@ const BlogPostBioFooter: React.FC<BlogPostBioFooterProps> = ({ data }) => {
         </View>
         <Text style={styles.uniName}>{data.university}</Text>
       </View>
+      {data.date && <Text style={styles.date}>{data.date}</Text>}
     </View>
   );
 };
 
-export default BlogPostBioFooter;
+export default PostAuthorBioFooter;
