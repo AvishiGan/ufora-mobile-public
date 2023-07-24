@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
-import Welcome from "./src/screens/Authentication/Welcome";
+// import Welcome from "./src/screens/Authentication/Welcome";
 import RootNavigator from "./src/navigation/Nav/RootStack";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -27,3 +27,17 @@ export default function App() {
     </>
   );
 }
+
+// import React from "react";
+// import { SafeAreaView } from 'react-native-safe-area-context';
+// import BlogCentre from "./src/screens/blog";
+
+// const Blog = () => {
+//   return (
+//     <SafeAreaView style = {{flex: 1}}>
+//       <BlogCentre />
+//     </SafeAreaView>
+//   );  
+// }
+
+// export default Blog;
