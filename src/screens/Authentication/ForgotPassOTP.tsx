@@ -17,7 +17,7 @@ import RegularNormal from "../../constants/fonts/RegularNormal";
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
-type Props = StackScreenProps<RootStackParamList, "UniOTP">;
+type Props = StackScreenProps<RootStackParamList, "ForgotPassOTP">;
 
 interface FormValues {
   num1: string;
@@ -28,7 +28,7 @@ interface FormValues {
   num6: string;
 }
 
-const OTP: FunctionComponent<Props> = ({navigation}) => {
+const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
   const initialValues: FormValues = {
     num1: "",
     num2: "",
@@ -42,7 +42,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
     //const handleVerify = () => Alert.alert("Login");
     // Making the API request
     //console.log(values);
-    navigation.navigate("Feed");
+    navigation.navigate("ChangePassword");
   };
 
   return (
@@ -50,7 +50,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
       <StatusBar />
       <View>
         {/* Top section */}
-        <Logo source={logo} mainText="Uni OTP" subText="Please enter the OTP sent to your Uni Email"/>
+        <Logo source={logo} mainText="OTP" subText="Please enter the OTP sent to your Email"/>
 
 
         {/* Bottom section */}
@@ -118,11 +118,11 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
         )}
       </Formik>
 
-          <View style={{ marginTop: 30, alignItems: 'center',flexDirection: 'row'}}>
+          <View style={{ marginTop: 30, alignItems: 'center',flexDirection: 'row', marginBottom: 20}}>
             <RegularNormal>
               <Text style={{ alignItems: 'center'}}>Didn't receive an OTP?</Text>
             </RegularNormal>
-            <TouchableOpacity onPress={{}}>
+            <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
               <View>
                 <RegularNormal>
                     <Text style={{ color: '#2656FF' }}>Resend OTP</Text>
@@ -150,4 +150,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OTP;
+export default ForgotPassOTP;
