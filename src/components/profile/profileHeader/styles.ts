@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         alignItems: "flex-start",
         gap: 5,
     },
-    profileNameAndverifiedAndUforaIconContainer: {
+    profileNameAndTwoIconsContainer: {
         display: "flex",
         alignItems: "center",
         gap: 5,

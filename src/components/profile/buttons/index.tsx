@@ -16,7 +16,7 @@ type ButtonProps = TouchableOpacityProps & {
 /**
  *
  * @param param0 | ButtonProps
- * @returns | React.FC<ButtonProps>
+ * @returns | This component returns the common button of the user profile
  */
 const ProfileButton: React.FC<ButtonProps> = ({ onPress, title }) => (
   <TouchableOpacity

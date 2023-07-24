@@ -13,7 +13,7 @@ type PageTitleBarProps = {
 /**
  *
  * @param param0 | PageTitleBarProps
- * @returns | React.FC<PageTitleBarProps>
+ * @returns | This component returns the top bar of the user profile
  */
 const UserProfileTopBar: React.FC<PageTitleBarProps> = ({ titleBarName }) => (
   <View style={styles.headerIconsContainer}>
