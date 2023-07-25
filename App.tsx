@@ -10,6 +10,10 @@ import ProfilePostSection from "./src/screens/profile/posts";
 import ProfileBlogSection from "./src/screens/profile/blogs";
 import ProfilePortfolioSection from "./src/screens/profile/portfolio";
 import ContentAdditionBar from "./src/components/profile/contentAdditionBar";
+import { Camera } from "lucide-react-native";
+import { UserProfileTopBar } from "./src/components";
+import Svg, { Circle } from "react-native-svg";
+import lucideSearch from "../ufora-mobile/assets/lucideSearch.svg";
 
 export default function App() {
   return (
@@ -23,7 +27,9 @@ export default function App() {
         {/* <ProfileBlogSection /> */}
         {/* <ProfilePortfolioSection /> */}
         {/* <ContentAdditionBar title="Posts" /> */}
-        
+        {/* <Camera fill="red" size={48} />; */}
+        <UserProfileTopBar titleBarName="Profile" />
+        {/* <lucideSearch width={200} height={200} /> */}
       </ScrollView>
     </SafeAreaView>
   );
