@@ -34,13 +34,6 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         gap: 20,
-    },
-    searchOrChatIcon: {
-        width: 24,
-        height: 24,
-    },
-    backButton: {
-        width: 6,
-        height: 12,
+        flexDirection: "row",
     },
 });
