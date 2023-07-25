@@ -1,4 +1,5 @@
-export * from './myProfile/posts/index';
-export * from './myProfile/blogs/index';
-export * from './myProfile/portfolio/index';
+export * from './myProfile/posts';
+export * from './myProfile/blogs';
+export * from './myProfile/portfolio';
+export * from './myProfile/common';
 
