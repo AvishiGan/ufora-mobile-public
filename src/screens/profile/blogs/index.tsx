@@ -36,15 +36,6 @@ const ProfileBlogSection = () => {
         date="Jun 1st, 2023"
         time="7 mins read"
       />
-
-      {/* <BlogCard
-        blogDescription="Interested in kickstarting your global career from Sri Lanka itself?"
-        blogImage={office}
-        blogTitle=""
-        date={120}
-        time={0}
-      /> */}
-      {/* </View> */}
     </View>
   );
 };

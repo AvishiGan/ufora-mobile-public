@@ -6,17 +6,16 @@ export const styles = StyleSheet.create({
   //   height: 321,
   //   flexShrink: 0,
   // },
-  topSectionContainer: {
-    flex: 1,
-    flexGrow: 0,
-    flexShrink: 0,
-    height: 200, // CHANGE THIS! MANUALLY ADDED
-  },  
+  // topSectionContainer: {
+  //   flex: 1,
+  //   flexGrow: 0,
+  //   flexShrink: 0,
+  //   height: 200, // CHANGE THIS! MANUALLY ADDED
+  // },  
   userDetailsContainer: {
     display: "flex",
     width: 405,
-    // flexGrow: 1,
-    height: 140,
+    height: 200,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -43,7 +42,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 5,
-    flexDirection: "row",
+    // flexDirection: "row",
   },
   profileName: {
     // color: "var(--brand-black, #111)",
@@ -54,12 +53,14 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontStyle: "normal",
     fontWeight: "600",
-    // lineHeight: 200,
+    lineHeight: 24,
+    // paddingBottom: 12,
   },
-  verifiedAndUforaIconContainer: {
+  twoIconsContainer: {
     display: "flex",
     alignItems: "flex-start",
     gap: 5,
+    flexDirection: "row",
   },
   verifiedIcon: {
     display: "flex",
@@ -94,7 +95,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontStyle: "normal",
     fontWeight: "400",
-    // lineHeight: "normal",
+    lineHeight: 24,
   },
   statusContainer: {
     display: "flex",
@@ -109,14 +110,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     gap: 5,
   },
-  // statusCommon: {
-  //   color: "#000",
-  //   leadingTrim: "both",
-  //   textEdge: "cap",
-  //   fontFamily: "Poppins",
-  //   fontStyle: "normal",
-  //   // lineHeight: "normal",
-  // },
   statusCount: {
     color: "#000",
     leadingTrim: "both",
@@ -125,7 +118,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontStyle: "normal",
     fontWeight: "500",
-    // lineHeight: "normal",
+    lineHeight: 24,
   },
   statusName: {
     color: "#000",
@@ -135,7 +128,8 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontStyle: "normal",
     fontWeight: "400",
-    // lineHeight: "normal",
+    // lineHeight: 1,
+    lineHeight: 24,
     textTransform: "capitalize",
   },
   buttonContainer: {

@@ -1,35 +1,47 @@
 import React from "react";
 import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
-import MyProfile from "./src/screens/profile";
 import SafeViewAndroid from "./src/components/SafeViewAndroid";
-import LucideCake from "./assets/LucideCake.svg";
-import PostCard from "./src/screens/profile/posts";
-// import ProfileHeader from "./src/components/profile/profileHeader/index1";
-import ProfileHeader from "./src/components/profile/profileHeader/index";
-import ProfilePostSection from "./src/screens/profile/posts";
-import ProfileBlogSection from "./src/screens/profile/blogs";
+import { ProfileSlider, UserProfileTopBar } from "./src/components";
+import ProfileCommonSection from "./src/screens/profile/commonSection";
 import ProfilePortfolioSection from "./src/screens/profile/portfolio";
-import ContentAdditionBar from "./src/components/profile/contentAdditionBar";
-import { Camera } from "lucide-react-native";
-import { UserProfileTopBar } from "./src/components";
-import Svg, { Circle } from "react-native-svg";
-import lucideSearch from "../ufora-mobile/assets/lucideSearch.svg";
+import ProfileBlogSection from "./src/screens/profile/blogs";
+import UserDetailsContainer from "./src/screens/profile/commonSection/userDetailsSection";
+import { Button } from "react-native-paper";
+import AboutCardSection from "./src/screens/profile/about/cards";
+import ProfileAboutSection from "./src/screens/profile/about";
+import { User } from "lucide";
 
 export default function App() {
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <ScrollView>
-        {/* <LucideCake width={85} height={30} style={{ color: "#ccc" }} /> */}
-        {/* <PostCard /> */}
-        {/* <MyProfile /> */}
-        {/* <ProfileHeader /> */}
-        {/* <ProfilePostSection /> */}
-        {/* <ProfileBlogSection /> */}
+        {/* <UserProfileTopBar titleBarName="Profile" /> */}
+        {/* <ProfileSlider slideTitles={["About", "Posts", "Friends"]} /> */}
+        {/* <ProfileCommonSection /> */}
         {/* <ProfilePortfolioSection /> */}
-        {/* <ContentAdditionBar title="Posts" /> */}
-        {/* <Camera fill="red" size={48} />; */}
-        <UserProfileTopBar titleBarName="Profile" />
-        {/* <lucideSearch width={200} height={200} /> */}
+        {/* <ProfileCommonSection /> */}
+        {/* <UserDetailsContainer /> */}
+        {/* <ProfileBlogSection /> */}
+        {/* <AboutCardSection /> */}
+        {/* <ProfileAboutSection /> */}
+        {/* <UserProfileTopBar titleBarName="Profile" /> */}
+        {/* <UserDetailsContainer /> */}
+        {/* <ProfileCommonSection /> */}
+        <svg
+          width="21"
+          height="21"
+          viewBox="0 0 21 21"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="0.5" y="0.5" width="20" height="20" rx="10" fill="#2656FF" />
+          <path
+            d="M13.5 8.5L9.375 12.5L7.5 10.6818"
+            stroke="#FEFEFE"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
       </ScrollView>
     </SafeAreaView>
   );

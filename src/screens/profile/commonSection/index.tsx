@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { styles } from "./styles";
-import { profileData } from "../commonSection/userDetailsSection/data";
+import { profileData } from "./data";
 import { UserProfileTopBar, ProfileSlider } from "../../../components";
 import UserDetailsContainer from "../commonSection/userDetailsSection/index";
 
