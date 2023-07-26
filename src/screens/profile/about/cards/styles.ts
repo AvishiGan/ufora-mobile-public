@@ -70,7 +70,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
       },
       listItem: {
-        marginLeft: 20,
+        marginLeft: 10,
       },
       /**
        * Include in education, clubs and societies, achievements

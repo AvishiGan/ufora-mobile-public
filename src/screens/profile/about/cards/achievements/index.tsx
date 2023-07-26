@@ -12,11 +12,11 @@ const AchievementCard: React.FC = () => {
       </Card.Content>
       {achievementData.map((achievement, index) => (
         <Card.Content key={index} style={styles.iconAndDetailsContainer}>
-          <View style={styles.imageContainer}>
+          <View>
             <Image
               style={styles.imageContainer}
               source={achievement.image}
-              // resizeMode="cover"
+              resizeMode="contain"
             />
           </View>
           <View style={styles.infoContainer}>
