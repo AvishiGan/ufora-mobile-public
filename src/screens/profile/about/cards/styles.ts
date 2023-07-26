@@ -195,7 +195,24 @@ export const styles = StyleSheet.create({
       overflow: 'hidden', // Clip the image inside the circle
       borderStyle: 'solid',
     },
-    
+    allBadgesContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      alignSelf: 'stretch',
+      flexDirection: 'row',
+    },
+    singleBadgeContainer: {
+      width: 40,
+      height: 40,
+      borderRadius: 40,
+      borderWidth: 1,
+      borderColor: '#B8B8B8',
+      overflow: 'hidden',
+      borderStyle: 'solid',
+      // border: 1px solid var(--placeholder-colour, #B8B8B8);
+      // background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    },
 });
 
 
