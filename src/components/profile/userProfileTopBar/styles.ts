@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         fontStyle: "normal",
         fontWeight: "600",
-        lineHeight: 37.5,
+        // lineHeight: 37.5,
     },
     chatSearchIconsContainer: {
         display: "flex",
