@@ -175,6 +175,7 @@ export const styles = StyleSheet.create({
       width: 30,
       height: 30,
     },
+    
 });
 
 // width: 30px;

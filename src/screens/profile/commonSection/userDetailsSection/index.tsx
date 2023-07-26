@@ -5,17 +5,6 @@ import ProfileButton from "../../../../components/profile/buttons";
 import { profileData } from "../data";
 import VerifiedIcon from "../../../../../assets/svg/myProfile/common/verifiedIcon";
 import UforaIcon from "../../../../../assets/svg/myProfile/common/uforaIcon";
-import EditIcon from "../../../../../assets/svg/myProfile/common/editIcon";
-import ShareIcon from "../../../../../assets/svg/myProfile/common/shareIcon";
-import SearchIcon from "../../../../../assets/svg/myProfile/common/searchIcon";
-import ChatIcon from "../../../../../assets/svg/myProfile/common/chatIcon";
-import BackIcon from "../../../../../assets/svg/myProfile/common/backIcon";
-import GlobeIcon from "../../../../../assets/svg/myProfile/common/globeIcon";
-import MoreIcon from "../../../../../assets/svg/myProfile/common/moreIcon";
-import DotIconInBlogs from "../../../../../assets/svg/myProfile/common/dotIcon";
-import DotIcon from "../../../../../assets/svg/myProfile/common/dotIcon";
-import SmallDotIcon from "../../../../../assets/svg/myProfile/common/smallDotIcon";
-import LikeIcon from "../../../../../assets/svg/myProfile/common/likeIcon";
 
 const UserDetailsContainer: React.FC = () => {
   /**
@@ -43,15 +32,6 @@ const UserDetailsContainer: React.FC = () => {
               />
               {/* Ufora icon */}
               <UforaIcon size={21} fillColor="#111111" strokeColor="#FEFEFE" />
-              <EditIcon size={17} fillColor="#111111" strokeColor="#4F4E4E" />
-              <ShareIcon size={17} strokeColor="#4F4E4E" />
-              <SearchIcon size={24} strokeColor="#4F4E4E" />
-              <ChatIcon size={24} strokeColor="#4F4E4E" />
-              <BackIcon width={8} height={14} color="#4F4E4E" />
-              <GlobeIcon width={11} height={10} color="#87929D" />
-              <MoreIcon width={25} height={24} color="black" />
-              <DotIcon size={5} color="#4F4E4E" />
-              <SmallDotIcon width={3} height={2} color="#87929D" />
             </View>
           </View>
           <Text style={styles.uniName}>{profileData.university}</Text>
