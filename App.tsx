@@ -10,6 +10,7 @@ import { Button } from "react-native-paper";
 import AboutCardSection from "./src/screens/profile/about/cards";
 import ProfileAboutSection from "./src/screens/profile/about";
 import { User } from "lucide";
+import AchievementCard from "./src/screens/profile/about/cards/achievements";
 
 export default function App() {
   return (
@@ -18,7 +19,8 @@ export default function App() {
         {/* <ProfileSlider slideTitles={["About", "Posts", "Friends"]} />
       <ProfileCommonSection /> */}
         {/* <ProfilePortfolioSection /> */}
-        <UserDetailsContainer />
+        {/* <UserDetailsContainer /> */}
+        <AchievementCard />
       </ScrollView>
     </SafeAreaView>
   );

@@ -67,9 +67,10 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
         alignSelf: 'stretch',
+        flexDirection: 'row',
       },
       listItem: {
-        marginLeft: 50,
+        marginLeft: 20,
       },
       /**
        * Include in education, clubs and societies, achievements
@@ -175,16 +176,26 @@ export const styles = StyleSheet.create({
       width: 30,
       height: 30,
     },
+    // imageContainer: {
+    //   width: 40,
+    //   height: 40,
+    //   borderRadius: 40,
+    //   // border: 1px solid var(--placeholder-colour, #B8B8B8);
+    //   borderWidth: 1,
+    //   borderStyle: 'solid',
+    //   borderColor: '#B8B8B8',
+    //   // background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    // }, 
+    imageContainer: {
+      width: 40,        // Set the width and height to the same value to create a circle
+      height: 40,
+      borderRadius: 40, // Half of the width/height to make it a perfect circle
+      borderWidth: 1,
+      borderColor: '#B8B8B8',
+      overflow: 'hidden', // Clip the image inside the circle
+      borderStyle: 'solid',
+    },
     
 });
 
-// width: 30px;
-// height: 30px;
 
-// Missed style
-// Italic detail
-// Layout
-// display: flex;
-// justify-content: center;
-// align-items: center;
-// gap: 10px;
