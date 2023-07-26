@@ -17,6 +17,7 @@ yarn.lock
 declarations.d.ts
 metro.config.js
 settings.json
+_active.uusver
 
 # macOS
 .DS_Store

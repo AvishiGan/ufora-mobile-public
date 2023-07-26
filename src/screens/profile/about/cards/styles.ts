@@ -80,8 +80,9 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 5,
-        // flex: 1 0 0;
         flex: 1,
+        flexGrow: 0,
+        flexShrink: 0,
       },
       // textContainer -> eachDetailContainer
       individualDetailContainer: {
@@ -170,7 +171,14 @@ export const styles = StyleSheet.create({
         fontWeight: '700',
         lineHeight: 16,
     },
+    basicInfoIconContainer:{
+      width: 30,
+      height: 30,
+    },
 });
+
+// width: 30px;
+// height: 30px;
 
 // Missed style
 // Italic detail

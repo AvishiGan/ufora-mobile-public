@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   userDetailsContainer: {
     display: "flex",
     width: 405,
-    height: 200,
+    height: 300,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
