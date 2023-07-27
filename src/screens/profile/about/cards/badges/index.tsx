@@ -13,20 +13,31 @@ import {
   badge8,
 } from "../../../../../../assets/images";
 
+const badgeImages = [
+  badge1,
+  badge2,
+  badge3,
+  badge4,
+  badge5,
+  badge6,
+  badge7,
+  badge8,
+];
+
 const DigitalBadgesCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
         <Title style={styles.cardTitle}>Digital Badges</Title>
         <View style={styles.allBadgesContainer}>
-          <Image style={styles.singleBadgeContainer} source={badge1} />
-          <Image style={styles.singleBadgeContainer} source={badge2} />
-          <Image style={styles.singleBadgeContainer} source={badge3} />
-          <Image style={styles.singleBadgeContainer} source={badge4} />
-          <Image style={styles.singleBadgeContainer} source={badge5} />
-          <Image style={styles.singleBadgeContainer} source={badge6} />
-          <Image style={styles.singleBadgeContainer} source={badge7} />
-          <Image style={styles.singleBadgeContainer} source={badge8} />
+          {badgeImages.map((badge, index) => (
+            <Image
+              key={index}
+              style={styles.singleBadgeContainer}
+              source={badge}
+              resizeMode="contain"
+            />
+          ))}
         </View>
       </Card.Content>
     </Card>
