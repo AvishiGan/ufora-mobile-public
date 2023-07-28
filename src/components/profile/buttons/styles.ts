@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     borderColor: "#4F4E4E",
+    flexDirection: "row",
   },
   buttonText: {
     color: "#4F4E4E",
@@ -26,5 +27,9 @@ export const styles = StyleSheet.create({
   buttonIcon: {
     width: 16,
     height: 16,
+  },
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
