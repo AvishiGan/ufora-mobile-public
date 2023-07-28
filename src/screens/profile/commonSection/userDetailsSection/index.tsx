@@ -5,6 +5,7 @@ import ProfileButton from "../../../../components/profile/buttons";
 import { profileData } from "../data";
 import VerifiedIcon from "../../../../../assets/svg/myProfile/common/verifiedIcon";
 import UforaIcon from "../../../../../assets/svg/myProfile/common/uforaIcon";
+import { EditIcon, ShareIcon } from "../../../../../assets/svg";
 
 const UserDetailsContainer: React.FC = () => {
   /**
@@ -46,9 +47,13 @@ const UserDetailsContainer: React.FC = () => {
         </View>
       </View>
       <View style={styles.buttonContainer}>
-        {/* Button icons come here */}
-        <ProfileButton onPress={handleButtonPress} title="Edit Profile" />
-        <ProfileButton onPress={handleButtonPress} title="Share Profile" />
+        <ProfileButton onPress={handleButtonPress} title="Edit Profile">
+          <EditIcon size={17} fillColor="#111111" strokeColor="#4F4E4E" />
+        </ProfileButton>
+
+        <ProfileButton onPress={handleButtonPress} title="Share Profile">
+          <ShareIcon size={17} strokeColor="#4F4E4E" />
+        </ProfileButton>
       </View>
     </View>
   );
