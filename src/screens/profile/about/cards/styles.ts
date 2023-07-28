@@ -172,10 +172,6 @@ export const styles = StyleSheet.create({
         fontWeight: '700',
         lineHeight: 16,
     },
-    basicInfoIconContainer:{
-      width: 30,
-      height: 30,
-    },
     // imageContainer: {
     //   width: 40,
     //   height: 40,
@@ -194,7 +190,9 @@ export const styles = StyleSheet.create({
       borderColor: '#B8B8B8',
       overflow: 'hidden', // Clip the image inside the circle
       borderStyle: 'solid',
+      resizeMode: 'cover',
     },
+    /******************************************************Badges****************************************************** */
     allBadgesContainer: {
       display: 'flex',
       alignItems: 'center',
@@ -213,6 +211,51 @@ export const styles = StyleSheet.create({
       // border: 1px solid var(--placeholder-colour, #B8B8B8);
       // background: url(<path-to-image>), lightgray 50% / cover no-repeat;
     },
+    /*****************************************************Basic Info*************************************************** */
+    singleBasicInfoContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      alignSelf: 'stretch',
+      flexDirection: 'row',
+    },
+    basicInfoText: {
+      // color: "var(--brand-black, #111)",
+      color: '#111',
+      leadingTrim: 'both',
+      textEdge: 'cap',
+      fontFamily: 'Poppins',
+      fontSize: 14,
+      fontStyle: 'normal',
+      fontWeight: '400',
+      // line-height: normal;
+      lineHeight: 16, /* 114.286% */
+    },
+    basicInfoIconContainer: {
+      width: 30,
+      height: 30,
+    },
+    cakeIcon: {
+      width: 25,
+      height: 21.25,
+      flexShrink: 0,
+    },
+    phoneIcon: {
+      width: 24.861,
+      height: 24.91,
+      flexShrink: 0,
+      strokeWidth: 1.5,
+      // stroke: var(--brand-black, #111);
+      stroke: '#111',
+    },
+    emailIcon: {
+      width: 25,
+      height: 20,
+      flexShrink: 0,
+    },
+
 });
+
+
 
 
