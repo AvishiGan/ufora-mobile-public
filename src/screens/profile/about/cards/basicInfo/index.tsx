@@ -1,46 +1,51 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { Card, Button, Title, Paragraph } from "react-native-paper";
+import { Text, View, Image } from "react-native";
+import { Card, Title } from "react-native-paper";
 import { styles } from "../styles";
 import { basicData } from "./data";
 import { CakeIcon, MailIcon, PhoneIcon } from "../../../../../../assets/svg";
 
-const BasicInfoCard: React.FC = () => {
+const AchievementCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
         <Title style={styles.cardTitle}>Basic Info</Title>
       </Card.Content>
-      {basicData.map((basicInfo, index) => (
-        <Card.Content key={index}>
+      {basicData.map((basicData, index) => (
+        <View key={index}>
+          {/* First singleBasicInfoContainer */}
           <View style={styles.singleBasicInfoContainer}>
-            <View style={styles.basicInfoIconContainer}>
+            <View>
               <CakeIcon width={31} height={30} color="#111111" />
-              <Text style={[styles.listItem, styles.basicInfoText]}>
-                {basicInfo.birthday}
-              </Text>
             </View>
+            <Text style={[styles.listItem, styles.mainDetail]}>
+              {basicData.birthday}
+            </Text>
           </View>
+
+          {/* Second singleBasicInfoContainer */}
           <View style={styles.singleBasicInfoContainer}>
-            <View style={styles.basicInfoIconContainer}>
+            <View>
               <PhoneIcon width={31} height={30} color="#111111" />
-              <Text style={[styles.listItem, styles.basicInfoText]}>
-                {basicInfo.mobileNo}
-              </Text>
             </View>
+            <Text style={[styles.listItem, styles.mainDetail]}>
+              {basicData.mobileNo}
+            </Text>
           </View>
+
+          {/* Third singleBasicInfoContainer */}
           <View style={styles.singleBasicInfoContainer}>
-            <View style={styles.basicInfoIconContainer}>
+            <View>
               <MailIcon width={31} height={30} color="#111111" />
-              <Text style={[styles.listItem, styles.basicInfoText]}>
-                {basicInfo.email}
-              </Text>
             </View>
+            <Text style={[styles.listItem, styles.mainDetail]}>
+              {basicData.email}
+            </Text>
           </View>
-        </Card.Content>
+        </View>
       ))}
     </Card>
   );
 };
 
-export default BasicInfoCard;
+export default AchievementCard;
