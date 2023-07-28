@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 5,
-    // flexDirection: "row",
+    flexDirection: "row",
   },
   profileName: {
     // color: "var(--brand-black, #111)",
