@@ -3,10 +3,13 @@
  */
 
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
 import { Paragraph } from "react-native-paper";
+import { DotIcon } from "../../../../../assets/svg";
+import { PostAuthorBioFooter } from "../../../../components";
+import { authorDataBlog } from "./data";
 
 interface BlogCardData {
   blogImage: any;
@@ -34,9 +37,12 @@ const BlogCard: React.FC<BlogCardData> = ({
           </Paragraph>
           <View style={styles.dateTimeContainer}>
             <Text style={styles.dateTime}>{date}</Text>
-            {/* Dot icon comes here */}
+            {/* Dot icon */}
+            <DotIcon size={5} color="#4F4E4E" />
             <Text style={styles.dateTime}>{time}</Text>
           </View>
+          {/* PostAuthorBioFooter component */}
+          <PostAuthorBioFooter data={authorDataBlog} />
         </View>
       </View>
     </View>
