@@ -47,6 +47,11 @@ export const styles = StyleSheet.create({
         fontWeight: '400',
         lineHeight: 16, /* 114.286% */
     },
+    allDetailsContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      marginLeft: 50,
+    },
     // normalText -> cardTBodText
     // cardBodyText: {
     //     width: 385,
@@ -152,6 +157,11 @@ export const styles = StyleSheet.create({
       infoContainer: {
         marginTop: 10, // Add margin to create a gap between each set of info
       },
+      basicInfoContainer: {
+        marginTop: 20,
+        display: 'flex',
+        flexDirection: 'row',
+      },
       boldText: {
         fontWeight: 'bold',
       },
@@ -218,6 +228,8 @@ export const styles = StyleSheet.create({
       gap: 10,
       alignSelf: 'stretch',
       flexDirection: 'row',
+      marginBottom: 10,
+      paddingLeft: 15,
     },
     basicInfoText: {
       // color: "var(--brand-black, #111)",
