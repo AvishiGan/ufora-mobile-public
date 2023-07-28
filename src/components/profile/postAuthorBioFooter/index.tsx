@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
+import { UforaIcon, VerifiedIcon } from "../../../../assets/svg";
 
 interface PostAuthorBioFooter {
-  profilePic: any;
+  profilePic?: any; // 'profilePic' prop is optional
   profileName: string;
   university: string;
   date?: string; // 'date' prop is optional
@@ -22,11 +23,14 @@ interface PostAuthorBioFooterProps {
 const PostAuthorBioFooter: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
   return (
     <View style={styles.authorBioContainer}>
-      {/* Profile pic comes here */}
+      {/* Profile pic */}
+      <Image style={styles.profilePic} source={data.profilePic} />
       <View style={styles.profileNameUniContainer}>
         <View style={styles.profileNameTwoIconsContainer}>
           <Text style={styles.profileName}>{data.profileName}</Text>
-          {/* Two icons come here */}
+          {/* Two icons */}
+          <VerifiedIcon size={12} fillColor="#2656FF" strokeColor="#fff" />
+          <UforaIcon size={12} fillColor="#111" strokeColor="#fff" />
         </View>
         <Text style={styles.uniName}>{data.university}</Text>
       </View>
