@@ -3,10 +3,12 @@
  */
 
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
 import { Paragraph } from "react-native-paper";
+import { PostAuthorBioFooter } from "../../../../components";
+import { authorDataProject } from "./data";
 
 interface ProjectCardData {
   projectImage: any;
@@ -30,6 +32,8 @@ const ProjectCard: React.FC<ProjectCardData> = ({
           </Paragraph>
         </View>
       </View>
+      {/* PostAuthorBioFooter component */}
+      <PostAuthorBioFooter data={authorDataProject} />
     </View>
   );
 };
