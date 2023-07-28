@@ -31,5 +31,6 @@ export const styles = StyleSheet.create({
   buttonContent: {
     flexDirection: "row",
     alignItems: "center",
+    gap: 10,
   },
 });
