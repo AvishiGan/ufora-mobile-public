@@ -13,10 +13,6 @@ export const styles = StyleSheet.create({
     borderColor: "#4F4E4E",
     flexDirection: "row",
   },
-  buttonIcon: {
-    width: 16,
-    height: 16,
-  },
   buttonContent: {
     flexDirection: "row",
     alignItems: "center",
