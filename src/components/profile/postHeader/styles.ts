@@ -37,6 +37,12 @@ export const styles = StyleSheet.create({
         // lineHeight: 'normal',
         lineHeight: 24,
     },
+    profilePic:{
+        width: 44,
+        height: 44,
+        borderRadius: 44,
+        // background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    },
     verifiedAndUforaIconContainer: {
         display: 'flex',
         alignItems: 'flex-start',
@@ -101,12 +107,6 @@ export const styles = StyleSheet.create({
     globeIcon: {
         width: 10,
         height: 10,
-    },
-    profilePic: {
-        width: 44,
-        height: 44,
-        borderRadius: 44,
-        // background: "url(<path-to-image>), lightgray 50% / cover no-repeat",
     },
     moreIcon: {
         width: 24,

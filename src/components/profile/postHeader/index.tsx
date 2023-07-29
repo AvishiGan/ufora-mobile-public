@@ -1,6 +1,13 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
+import {
+  GlobeIcon,
+  MoreIcon,
+  SmallDotIcon,
+  UforaIcon,
+  VerifiedIcon,
+} from "../../../../assets/svg";
 
 interface PostHeaderData {
   profilePic: any;
@@ -22,23 +29,30 @@ const PostHeader: React.FC<PostHeaderProps> = ({ data }) => {
   return (
     <View style={styles.postHeaderContainer}>
       <View style={styles.profilePicNameUniTimeContainer}>
-        {/* Profile pic comes here */}
+        {/* Profile pic */}
+        <Image style={styles.profilePic} source={data.profilePic} />
         <View style={styles.profileNameUniTimeContainer}>
           <View style={styles.profileNameTwoIconsContainer}>
             <Text style={styles.profileName}>{data.profileName}</Text>
             <View style={styles.verifiedAndUforaIconContainer}>
-              {/* Two icons come here */}
+              {/* Verified icon */}
+              <VerifiedIcon size={16} fillColor="#2656FF" strokeColor="#fff" />
+              {/* Ufora icon */}
+              <UforaIcon size={16} fillColor="#111111" strokeColor="#FEFEFE" />
             </View>
-            <Text style={styles.uniName}>{data.university}</Text>
-            <View style={styles.timeAndGlobeIconContainer}>
-              <Text style={styles.time}>{data.time}</Text>
-              {/* Dot icon comes here */}
-              {/* Globe icon comes here */}
-            </View>
+          </View>
+          <Text style={styles.uniName}>{data.university}</Text>
+          <View style={styles.timeAndGlobeIconContainer}>
+            <Text style={styles.time}>{data.time}</Text>
+            {/* Dot icon */}
+            <SmallDotIcon width={3} height={2} color="#87929D" />
+            {/* Globe icon */}
+            <GlobeIcon width={11} height={10} color="#87929D" />
           </View>
         </View>
       </View>
-      {/* More icon comes here */}
+      {/* More icon */}
+      <MoreIcon width={25} height={24} color="black" />
     </View>
   );
 };
