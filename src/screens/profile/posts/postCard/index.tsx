@@ -3,9 +3,11 @@
  */
 
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
+import { PostHeader } from "../../../../components";
+import { authorDataPost } from "./data";
 
 interface PostCardData {
   postDescription: string;
@@ -24,6 +26,8 @@ const PostCard: React.FC<PostCardData> = ({
 }) => {
   return (
     <View style={styles.singlePostContainer}>
+      {/* PostHeader component */}
+      <PostHeader data={authorDataPost} />
       <Text style={styles.postDescription}>
         {postDescription}
         <Text style={styles.seeMore}>... see more</Text>
