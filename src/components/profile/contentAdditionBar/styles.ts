@@ -24,8 +24,4 @@ export const styles = StyleSheet.create({
         // lineHeight: "normal",
         lineHeight: 21,
     },
-    icon: {
-        width: 24,
-        height: 24,
-    },
 });

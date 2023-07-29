@@ -48,9 +48,4 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         flexDirection: 'row',
     },
-    dotBetweenDateTime: {
-        width: 5,
-        height: 5,
-        fill: "var(--brand-grey, #4F4E4E)",
-    },
 });

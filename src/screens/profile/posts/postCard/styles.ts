@@ -79,10 +79,6 @@ export const styles = StyleSheet.create({
         gap: 5,
         flexDirection: 'row',
     },
-    likeButton: {
-        width: 20,
-        height: 20,
-    },
     likedNames: {
         color: "var(--form-field-outline, #87929D)",
         leadingTrim: "both",
@@ -129,9 +125,5 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 5,
         flexShrink: 0,
-    },
-    eachButton: {
-        width: 18,
-        height: 18,
     },
 });
