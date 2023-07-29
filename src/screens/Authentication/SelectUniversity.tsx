@@ -18,33 +18,67 @@ import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent } from "react";
 import SmallerRegular from "../../constants/fonts/SmallerRegular";
+import axios from "axios";
+import { SafeAreaView } from "react-native-safe-area-context";
 type Props = StackScreenProps<RootStackParamList, "Login">;
 
 interface FormValues {
   university: string;
-  password: string;
+  email: string;
 }
 
 const Login: FunctionComponent<Props> = ({ navigation }) => {
     const initialValues: FormValues = {
       university: "",
-      password: "",
+      email: "",
     };
 
-    const handleNext = (values: FormValues) => {
-      //const handleNext = () => Alert.alert("Login");
-      // Making the API request
-      //console.log(values);
-      navigation.navigate("UniOTP");
-    };
-  
-    const Link = () => {
-      const handleForgotPassword = () => {};
-    };
+  const handleNext = async (values: FormValues) => {
+    //  try {
+    //   const response = await axios.post("http://192.168.1.6:3000/otp/verify/university",{
+    //     university: values.university,  
+    //     email: values.email,
+    //   });
+
+    //   console.log(values);
+      navigation.navigate("UniOTP", { email: values.email });
+
+      //Request OTP when create account success
+      try{
+        const otpResponse = await axios.post("http://192.168.1.6:3000/otp/request", {
+            email: values.email,
+        });
+
+        console.log("OTP Request Response: ", otpResponse.data);
+    } catch (otpError){
+        console.error("OTP Request Error: ", otpError);
+    }
+
+    //   console.log("API Response: ", response.data);
+    // } catch (error: any) {
+
+    //   if (error.response) {
+    //     // The request was made and the server responded with a status code that falls out of the range of 2xx
+    //     const errorMessage = `${JSON.stringify(error.response.data)}`
+    //     alert(errorMessage);
+    //     console.error("API error: ", error.response.data);
+    //     console.error("API error status: ", error.response.status);
+    //   } else if (error.request) {
+    //     // The request was made but no response was received
+    //     console.error("API error: No response received");
+    //     console.log(error);
+    //   } else {
+    //     // Something happened in setting up the request that triggered an Error
+    //     const errorMessage = `${JSON.stringify(error.message)}`
+    //     alert(errorMessage);
+    //     console.error("API error: ", error.message);
+    //   }
+    // }
+  };
 
     return (
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
-        <StatusBar />
+        <KeyboardAvoidingView keyboardVerticalOffset={255} behavior="padding" style={styles.container}>
+        <SafeAreaView />
         <View>
           {/* Top section */}
           <Logo
@@ -73,6 +107,8 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                       imageSource={require("../../../assets/icons/user.png")}
                       name="university"
                       placeholder="University of Colombo"
+                      onChangeText = {handleChange("university")}
+                      value = {values.university}
                     />
                   </View>
 
@@ -80,10 +116,11 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                     style={{marginTop: 10, flexDirection: "row", alignItems: "center", justifyContent: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
                     <Field
                       component={InputField}
-                      imageSource={require("../../../assets/icons/password.png")}
-                      name="password"
-                      placeholder="*********"
-                      secureTextEntry={true}
+                      imageSource={require("../../../assets/icons/mail.png")}
+                      name="email"
+                      placeholder="samanp@stu.ucsc.cmb.ac.lk"
+                      onChangeText = {handleChange("email")}
+                      value = {values.email}
                     />
                   </View>
 

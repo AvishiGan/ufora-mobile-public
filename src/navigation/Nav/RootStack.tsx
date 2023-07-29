@@ -27,7 +27,7 @@ export type RootStackParamList = {
     CreateStudentAccount: undefined;
     CreateBusinessAccount: undefined;
     SelectUniversity: undefined;
-    UniOTP: undefined;
+    UniOTP: {email:string};
     StudentOTP: undefined;
     ForgotPassOTP: undefined;
     Feed: undefined;

@@ -17,6 +17,7 @@ import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent } from "react";
 import { Field, Formik } from 'formik';
+import axios from 'axios';
 type Props = StackScreenProps<RootStackParamList, "CreateBusinessAccount">;
 
 interface FormValues {
@@ -26,24 +27,58 @@ interface FormValues {
     password: string;
   }
 
-const CreateBusinessAccount:FunctionComponent<Props> = ({navigation}) => {
+const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
 
-const initialValues: FormValues = {
-    name: "",
-    email: "",
-    username: "",
-    password: "",
+    const initialValues: FormValues = {
+        name: "",
+        email: "",
+        username: "",
+        password: "",
     };
 
-    const handleSubmit = (values: FormValues) => {
-    //const handleSubmit = () => Alert.alert("Login");
-    // Making the API request
-    //console.log(values);
-    navigation.navigate("StudentOTP");
+    const handleCreateStudentAcc = async(values: FormValues) => {
+    try{
+        const response = await axios.post("http://192.168.1.6:3000/register/undergraduate",{
+            name: values.name,
+            email: values.email,
+            username: values.username,
+            password: values.password
+        });
+        console.log(values);
+        navigation.navigate("StudentOTP");
+        console.log("API Response: ", response.data);
+
+        //Request OTP when create account success
+        try{
+            const otpResponse = await axios.post("http://192.168.1.6:3000/otp/request", {
+                email: values.email,
+            });
+
+            console.log("OTP Request Response: ", otpResponse.data);
+        } catch (otpError){
+            console.error("OTP Request Error: ", otpError);
+        }
+
+    } catch (error:any){
+        if(error.response){
+            const errorMessage = `${JSON.stringify(error.response.data)}`
+            alert(errorMessage);
+            console.error("API error: ", error.response.data);
+            //console.error("API error status: ", error.response.status);
+        } else if (error.request){
+            // The request was made but no response was received
+            console.error("API error: No response received");
+            console.log(error);
+        } else {
+            const errorMessage = `${JSON.stringify(error.message)}`
+            alert(errorMessage);
+            console.error("API error: ", error.message);
+        }
+     }
     };
 
     const handleBack = () => {
-    navigation.navigate("CreateAccount");
+        navigation.navigate("CreateAccount");
     }
 
 return (
@@ -56,7 +91,7 @@ return (
 
     {/* Bottom section */}
     <View style={{ paddingHorizontal: 10, marginTop: 72 ,alignItems: "center"}}>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <Formik initialValues={initialValues} onSubmit={handleCreateStudentAcc}>
             {({ handleChange, handleSubmit, values }) => (
             <View style={{alignItems: "center"}}>
                 <View style={{flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2}} >
@@ -65,6 +100,8 @@ return (
                     imageSource={require("../../../assets/icons/person-standing.png")}
                     name="name"
                     placeholder="Saman Perera"
+                    onChangeText = {handleChange("name")}
+                    value = {values.name}
                 />
                 </View>
 
@@ -74,6 +111,8 @@ return (
                     imageSource={require("../../../assets/icons/mail.png")}
                     name="email"
                     placeholder="samanperera@gmail.com"
+                    onChangeText = {handleChange("email")}
+                    value = {values.email}
                 />
                 </View>
 
@@ -83,6 +122,8 @@ return (
                     imageSource={require("../../../assets/icons/user.png")}
                     name="username"
                     placeholder="SamanPerera"
+                    onChangeText = {handleChange("username")}
+                    value = {values.username}
                 />
                 </View>
 
@@ -93,6 +134,8 @@ return (
                     name="password"
                     placeholder="*********"
                     secureTextEntry={true}
+                    onChangeText = {handleChange("password")}
+                    value = {values.password}
                 />
                 </View>
 
@@ -139,4 +182,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CreateBusinessAccount;
+export default CreateStudentAccount;
