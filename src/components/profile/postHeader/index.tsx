@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import { styles } from "./styles";
 import {
   GlobeIcon,
@@ -8,6 +8,8 @@ import {
   UforaIcon,
   VerifiedIcon,
 } from "../../../../assets/svg";
+import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
+import { RegularSmall, SmallerMedium } from "../../../constants";
 
 interface PostHeaderData {
   profilePic: any;
@@ -33,7 +35,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ data }) => {
         <Image style={styles.profilePic} source={data.profilePic} />
         <View style={styles.profileNameUniTimeContainer}>
           <View style={styles.profileNameTwoIconsContainer}>
-            <Text style={styles.profileName}>{data.profileName}</Text>
+            <SemiBoldBig>{data.profileName}</SemiBoldBig>
             <View style={styles.verifiedAndUforaIconContainer}>
               {/* Verified icon */}
               <VerifiedIcon size={16} fillColor="#2656FF" strokeColor="#fff" />
@@ -41,9 +43,9 @@ const PostHeader: React.FC<PostHeaderProps> = ({ data }) => {
               <UforaIcon size={16} fillColor="#111111" strokeColor="#FEFEFE" />
             </View>
           </View>
-          <Text style={styles.uniName}>{data.university}</Text>
+          <RegularSmall>{data.university}</RegularSmall>
           <View style={styles.timeAndGlobeIconContainer}>
-            <Text style={styles.time}>{data.time}</Text>
+            <SmallerMedium>{data.time}</SmallerMedium>
             {/* Dot icon */}
             <SmallDotIcon width={3} height={2} color="#87929D" />
             {/* Globe icon */}
