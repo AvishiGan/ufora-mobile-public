@@ -3,8 +3,10 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     allSlidesContainer: {
         width: 405,
-        height: 30,
+        height: 100,
         flexShrink: 0,
+        display: "flex",
+        flexDirection: "row",
     },
     individualSlideContainer: {
         display: "flex",
@@ -19,20 +21,4 @@ export const styles = StyleSheet.create({
         animationTimingFunction: "ease-out",
         animationDuration: 300,
     },
-    individualSlideText: {
-        color: "#FEFEFE",
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        fontFamily: 'Poppins',
-        fontSize: 14,
-        fontStyle: 'normal',
-        fontWeight: '500',
-        lineHeight: 20,        
-    },
 });
-
-// // On click
-// // Navigate to: "Profile About";
-// // Animate: Smart animate;
-// animation-timing-function: ease-out;
-// animation-duration: 300ms;

@@ -13,17 +13,6 @@ export const styles = StyleSheet.create({
     borderColor: "#4F4E4E",
     flexDirection: "row",
   },
-  buttonText: {
-    color: "#4F4E4E",
-    leadingTrim: 'both',
-    textEdge: 'cap',
-    fontFamily: 'Poppins',
-    fontSize: 14,
-    fontStyle: 'normal',
-    fontWeight: '400',
-    // lineHeight: 'normal',
-    lineHeight: 20, // The height of a line box
-  },
   buttonIcon: {
     width: 16,
     height: 16,
