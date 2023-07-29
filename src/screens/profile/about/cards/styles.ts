@@ -23,16 +23,16 @@ export const styles = StyleSheet.create({
         flexShrink: 0,
     },
     // title -> cardTitle
-    cardTitle: {
-        color: '#111',
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        // fontFamily: 'Poppins',
-        fontSize: 18,
-        fontStyle: 'normal',
-        fontWeight: '600',
-        lineHeight: 24,
-    },
+    // cardTitle: {
+    //     color: '#111',
+    //     leadingTrim: 'both',
+    //     textEdge: 'cap',
+    //     // fontFamily: 'Poppins',
+    //     fontSize: 18,
+    //     fontStyle: 'normal',
+    //     fontWeight: '600',
+    //     lineHeight: 24,
+    // },
     // introContainer: {
     //   width: 385,
     // },

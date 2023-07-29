@@ -25,17 +25,6 @@ export const styles = StyleSheet.create({
         gap: 5,
         flexDirection: 'row',
     },
-    profileName: {
-        color: 'var(--brand-black, #111)',
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        fontFamily: 'Poppins',
-        fontSize: 12,
-        fontStyle: 'normal',
-        fontWeight: '600',
-        // lineHeight: 'normal',
-        lineHeight: 18,
-    },
     verifiedIcon: {
         display: 'flex',
         width: 12,
@@ -58,43 +47,10 @@ export const styles = StyleSheet.create({
         borderRadius: 17.111,
         background: 'var(--brand-black, #111)',
     },
-    uniName:{
-        // display: '-webkit-box',
-        display: 'flex',
-        WebkitBoxOrient: 'vertical',
-        WebkitLineClamp: 1,
-        alignSelf: 'stretch',
-        overflow: 'hidden',
-        color: 'var(--brand-grey, #4F4E4E)',
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        textOverflow: 'ellipsis',
-        fontFamily: 'Poppins',
-        fontSize: 10,
-        fontStyle: 'normal',
-        fontWeight: '400',
-        // lineHeight: 'normal',
-        lineHeight: 15,
-    },
     profilePic: {
         width: 30,
         height: 30,
         borderRadius: 30,
-        // background: 'url(<path-to-image>), lightgray 50% / cover no-repeat',
-    },
-    /**
-     * Addition style for author bio in project post 
-     */
-    date: {
-        color: 'var(--brand-grey, #4F4E4E)',
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        fontFamily: 'Poppins',
-        fontSize: 10,
-        fontStyle: 'normal',
-        fontWeight: '400',
-        // lineHeight: 'normal',
-        lineHeight: 24, /* 240% */
     },
 });
 

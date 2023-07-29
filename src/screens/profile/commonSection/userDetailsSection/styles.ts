@@ -44,18 +44,6 @@ export const styles = StyleSheet.create({
     gap: 5,
     flexDirection: "row",
   },
-  profileName: {
-    // color: "var(--brand-black, #111)",
-    color: "#111",
-    leadingTrim: "both",
-    textEdge: "cap",
-    fontFamily: "Poppins",
-    fontSize: 20,
-    fontStyle: "normal",
-    fontWeight: "600",
-    lineHeight: 24,
-    // paddingBottom: 12,
-  },
   profilePicContainer: {
     width: 50,
     height: 50,
@@ -107,26 +95,15 @@ export const styles = StyleSheet.create({
     // background: "var(--brand-black, #111)",
     background: "#111",
   },
-  uniName: {
-    // color: "var(--brand-grey, #4F4E4E)",
-    color: "##4F4E4E",
-    leadingTrim: "both",
-    textEdge: "cap",
-    fontFamily: "Poppins",
-    fontSize: 14,
-    fontStyle: "normal",
-    fontWeight: "400",
-    lineHeight: 24,
-  },
   statusContainer: {
     display: "flex",
-    flexDirection: "row", // // Update to horizontal layout
+    flexDirection: "row",
     alignItems: "flex-start",
     gap: 15,
   },
   individualStatusContainer:{
     display: "flex",
-    flexDirection: "row", // // Update to horizontal layout
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     gap: 5,

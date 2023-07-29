@@ -58,7 +58,6 @@ export const styles = StyleSheet.create({
         width: 404,
         height: 313,
         borderRadius: 15,
-        // background: "url(https://images.unsplash.com/photo-1621574539437-4b7b7b0b0b0b), lightgray 50% / cover no-repeat",
     },
     feedbackContainer: {
         display: 'flex',
@@ -112,21 +111,6 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-end',
         gap: 10,
     },
-    commentsCountText: {
-        display: 'flex',
-        height: 12,
-        alignItems: 'flex-end',
-        gap: 10,
-        color: "var(--form-field-outline, #87929D)",
-        leadingTrim: "both",
-        textEdge: "cap",
-        fontFamily: "Poppins",
-        fontSize: 12,
-        fontStyle: "normal",
-        fontWeight: "400",
-        // lineHeight: "normal",
-        lineHeight: 14, /* 116.667% */
-    },
     likeShareCommentButtonContainer: {
         display: 'flex',
         // width: 373,
@@ -150,16 +134,4 @@ export const styles = StyleSheet.create({
         width: 18,
         height: 18,
     },
-    eachButtonText: {
-        color: "var(--form-field-outline, #87929D)",
-        leadingTrim: "both",
-        textEdge: "cap",
-        fontFamily: "Poppins",
-        fontSize: 10,
-        fontStyle: "normal",
-        fontWeight: "400",
-        // lineHeight: "normal",
-        lineHeight: 11, /* 110% */
-    },
-
 });
