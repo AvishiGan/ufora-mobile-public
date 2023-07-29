@@ -1,48 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 10, // Add margin to create a gap between each set of info
-  },
-  profileSection: {
-    alignItems: "center",
-    marginBottom: 16,
-  },
-  profilePicture: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginBottom: 8,
-  },
-  profileName: {
-    color: "#111",
-    letterSpacing: 0.5,
-    textTransform: "capitalize",
-    fontFamily: "Poppins",
-    fontSize: 20,
-    fontStyle: "normal",
-    // fontWeight: "600",
-    fontWeight: "800",
-    // lineHeight: "normal",
-    lineHeight: 200
-  },
-  horizontalContainer: {
-    flexDirection: "row",
-  },
-  profileText: {
-    color: "#4F4E4E",
-    letterSpacing: 0.25,
-    textTransform: "capitalize",
-    fontFamily: "Poppins",
-    fontSize: 14,
-    fontStyle: "normal",
-    fontWeight: "400",
-    // lineHeight: 18,
-    display: "flex",
-    alignItems: "flex-start",
-    gap: 15,
-  },
+    topSectionContainer: {
+        width: 430,
+        height: 321,
+        flexShrink: 0,
+        background: "var(--graph, radial-gradient(678.36% 138.22% at 100.00% 95.42%, rgba(242, 242, 242, 0.30) 0%, rgba(224, 223, 223, 0.30) 50.24%, rgba(238, 238, 238, 0.30) 100%), #FFF)",
+        flexDirection: "column",
+        alignItems: "center",
+        display: "flex",
+    },
 });

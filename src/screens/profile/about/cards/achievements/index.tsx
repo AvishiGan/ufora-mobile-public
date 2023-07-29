@@ -1,23 +1,29 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
 import { Card, Title } from "react-native-paper";
 import { styles } from "../styles";
-// import { styles } from "./styles";
 import { achievementData } from "./data";
 
 const AchievementCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.title}>Achievements</Title>
+        <Title style={styles.cardTitle}>Achievements</Title>
       </Card.Content>
       {achievementData.map((achievement, index) => (
-        <Card.Content key={index}>
+        <Card.Content key={index} style={styles.iconAndDetailsContainer}>
+          <View>
+            <Image
+              style={styles.imageContainer}
+              source={achievement.image}
+              resizeMode="contain"
+            />
+          </View>
           <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.boldText]}>
+            <Text style={[styles.listItem, styles.mainDetail]}>
               {achievement.title}
             </Text>
-            <Text style={[styles.listItem, styles.lightText]}>
+            <Text style={[styles.listItem, styles.lightDetail]}>
               {achievement.contest}
             </Text>
           </View>
@@ -26,4 +32,5 @@ const AchievementCard: React.FC = () => {
     </Card>
   );
 };
+
 export default AchievementCard;
