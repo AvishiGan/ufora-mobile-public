@@ -13,7 +13,8 @@ import RegularNormal from "../../constants/fonts/RegularNormal";
 import RegularSmall from "../../constants/fonts/RegularSmall";
 import { Field, Formik } from "formik";
 
-import Constants from 'expo-constants';
+//import Constants from 'expo-constants';
+//import IP from '@env'
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
@@ -34,9 +35,10 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
   };
 
   const handleLogin = async (values: FormValues) => {
-    try {
-      const ipAddress = Constants.expoConfig?.extra?.IP;
-      const response = await axios.post("http://${ipAddress}:3000/login",{
+     try {
+    //const ip = process.env.IP
+    //console.log(ip)
+      const response = await axios.post("http://192.168.1.6:3000/login",{
         username: values.email,
         password: values.password
       });
@@ -49,14 +51,18 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
 
       if (error.response) {
         // The request was made and the server responded with a status code that falls out of the range of 2xx
+        const errorMessage = `${JSON.stringify(error.response.data)}`
+        alert(errorMessage);
         console.error("API error: ", error.response.data);
-        console.error("API error status: ", error.response.status);
+        //console.error("API error status: ", error.response.status);
       } else if (error.request) {
         // The request was made but no response was received
         console.error("API error: No response received");
         console.log(error);
       } else {
         // Something happened in setting up the request that triggered an Error
+        const errorMessage = `${JSON.stringify(error.message)}`
+        alert(errorMessage);
         console.error("API error: ", error.message);
       }
     }
