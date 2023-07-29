@@ -1,15 +1,16 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
-import { Card, Title } from "react-native-paper";
+import { View } from "react-native";
+import { Card } from "react-native-paper";
 import { styles } from "../styles";
 import { basicData } from "./data";
 import { CakeIcon, MailIcon, PhoneIcon } from "../../../../../../assets/svg";
+import { CardHeadingBold, RegularNormal } from "../../../../../constants";
 
-const AchievementCard: React.FC = () => {
+const BasicInfoCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.cardTitle}>Basic Info</Title>
+        <CardHeadingBold>Basic Info</CardHeadingBold>
       </Card.Content>
       {basicData.map((basicData, index) => (
         <View key={index}>
@@ -18,9 +19,9 @@ const AchievementCard: React.FC = () => {
             <View>
               <CakeIcon width={31} height={30} color="#111111" />
             </View>
-            <Text style={[styles.listItem, styles.mainDetail]}>
-              {basicData.birthday}
-            </Text>
+            <View style={styles.listItem}>
+              <RegularNormal>{basicData.birthday}</RegularNormal>
+            </View>
           </View>
 
           {/* Second singleBasicInfoContainer */}
@@ -28,9 +29,9 @@ const AchievementCard: React.FC = () => {
             <View>
               <PhoneIcon width={31} height={30} color="#111111" />
             </View>
-            <Text style={[styles.listItem, styles.mainDetail]}>
-              {basicData.mobileNo}
-            </Text>
+            <View style={styles.listItem}>
+              <RegularNormal>{basicData.mobileNo}</RegularNormal>
+            </View>
           </View>
 
           {/* Third singleBasicInfoContainer */}
@@ -38,9 +39,9 @@ const AchievementCard: React.FC = () => {
             <View>
               <MailIcon width={31} height={30} color="#111111" />
             </View>
-            <Text style={[styles.listItem, styles.mainDetail]}>
-              {basicData.email}
-            </Text>
+            <View style={styles.listItem}>
+              <RegularNormal>{basicData.email}</RegularNormal>
+            </View>
           </View>
         </View>
       ))}
@@ -48,4 +49,4 @@ const AchievementCard: React.FC = () => {
   );
 };
 
-export default AchievementCard;
+export default BasicInfoCard;
