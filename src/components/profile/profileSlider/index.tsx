@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { styles } from "./styles";
+import { ButtonMedium } from "../../../constants";
 
 type ProfileSliderProps = {
   slideTitles: string[];
@@ -15,7 +16,7 @@ const ProfileSlider: React.FC<ProfileSliderProps> = ({ slideTitles }) => (
   <View style={styles.allSlidesContainer}>
     {slideTitles.map((slideTitle, index) => (
       <View style={styles.individualSlideContainer} key={index}>
-        <Text style={styles.individualSlideText}>{slideTitle}</Text>
+        <ButtonMedium>{slideTitle}</ButtonMedium>
       </View>
     ))}
   </View>

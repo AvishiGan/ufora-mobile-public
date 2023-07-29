@@ -1,11 +1,14 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import { styles } from "./styles";
 import { profileData } from "../data";
-import VerifiedIcon from "../../../../../assets/svg/myProfile/common/verifiedIcon";
-import UforaIcon from "../../../../../assets/svg/myProfile/common/uforaIcon";
+import { VerifiedIcon, UforaIcon } from "../../../../../assets/svg";
 import { EditButton, ShareButton } from "../../../../components/profile";
-import ProfilePlusIcon from "../../../../../assets/svg/myProfile/common/profilePlusIcon";
+import {
+  SubHeadingSemibold,
+  RegularNormal,
+  SemiboldBig,
+} from "../../../../constants";
 
 const UserDetailsContainer: React.FC = () => {
   /**
@@ -30,7 +33,7 @@ const UserDetailsContainer: React.FC = () => {
         </View>
         <View style={styles.profileNameUniContainer}>
           <View style={styles.profileNameTwoIconsContainer}>
-            <Text style={styles.profileName}>{profileData.name}</Text>
+            <SubHeadingSemibold>{profileData.name}</SubHeadingSemibold>
             <View style={styles.twoIconsContainer}>
               {/* Verified icon */}
               <VerifiedIcon
@@ -42,7 +45,7 @@ const UserDetailsContainer: React.FC = () => {
               <UforaIcon size={21} fillColor="#111111" strokeColor="#FEFEFE" />
             </View>
           </View>
-          <Text style={styles.uniName}>{profileData.university}</Text>
+          <RegularNormal>{profileData.university}</RegularNormal>
         </View>
       </View>
       <View style={styles.statusContainer}>
@@ -80,10 +83,10 @@ interface StatusCountProps {
  */
 const StatusCount: React.FC<StatusCountProps> = ({ count, name }) => {
   return (
-    <Text style={styles.statusCount}>
+    <SemiboldBig>
       {count}
-      <Text style={styles.statusName}> {name}</Text>
-    </Text>
+      <RegularNormal> {name}</RegularNormal>
+    </SemiboldBig>
   );
 };
 

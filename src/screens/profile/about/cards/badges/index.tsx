@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image } from "react-native";
-import { Card, Title } from "react-native-paper";
+import { Card} from "react-native-paper";
 import { styles } from "../styles";
 import {
   badge1,
@@ -12,6 +12,7 @@ import {
   badge7,
   badge8,
 } from "../../../../../../assets/images";
+import { CardHeadingBold } from "../../../../../constants";
 
 const badgeImages = [
   badge1,
@@ -28,7 +29,7 @@ const DigitalBadgesCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.cardTitle}>Digital Badges</Title>
+        <CardHeadingBold>Digital Badges</CardHeadingBold>
         <View style={styles.allBadgesContainer}>
           {badgeImages.map((badge, index) => (
             <Image

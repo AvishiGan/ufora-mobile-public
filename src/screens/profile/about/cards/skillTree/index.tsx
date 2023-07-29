@@ -1,13 +1,13 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { Card, Button, Title, Paragraph } from "react-native-paper";
+import { Card } from "react-native-paper";
 import { styles } from "../styles";
+import { CardHeadingBold } from "../../../../../constants";
 
 const SkillHexagonCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.cardTitle}>Skill Hexagon</Title>
+        <CardHeadingBold>Skill Tree</CardHeadingBold>
       </Card.Content>
     </Card>
   );
