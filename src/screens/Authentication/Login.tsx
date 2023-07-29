@@ -13,6 +13,8 @@ import RegularNormal from "../../constants/fonts/RegularNormal";
 import RegularSmall from "../../constants/fonts/RegularSmall";
 import { Field, Formik } from "formik";
 
+import Constants from 'expo-constants';
+
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
@@ -33,7 +35,8 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
 
   const handleLogin = async (values: FormValues) => {
     try {
-      const response = await axios.post("http://192.168.181.71:3000/login",{
+      const ipAddress = Constants.expoConfig?.extra?.IP;
+      const response = await axios.post("http://${ipAddress}:3000/login",{
         username: values.email,
         password: values.password
       });
@@ -74,8 +77,23 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
             alignItems: "center",
           }}
         >
-          <Formik initialValues={initialValues} onSubmit={handleLogin}>
-            {({ handleChange, handleSubmit, values }) => (
+          <Formik 
+          initialValues={initialValues} 
+          onSubmit={handleLogin} 
+          // validate={(values: FormValues) => {
+          //   const errors: Partial<FormValues> = {};
+
+          //   //validate username
+          //   if (!values.email){
+          //     errors.email = "Username is required";
+          //   }
+
+          //   if (!values.password){
+          //     errors.password = "Password is required";
+          //   }
+          // }}
+          >
+            {({ handleChange, handleSubmit, values, errors }) => (
               <View>
                 <View
                   style={{
@@ -95,6 +113,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                     value={values.email}
                   />
                 </View>
+                {errors.email && <Text>{errors.email}</Text>}
 
                 <View
                   style={{
@@ -115,7 +134,11 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                     onChangeText={handleChange("password")}
                     value={values.password}
                   />
+
+
                 </View>
+                {errors.password && <Text>{errors.password}</Text>}
+
                 <TouchableOpacity
                   onPress={() => navigation.navigate("ForgotPassword")}
                 >

@@ -17,6 +17,7 @@ import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent } from "react";
 import { Field, Formik } from 'formik';
+import axios from 'axios';
 type Props = StackScreenProps<RootStackParamList, "CreateBusinessAccount">;
 
 interface FormValues {
@@ -26,24 +27,42 @@ interface FormValues {
     password: string;
   }
 
-const CreateBusinessAccount:FunctionComponent<Props> = ({navigation}) => {
+const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
 
-const initialValues: FormValues = {
-    name: "",
-    email: "",
-    username: "",
-    password: "",
+    const initialValues: FormValues = {
+        name: "",
+        email: "",
+        username: "",
+        password: "",
     };
 
-    const handleSubmit = (values: FormValues) => {
-    //const handleSubmit = () => Alert.alert("Login");
-    // Making the API request
-    //console.log(values);
-    navigation.navigate("StudentOTP");
+    const handleCreateStudentAcc = async(values: FormValues) => {
+    try{
+        const response = await axios.post("http://10.22.167.182:3000/register/undergraduate",{
+            name: values.name,
+            email: values.email,
+            username: values.username,
+            password: values.password
+        });
+        console.log(values);
+        navigation.navigate("StudentOTP");
+        console.log("API Response: ", response.data);
+    } catch (error:any){
+        if(error.response){
+            console.error("API error: ", error.response.data);
+            console.error("API error status: ", error.response.status);
+        } else if (error.request){
+            // The request was made but no response was received
+            console.error("API error: No response received");
+            console.log(error);
+        } else {
+            console.error("API error: ", error.message);
+        }
+     }
     };
 
     const handleBack = () => {
-    navigation.navigate("CreateAccount");
+        navigation.navigate("CreateAccount");
     }
 
 return (
@@ -56,7 +75,7 @@ return (
 
     {/* Bottom section */}
     <View style={{ paddingHorizontal: 10, marginTop: 72 ,alignItems: "center"}}>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <Formik initialValues={initialValues} onSubmit={handleCreateStudentAcc}>
             {({ handleChange, handleSubmit, values }) => (
             <View style={{alignItems: "center"}}>
                 <View style={{flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2}} >
@@ -139,4 +158,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CreateBusinessAccount;
+export default CreateStudentAccount;
