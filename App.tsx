@@ -1,27 +1,41 @@
-import React from "react";
-import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
-import SafeViewAndroid from "./src/components/SafeViewAndroid";
-import { ProfileSlider, UserProfileTopBar } from "./src/components";
-import ProfileCommonSection from "./src/screens/profile/commonSection";
-import ProfilePortfolioSection from "./src/screens/profile/portfolio";
-import ProfileBlogSection from "./src/screens/profile/blogs";
-import UserDetailsContainer from "./src/screens/profile/commonSection/userDetailsSection";
-import { Button } from "react-native-paper";
-import AboutCardSection from "./src/screens/profile/about/cards";
-import ProfileAboutSection from "./src/screens/profile/about";
-import { User } from "lucide";
-import AchievementCard from "./src/screens/profile/about/cards/achievements";
+// import React from "react";
+// import { View, StyleSheet, ScrollView } from "react-native";
+// import MyProfile from "./src/screens/profile";
+
+// export default function App() {
+//   return (
+//     <ScrollView>
+//       <MyProfile />
+//     </ScrollView>
+//   );
+// }
+
+import { StatusBar } from "expo-status-bar";
+import { Text, View } from "react-native";
+import Welcome from "./src/screens/Authentication/Welcome";
+import RootNavigator from "./src/navigation/Nav/RootStack";
+import { NavigationContainer } from "@react-navigation/native";
+
+//custom fonts
+import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font";
+
+//React Navigation
+import RootStack from "./src/navigation/Nav/RootStack";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "Text": require("./assets/fonts/Switzer-Variable.ttf"),
+    "ItalicText": require("./assets/fonts/Switzer-VariableItalic.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-      <ScrollView>
-        {/* <ProfileSlider slideTitles={["About", "Posts", "Friends"]} />
-      <ProfileCommonSection /> */}
-        {/* <ProfilePortfolioSection /> */}
-        {/* <UserDetailsContainer /> */}
-        <AchievementCard />
-      </ScrollView>
-    </SafeAreaView>
+    <> 
+    <RootStack />
+    </>
   );
 }

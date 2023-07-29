@@ -42,7 +42,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
     //const handleVerify = () => Alert.alert("Login");
     // Making the API request
     //console.log(values);
-    navigation.navigate("Feed");
+    navigation.navigate("SelectUniversity");
   };
 
   return (
@@ -54,7 +54,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
 
 
         {/* Bottom section */}
-        <View style={{ paddingHorizontal: 10, marginTop: 350, alignItems: "center", justifyContent: "center"}}>
+        <View style={{ marginTop: 360, alignItems: "center", justifyContent: "center"}}>
         <Formik initialValues={initialValues} onSubmit={handleVerify}>
         {({ handleChange, handleSubmit, values }) => (
           <View>
@@ -109,7 +109,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
             </View>
 
             {/* Button */}
-            <View style={{ marginLeft:25 ,alignItems: "center", justifyContent: "center", marginTop: 25, width: 280 }}>
+            <View style={{ marginLeft:25 ,alignItems: "center", justifyContent: "center", marginTop: 30, width: 280 }}>
               <RegularButton onPress={handleSubmit}>
                 <Text style={{ color: "#FEFEFE" }}>Verify</Text>
               </RegularButton>
@@ -118,7 +118,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
         )}
       </Formik>
 
-          <View style={{ marginTop: 30, alignItems: 'center',flexDirection: 'row'}}>
+          <View style={{ marginTop: 25, alignItems: 'center',flexDirection: 'row'}}>
             <RegularNormal>
               <Text style={{ alignItems: 'center'}}>Didn't receive an OTP?</Text>
             </RegularNormal>

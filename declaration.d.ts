@@ -3,10 +3,12 @@
 declare module '*.svg' {
   import {SvgProps} from 'react-native-svg';
   const content: React.StatelessComponent<SvgProps>;
-  export default content;
+  export default content;
 }
 
 declare module "*.png";
 
 declare module "*.jpg"
+declare module 'react-native-animated-input';
 
+declare module 'lucide-react-native';

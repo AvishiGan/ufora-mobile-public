@@ -1,91 +1,109 @@
 import React, { FunctionComponent, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-  ImageSourcePropType,
-  Text,
-  View,
-  Image,
-  TextInput,
-} from "react-native";
+import {ImageSourcePropType,Text,View,Image, KeyboardAvoidingView,StyleSheet} from "react-native";
 import logo from "../../../assets/logo.png";
-import User from "../../../assets/icons/user.png";
-import RegularButton from "../../components/buttons/RegularButton";
-import { GestureResponderEvent } from "react-native";
 import { TouchableOpacity } from "react-native";
+import RegularNormal from "../../constants/fonts/RegularNormal";
+import Logo from "../../components/logo/Logo";
+import SmallButton from "../../components/buttons/SmallButton";
+import UnfilledButton from "../../components/buttons/UnfilledButton";
+import InputField from "../../components/inputField/InputField";
 
-//React Navigation
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import BoldText from "../../constants/fonts/BoldText";
-import MediumText from "../../constants/fonts/MediumText";
-import LightText from "../../constants/fonts/LightText";
-import RegularText from "../../constants/fonts/RegularText";
+//navigation
+import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { StackScreenProps } from "@react-navigation/stack";
+import { Field, Formik } from "formik";
+type Props = StackScreenProps<RootStackParamList, "ForgotPassword">;
 
-interface CustomImageProps {
-  source: ImageSourcePropType;
+interface FormValues {
+  email: string;
 }
 
-const CustomImage: FunctionComponent<CustomImageProps> = ({ source }) => {
-  return <Image source={source} />;
-};
+const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
+  const initialValues: FormValues = {
+    email: "",
+  };
 
-const ForgotPassword: FunctionComponent<LoginProps> = ({ onPressLogin }) => {
-  const [email, setemail] = useState("");
-
-  const handleEmailChange = (text: string) => {
-    setemail(text);
+  const handleNext = (values: FormValues) => {
+    //const handleLogin = () => Alert.alert("Login");
+    // Making the API request
+    //console.log(values);
+    navigation.navigate("Feed");
   };
 
   return (
-    <>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <StatusBar />
-
-      <View>
+      <View style={{alignItems: "center"}}>
         {/* Top section */}
-        <View className="items-center mt-40 justify-center px-5">
-          <CustomImage source={logo} />
-          <View className="items-center mt-2 w-85">
-            <BoldText className="">Forgot Password</BoldText>
-            <MediumText className="flex-wrap">
-              Please enter your Email to continue
-            </MediumText>
-            <MediumText> </MediumText>
-          </View>
-        </View>
+        <Logo source={logo} mainText="Forgot Password" subText="Choose an Account type to get started "/>
+
 
         {/* Bottom section */}
-        <View className="px-10 mt-60">
-          <View className="">
-            <LightText className="text-gray-600 mb-1">Email</LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-2 p-1">
-              <View className="p-2">
-                <Image source={User} />
-              </View>
-              <TextInput
-                placeholder="Please enter your Email"
-                value={email}
-                onChangeText={handleEmailChange}
-              />
-            </View>
-          </View>
+        <View style={{paddingHorizontal: 10, marginTop: 350, alignItems: "center"}}>
+          <Formik initialValues={initialValues} onSubmit={handleNext}>
+            {({ handleChange, handleSubmit, values }) => (
+              <View>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "transparent",
+                    borderRadius: 20,
+                    padding: 2,
+                  }}
+                >
+                  <Field
+                    component={InputField}
+                    imageSource={require("../../../assets/icons/mail.png")}
+                    name="email"
+                    placeholder="Please enter your Email"
+                  />
+                </View>
 
-          {/* Button */}
-          <View className="mt-5 items-center">
-            <RegularButton className="" onPress={() => {}}>
-              <Text className="text-white">Next</Text>
-            </RegularButton>
-          </View>
-          <View className="mt-6 items-center">
-            <RegularText>
-              <Text className="items-center text-blue-500">
-                Can't reset your password?
-              </Text>
-            </RegularText>
+
+                {/* Button */}
+                <View style={{flexDirection: "row",marginTop: 30,alignItems: "center",gap: 10,}} >
+                  <UnfilledButton onPress={() => navigation.navigate('Login')}>
+                    <Text style={{ color: "#2656FF" }}>Back</Text>
+                  </UnfilledButton>
+
+                  <SmallButton onPress={() => navigation.navigate('ForgotPassOTP')}>
+                    <Text style={{ color: "#FEFEFE" }}>Next</Text>
+                  </SmallButton>
+                </View>
+              </View>
+            )}
+          </Formik>
+
+          <View style={{ marginTop: 20, alignItems: 'center', marginBottom: 20}}>
+            <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+              <View>
+                <RegularNormal>
+                    <Text style={{ color: '#2656FF' }}>Can't reset your password?</Text>
+                  </RegularNormal>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
-    </>
+      </KeyboardAvoidingView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+  },
+  input: {
+      width: '80%',
+      height: 40,
+      borderWidth: 1,
+      borderColor: 'gray',
+  },
+});
 
 export default ForgotPassword;
