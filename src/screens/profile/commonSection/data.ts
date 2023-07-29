@@ -1,8 +1,11 @@
+import { profilePicture } from "../../../../assets/images";
+
 /**
  * @interface ProfileData
  *  Specify the properties and their types that the profileData object should have
  */
 export interface ProfileData {
+    profilePic: any;
     name: string;
     university: string;
     friendsCount: number;
@@ -18,6 +21,7 @@ export interface ProfileData {
    * Object contain actual data
    */
   export const profileData: ProfileData = {
+    profilePic: profilePicture,
     name: "Isuru Ranawaka",
     university: "Undergrad at University of Colombo",
     friendsCount: 45,

@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import { profileData } from "../data";
 import VerifiedIcon from "../../../../../assets/svg/myProfile/common/verifiedIcon";
 import UforaIcon from "../../../../../assets/svg/myProfile/common/uforaIcon";
 import { EditButton, ShareButton } from "../../../../components/profile";
+import ProfilePlusIcon from "../../../../../assets/svg/myProfile/common/profilePlusIcon";
 
 const UserDetailsContainer: React.FC = () => {
   /**
@@ -19,7 +20,14 @@ const UserDetailsContainer: React.FC = () => {
   return (
     <View style={styles.userDetailsContainer}>
       <View style={styles.profilePicNameUniContainer}>
-        {/* Profile pic comes here */}
+        {/* Profile pic */}
+        <View style={styles.profilePicContainer}>
+          <Image style={styles.profilePic} source={profileData.profilePic} />
+          {/* Profile plus icon */}
+          {/* <View style={styles.profilePlusIcon}>
+            <ProfilePlusIcon size={30} color="blue" />
+          </View> */}
+        </View>
         <View style={styles.profileNameUniContainer}>
           <View style={styles.profileNameTwoIconsContainer}>
             <Text style={styles.profileName}>{profileData.name}</Text>
