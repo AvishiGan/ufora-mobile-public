@@ -56,6 +56,27 @@ export const styles = StyleSheet.create({
     lineHeight: 24,
     // paddingBottom: 12,
   },
+  profilePicContainer: {
+    width: 50,
+    height: 50,
+  },
+  profilePic: {
+    width: 50,
+    height: 50,
+    flexShrink: 0,
+    borderRadius: 50,
+    // background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  },
+  profilePlusIcon: {
+    // display: "inline-flex",
+    display: "flex",
+    padding: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 10,
+    borderRadius: 83,
+    // background: var(--brand-blue, #2656FF);
+  },
   twoIconsContainer: {
     display: "flex",
     alignItems: "flex-start",
@@ -141,5 +162,3 @@ export const styles = StyleSheet.create({
     gap: 15,
   },
 });
-
-// background: var(--graph, radial-gradient(678.36% 138.22% at 100.00% 95.42%, rgba(242, 242, 242, 0.30) 0%, rgba(224, 223, 223, 0.30) 50.24%, rgba(238, 238, 238, 0.30) 100%), #FFF);
