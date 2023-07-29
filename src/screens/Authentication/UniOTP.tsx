@@ -17,7 +17,7 @@ import RegularNormal from "../../constants/fonts/RegularNormal";
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
-type Props = StackScreenProps<RootStackParamList, "OTP">;
+type Props = StackScreenProps<RootStackParamList, "UniOTP">;
 
 interface FormValues {
   num1: string;
@@ -50,7 +50,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
       <StatusBar />
       <View>
         {/* Top section */}
-        <Logo source={logo} mainText="OTP" subText="Please enter the OTP sent to your Email"/>
+        <Logo source={logo} mainText="Uni OTP" subText="Please enter the OTP sent to your Uni Email"/>
 
 
         {/* Bottom section */}
@@ -122,7 +122,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
             <RegularNormal>
               <Text style={{ alignItems: 'center'}}>Didn't receive an OTP?</Text>
             </RegularNormal>
-            <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+            <TouchableOpacity onPress={{}}>
               <View>
                 <RegularNormal>
                     <Text style={{ color: '#2656FF' }}>Resend OTP</Text>

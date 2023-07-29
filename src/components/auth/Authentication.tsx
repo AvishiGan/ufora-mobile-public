@@ -8,11 +8,9 @@ import {
 import { View } from "react-native";
 import google from "../../../assets/icons/google.png";
 import apple from "../../../assets/icons/apple.png";
-import SmallText from "../../constants/fonts/MediumText";
-import LightText from "../../constants/fonts/LightText";
-import MediumText from "../../constants/fonts/MediumText";
-import RegularText from "../../constants/fonts/RegularText";
-
+import SmallText from "../../constants/fonts/SmallMedium";
+import MediumText from "../../constants/fonts/SmallMedium";
+import SmallMedium from "../../constants/fonts/SmallMedium";
 
 interface CustomImageProps {
   source: ImageSourcePropType;
@@ -42,14 +40,21 @@ const Authentication: FunctionComponent<ImagesSectionProps> = ({
   };
 
   return (
-    <View className="items-center mt-5">
-      <RegularText className="">Or continue with</RegularText>
-      <View className="flex-row mt-1 justify-between w-32">
+    <View style={{ alignItems: "center", marginTop: 20 }}>
+      <SmallMedium>Or continue with</SmallMedium>
+      <View
+        style={{
+          flexDirection: "row",
+          marginTop: 10,
+          justifyContent: "space-between",
+          gap:61
+        }}
+      >
         <TouchableOpacity onPress={onPressGoogle}>
-          <CustomImage source={google} />
+          <CustomImage source={google} style={{ width: 30, height: 30 }} />
         </TouchableOpacity>
         <TouchableOpacity onPress={onPressApple}>
-          <CustomImage source={apple} />
+          <CustomImage source={apple} style={{ width: 30, height: 30 }} />
         </TouchableOpacity>
       </View>
     </View>
