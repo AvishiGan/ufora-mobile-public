@@ -5,9 +5,9 @@ import { styles } from "../styles";
 
 const SkillHexagonCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.title}>Skill Hexagon</Title>
+        <Title style={styles.cardTitle}>Skill Hexagon</Title>
       </Card.Content>
     </Card>
   );

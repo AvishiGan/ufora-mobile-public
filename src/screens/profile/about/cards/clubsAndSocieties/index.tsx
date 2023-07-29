@@ -1,22 +1,29 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
 import { Card, Title } from "react-native-paper";
 import { styles } from "../styles";
 import { clubData } from "./data";
 
 const ClubsAndSocietiesCard: React.FC = () => {
   return (
-    <Card style={styles.container}>
+    <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.title}>Clubs and Societies</Title>
+        <Title style={styles.cardTitle}>Clubs and Societies</Title>
       </Card.Content>
       {clubData.map((club, index) => (
-        <Card.Content key={index}>
+        <Card.Content key={index} style={styles.iconAndDetailsContainer}>
+          <View>
+            <Image
+              style={styles.imageContainer}
+              source={club.image}
+              resizeMode="contain"
+            />
+          </View>
           <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.boldText]}>
+            <Text style={[styles.listItem, styles.mainDetail]}>
               {club.title}
             </Text>
-            <Text style={[styles.listItem, styles.lightText]}>
+            <Text style={[styles.listItem, styles.lightDetail]}>
               {club.period}
             </Text>
           </View>
