@@ -8,6 +8,8 @@ import { styles } from "./styles";
 import PropTypes from "prop-types";
 import { PostHeader } from "../../../../components";
 import { authorDataPost } from "./data";
+import { CommentIcon, LikeIcon, LikedIcon } from "../../../../../assets/svg";
+import PostShareIcon from "../../../../../assets/svg/myProfile/posts/postShareIcon";
 
 interface PostCardData {
   postDescription: string;
@@ -36,7 +38,8 @@ const PostCard: React.FC<PostCardData> = ({
       <View style={styles.feedbackContainer}>
         <View style={styles.likesCommentsContainer}>
           <View style={styles.likeButtonAndNamesContainer}>
-            {/* thumbsUpIcon or Like button comes here */}
+            {/* Liked icon */}
+            <LikedIcon width={20} height={20} />
             <Text style={styles.likedNames}>{likedNames}</Text>
             <Text style={styles.andOthers}>{`& ${likedCount} others`}</Text>
           </View>
@@ -47,14 +50,19 @@ const PostCard: React.FC<PostCardData> = ({
           </View>
         </View>
         <View style={styles.likeShareCommentButtonContainer}>
-          {/* Each button comes here */}
           <View style={styles.eachButtonContainer}>
+            {/* Like icon */}
+            <LikeIcon width={18} height={18} />
             <Text style={styles.eachButtonText}>Like</Text>
           </View>
           <View style={styles.eachButtonContainer}>
+            {/* Comment icon */}
+            <CommentIcon width={18} height={18} />
             <Text style={styles.eachButtonText}>Comment</Text>
           </View>
           <View style={styles.eachButtonContainer}>
+            {/* Share icon */}
+            <PostShareIcon width={18} height={18} />
             <Text style={styles.eachButtonText}>Share</Text>
           </View>
         </View>
