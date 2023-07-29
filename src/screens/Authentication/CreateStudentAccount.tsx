@@ -38,7 +38,7 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
 
     const handleCreateStudentAcc = async(values: FormValues) => {
     try{
-        const response = await axios.post("http://10.22.167.182:3000/register/undergraduate",{
+        const response = await axios.post("http://192.168.1.6:3000/register/undergraduate",{
             name: values.name,
             email: values.email,
             username: values.username,
@@ -47,15 +47,31 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
         console.log(values);
         navigation.navigate("StudentOTP");
         console.log("API Response: ", response.data);
+
+        //Request OTP when create account success
+        try{
+            const otpResponse = await axios.post("http://192.168.1.6:3000/otp/request", {
+                email: values.email,
+            });
+
+            console.log("OTP Request Response: ", otpResponse.data);
+        } catch (otpError){
+            console.error("OTP Request Error: ", otpError);
+        }
+
     } catch (error:any){
         if(error.response){
+            const errorMessage = `${JSON.stringify(error.response.data)}`
+            alert(errorMessage);
             console.error("API error: ", error.response.data);
-            console.error("API error status: ", error.response.status);
+            //console.error("API error status: ", error.response.status);
         } else if (error.request){
             // The request was made but no response was received
             console.error("API error: No response received");
             console.log(error);
         } else {
+            const errorMessage = `${JSON.stringify(error.message)}`
+            alert(errorMessage);
             console.error("API error: ", error.message);
         }
      }
@@ -84,6 +100,8 @@ return (
                     imageSource={require("../../../assets/icons/person-standing.png")}
                     name="name"
                     placeholder="Saman Perera"
+                    onChangeText = {handleChange("name")}
+                    value = {values.name}
                 />
                 </View>
 
@@ -93,6 +111,8 @@ return (
                     imageSource={require("../../../assets/icons/mail.png")}
                     name="email"
                     placeholder="samanperera@gmail.com"
+                    onChangeText = {handleChange("email")}
+                    value = {values.email}
                 />
                 </View>
 
@@ -102,6 +122,8 @@ return (
                     imageSource={require("../../../assets/icons/user.png")}
                     name="username"
                     placeholder="SamanPerera"
+                    onChangeText = {handleChange("username")}
+                    value = {values.username}
                 />
                 </View>
 
@@ -112,6 +134,8 @@ return (
                     name="password"
                     placeholder="*********"
                     secureTextEntry={true}
+                    onChangeText = {handleChange("password")}
+                    value = {values.password}
                 />
                 </View>
 
