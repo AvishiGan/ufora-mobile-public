@@ -13,6 +13,7 @@ import InputField from "../../components/inputField/InputField";
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
+import axios from "axios";
 type Props = StackScreenProps<RootStackParamList, "ForgotPassword">;
 
 interface FormValues {
@@ -25,10 +26,30 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
   };
 
   const handleNext = (values: FormValues) => {
-    //const handleLogin = () => Alert.alert("Login");
-    // Making the API request
-    //console.log(values);
-    navigation.navigate("Feed");
+    // try {
+    //   const response = await axios.post("http://10.22.167.182:3000/...",{
+    //     username: values.email,
+    //   });
+
+    //   console.log(values);
+      navigation.navigate("Feed");
+
+    //   console.log("API Response: ", response.data);
+    // } catch (error: any) {
+
+    //   if (error.response) {
+    //     // The request was made and the server responded with a status code that falls out of the range of 2xx
+    //     console.error("API error: ", error.response.data);
+    //     console.error("API error status: ", error.response.status);
+    //   } else if (error.request) {
+    //     // The request was made but no response was received
+    //     console.error("API error: No response received");
+    //     console.log(error);
+    //   } else {
+    //     // Something happened in setting up the request that triggered an Error
+    //     console.error("API error: ", error.message);
+    //   }
+    // }
   };
 
   return (
