@@ -8,6 +8,7 @@ const SkillHexagonCard: React.FC = () => {
     <Card style={styles.individualCardContainer}>
       <Card.Content>
         <CardHeadingBold>Skill Tree</CardHeadingBold>
+        {/* <Card.Content style={styles.contentWithGap}></Card.Content> */}
       </Card.Content>
     </Card>
   );

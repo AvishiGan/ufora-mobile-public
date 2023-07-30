@@ -12,7 +12,7 @@ export const achievementData = [
       contest: "ReidXtreme 2023",
     },
     {
-      Image: achievement3,
+      image: achievement3,
       title: "UI/UX Designathon - 1st Place (Team)",
       contest: "IX 2023",
     },];

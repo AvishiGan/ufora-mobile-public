@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image } from "react-native";
-import { Card} from "react-native-paper";
+import { Card, Title } from "react-native-paper";
 import { styles } from "../styles";
 import {
   badge1,
@@ -30,16 +30,18 @@ const DigitalBadgesCard: React.FC = () => {
     <Card style={styles.individualCardContainer}>
       <Card.Content>
         <CardHeadingBold>Digital Badges</CardHeadingBold>
-        <View style={styles.allBadgesContainer}>
-          {badgeImages.map((badge, index) => (
-            <Image
-              key={index}
-              style={styles.singleBadgeContainer}
-              source={badge}
-              resizeMode="contain"
-            />
-          ))}
-        </View>
+        <Card.Content style={styles.contentWithGap}>
+          <View style={styles.allBadgesContainer}>
+            {badgeImages.map((badge, index) => (
+              <Image
+                key={index}
+                style={styles.singleBadgeContainer}
+                source={badge}
+                resizeMode="contain"
+              />
+            ))}
+          </View>
+        </Card.Content>
       </Card.Content>
     </Card>
   );

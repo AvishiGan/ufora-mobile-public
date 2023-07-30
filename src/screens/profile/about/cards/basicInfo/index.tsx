@@ -12,39 +12,35 @@ const BasicInfoCard: React.FC = () => {
       <Card.Content>
         <CardHeadingBold>Basic Info</CardHeadingBold>
       </Card.Content>
-      {basicData.map((basicData, index) => (
-        <View key={index}>
-          {/* First singleBasicInfoContainer */}
-          <View style={styles.singleBasicInfoContainer}>
-            <View>
-              <CakeIcon width={31} height={30} color="#111111" />
-            </View>
-            <View style={styles.listItem}>
+      <Card.Content style={styles.contentWithGap}>
+        {basicData.map((basicData, index) => (
+          <View key={index}>
+            {/* First singleBasicInfoContainer */}
+            <View style={styles.singleBasicInfoContainer}>
+              <View>
+                <CakeIcon width={31} height={30} color="#111111" />
+              </View>
               <RegularNormal>{basicData.birthday}</RegularNormal>
             </View>
-          </View>
 
-          {/* Second singleBasicInfoContainer */}
-          <View style={styles.singleBasicInfoContainer}>
-            <View>
-              <PhoneIcon width={31} height={30} color="#111111" />
-            </View>
-            <View style={styles.listItem}>
+            {/* Second singleBasicInfoContainer */}
+            <View style={styles.singleBasicInfoContainer}>
+              <View>
+                <PhoneIcon width={31} height={30} color="#111111" />
+              </View>
               <RegularNormal>{basicData.mobileNo}</RegularNormal>
             </View>
-          </View>
 
-          {/* Third singleBasicInfoContainer */}
-          <View style={styles.singleBasicInfoContainer}>
-            <View>
-              <MailIcon width={31} height={30} color="#111111" />
-            </View>
-            <View style={styles.listItem}>
+            {/* Third singleBasicInfoContainer */}
+            <View style={styles.singleBasicInfoContainer}>
+              <View>
+                <MailIcon width={31} height={30} color="#111111" />
+              </View>
               <RegularNormal>{basicData.email}</RegularNormal>
             </View>
           </View>
-        </View>
-      ))}
+        ))}
+      </Card.Content>
     </Card>
   );
 };

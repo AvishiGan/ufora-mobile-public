@@ -11,23 +11,23 @@ const AchievementCard: React.FC = () => {
       <Card.Content>
         <CardHeadingBold>Achievements</CardHeadingBold>
       </Card.Content>
-      {achievementData.map((achievement, index) => (
-        <Card.Content key={index} style={styles.iconAndDetailsContainer}>
-          <View>
-            <Image
-              style={styles.imageContainer}
-              source={achievement.image}
-              resizeMode="contain"
-            />
-          </View>
-          <View style={styles.infoContainer}>
-            <View style={styles.listItem}>
+      <Card.Content style={styles.contentWithGap}>
+        {achievementData.map((achievement, index) => (
+          <Card.Content key={index} style={styles.iconAndDetailsContainer}>
+            <View>
+              <Image
+                style={styles.imageContainer}
+                source={achievement.image}
+                resizeMode="contain"
+              />
+            </View>
+            <View style={styles.detailsContainer}>
               <RegularNormal>{achievement.title}</RegularNormal>
               <RegularNormal>{achievement.contest}</RegularNormal>
             </View>
-          </View>
-        </Card.Content>
-      ))}
+          </Card.Content>
+        ))}
+      </Card.Content>
     </Card>
   );
 };

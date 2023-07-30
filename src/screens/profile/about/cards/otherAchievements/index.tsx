@@ -11,23 +11,23 @@ const OtherAchievementCard: React.FC = () => {
       <Card.Content>
         <CardHeadingBold>Other Achievements</CardHeadingBold>
       </Card.Content>
-      {otherAchievementData.map((otherAchievement, index) => (
-        <Card.Content key={index} style={styles.iconAndDetailsContainer}>
-          <View>
-            <Image
-              style={styles.imageContainer}
-              source={otherAchievement.image}
-              resizeMode="contain"
-            />
-          </View>
-          <View style={styles.infoContainer}>
-            <View style={styles.listItem}>
+      <Card.Content style={styles.contentWithGap}>
+        {otherAchievementData.map((otherAchievement, index) => (
+          <Card.Content key={index} style={styles.iconAndDetailsContainer}>
+            <View>
+              <Image
+                style={styles.imageContainer}
+                source={otherAchievement.image}
+                resizeMode="contain"
+              />
+            </View>
+            <View style={styles.detailsContainer}>
               <RegularNormal>{otherAchievement.title}</RegularNormal>
               <RegularNormal>{otherAchievement.contest}</RegularNormal>
             </View>
-          </View>
-        </Card.Content>
-      ))}
+          </Card.Content>
+        ))}
+      </Card.Content>
     </Card>
   );
 };
