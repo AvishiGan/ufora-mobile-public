@@ -4,12 +4,15 @@ import styled from "styled-components/native";
 
 {/*weight-600 */}
 const StyledText = styled.Text`
-  font-family: ItalicText;
-  font-weight: 600;
+    font-family: Text;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+    //line-height: normal;
 `;
 
-const SemiboldItalicText: FunctionComponent<TextProps> = (props) => {
+const SmallestLabelsRegular: FunctionComponent<TextProps> = (props) => {
   return <StyledText style={props.textStyles}>{props.children} </StyledText>
 };
 
-export default SemiboldItalicText;
+export default SmallestLabelsRegular;
