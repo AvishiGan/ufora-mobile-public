@@ -13,6 +13,10 @@ package.json
 package-lock.json
 yarn.lock
 declaration.d.ts
+settings.json
+knowledge.md
+.vscode
+_active.uusver
 
 # macOS
 .DS_Store
