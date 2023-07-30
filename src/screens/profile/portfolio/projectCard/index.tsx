@@ -6,10 +6,9 @@ import React from "react";
 import { View, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
-import { Paragraph } from "react-native-paper";
 import { PostAuthorBioFooter } from "../../../../components";
 import { authorDataProject } from "./data";
-import { CardHeadingBold } from "../../../../constants";
+import { CardHeadingBold, RegularSmall } from "../../../../constants";
 
 interface ProjectCardData {
   projectImage: any;
@@ -28,9 +27,7 @@ const ProjectCard: React.FC<ProjectCardData> = ({
       <View style={styles.projectContentContainer}>
         <View style={styles.projectArticleContainer}>
           <CardHeadingBold>{projectTitle}</CardHeadingBold>
-          <Paragraph style={styles.projectDescription}>
-            {projectDescription}
-          </Paragraph>
+          <RegularSmall>{projectDescription}</RegularSmall>
         </View>
       </View>
       {/* PostAuthorBioFooter component */}

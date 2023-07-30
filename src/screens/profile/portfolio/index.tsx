@@ -2,7 +2,7 @@
  * This file contains all the projects information
  */
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import ProjectCard from "../../profile/portfolio/projectCard/index";
 import { mobileApp, hostel, robotic } from "../../../../assets/images";
 import { styles } from "./styles";

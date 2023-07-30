@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
         gap: 10,
         borderRadius: 15,
         backgroundColor: "#FEFEFE",
-        // backgroundColor: "var(--brand-white, #FEFEFE)",
     },
     projectImage: {
         height: 150,
@@ -34,17 +33,5 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
         gap: 10,
         alignSelf: 'stretch',
-    },
-    projectDescription: {
-        alignSelf: 'stretch',
-        // color: "var(--brand-black, #111)",
-        color: "#111",
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        fontFamily: "Poppins",
-        fontSize: 12,
-        fontStyle: "normal",
-        fontWeight: "400",
-        lineHeight: 15, /* 125% */
     },
 });
