@@ -27,17 +27,3 @@ export default function App() {
     </>
   );
 }
-
-// import React from "react";
-// import { SafeAreaView } from 'react-native-safe-area-context';
-// import BlogCentre from "./src/screens/blog";
-
-// const Blog = () => {
-//   return (
-//     <SafeAreaView style = {{flex: 1}}>
-//       <BlogCentre />
-//     </SafeAreaView>
-//   );  
-// }
-
-// export default Blog;

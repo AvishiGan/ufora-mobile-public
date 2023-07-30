@@ -1,11 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { COLORS, SIZES } from "../../constants";
 import { ChevronLeft } from 'lucide-react-native';
+import { PageTitleSemibold } from '../../constants/fonts/';
 import styles from './blogStyles.styles';
-import SemiboldText from '../../constants/fonts/SemiboldText';
-
 
 const HeaderLeft = () => {
   return (
@@ -13,12 +11,9 @@ const HeaderLeft = () => {
     <TouchableOpacity>
       <ChevronLeft color={COLORS.brandGrey} size={SIZES.iconSize}/>
     </TouchableOpacity>
-    <SemiboldText>
-        <Text style={styles.headerTitle}>Blog Centre</Text>
-    </SemiboldText>
-    <TouchableOpacity>
-    
-    </TouchableOpacity>
+    <PageTitleSemibold>
+          <Text style={styles.headerTitle}>Blog Centre</Text>
+    </PageTitleSemibold>
   </View>
   )
 }

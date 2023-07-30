@@ -2,14 +2,17 @@ import React, { FunctionComponent } from 'react';
 import {TextProps} from "./types";
 import styled from "styled-components/native";
 
-{/*weight-500 */}
+{/*weight-700 */}
 const StyledText = styled.Text`
-  font-family: ItalicText;
-  font-weight: 500
+    font-family: Text;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    //line-height: normal;
 `;
 
-const MediumItalicText: FunctionComponent<TextProps> = (props) => {
+const CardHeadingBold: FunctionComponent<TextProps> = (props) => {
   return <StyledText style={props.textStyles}>{props.children} </StyledText>
 };
 
-export default MediumItalicText;
+export default CardHeadingBold;
