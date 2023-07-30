@@ -3,18 +3,16 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     headerIconsContainer: {
         display: "flex",
-        width: 350,
+        width: 340,
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
+        paddingBottom: 15,
     },
     backIconNameContainer: {
         display: "flex",
         alignItems: "center",
         gap: 10,
-        // flex: 1,
-        // flexGrow: 0,
-        // flexShrink: 0,
         flexDirection: "row",
     },
     chatSearchIconsContainer: {

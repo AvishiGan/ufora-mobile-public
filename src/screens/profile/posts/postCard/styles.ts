@@ -1,21 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    // allPostsContainer: {
-    //     display: 'flex',
-    //     width: 404,
-    //     // padding: '15px 10px 0px 10px',
-    //     flexDirection: 'column',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     gap: 15,
-    //     borderRadius: 15,
-    //     backgroundColor: "var(--brand-white, #FEFEFE)",
-    // },
     singlePostContainer: {
         display: 'flex',
-        width: 404,
-        // padding: '15px 10px 0px 10px',
+        width: 350,
         padding: 15,
         paddingLeft: 10,
         paddingRight: 10,
@@ -24,21 +12,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         gap: 15,
-    },
-    postDescription: {
-        // display: "webkit-box",
-        display: "flex",
-        width: 373,
-        WebkitBoxOrient: "vertical",
-        WebkitLineClamp: 2,
-        overflow: "hidden",
-        color: "var(--brand-black, #111)",
-        textOverflow: "ellipsis",
-        fontFamily: "Poppins",
-        fontSize: 14,
-        fontStyle: "normal",
-        fontWeight: "400",
-        lineHeight: 16, /* 114.286% */
     },
     seeMore:{
         overflow: "hidden",
@@ -50,13 +23,10 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontStyle: "normal",
         fontWeight: "700",
-        lineHeight: 16, /* 114.286% */
     },
     postImage: {
-        // width: 373,
-        // height: 200,
-        width: 404,
-        height: 313,
+        width: 350,
+        height: 350,
         borderRadius: 15,
     },
     feedbackContainer: {
@@ -68,7 +38,7 @@ export const styles = StyleSheet.create({
     },
     likesCommentsContainer: {
         display: 'flex',
-        width: 373,
+        width: 320,
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
@@ -79,43 +49,18 @@ export const styles = StyleSheet.create({
         gap: 5,
         flexDirection: 'row',
     },
-    likedNames: {
-        color: "var(--form-field-outline, #87929D)",
-        leadingTrim: "both",
-        textEdge: "cap",
-        fontFamily: "Poppins",
-        fontSize: 12,
-        fontStyle: "normal",
-        fontWeight: "600",
-        // lineHeight: "normal",
-        lineHeight: 14, /* 116.667% */
-    },
-    andOthers:{
-        color: "var(--form-field-outline, #87929D)",
-        leadingTrim: "both",
-        textEdge: "cap",
-        fontFamily: "Poppins",
-        fontSize: 12,
-        fontStyle: "normal",
-        fontWeight: "400",
-        // lineHeight: "normal",
-        lineHeight: 14, /* 116.667% */
-    },
-    commentsCountContainer: {
-        display: 'flex',
-        height: 12,
-        alignItems: 'flex-end',
-        gap: 10,
-    },
     likeShareCommentButtonContainer: {
         display: 'flex',
-        // width: 373,
-        width: 406,
-        // flexDirection: 'column',
+        width: 350,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         gap: 10,
+        paddingVertical: 15,
+        paddingHorizontal: 0,
+        borderTopWidth: 0.2,
+        borderTopColor: '#87929D',
+        borderTopStyle: 'solid',
     },
     eachButtonContainer: {
         display: 'flex',

@@ -6,7 +6,7 @@ import { profilePicture } from "../../../../assets/images";
  */
 export interface ProfileData {
     profilePic: any;
-    name: string;
+    profileName: string;
     university: string;
     friendsCount: number;
     postsCount: number;
@@ -22,13 +22,13 @@ export interface ProfileData {
    */
   export const profileData: ProfileData = {
     profilePic: profilePicture,
-    name: "Isuru Ranawaka",
+    profileName: "Isuru Ranawaka",
     university: "Undergrad at University of Colombo",
-    friendsCount: 45,
+    friendsCount: 145,
     postsCount: 35,
     blogsCount: 5,
     projectsCount: 4,
     titleBarName: "isurur",
-    slideTitles: ["Posts", "Blogs", "Projects"],
+    slideTitles: ["About", "Posts", "Blogs", "Portfolio"],
   };
   

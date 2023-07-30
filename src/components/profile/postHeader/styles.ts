@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     postHeaderContainer: {
         display: 'flex',
-        width: 373,
+        width: 350,
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
@@ -11,14 +11,13 @@ export const styles = StyleSheet.create({
     profilePicNameUniTimeContainer: {
         display: 'flex',
         alignItems: 'center',
-        gap: 13,
+        gap: 10,
         flexDirection: 'row',
     },
     profileNameUniTimeContainer: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        gap: 5,
     },
     profileNameTwoIconsContainer: {
         display: 'flex',
@@ -41,6 +40,12 @@ export const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         gap: 5,
+        flexDirection: 'row',
+    },
+    moreAndCrossIconContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 15,
         flexDirection: 'row',
     },
 });

@@ -10,5 +10,6 @@ export { default as ShareIcon } from './shareIcon';
 export { default as SmallDotIcon } from './smallDotIcon';
 export { default as UforaIcon } from './uforaIcon';
 export { default as VerifiedIcon } from './verifiedIcon';
-export { default as profilePlusIcon } from './profilePlusIcon';
+export { default as ProfilePlusIcon } from './profilePlusIcon';
+export { default as CrossIcon } from './crossIcon';
 
