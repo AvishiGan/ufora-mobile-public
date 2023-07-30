@@ -3,9 +3,9 @@
  */
 
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import BlogCard from "../../profile/blogs/blogCard/index";
-import { marketing, security, HCI, office } from "../../../../assets/images";
+import { marketing, security, HCI } from "../../../../assets/images";
 import { styles } from "./styles";
 import ContentAdditionBar from "../../../components/profile/contentAdditionBar";
 
