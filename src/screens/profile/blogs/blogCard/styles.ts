@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     singleBlogContainer: {
         display: 'flex',
-        width: 404,
+        width: 350,
         padding: 5,
         alignItems: 'center',
         gap: 10,
@@ -12,12 +12,11 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     blogImage: {
-        flex: 1, // Flex grow is set to 1
-        flexShrink: 0, // Flex shrink is set to 0
-        flexBasis: 0, // Flex basis is set to 0
+        // flex: 1,
+        // flexShrink: 0,
+        // flexBasis: 0,
         alignSelf: 'stretch',
         borderRadius: 15,
-        // background: url(<path-to-image>), lightgray 50% / cover no-repeat,
     },
     blogContentContainer: {
         display: 'flex',
@@ -27,7 +26,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        gap: 23,
+        gap: 10,
         flexShrink: 0,
     },
     /**
@@ -39,29 +38,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 10,
-        alignSelf: 'stretch',
-    },
-    blogTitle: {
-        alignSelf: 'stretch',
-        color: "var(--brand-black, #111)",
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        fontFamily: "Poppins",
-        fontSize: 16,
-        fontStyle: "normal",
-        fontWeight: "700",
-        lineHeight: 40, /* 250% */
-    },
-    blogDescription: {
-        alignSelf: 'stretch',
-        color: "var(--brand-black, #111)",
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        fontFamily: "Poppins",
-        fontSize: 12,
-        fontStyle: "normal",
-        fontWeight: "400",
-        lineHeight: 15, /* 125% */
+        // alignSelf: 'stretch',
     },
     dateTimeContainer: {
         display: 'flex',
@@ -70,20 +47,5 @@ export const styles = StyleSheet.create({
         gap: 10,
         borderRadius: 5,
         flexDirection: 'row',
-    },
-    dateTime: {
-        color: "var(--brand-grey, #4F4E4E)",
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        fontFamily: "Poppins",
-        fontSize: 12,
-        fontStyle: "normal",
-        fontWeight: "400",
-        lineHeight: 24, /* 200% */
-    },
-    dotBetweenDateTime: {
-        width: 5,
-        height: 5,
-        fill: "var(--brand-grey, #4F4E4E)",
     },
 });

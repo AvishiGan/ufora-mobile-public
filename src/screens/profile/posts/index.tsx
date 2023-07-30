@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import PostCard from "../../profile/posts/postCard/index";
 import {
   architecture,
@@ -25,6 +25,7 @@ const ProfilePostSection = () => {
           likedNames="Kasun"
           likedCount={100}
           commentsCount={20}
+          seeMore={true}
         />
 
         <PostCard
@@ -33,6 +34,7 @@ const ProfilePostSection = () => {
           likedNames="Kasun, Sumith"
           likedCount={10}
           commentsCount={5}
+          seeMore={false}
         />
 
         <PostCard
@@ -41,6 +43,7 @@ const ProfilePostSection = () => {
           likedNames="You"
           likedCount={50}
           commentsCount={20}
+          seeMore={false}
         />
 
         <PostCard
@@ -49,6 +52,7 @@ const ProfilePostSection = () => {
           likedNames=""
           likedCount={120}
           commentsCount={0}
+          seeMore={false}
         />
       </View>
     </View>

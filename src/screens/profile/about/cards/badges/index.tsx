@@ -12,6 +12,7 @@ import {
   badge7,
   badge8,
 } from "../../../../../../assets/images";
+import { CardHeadingBold } from "../../../../../constants";
 
 const badgeImages = [
   badge1,
@@ -28,17 +29,19 @@ const DigitalBadgesCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.cardTitle}>Digital Badges</Title>
-        <View style={styles.allBadgesContainer}>
-          {badgeImages.map((badge, index) => (
-            <Image
-              key={index}
-              style={styles.singleBadgeContainer}
-              source={badge}
-              resizeMode="contain"
-            />
-          ))}
-        </View>
+        <CardHeadingBold>Digital Badges</CardHeadingBold>
+        <Card.Content style={styles.contentWithGap}>
+          <View style={styles.allBadgesContainer}>
+            {badgeImages.map((badge, index) => (
+              <Image
+                key={index}
+                style={styles.singleBadgeContainer}
+                source={badge}
+                resizeMode="contain"
+              />
+            ))}
+          </View>
+        </Card.Content>
       </Card.Content>
     </Card>
   );

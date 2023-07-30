@@ -1,12 +1,10 @@
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View } from "react-native";
 import AboutCardSection from "./cards";
-import ProfileCommonSection from "../commonSection/userDetailsSection";
 
 const ProfileAboutSection: React.FC = () => {
   return (
     <View>
-      <ProfileCommonSection />
       <AboutCardSection />
     </View>
   );

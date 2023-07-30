@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { styles } from "./styles";
 import AddIcon from "../../../../assets/svg/myProfile/common/addIcon";
+import { RegularNormal } from "../../../constants";
 
 type ContentAdditionBarProps = {
   title: string;
@@ -10,7 +11,7 @@ type ContentAdditionBarProps = {
 const ContentAdditionBar: React.FC<ContentAdditionBarProps> = ({ title }) => (
   <View style={styles.iconAndTextContainer}>
     <AddIcon width={24} height={24} />
-    <Text style={styles.text}>{title}</Text>
+    <RegularNormal>{title}</RegularNormal>
   </View>
 );
 

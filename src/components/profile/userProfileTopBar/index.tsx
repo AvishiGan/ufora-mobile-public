@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { styles } from "./styles";
 import {
   BackIcon,
   ChatIcon,
   SearchIcon,
 } from "../../../../assets/svg/myProfile";
+import { PageTitleSemibold } from "../../../constants";
 
 /**
  * TypeScript type declaration
@@ -25,7 +26,7 @@ const UserProfileTopBar: React.FC<PageTitleBarProps> = ({ titleBarName }) => (
     <View style={styles.backIconNameContainer}>
       {/* Back icon */}
       <BackIcon width={8} height={14} color="#4F4E4E" />
-      <Text style={styles.profileName}>{titleBarName}</Text>
+      <PageTitleSemibold>{titleBarName}</PageTitleSemibold>
     </View>
     <View style={styles.chatSearchIconsContainer}>
       {/* Search icon */}

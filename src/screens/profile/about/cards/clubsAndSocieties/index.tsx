@@ -1,34 +1,37 @@
 import React from "react";
 import { Text, View, Image } from "react-native";
-import { Card, Title } from "react-native-paper";
+import { Card } from "react-native-paper";
 import { styles } from "../styles";
 import { clubData } from "./data";
+import {
+  CardHeadingBold,
+  RegularNormal,
+  RegularSmall,
+} from "../../../../../constants";
 
 const ClubsAndSocietiesCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <Title style={styles.cardTitle}>Clubs and Societies</Title>
+        <CardHeadingBold>Clubs and Societies</CardHeadingBold>
       </Card.Content>
-      {clubData.map((club, index) => (
-        <Card.Content key={index} style={styles.iconAndDetailsContainer}>
-          <View>
-            <Image
-              style={styles.imageContainer}
-              source={club.image}
-              resizeMode="contain"
-            />
-          </View>
-          <View style={styles.infoContainer}>
-            <Text style={[styles.listItem, styles.mainDetail]}>
-              {club.title}
-            </Text>
-            <Text style={[styles.listItem, styles.lightDetail]}>
-              {club.period}
-            </Text>
-          </View>
-        </Card.Content>
-      ))}
+      <Card.Content style={styles.contentWithGap}>
+        {clubData.map((club, index) => (
+          <Card.Content key={index} style={styles.iconAndDetailsContainer}>
+            <View>
+              <Image
+                style={styles.imageContainer}
+                source={club.image}
+                resizeMode="contain"
+              />
+            </View>
+            <View style={styles.detailsContainer}>
+              <RegularNormal>{club.title}</RegularNormal>
+              <RegularSmall>{club.period}</RegularSmall>
+            </View>
+          </Card.Content>
+        ))}
+      </Card.Content>
     </Card>
   );
 };

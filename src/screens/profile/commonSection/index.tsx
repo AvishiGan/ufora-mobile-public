@@ -1,15 +1,18 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { styles } from "./styles";
 import { profileData } from "./data";
-import { UserProfileTopBar, ProfileSlider } from "../../../components";
-import UserDetailsContainer from "../commonSection/userDetailsSection/index";
+import {
+  UserProfileTopBar,
+  ProfileSlider,
+  ProfileHeader,
+} from "../../../components";
 
 const ProfileCommonSection: React.FC = () => {
   return (
     <View style={styles.topSectionContainer}>
-      {/* <UserProfileTopBar titleBarName={profileData.titleBarName} /> */}
-      <UserDetailsContainer />
+      <UserProfileTopBar titleBarName={profileData.titleBarName} />
+      <ProfileHeader data = {profileData} />
       <ProfileSlider slideTitles={profileData.slideTitles} />
     </View>
   );
