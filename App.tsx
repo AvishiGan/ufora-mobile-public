@@ -1,6 +1,18 @@
+// import React from "react";
+// import { View, StyleSheet, ScrollView } from "react-native";
+// import MyProfile from "./src/screens/profile";
+
+// export default function App() {
+//   return (
+//     <ScrollView>
+//       <MyProfile />
+//     </ScrollView>
+//   );
+// }
+
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
-import Welcome from "./src/screens/Authentication/Welcome";
+// import Welcome from "./src/screens/Authentication/Welcome";
 import RootNavigator from "./src/navigation/Nav/RootStack";
 import { NavigationContainer } from "@react-navigation/native";
 

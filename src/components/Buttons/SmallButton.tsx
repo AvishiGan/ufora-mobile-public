@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from "react";
-import MediumText from "../../constants/fonts/RegularText";
+import MediumText from "../../constants/fonts/RegularBig";
 import { GestureResponderEvent, TouchableOpacity } from "react-native";
-import RegularText from "../../constants/fonts/RegularText";
+import RegularText from "../../constants/fonts/RegularBig";
+import SemiBoldBig from "../../constants/fonts/SemiboldBig";
 
 interface ButtonProps {
   onPress: ((event: GestureResponderEvent) => void) | undefined;
@@ -10,8 +11,22 @@ interface ButtonProps {
 
 const SmallButton: FunctionComponent<ButtonProps> = (props) => {
   return (
-    <TouchableOpacity className="items-center justify-center bg-blue-500 px-2 py-2 rounded-xl w-40">
-      <RegularText className="text-white"> {props.children}</RegularText>
+    <TouchableOpacity
+      style={{
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#2656FF",
+        paddingHorizontal: 24,
+        paddingVertical: 12,
+        borderRadius: 12,
+        width: 167,
+        height: 45,
+        borderColor: "#2656FF",
+        borderWidth: 1,
+      }}
+      onPress={props.onPress}
+    >
+      <SemiBoldBig style={{ color: "white" }}>{props.children}</SemiBoldBig>
     </TouchableOpacity>
   );
 };
