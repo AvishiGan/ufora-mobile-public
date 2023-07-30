@@ -5,167 +5,151 @@ import {
   Text,
   View,
   Image,
-  TextInput,
 } from "react-native";
-import logo from "../../../assets/ufora-icon.png";
-import google from "../../../assets/icons/google.png";
-import apple from "../../../assets/icons/google.png";
+import logo from "../../../assets/logo.png";
 import User from "../../../assets/icons/user.png";
-import Password from "../../../assets/icons/password.png";
-import Eyeoff from "../../../assets/icons/eye-off.png";
-import Mail from "../../../assets/icons/mail.png";
-import { GestureResponderEvent } from "react-native";
+import UserWhite from "../../../assets/icons/user-white.png";
+import Business from "../../../assets/icons/business.png"
+import BusinessWhite from "../../../assets/icons/building-white.png";
 import { TouchableOpacity } from "react-native";
 import Authentication, {
   handlePressGoogle,
   handlePressApple,
 } from "../../components/auth/Authentication";
-import BoldText from "../../constants/fonts/BoldText";
-import MediumText from "../../constants/fonts/MediumText";
-import LightText from "../../constants/fonts/LightText";
-import RegularButton from "../../constants/fonts/RegularText";
+import Logo from "../../components/logo/Logo";
+import RegularNormal from "../../constants/fonts/RegularNormal";
+import RegularButton from "../../components/buttons/RegularButton";
+import SemiBoldBig from "../../constants/fonts/SemiboldBig";
+import CreateBusinessAccount from "./CreateBusinessAccount";
 
-interface CustomImageProps {
-  source: ImageSourcePropType;
-}
+//navigation
+import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { StackScreenProps } from "@react-navigation/stack";
+type Props = StackScreenProps<RootStackParamList, "CreateAccount">;
 
-const CustomImage: FunctionComponent<CustomImageProps> = ({ source }) => {
-  return <Image source={source} />;
-};
+// interface CustomImageProps {
+//   source: ImageSourcePropType;
+// }
 
-const CreateAccount: FunctionComponent = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+const CreateAccount: FunctionComponent<Props> = ({navigation}) => {
+  const [activeButton, setActiveButton] = useState("");
 
-  const handleNameChange = (text: string) => {
-    setName(text);
+  const handleStudentClick = () => {
+    setActiveButton("student");
   };
 
-  const handleEmailChange = (text: string) => {
-    setEmail(text);
-  };
-
-  const handleUsernameChange = (text: string) => {
-    setUsername(text);
-  };
-
-  const handlePasswordChange = (text: string) => {
-    setPassword(text);
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const handleBusinessClick = () => {
+    setActiveButton("business");
   };
 
   return (
     <>
       <StatusBar />
-
-      <View>
+      <View style={{alignItems: "center"}}>
         {/* Top section */}
-        <View className="items-center mt-40 justify-center">
-          <CustomImage source={logo} />
-          <View className="items-center mt-2">
-            <BoldText className="">Create Account</BoldText>
-            <MediumText className="flex-wrap">
-              Create Account to get started
-            </MediumText>
-          </View>
-        </View>
+        <Logo source={logo} mainText="Create Account" subText="Choose an Account type to get started "/>
 
         {/* Bottom section */}
-        <View className="px-10 mt-6">
-          <View className="mb-1">
-            <LightText className="text-gray-600 mb-1">Name *</LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-1 p-1">
-              <View className="p-2">
-                <Image source={User} />
-              </View>
-              <TextInput
-                placeholder="Saman Perera"
-                value={name}
-                onChangeText={handleNameChange}
-              />
-            </View>
-          </View>
+        <TouchableOpacity
+          onPress={handleStudentClick}
+          style={{marginTop: 130,flexDirection: 'row',alignItems: 'center',}} >
+        <View onPress={handleStudentClick} >
+          {activeButton === 'student' && (
+            <View/>
+          )}
+        </View>
 
-          <View className="mb-1">
-            <LightText className="text-gray-600 mb-1">
-              Email / Phone Number *
-            </LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-1 p-1">
-              <View className="p-2">
-                <Image source={Mail} />
-              </View>
-              <TextInput
-                placeholder="samanperera@gmail.com"
-                value={email}
-                onChangeText={handleEmailChange}
-              />
+        <View>
+          <TouchableOpacity
+            onPress={handleStudentClick}
+            style={{borderColor: activeButton === 'student' ? '#2656FF' : '#B8B8B8',borderWidth: 1,borderRadius: 15,backgroundColor: activeButton === 'student' ? '#2656FF' : 'transparent',justifyContent: 'center',alignItems: 'center',height: 106,width: 280, }}
+          >
+              <View>
+              {activeButton === 'student' ? (
+                <View
+                  style={{justifyContent: 'center',alignItems: 'center'}}>
+                  <Image style={{ height: 40, width: 40 }} source={UserWhite}/>
+                </View>
+              ) : (
+                <Image style={{ height: 40, width: 40}} source={User}/>
+              )}
             </View>
-          </View>
 
-          <View className="mb-1">
-            <LightText className="text-gray-600 mb-1">Username *</LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-1 p-1">
-              <View className="p-2">
-                <Image source={User} />
-              </View>
-              <TextInput
-                placeholder="SamanPerera"
-                value={username}
-                onChangeText={handleUsernameChange}
-              />
-            </View>
-          </View>
+            <SemiBoldBig fontColor="#B8B8B8" style={{color: activeButton === 'student' ? '#FEFEFE' : '#B8B8B8'}}>
+              Student
+            </SemiBoldBig>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
 
-          <View className="mb-1">
-            <LightText className="text-gray-600 mb-1">Password *</LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-1 p-1">
-              <View className="p-2">
-                <Image source={Password} />
-              </View>
-              <TextInput
-                className="text-x2"
-                placeholder="*********"
-                value={password}
-                secureTextEntry={!showPassword}
-                onChangeText={handlePasswordChange}
-              />
-              <TouchableOpacity className="flex justify-end ml-40">
-                <Image source={Eyeoff} />
-              </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleBusinessClick}
+          style={{marginTop: 10,flexDirection: 'row',alignItems: 'center'}}
+        >
+          <TouchableOpacity
+            onPress={handleBusinessClick}
+          >
+            {activeButton === 'business' && (
+              <View/>
+            )}
+          </TouchableOpacity>
+
+          <View>
+            <TouchableOpacity
+              onPress={handleBusinessClick}
+              style={{borderColor: activeButton === 'business' ? '#2656FF' : '#B8B8B8',borderWidth: 1,borderRadius: 15,backgroundColor: activeButton === 'business' ? '#2656FF' : 'transparent',justifyContent: 'center',alignItems: 'center',height: 106,width: 280}}
+            >
+              <View>
+              {activeButton === 'business' ? (
+                <View
+                  style={{justifyContent: 'center',alignItems: 'center'}}>
+                  <Image style={{ height: 40, width: 40 }} source={BusinessWhite}/>
+                </View>
+              ) : (
+                <Image style={{ height: 40, width: 40}} source={Business}/>
+              )}
             </View>
-            <Text className="text-xs mt-1">
-              I agree to the Terms &amp; conditions and the privacy policy
-            </Text>
+            <SemiBoldBig fontColor="#B8B8B8" style={activeButton === 'business' ? { color: '#FEFEFE' } : { color: '#B8B8B8' }}>
+              Business
+            </SemiBoldBig>
+            </TouchableOpacity>
           </View>
+        </TouchableOpacity>
+
 
           {/* Button */}
-          <View className="mt-2 items-center">
-            <RegularButton className="" onPress={() => {}}>
-              <Text className="text-white">Log In</Text>
+          <View style={{ marginTop: 30, width: 300}}>
+            <RegularButton onPress={() => {
+              if (activeButton === 'student'){
+                navigation.navigate("CreateStudentAccount");
+              } else if (activeButton === 'business'){
+                navigation.navigate("CreateBusinessAccount")
+              }
+            }}>
+              <Text style={{ color: "#FEFEFE" }}>Next</Text>
             </RegularButton>
           </View>
 
-          <View className="mt-2 items-center">
-            <MediumText>
-              <Text className="text-sm items-center">
-                Already have an account? Login
-              </Text>
-            </MediumText>
+          <View style={{ marginTop: 20, alignItems: "center", flexDirection: "row", }}>
+            <RegularNormal>
+            <Text style={{ alignItems: "center" }}>Already have an account?</Text>
+            </RegularNormal>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <View>
+                <RegularNormal>
+                 <Text style={{ color: "#2656FF" }}>Login</Text>
+                </RegularNormal>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
         <Authentication
           onPressGoogle={handlePressGoogle}
           onPressApple={handlePressApple}
         />
-      </View>
+
     </>
   );
 };
 
-export default CreateAccount;
+// export default CreateAccount;

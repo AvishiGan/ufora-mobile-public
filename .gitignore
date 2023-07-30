@@ -9,9 +9,18 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+package.json
+package-lock.json
+yarn.lock
+declaration.d.ts
+settings.json
+knowledge.md
+.vscode
+_active.uusver
 
 # macOS
 .DS_Store
 
 # Temporary files created by Metro to check the health of the file watcher
 .metro-health-check*
+metro.config.js

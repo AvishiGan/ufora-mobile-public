@@ -1,127 +1,204 @@
-import React, { FunctionComponent, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-  ImageSourcePropType,
-  Text,
-  View,
-  Image,
-  TextInput,
-} from "react-native";
+import { Text, View, KeyboardAvoidingView, StyleSheet } from "react-native";
 import logo from "../../../assets/logo.png";
-import google from "../../../assets/icons/google.png";
-import apple from "../../../assets/icons/google.png";
-import User from "../../../assets/icons/user.png";
-import Password from "../../../assets/icons/password.png";
-import Eyeoff from "../../../assets/icons/eye-off.png";
 import RegularButton from "../../components/buttons/RegularButton";
-import { GestureResponderEvent } from "react-native";
 import { TouchableOpacity } from "react-native";
 import Authentication, {
   handlePressGoogle,
   handlePressApple,
 } from "../../components/auth/Authentication";
 import InputField from "../../components/inputField/InputField";
-import BoldText from "../../constants/fonts/BoldText";
-import RegularText from "../../constants/fonts/RegularText";
-import LightText from "../../constants/fonts/LightText";
-import MediumText from "../../constants/fonts/MediumText";
+import Logo from "../../components/logo/Logo";
+import RegularNormal from "../../constants/fonts/RegularNormal";
+import RegularSmall from "../../constants/fonts/RegularSmall";
+import { Field, Formik } from "formik";
 
-interface CustomImageProps {
-  source: ImageSourcePropType;
+//import Constants from 'expo-constants';
+//import IP from '@env'
+
+//navigation
+import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { StackScreenProps } from "@react-navigation/stack";
+import { FunctionComponent, useState } from "react";
+import axios from "axios";
+type Props = StackScreenProps<RootStackParamList, "Login">;
+
+interface FormValues {
+  email: string;
+  password: string;
 }
 
-const CustomImage: FunctionComponent<CustomImageProps> = ({ source }) => {
-  return <Image source={source} />;
-};
-
-const Login: FunctionComponent<LoginProps> = ({ onPressLogin }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-
-  const handleUsernameChange = (text: string) => {
-    setUsername(text);
+const Login: FunctionComponent<Props> = ({ navigation }) => {
+  const initialValues: FormValues = {
+    email: "",
+    password: "",
   };
 
-  const handlePasswordChange = (text: string) => {
-    setPassword(text);
-  };
+  const handleLogin = async (values: FormValues) => {
+     try {
+    //const ip = process.env.IP
+    //console.log(ip)
+      const response = await axios.post("http://192.168.1.6:3000/login",{
+        username: values.email,
+        password: values.password
+      });
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+      console.log(values);
+      navigation.navigate("Feed");
+
+      console.log("API Response: ", response.data);
+    } catch (error: any) {
+
+      if (error.response) {
+        // The request was made and the server responded with a status code that falls out of the range of 2xx
+        const errorMessage = `${JSON.stringify(error.response.data)}`
+        alert(errorMessage);
+        console.error("API error: ", error.response.data);
+        //console.error("API error status: ", error.response.status);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("API error: No response received");
+        console.log(error);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        const errorMessage = `${JSON.stringify(error.message)}`
+        alert(errorMessage);
+        console.error("API error: ", error.message);
+      }
+    }
   };
 
   return (
-    <>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <StatusBar />
-
       <View>
         {/* Top section */}
-        <View className="items-center mt-40 justify-center">
-          <CustomImage source={logo} />
-          <View className="items-center mt-2">
-            <BoldText className="mb-1 text-4xl">Login</BoldText>
-            <RegularText className="flex-wrap">
-              Login to your account{" "}
-            </RegularText>
-          </View>
-        </View>
+        <Logo source={logo} mainText="Login" subText="Login to your account " />
 
         {/* Bottom section */}
-        <View className="px-10 mt-32">
-          <View className="">
-            <LightText className="text-gray-600 mb-1">
-              Username / Email / Phone Number
-            </LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-2 p-1">
-              <View className="p-2">
-                <Image source={User} />
+        <View
+          style={{
+            paddingHorizontal: 10,
+            marginTop: 190,
+            alignItems: "center",
+          }}
+        >
+          <Formik 
+          initialValues={initialValues} 
+          onSubmit={handleLogin} 
+          // validate={(values: FormValues) => {
+          //   const errors: Partial<FormValues> = {};
+
+          //   //validate username
+          //   if (!values.email){
+          //     errors.email = "Username is required";
+          //   }
+
+          //   if (!values.password){
+          //     errors.password = "Password is required";
+          //   }
+          // }}
+          >
+            {({ handleChange, handleSubmit, values, errors }) => (
+              <View>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    backgroundColor: "transparent",
+                    borderRadius: 20,
+                    padding: 2,
+                  }}
+                >
+                  <Field
+                    component={InputField}
+                    imageSource={require("../../../assets/icons/user.png")}
+                    name="email"
+                    placeholder="Username / Email"
+                    onChangeText={handleChange("email")}
+                    value={values.email}
+                  />
+                </View>
+                {errors.email && <Text>{errors.email}</Text>}
+
+                <View
+                  style={{
+                    marginTop: 10,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    backgroundColor: "transparent",
+                    borderRadius: 20,
+                    padding: 2,
+                  }}
+                >
+                  <Field
+                    component={InputField}
+                    imageSource={require("../../../assets/icons/password.png")}
+                    name="password"
+                    placeholder="*********"
+                    secureTextEntry={true}
+                    onChangeText={handleChange("password")}
+                    value={values.password}
+                  />
+
+
+                </View>
+                {errors.password && <Text>{errors.password}</Text>}
+
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ForgotPassword")}
+                >
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "flex-end",
+                      marginTop: 10,
+                    }}
+                  >
+                    <RegularSmall>
+                      <Text style={{ color: "#2656FF" }}>Forgot Password?</Text>
+                    </RegularSmall>
+                  </View>
+                </TouchableOpacity>
+
+                {/* Button */}
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginTop: 25,
+                    alignItems: "center",
+                    width: 330,
+                  }}
+                >
+                  <RegularButton onPress={handleSubmit}>
+                    <Text style={{ color: "#FEFEFE" }}>Log In</Text>
+                  </RegularButton>
+                </View>
               </View>
-              <InputField
-                placeholder="Username / Email / Phone Number"
-                value={username}
-                onChangeText={handleUsernameChange}
-              />
-            </View>
-          </View>
+            )}
+          </Formik>
 
-          <View className="flex-col">
-            <LightText className="text-gray-600 mb-1">Password</LightText>
-            <View className="flex flex-row items-center bg-transparent border rounded-2xl mb-2 p-1">
-              <View className="p-2">
-                <Image source={Password} />
-              </View>
-              <TextInput
-                className="text-x2"
-                placeholder="*********"
-                value={password}
-                secureTextEntry={!showPassword}
-                onChangeText={handlePasswordChange}
-              />
-              <TouchableOpacity className="flex justify-end ml-40">
-                <Image source={Eyeoff} />
-              </TouchableOpacity>
-            </View>
-
-            <View className="mt-0 ml-48">
-              <RegularText>
-                <Text className="text-blue-500">Forgot Password?</Text>
-              </RegularText>
-            </View>
-          </View>
-
-          {/* Button */}
-          <View className="mt-7 items-center">
-            <RegularButton className="" onPress={() => {}}>
-              <Text className="text-white">Log In</Text>
-            </RegularButton>
-          </View>
-          <View className="mt-3">
-            <MediumText>
-              <Text className="text-sm items-center">
-                Don't have an account? Create Account
+          <View
+            style={{
+              marginTop: 20,
+              alignItems: "center",
+              flexDirection: "row",
+            }}
+          >
+            <RegularNormal>
+              <Text style={{ alignItems: "center" }}>
+                Don't have an account?
               </Text>
-            </MediumText>
+            </RegularNormal>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("CreateAccount")}
+            >
+              <View>
+                <RegularNormal>
+                  <Text style={{ color: "#2656FF" }}>Create Account</Text>
+                </RegularNormal>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
         <Authentication
@@ -129,8 +206,22 @@ const Login: FunctionComponent<LoginProps> = ({ onPressLogin }) => {
           onPressApple={handlePressApple}
         />
       </View>
-    </>
+    </KeyboardAvoidingView>
   );
 };
 
-export default Login;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  input: {
+    width: "80%",
+    height: 40,
+    borderWidth: 1,
+    borderColor: "gray",
+  },
+});
+
+// export default Login;
