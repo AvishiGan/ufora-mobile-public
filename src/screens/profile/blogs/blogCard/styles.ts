@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     singleBlogContainer: {
         display: 'flex',
-        width: 404,
+        width: 350,
         padding: 5,
         alignItems: 'center',
         gap: 10,
@@ -12,9 +12,9 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     blogImage: {
-        flex: 1,
-        flexShrink: 0,
-        flexBasis: 0,
+        // flex: 1,
+        // flexShrink: 0,
+        // flexBasis: 0,
         alignSelf: 'stretch',
         borderRadius: 15,
     },
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        gap: 23,
+        gap: 10,
         flexShrink: 0,
     },
     /**
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 10,
-        alignSelf: 'stretch',
+        // alignSelf: 'stretch',
     },
     dateTimeContainer: {
         display: 'flex',

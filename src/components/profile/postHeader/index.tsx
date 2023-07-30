@@ -7,6 +7,7 @@ import {
   SmallDotIcon,
   UforaIcon,
   VerifiedIcon,
+  CrossIcon,
 } from "../../../../assets/svg";
 import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
 import { RegularSmall, SmallerMedium } from "../../../constants";
@@ -53,8 +54,12 @@ const PostHeader: React.FC<PostHeaderProps> = ({ data }) => {
           </View>
         </View>
       </View>
-      {/* More icon */}
-      <MoreIcon width={25} height={24} color="black" />
+      <View style={styles.moreAndCrossIconContainer}>
+        {/* More icon */}
+        <MoreIcon width={25} height={24} color="black" />
+        {/* Cross icon */}
+        <CrossIcon size={24} />
+      </View>
     </View>
   );
 };
