@@ -1,8 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
-import { Card, Paragraph } from "react-native-paper";
+import { Card } from "react-native-paper";
+import { View } from "react-native";
 import { styles } from "../styles";
-import { CardHeadingBold } from "../../../../../constants";
+import { CardHeadingBold, NameSemiboldNormal } from "../../../../../constants";
 
 const IntroCard: React.FC = () => {
   return (
@@ -10,12 +10,14 @@ const IntroCard: React.FC = () => {
       <Card.Content>
         <CardHeadingBold>Intro</CardHeadingBold>
       </Card.Content>
-      <Card.Content>
-        <Paragraph style={styles.introText}>
+      <Card.Content style={styles.contentWithGap}>
+        <NameSemiboldNormal>
           Hey I am Isuru, an undergrad at UCSC. I love designing and creating
           websites and posters
-          <Text style={styles.seeMore}>... see more</Text>
-        </Paragraph>
+          {/* <NameSemiboldNormal style={styles.seeMore}>
+            ... see more
+          </NameSemiboldNormal> */}
+        </NameSemiboldNormal>
       </Card.Content>
     </Card>
   );

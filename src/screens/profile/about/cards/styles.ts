@@ -9,9 +9,9 @@ export const styles = StyleSheet.create({
     },
     individualCardContainer: {
         display: 'flex',
-        width: 405,
-        // width: 385, // CHANGE THIS! MANUALLY ADDED
-        paddingVertical: 20,
+        // width: 405,
+        width: 385, // CHANGE THIS! MANUALLY ADDED
+        paddingVertical: 10,
         paddingHorizontal: 10,
         flexDirection: 'column',
         alignItems: 'flex-start',
@@ -20,9 +20,6 @@ export const styles = StyleSheet.create({
         backgroundColor: '#FEFEFE',
         flexShrink: 0,
     },
-    // introContainer: {
-    //   width: 385,
-    // },
     allDetailsContainer: {
       display: 'flex',
       flexDirection: 'column',
@@ -31,12 +28,11 @@ export const styles = StyleSheet.create({
     iconAndDetailsContainer: {
         display: 'flex',
         alignItems: 'center',
-        gap: 10,
+        gap: 20,
         alignSelf: 'stretch',
         flexDirection: 'row',
-      },
-      listItem: {
-        marginLeft: 10,
+        marginBottom: 10,
+        paddingLeft: 0,
       },
       /**
        * Include in education, clubs and societies, achievements
@@ -46,43 +42,12 @@ export const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        gap: 5,
-        flex: 1,
-        flexGrow: 0,
-        flexShrink: 0,
       },
       individualDetailContainer: {
-          // display: -webkit-box;
           display: 'flex',
           webkitBoxOrient: 'vertical',
           webkitLineClamp: 1,
           alignSelf: 'stretch',
-      },
-      // university -> firstDetail
-      // Each detail container first detail
-      mainDetail: {
-          overflow: 'hidden',
-          webkitBoxOrient: 'vertical',
-          webkitLineClamp: 1,
-          // color: 'var(--brand-black, #111)',
-          color: '#111',
-          leadingTrim: 'both',    
-          textEdge: 'cap',
-          textOverflow: 'ellipsis',
-          fontFamily: 'Poppins',
-          fontSize: 14,
-          fontStyle: 'normal',
-          fontWeight: "500",
-          // fontWeight: 'bold',
-          lineHeight: 16, /* 114.286% */
-      },
-      infoContainer: {
-        marginTop: 10, // Add margin to create a gap between each set of info
-      },
-      basicInfoContainer: {
-        marginTop: 20,
-        display: 'flex',
-        flexDirection: 'row',
       },
     imageContainer: {
       width: 40,  
@@ -110,24 +75,24 @@ export const styles = StyleSheet.create({
       borderColor: '#B8B8B8',
       overflow: 'hidden',
       borderStyle: 'solid',
-      // border: 1px solid var(--placeholder-colour, #B8B8B8);
     },
     /*****************************************************Basic Info*************************************************** */
     singleBasicInfoContainer: {
       display: 'flex',
       alignItems: 'center',
-      gap: 10,
+      gap: 20,
       alignSelf: 'stretch',
       flexDirection: 'row',
       marginBottom: 10,
-      paddingLeft: 15,
     },
     basicInfoIconContainer: {
       width: 30,
       height: 30,
     },
+    seeMore: {
+      color: '#2656FF',
+  },
+  contentWithGap: {
+    paddingVertical: 10,
+  },
 });
-
-
-
-
