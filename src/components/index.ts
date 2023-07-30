@@ -1,3 +1,4 @@
+export * from "../components/profile";
 import HeaderRight from "./blog/HeaderRight";
 import HeaderLeft from "./blog/HeaderLeft";
 import UpperBody from "./blog/UpperBody";
