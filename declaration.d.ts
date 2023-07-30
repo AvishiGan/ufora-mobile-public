@@ -6,6 +6,11 @@ declare module '*.svg' {
   export default content;
 }
 
+// declare module "@env";
+declare module '@env' {
+  export const IP: string;
+}
+
 declare module "*.png";
 
 declare module "*.jpg"
