@@ -150,4 +150,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OTP;
+// export default OTP;
