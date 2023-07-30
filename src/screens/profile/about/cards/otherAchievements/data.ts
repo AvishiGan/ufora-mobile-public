@@ -1,4 +1,4 @@
-import { otherAchievement1 } from "../../../../../../assets/images";
+import { otherAchievement1, otherAchievementCommon } from "../../../../../../assets/images";
 
 export const otherAchievementData = [
     {
@@ -7,6 +7,7 @@ export const otherAchievementData = [
       contest: "Informatique 2018 - St. Thomas College",
     },
     {
+      image: otherAchievementCommon,
       title: "Inter School Quiz - 2nd Place (Team)",
       contest: "Envisage 2018 - Musaeus College",
     },

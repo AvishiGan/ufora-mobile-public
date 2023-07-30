@@ -3,12 +3,12 @@
  */
 
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
-import { Paragraph } from "react-native-paper";
 import { PostAuthorBioFooter } from "../../../../components";
 import { authorDataProject } from "./data";
+import { CardHeadingBold, RegularSmall } from "../../../../constants";
 
 interface ProjectCardData {
   projectImage: any;
@@ -26,10 +26,8 @@ const ProjectCard: React.FC<ProjectCardData> = ({
       <Image style={styles.projectImage} source={projectImage} />
       <View style={styles.projectContentContainer}>
         <View style={styles.projectArticleContainer}>
-          <Text style={styles.projectTitle}>{projectTitle}</Text>
-          <Paragraph style={styles.projectDescription}>
-            {projectDescription}
-          </Paragraph>
+          <CardHeadingBold>{projectTitle}</CardHeadingBold>
+          <RegularSmall>{projectDescription}</RegularSmall>
         </View>
       </View>
       {/* PostAuthorBioFooter component */}

@@ -10,6 +10,11 @@ import { PostHeader } from "../../../../components";
 import { authorDataPost } from "./data";
 import { CommentIcon, LikeIcon, LikedIcon } from "../../../../../assets/svg";
 import PostShareIcon from "../../../../../assets/svg/myProfile/posts/postShareIcon";
+import {
+  RegularNormal,
+  RegularSmall,
+  SmallerRegular,
+} from "../../../../constants";
 
 interface PostCardData {
   postDescription: string;
@@ -17,6 +22,7 @@ interface PostCardData {
   likedNames: string;
   likedCount: number;
   commentsCount: number;
+  seeMore: boolean;
 }
 
 const PostCard: React.FC<PostCardData> = ({
@@ -25,45 +31,42 @@ const PostCard: React.FC<PostCardData> = ({
   likedNames,
   likedCount,
   commentsCount,
+  seeMore,
 }) => {
   return (
     <View style={styles.singlePostContainer}>
       {/* PostHeader component */}
       <PostHeader data={authorDataPost} />
-      <Text style={styles.postDescription}>
+      <RegularNormal>
         {postDescription}
-        <Text style={styles.seeMore}>... see more</Text>
-      </Text>
+        {seeMore ? <Text style={styles.seeMore}>... see more</Text> : null}
+      </RegularNormal>
       <Image style={styles.postImage} source={postImage} />
       <View style={styles.feedbackContainer}>
         <View style={styles.likesCommentsContainer}>
           <View style={styles.likeButtonAndNamesContainer}>
             {/* Liked icon */}
             <LikedIcon width={20} height={20} />
-            <Text style={styles.likedNames}>{likedNames}</Text>
-            <Text style={styles.andOthers}>{`& ${likedCount} others`}</Text>
+            <RegularSmall>{likedNames}</RegularSmall>
+            <RegularSmall>{`& ${likedCount} others`}</RegularSmall>
           </View>
-          <View style={styles.commentsCountContainer}>
-            <Text
-              style={styles.commentsCountText}
-            >{`${commentsCount} comments`}</Text>
-          </View>
+          <RegularSmall>{`${commentsCount} comments`}</RegularSmall>
         </View>
         <View style={styles.likeShareCommentButtonContainer}>
           <View style={styles.eachButtonContainer}>
             {/* Like icon */}
             <LikeIcon width={18} height={18} />
-            <Text style={styles.eachButtonText}>Like</Text>
+            <SmallerRegular>Like</SmallerRegular>
           </View>
           <View style={styles.eachButtonContainer}>
             {/* Comment icon */}
             <CommentIcon width={18} height={18} />
-            <Text style={styles.eachButtonText}>Comment</Text>
+            <SmallerRegular>Comment</SmallerRegular>
           </View>
           <View style={styles.eachButtonContainer}>
             {/* Share icon */}
             <PostShareIcon width={18} height={18} />
-            <Text style={styles.eachButtonText}>Share</Text>
+            <SmallerRegular>Share</SmallerRegular>
           </View>
         </View>
       </View>

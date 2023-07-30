@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  TouchableOpacity,
-  Text,
-  TouchableOpacityProps,
-  View,
-} from "react-native";
+import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import { styles } from "./styles";
+import { RegularNormal } from "../../../constants";
 
 type ButtonProps = TouchableOpacityProps & {
   onPress: () => void;
@@ -26,7 +22,7 @@ const ProfileButton: React.FC<ButtonProps> = ({ onPress, title }) => (
   >
     <View style={styles.buttonContent}>
       {typeof title === "string" ? (
-        <Text style={styles.buttonText}>{title}</Text>
+        <RegularNormal>{title}</RegularNormal>
       ) : (
         title // Render icon or any other ReactNode
       )}
