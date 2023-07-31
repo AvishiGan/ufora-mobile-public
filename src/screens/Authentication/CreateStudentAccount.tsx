@@ -18,7 +18,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent } from "react";
 import { Field, Formik } from 'formik';
 import axios from 'axios';
-type Props = StackScreenProps<RootStackParamList, "CreateBusinessAccount">;
+type Props = StackScreenProps<RootStackParamList, "CreateStudentAccount">;
 
 interface FormValues {
     name: string;
@@ -45,7 +45,7 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
             password: values.password
         });
         console.log(values);
-        navigation.navigate("StudentOTP");
+        navigation.navigate("StudentOTP", {username: values.username, email: values.email});
         console.log("API Response: ", response.data);
 
         //Request OTP when create account success

@@ -55,7 +55,6 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
     const email = route.params.email;
     console.log(email)
     const otp = `${values.num1}${values.num2}${values.num3}${values.num4}${values.num5}${values.num6}`;
-
     console.log(otp)
 
     try {
@@ -67,7 +66,7 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
         });
   
         console.log(values);
-        navigation.navigate("Feed");
+        navigation.navigate("Login");
   
         console.log("API Response: ", response.data);
       } catch (error: any) {
@@ -90,7 +89,6 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
         }
       }
 
-    
   };
 
   return (
@@ -104,7 +102,7 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
         {/* Bottom section */}
         <View style={{ paddingHorizontal: 10, marginTop: 350, alignItems: "center", justifyContent: "center"}}>
         <Formik initialValues={initialValues} onSubmit={handleVerify}>
-          {({ handleChange, values }) => (
+          {({ handleChange, handleSubmit, values }) => (
             <>
               <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8 }}>
                 {inputRefs.map((ref, index) => (
@@ -121,6 +119,7 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
                           focusNextField(index);
                         }
                       }}
+                      
                       value={values[`num${index + 1}`]}
                     />
                   </View>
@@ -128,7 +127,7 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
               </View>
               {/* Button */}
               <View style={{ alignItems: "center", justifyContent: "center", marginTop: 30, width: 280 }}>
-                <RegularButton onPress={handleVerify}>
+                <RegularButton onPress={handleSubmit}>
                   <Text style={{ color: "#FEFEFE" }}>Verify</Text>
                 </RegularButton>
               </View>

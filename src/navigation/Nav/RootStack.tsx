@@ -22,13 +22,13 @@ export type RootStackParamList = {
     Login: undefined;
     ForgotPassword: undefined;
     CreateAccount: undefined;
-    OTP: undefined;
+    OTP: {email:string};
     ChangePassword: undefined;
     CreateStudentAccount: undefined;
     CreateBusinessAccount: undefined;
-    SelectUniversity: undefined;
+    SelectUniversity: {username:string};
     UniOTP: {email:string};
-    StudentOTP: undefined;
+    StudentOTP: {username:string, email:string};
     ForgotPassOTP: undefined;
     Feed: undefined;
 };
