@@ -39,15 +39,29 @@ const initialValues: FormValues = {
 
     const handleSubmit = async(values: FormValues) => {
         try{
-            const response = await axios.post("http://10.22.167.182:3000/register/business",{
+            const response = await axios.post("http://192.168.1.6:3000/register/company",{
                 name: values.name,
                 email: values.email,
                 username: values.username,
                 password: values.password
             });
             console.log(values);
-            navigation.navigate("OTP");
+            navigation.navigate("OTP", {email: values.email});
             console.log("API Response: ", response.data);
+
+            //Request OTP when create account success
+            try{
+                const otpResponse = await axios.post("http://192.168.1.6:3000/otp/request", {
+                    email: values.email,
+                });
+
+                console.log("OTP Request Response: ", otpResponse.data);
+            } catch (otpError){
+                console.error("OTP Request Error: ", otpError);
+            }
+
+
+
         } catch (error:any){
             if(error.response){
                 console.error("API error: ", error.response.data);
@@ -60,7 +74,6 @@ const initialValues: FormValues = {
                 console.error("API error: ", error.message);
             }
          }
-    
     };
 
     const handleBack = () => {
@@ -86,6 +99,8 @@ const initialValues: FormValues = {
                     imageSource={require("../../../assets/icons/building.png")}
                     name="name"
                     placeholder="ABC Industry"
+                    onChangeText={handleChange("name")}
+                    value={values.name}
                 />
                 </View>
 
@@ -95,6 +110,8 @@ const initialValues: FormValues = {
                     imageSource={require("../../../assets/icons/mail.png")}
                     name="email"
                     placeholder="contact@abcindustries.com"
+                    onChangeText={handleChange("email")}
+                    value={values.email}
                 />
                 </View>
 
@@ -104,6 +121,8 @@ const initialValues: FormValues = {
                     imageSource={require("../../../assets/icons/user.png")}
                     name="username"
                     placeholder="abcindustry"
+                    onChangeText={handleChange("username")}
+                    value={values.username}
                 />
                 </View>
 
@@ -114,6 +133,8 @@ const initialValues: FormValues = {
                     name="password"
                     placeholder="*********"
                     secureTextEntry={true}
+                    onChangeText={handleChange("password")}
+                    value={values.password}
                 />
                 </View>
 

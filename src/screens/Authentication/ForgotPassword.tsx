@@ -13,7 +13,7 @@ import InputField from "../../components/inputField/InputField";
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 type Props = StackScreenProps<RootStackParamList, "ForgotPassword">;
 
 interface FormValues {
@@ -25,35 +25,39 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
     email: "",
   };
 
-  const handleNext = (values: FormValues) => {
-    // try {
-    //   const response = await axios.post("http://10.22.167.182:3000/...",{
-    //     username: values.email,
-    //   });
+  const handleNext = async(values: FormValues) => {
+    try {
+      const config: AxiosRequestConfig = {
+        params: {
+          email: values.email,
+        },
+      };
+  
+      const response = await axios.get("http://192.168.1.6:3000/password/reset/otp/request", config);
+  
+      console.log(values);
+      navigation.navigate("ForgotPassOTP");
+  
+      console.log("API Response: ", response.data);
+    } catch (error: any) {
 
-    //   console.log(values);
-      navigation.navigate("Feed");
-
-    //   console.log("API Response: ", response.data);
-    // } catch (error: any) {
-
-    //   if (error.response) {
-    //     // The request was made and the server responded with a status code that falls out of the range of 2xx
-    //     console.error("API error: ", error.response.data);
-    //     console.error("API error status: ", error.response.status);
-    //   } else if (error.request) {
-    //     // The request was made but no response was received
-    //     console.error("API error: No response received");
-    //     console.log(error);
-    //   } else {
-    //     // Something happened in setting up the request that triggered an Error
-    //     console.error("API error: ", error.message);
-    //   }
-    // }
+      if (error.response) {
+        // The request was made and the server responded with a status code that falls out of the range of 2xx
+        console.error("API error: ", error.response.data);
+        console.error("API error status: ", error.response.status);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("API error: No response received");
+        console.log(error);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error("API error: ", error.message);
+      }
+    }
   };
 
   return (
-      <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <KeyboardAvoidingView keyboardVerticalOffset={250} behavior="padding" style={styles.container}>
       <StatusBar />
       <View style={{alignItems: "center"}}>
         {/* Top section */}
@@ -80,6 +84,8 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
                     imageSource={require("../../../assets/icons/mail.png")}
                     name="email"
                     placeholder="Please enter your Email"
+                    onChangeText={handleChange("email")}
+                    value={values.email}
                   />
                 </View>
 
@@ -90,7 +96,7 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
                     <Text style={{ color: "#2656FF" }}>Back</Text>
                   </UnfilledButton>
 
-                  <SmallButton onPress={() => navigation.navigate('ForgotPassOTP')}>
+                  <SmallButton onPress={handleSubmit}>
                     <Text style={{ color: "#FEFEFE" }}>Next</Text>
                   </SmallButton>
                 </View>

@@ -19,13 +19,13 @@ import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
 import axios from "axios";
-type Props = StackScreenProps<RootStackParamList, "OTP">;
+type Props = StackScreenProps<RootStackParamList, "StudentOTP">;
 
 interface FormValues {
   [key: string]: string;
 }
 
-const OTP: FunctionComponent<Props> = ({navigation}) => {
+const StudentOTP: FunctionComponent<Props> = ({route, navigation}) => {
 
   const inputRefs = [
     useRef<TextInput>(null),
@@ -52,10 +52,41 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
   };
 
   const handleSubmit = async (values: FormValues) => {
-   //const ip = process.env.IP
-   //console.log(ip)
-     navigation.navigate("SelectUniversity");
+    const email = route.params.email;
+    console.log(email)
+    const otp = `${values.num1}${values.num2}${values.num3}${values.num4}${values.num5}${values.num6}`;
+    console.log(otp)
 
+    try{
+      //const ip = process.env.IP
+      //console.log(ip)
+      const response = await axios.post("http://192.168.1.6:3000/otp/verify/email",{
+        email: email,
+        otp: otp
+      });
+      console.log(values);
+      navigation.navigate("SelectUniversity", {username: route.params.username});
+      console.log("API Response: ", response.data);
+
+    } catch (error: any) {
+  
+      if (error.response) {
+        // The request was made and the server responded with a status code that falls out of the range of 2xx
+        const errorMessage = `${JSON.stringify(error.response.data)}`
+        alert(errorMessage);
+        console.error("API error: ", error.response.data);
+        //console.error("API error status: ", error.response.status);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("API error: No response received");
+        console.log(error);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        const errorMessage = `${JSON.stringify(error.message)}`
+        alert(errorMessage);
+        console.error("API error: ", error.message);
+      }
+    }
  };
 
   return (
@@ -69,7 +100,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
         {/* Bottom section */}
         <View style={{ marginTop: 360, alignItems: "center", justifyContent: "center"}}>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          {({ handleChange, values }) => (
+          {({ handleChange, handleSubmit, values }) => (
             <>
               <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8 }}>
                 {inputRefs.map((ref, index) => (
@@ -126,15 +157,15 @@ const styles = StyleSheet.create({
       alignItems: 'center',
   },
   input: {
-    width: 48,
-    height: 48,
-    borderWidth: 1,
-    borderColor: "gray",
-    textAlign: "center",
-    fontSize: 16,
-    fontWeight: "400",
-    borderRadius: 12,
+      width: 48,
+      height: 48,
+      borderWidth: 1,
+      borderColor: "gray",
+      textAlign: "center",
+      fontSize: 16,
+      fontWeight: "400",
+      borderRadius: 12,
   },
 });
 
-export default OTP;
+export default StudentOTP;
