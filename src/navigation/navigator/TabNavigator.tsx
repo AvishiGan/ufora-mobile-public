@@ -3,13 +3,14 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // screens
 import FeedScreen from "../../screens/Feed/FeedScreen";
-// import NotificationScreen from "../../screens/NotificationScreen";
-// import FriendsScreen from "../../screens/FriendsScreen";
-// import MyUniversity from "../../screens/MyUniversity";
-// import MoreScreen from "../../screens/MoreScreen";
+// import NotificationScreen from "../screens/NotificationScreen";
+// import FriendsScreen from "../screens/FriendsScreen";
+// import MyUniversity from "../screens/MyUniversity";
+// import MoreScreen from "../screens/MoreScreen";
 
 // hooks and icons
 import { useNavigation } from "@react-navigation/native";
+// import { Icon } from "@rneui/base";
 import {
   Home,
   Users,
