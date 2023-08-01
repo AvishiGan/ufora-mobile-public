@@ -28,68 +28,56 @@
 
 
 
-import React, {Component} from "react";
+import React, {Component, useEffect} from "react";
 import { TextInput } from "@react-native-material/core";
 import axios from 'axios';
 import {View, Text, SafeAreaView, Button} from 'react-native';
-
+import * as SecureStore from 'expo-secure-store';
 
 const Feed = () => {
-  const callGetUsersList = () => {
-    axios
-      .get('https://crudcrud.com/api/be01073d24b24fd885964735d8457109/users')
-      .then(response =>{
-        console.log("Response:", response?.data);
-      }).catch(error => {
-        console.log("Error:",error);
-      })
-  };
+  useEffect(() => {
+    const makeAPIRequestWithBearerToken = async () => {
+      try {
+        // Retrieve the token from SecureStore
+        const token = await SecureStore.getItemAsync('token');
+        console.log(token)
 
-  const callGetUsersByIDList = (userID: string) => {
-    axios
-      .get(`https://crudcrud.com/api/be01073d24b24fd885964735d8457109/users/${userID}`)
-      .then(response =>{
-        console.log("Response:", response?.data);
-      }).catch(error => {
-        console.log("Error:",error);
-      })
-  };
+        if (!token) {
+          console.error('Token not found in SecureStore.');
+          return;
+        }
 
-  const callAddUsers = () => {
-    let params = {userID:1, name: 'Avishi'};
-    axios
-      .post('https://crudcrud.com/api/be01073d24b24fd885964735d8457109/users',params)
-      .then(response =>{
-        console.log("Response:", response?.data)
-      }).catch(error => {
-        console.log("Error:",error);
-      })
-  }
+        const response = await axios.post("http://192.168.1.6:3000/test", null, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
 
-  const callUpdateUser = (userID: string) => {
-    let params = {userID:1, name: 'Avishi'};
-    axios
-      .put(
-        `https://crudcrud.com/api/be01073d24b24fd885964735d8457109/users/${userID}`,params,
-      )
-      .then(response =>{
-        console.log("Response:", response?.data);
-      }).catch(error => {
-        console.log("Error:",error);
-      })
-  }
+        console.log('API response:', response.data);
+        console.log('API response status:', response.status);
+        
+      } catch (error: any) {
+        if (error.response) {
+          // The request was made and the server responded with a status code that falls out of the range of 2xx
+          const errorMessage = `${JSON.stringify(error.response.data)}`
+          alert(errorMessage);
+          console.error("API error: ", error.response.data);
+          console.error("API error status: ", error.response.status);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.error("API error: No response received");
+          console.log(error);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          const errorMessage = `${JSON.stringify(error.message)}`
+          alert(errorMessage);
+          console.error("API error: ", error.message);
+        }
+      }
+    };
 
-  const callDeleteUser = (userID: string) => {
-    axios
-      .delete(
-        `https://crudcrud.com/api/be01073d24b24fd885964735d8457109/users/${userID}`,
-      )
-      .then(response =>{
-        console.log("Response:", response?.data);
-      }).catch(error => {
-        console.log("Error:",error);
-      })
-  }
+    makeAPIRequestWithBearerToken();
+  }, []);
 
   return(
     <View>
@@ -97,9 +85,7 @@ const Feed = () => {
 
         <Button 
           title={"Fetch Me"} 
-          onPress={() => {
-            callGetUsersList();
-          }}
+          //onPress={makeAPIRequestWithBearerToken}
         />
 
       <TextInput 

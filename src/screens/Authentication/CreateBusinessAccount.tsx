@@ -60,8 +60,6 @@ const initialValues: FormValues = {
                 console.error("OTP Request Error: ", otpError);
             }
 
-
-
         } catch (error:any){
             if(error.response){
                 console.error("API error: ", error.response.data);

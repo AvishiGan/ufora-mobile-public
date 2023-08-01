@@ -112,8 +112,8 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
                       name="ConfirmPassword"
                       placeholder="*********"
                       secureTextEntry={true}
-                      onChangeText={handleChange("password")}
-                      value={values.password}
+                      onChangeText={handleChange("confirmPassword")}
+                      value={values.confirmPassword}
                     />
                   </View>
                   
