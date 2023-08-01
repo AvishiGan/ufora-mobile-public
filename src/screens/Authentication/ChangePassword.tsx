@@ -5,13 +5,14 @@ import logo from "../../../assets/logo.png"
 import RegularButton from '../../components/buttons/RegularButton'
 import RegularNormal from '../../constants/fonts/RegularNormal'
 import InputField from '../../components/inputField/InputField'
-import RegularSmall from '../../constants/fonts/RegularSmall'
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent } from "react";
 import { Field, Formik } from 'formik'
+import axios from 'axios'
+import * as SecureStore from 'expo-secure-store'
 type Props = StackScreenProps<RootStackParamList, "ChangePassword">;
 
 interface FormValues {
@@ -19,19 +20,47 @@ interface FormValues {
   confirmPassword: string;
 }
 
-
 const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
     const initialValues: FormValues = {
       password: "",
       confirmPassword: "",
     };
 
-    const handleLogin = (values: FormValues) => {
-      //const handleLogin = () => Alert.alert("Login");
-      // Making the API request
-      //console.log(values);
+    const handleLogin = async(values: FormValues) => {
+  
+      try{
+        const token = await SecureStore.getItemAsync('password_reset_token');
+  
+        const response = await axios.post("http://192.168.1.6:3000/password/reset",{
+          password:values.password,
+          confirm_password: values.confirmPassword,
+          password_reset_token: token,
+        });
+        console.log(values);
+  
+  
       navigation.navigate("Login");
-    };
+      console.log("API Response: ", response.data);
+  
+      } catch (error: any) {
+    
+        if (error.response) {
+          const errorMessage = `${JSON.stringify(error.response.data)}`
+          alert(errorMessage);
+          console.error("API error: ", error.response.data);
+
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.error("API error: No response received");
+          console.log(error);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          const errorMessage = `${JSON.stringify(error.message)}`
+          alert(errorMessage);
+          console.error("API error: ", error.message);
+        }
+      }
+   };
 
     return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -61,6 +90,9 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
                       imageSource={require("../../../assets/icons/password.png")}
                       name="password"
                       placeholder="*********"
+                      secureTextEntry={true}
+                      onChangeText={handleChange("password")}
+                      value={values.password}
                     />
                   </View>
 
@@ -80,6 +112,8 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
                       name="ConfirmPassword"
                       placeholder="*********"
                       secureTextEntry={true}
+                      onChangeText={handleChange("password")}
+                      value={values.password}
                     />
                   </View>
                   

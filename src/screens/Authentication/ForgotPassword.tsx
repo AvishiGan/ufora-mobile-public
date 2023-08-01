@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import {ImageSourcePropType,Text,View,Image, KeyboardAvoidingView,StyleSheet} from "react-native";
 import logo from "../../../assets/logo.png";
@@ -14,6 +14,7 @@ import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
 import axios, { AxiosRequestConfig } from "axios";
+import * as SecureStore from 'expo-secure-store';
 type Props = StackScreenProps<RootStackParamList, "ForgotPassword">;
 
 interface FormValues {
@@ -27,18 +28,22 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
 
   const handleNext = async(values: FormValues) => {
     try {
-      const config: AxiosRequestConfig = {
-        params: {
+      //const ip = process.env.IP
+      //console.log(ip)
+        const response = await axios.post("http://192.168.1.6:3000/password/reset/otp/request",{
           email: values.email,
-        },
-      };
+        });
   
-      const response = await axios.get("http://192.168.1.6:3000/password/reset/otp/request", config);
+        console.log(values);
+
+        const token = response.data.OTPSent.token;
+        await SecureStore.setItemAsync('token', token);
+
+
+        navigation.navigate("ForgotPassOTP");
   
-      console.log(values);
-      navigation.navigate("ForgotPassOTP");
-  
-      console.log("API Response: ", response.data);
+        console.log("API Response: ", response.data);
+
     } catch (error: any) {
 
       if (error.response) {
