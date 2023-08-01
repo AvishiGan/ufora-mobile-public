@@ -2,15 +2,15 @@ import React, { useLayoutEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // screens
-import FeedScreen from "../screens/Feed/FeedScreen";
-import NotificationScreen from "../screens/NotificationScreen";
-import FriendsScreen from "../screens/FriendsScreen";
-import MyUniversity from "../screens/MyUniversity";
-import MoreScreen from "../screens/MoreScreen";
+import FeedScreen from "../../screens/Feed/FeedScreen";
+// import NotificationScreen from "../screens/NotificationScreen";
+// import FriendsScreen from "../screens/FriendsScreen";
+// import MyUniversity from "../screens/MyUniversity";
+// import MoreScreen from "../screens/MoreScreen";
 
 // hooks and icons
 import { useNavigation } from "@react-navigation/native";
-import { Icon } from "@rneui/base";
+// import { Icon } from "@rneui/base";
 import {
   Home,
   Users,
@@ -67,10 +67,10 @@ const TabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={FeedScreen} />
-      <Tab.Screen name="Notification" component={NotificationScreen} />
-      <Tab.Screen name="Friends" component={FriendsScreen} />
-      <Tab.Screen name="University" component={MyUniversity} />
-      <Tab.Screen name="More" component={MoreScreen} />
+      {/* <Tab.Screen name="Notification" component={NotificationScreen} /> */}
+      {/* <Tab.Screen name="Friends" component={FriendsScreen} /> */}
+      {/* <Tab.Screen name="University" component={MyUniversity} /> */}
+      {/* <Tab.Screen name="More" component={MoreScreen} /> */}
 
     </Tab.Navigator>
   );
