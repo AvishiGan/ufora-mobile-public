@@ -1,5 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+// SCREENS
+import FeedScreen from "../../screens/feed/FeedScreen"
+
 import {
   Home,
   Users,
@@ -11,10 +14,10 @@ import {
 // type checking
 export type TabStackParamList = {
   Home: undefined;
-  Notification: undefined;
-  Friends: undefined;
-  University: undefined;
-  More: undefined;
+//   Notification: undefined;
+//   Friends: undefined;
+//   University: undefined;
+//   More: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabStackParamList>();
@@ -52,7 +55,7 @@ const TabNavigator = () => {
         },
       })}
     >
-      {/* <Tab.Screen name="Home" component={FeedScreen} /> */}
+      <Tab.Screen name="Home" component={FeedScreen} />
     </Tab.Navigator>
   );
 };
