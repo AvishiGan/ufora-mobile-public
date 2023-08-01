@@ -5,7 +5,7 @@ import { ScrollView } from "react-native";
 import Header_section from "./Header_section";
 import Search_and_Profile_section from "./Search_and_Profile_section";
 import Chart_section from "./Chart_section";
-// import Story_section from "./Story_section";
+import Story_section from "./Story_section";
 // import Post_section from "./Post_section";
 
 const FeedScreen = () => {
@@ -25,7 +25,7 @@ const FeedScreen = () => {
         <Story_section />
 
         {/* SECTION : post */}
-        <Post_section />
+        {/* <Post_section /> */}
       </ScrollView>
     </SafeAreaView>
   );
