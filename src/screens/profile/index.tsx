@@ -1,11 +1,11 @@
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
-import ProfileAboutSection from "../profile/about/index";
+import { View } from "react-native";
+import ProfileCommonSection from "./commonSection";
 
 const MyProfile: React.FC = () => {
   return (
     <View>
-      <ProfileAboutSection />
+      <ProfileCommonSection />
     </View>
   );
 };

@@ -15,7 +15,10 @@ import ForgotPassOTP from "../../screens/Authentication/ForgotPassOTP";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Feed from "../../screens/Authentication/Feed";
-import StudentOTP from "../../screens/Authentication/StudentOTP";
+import StudentOTP from "../../screens/Authentication/StudentOTP";import BlogCentre  from "../../screens/blog";
+import { COLORS } from "../../constants";
+import { HeaderRight, HeaderLeft } from "../../components";
+import BlogCentre  from "../../screens/blog";
 
 export type RootStackParamList = {
     Welcome: undefined;
@@ -27,10 +30,11 @@ export type RootStackParamList = {
     CreateStudentAccount: undefined;
     CreateBusinessAccount: undefined;
     SelectUniversity: undefined;
-    UniOTP: undefined;
+    UniOTP: {email:string};
     StudentOTP: undefined;
     ForgotPassOTP: undefined;
     Feed: undefined;
+    BlogCentre: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -52,6 +56,22 @@ const RootStack = () => {
                 <Stack.Screen name="StudentOTP" component={StudentOTP} options={{headerShown: false}}/>
                 <Stack.Screen name="ForgotPassOTP" component={ForgotPassOTP} options={{headerShown: false}}/>
                 <Stack.Screen name="Feed" component={Feed}/>
+
+                <Stack.Screen 
+                    name="BlogCentre"
+                    component={BlogCentre}
+                    options={{headerShown: true,
+                    headerStyle: {backgroundColor: '#F2F2F2'},
+                    headerShadowVisible: false,
+                    headerLeft: () => (
+                      <HeaderLeft />
+                    ),
+                    headerRight: () => (
+                      <HeaderRight />
+                    ),
+                    headerTitle: ""
+                    }}
+                /> 
             </Stack.Navigator>
         </NavigationContainer>
     )

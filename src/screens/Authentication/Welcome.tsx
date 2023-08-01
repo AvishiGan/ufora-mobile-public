@@ -62,13 +62,13 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
           </SmallButton>
         </View>
 
-        <Authentication
-          onPressGoogle={handlePressGoogle}
-          onPressApple={handlePressApple}
-        />
-      </View>
-    </>
-  );
-};
+//         <Authentication
+//           onPressGoogle={handlePressGoogle}
+//           onPressApple={handlePressApple}
+//         />
+//       </View>
+//     </>
+//   );
+// };
 
-export default Welcome;
+// export default Welcome;
