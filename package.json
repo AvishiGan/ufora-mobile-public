@@ -26,6 +26,7 @@
     "expo-app-loading": "^2.1.1",
     "expo-constants": "^14.4.2",
     "expo-font": "~11.1.1",
+    "expo-secure-store": "^12.3.1",
     "expo-status-bar": "~1.4.4",
     "formik": "^2.4.2",
     "lucide": "^0.259.0",
