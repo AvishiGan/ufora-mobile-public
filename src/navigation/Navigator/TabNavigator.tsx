@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // SCREENS
-import FeedScreen from "../../screens/feed/FeedScreen"
+import FeedScreen from "../../screens/feed/FeedScreen";
+import MyUniversity from "../../screens/universityMentoring/UniversityScreen";
 
 import {
   Home,
@@ -14,9 +15,9 @@ import {
 // type checking
 export type TabStackParamList = {
   Home: undefined;
-//   Notification: undefined;
-//   Friends: undefined;
-//   University: undefined;
+  University: undefined;
+  //   Notification: undefined;
+  //   Friends: undefined;
 //   More: undefined;
 };
 
@@ -33,6 +34,9 @@ const TabNavigator = () => {
         tabBarIcon: ({ focused, color, size }) => {
           if (route.name === "Home") {
             return <Home color={focused ? "#2656FF" : "#B8B8B8"} size={24} />;
+        } else if (route.name === "University") {
+          return <Bell color={focused ? "#2656FF" : "#B8B8B8"} size={24} />;
+        } else if (route.name === "More") {
           } else if (route.name === "Notification") {
             return <Users color={focused ? "#2656FF" : "#B8B8B8"} size={24} />;
           } else if (route.name === "Friends") {
@@ -42,9 +46,6 @@ const TabNavigator = () => {
                 size={24}
               />
             );
-          } else if (route.name === "University") {
-            return <Bell color={focused ? "#2656FF" : "#B8B8B8"} size={24} />;
-          } else if (route.name === "More") {
             return (
               <LayoutDashboard
                 color={focused ? "#2656FF" : "#B8B8B8"}
@@ -55,7 +56,8 @@ const TabNavigator = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={FeedScreen} />
+      <Tab.Screen name="Home" component={FeedScreen} options={{headerShown: false}}/>
+      <Tab.Screen name="Home" component={MyUniversity} options={{headerShown: false}}/>
     </Tab.Navigator>
   );
 };
