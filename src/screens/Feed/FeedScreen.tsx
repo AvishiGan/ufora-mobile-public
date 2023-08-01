@@ -3,7 +3,7 @@ import {
   useNavigation,
 } from "@react-navigation/native";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { TabStackParamList } from "../../../navigation/navigator/TabNavigator";
+import { TabStackParamList } from "../../navigation/navigator/TabNavigator";
 import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useLayoutEffect } from "react";
