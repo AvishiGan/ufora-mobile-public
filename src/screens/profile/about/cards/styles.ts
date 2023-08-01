@@ -1,103 +1,98 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    container: {
+    allCardsContainer: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 15,
+    },
+    individualCardContainer: {
         display: 'flex',
-        width: 405,
-        paddingVertical: 20,
+        // width: 405,
+        width: 385, // CHANGE THIS! MANUALLY ADDED
+        paddingVertical: 10,
         paddingHorizontal: 10,
         flexDirection: 'column',
         alignItems: 'flex-start',
         gap: 10,
         borderRadius: 15,
-        backgroundColor: '#FEFEFE'
+        backgroundColor: '#FEFEFE',
+        flexShrink: 0,
     },
-    title: {
-        color: '#111',
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        // fontFamily: 'Poppins',
-        fontSize: 18,
-        fontStyle: 'normal',
-        fontWeight: '600',
-        lineHeight: 24,
+    allDetailsContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      marginLeft: 50,
     },
-    normalText: {
-        width: 385,
-        // color: var(--brand-black, #111);
-        color: '#111',
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        // fontFamily: 'Poppins',
-        fontSize: 14,
-        fontStyle: 'normal',
-        fontWeight: '400',
-        // line-height: 16px; /* 114.286% */
-        lineHeight: 16,
-    },
-    smallContainer: {
+    iconAndDetailsContainer: {
         display: 'flex',
         alignItems: 'center',
-        gap: 10,
+        gap: 20,
         alignSelf: 'stretch',
+        flexDirection: 'row',
+        marginBottom: 10,
+        paddingLeft: 0,
       },
-      listItem: {
-        marginLeft: 50,
+      /**
+       * Include in education, clubs and societies, achievements
+       */
+      detailsContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
       },
-      textContainer: {
-          // display: -webkit-box;
+      individualDetailContainer: {
           display: 'flex',
           webkitBoxOrient: 'vertical',
           webkitLineClamp: 1,
           alignSelf: 'stretch',
       },
-      text: {
-          overflow: 'hidden',
-          color: 'var(--brand-black, #111)',
-          leadingTrim: 'both',
-          textEdge: 'cap',
-          textOverflow: 'ellipsis',
-          fontFamily: 'Poppins',
-          fontSize: 14,
-          fontStyle: 'normal',
-          fontWeight: 400,
-          lineHeight: 16, /* 114.286% */
-      },
-      university: {
-          overflow: 'hidden',
-          webkitBoxOrient: 'vertical',
-          webkitLineClamp: 1,
-          color: 'var(--brand-black, #111)',
-          leadingTrim: 'both',    
-          textEdge: 'cap',
-          textOverflow: 'ellipsis',
-          fontFamily: 'Poppins',
-          fontSize: 14,
-          fontStyle: 'normal',
-          fontWeight: 500,
-          lineHeight: 16, /* 114.286% */
-      },
-      infoContainer: {
-        marginTop: 10, // Add margin to create a gap between each set of info
-      },
-      boldText: {
-        fontWeight: 'bold',
-      },
-      italicText: {
-        fontStyle: 'italic',
-      },
-      lightText: {
-        color: "#87929D",
-      },
-      seeMore: {
-        // color: var(--brand-blue, #2656FF);
-        color: '#2656FF',
-        leadingTrim: 'both',
-        textEdge: 'cap',
-        // fontFamily: 'Poppins',
-        fontSize: 14,
-        fontStyle: 'normal',
-        fontWeight: '700',
-        lineHeight: 16,
-    }
+    imageContainer: {
+      width: 40,  
+      height: 40,
+      borderRadius: 40, 
+      borderWidth: 1,
+      borderColor: '#B8B8B8',
+      overflow: 'hidden',
+      borderStyle: 'solid',
+      resizeMode: 'cover',
+    },
+    /******************************************************Badges****************************************************** */
+    allBadgesContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      alignSelf: 'stretch',
+      flexDirection: 'row',
+    },
+    singleBadgeContainer: {
+      width: 40,
+      height: 40,
+      borderRadius: 40,
+      borderWidth: 1,
+      borderColor: '#B8B8B8',
+      overflow: 'hidden',
+      borderStyle: 'solid',
+    },
+    /*****************************************************Basic Info*************************************************** */
+    singleBasicInfoContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 20,
+      alignSelf: 'stretch',
+      flexDirection: 'row',
+      marginBottom: 10,
+    },
+    basicInfoIconContainer: {
+      width: 30,
+      height: 30,
+    },
+    seeMore: {
+      color: '#2656FF',
+  },
+  contentWithGap: {
+    paddingVertical: 10,
+  },
 });

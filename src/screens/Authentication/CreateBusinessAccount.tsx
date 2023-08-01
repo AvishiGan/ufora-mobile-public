@@ -18,6 +18,7 @@ import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent } from "react";
 import { Field, Formik } from 'formik';
+import axios from 'axios';
 type Props = StackScreenProps<RootStackParamList, "CreateBusinessAccount">;
 
 interface FormValues {
@@ -36,18 +37,37 @@ const initialValues: FormValues = {
     password: "",
     };
 
-    const handleSubmit = (values: FormValues) => {
-    //const handleSubmit = () => Alert.alert("Login");
-    // Making the API request
-    //console.log(values);
-    navigation.navigate("OTP");
+    const handleSubmit = async(values: FormValues) => {
+        try{
+            const response = await axios.post("http://10.22.167.182:3000/register/business",{
+                name: values.name,
+                email: values.email,
+                username: values.username,
+                password: values.password
+            });
+            console.log(values);
+            navigation.navigate("OTP");
+            console.log("API Response: ", response.data);
+        } catch (error:any){
+            if(error.response){
+                console.error("API error: ", error.response.data);
+                console.error("API error status: ", error.response.status);
+            } else if (error.request){
+                // The request was made but no response was received
+                console.error("API error: No response received");
+                console.log(error);
+            } else {
+                console.error("API error: ", error.message);
+            }
+         }
+    
     };
 
     const handleBack = () => {
-    navigation.navigate("CreateAccount");
+        navigation.navigate("CreateAccount");
     }
 
-return (
+    return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <StatusBar />
         <View>
