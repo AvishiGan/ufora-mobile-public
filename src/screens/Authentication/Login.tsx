@@ -21,6 +21,7 @@ import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent, useState } from "react";
 import axios from "axios";
+import * as SecureStore from 'expo-secure-store';
 type Props = StackScreenProps<RootStackParamList, "Login">;
 
 interface FormValues {
@@ -44,6 +45,8 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
       });
 
       console.log(values);
+      await SecureStore.setItemAsync('token', response.data.Success.token);
+      console.log("Token stored in SecureStore.");
       navigation.navigate("Feed");
 
       console.log("API Response: ", response.data);
@@ -54,7 +57,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
         const errorMessage = `${JSON.stringify(error.response.data)}`
         alert(errorMessage);
         console.error("API error: ", error.response.data);
-        //console.error("API error status: ", error.response.status);
+        console.error("API error status: ", error.response.status);
       } else if (error.request) {
         // The request was made but no response was received
         console.error("API error: No response received");
