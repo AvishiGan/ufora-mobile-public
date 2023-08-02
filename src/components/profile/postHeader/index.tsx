@@ -16,7 +16,7 @@ interface PostHeaderData {
   profilePic: any;
   profileName: string;
   university: string;
-  time: string;
+  time?: string;
 }
 
 interface PostHeaderProps {

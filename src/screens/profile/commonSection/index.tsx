@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { styles } from "./styles";
-import { profileData } from "./data";
+import { profileData } from "../data";
 import {
   UserProfileTopBar,
   ProfileSlider,
@@ -12,7 +12,7 @@ const ProfileCommonSection: React.FC = () => {
   return (
     <View style={styles.topSectionContainer}>
       <UserProfileTopBar titleBarName={profileData.titleBarName} />
-      <ProfileHeader data = {profileData} />
+      <ProfileHeader data={profileData} />
       <ProfileSlider slideTitles={profileData.slideTitles} />
     </View>
   );
