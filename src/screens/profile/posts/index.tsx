@@ -13,6 +13,7 @@ import {
 } from "../../../../assets/images";
 import { styles } from "./styles";
 import ContentAdditionBar from "../../../components/profile/contentAdditionBar";
+import ProfileCommonSection from "../commonSection";
 
 const ProfilePostSection = () => {
   return (
