@@ -4,7 +4,7 @@
 
 import React from "react";
 import { View } from "react-native";
-import BlogCard from "../../profile/blogs/blogCard/index";
+import BlogCard from "../../../components/profile/blogCard/index";
 import { marketing, security, HCI } from "../../../../assets/images";
 import { styles } from "./styles";
 import ContentAdditionBar from "../../../components/profile/contentAdditionBar";
