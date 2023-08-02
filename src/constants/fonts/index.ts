@@ -1,33 +1,18 @@
-import BoldHeading from "./BoldHeading";
-import ButtonMedium from "./ButtonMedium";
-import CardHeadingBold from "./CardHeadingBold";
-import NameSemiboldNormal from "./NameSemiboldNormal";
-import NameSmallSemibold from "./NameSmallSemibold";
-import PageTitleSemibold from "./PageTitleSemibold";
-import RegularBig from "./RegularBig";
-import RegularNormal from "./RegularNormal";
-import RegularSmall from "./RegularSmall";
-import SemiBoldBig from "./SemiboldBig";
-import SmallerMedium from "./SmallerMedium";
-import SmallerRegular from "./SmallerRegular";
-import SmallestLabelsRegular from "./SmallestLabelsRegular";
-import SmallItalic from "./SmallItalic";
-import SmallMedium from "./SmallMedium";
-import SubHeadingSemibold from "./SubHeadingSemibold";
-
-export {
-    BoldHeading, 
-    ButtonMedium, 
-    CardHeadingBold, 
-    NameSemiboldNormal, 
-    NameSmallSemibold, 
-    PageTitleSemibold, 
-    RegularBig, RegularNormal, 
-    RegularSmall, SemiBoldBig, 
-    SmallerMedium, 
-    SmallerRegular, 
-    SmallestLabelsRegular, 
-    SmallItalic, 
-    SmallMedium, 
-    SubHeadingSemibold
-};
+export {default as BoldHeading} from "./BoldHeading";
+export {default as ButtonMedium} from "./ButtonMedium";
+export {default as CardHeadingBold} from "./CardHeadingBold";
+export {default as NameSemiboldNormal} from "./NameSemiboldNormal";
+export {default as NameSmallSemibold} from "./NameSmallSemibold";
+export {default as PageTitleSemibold} from "./PageTitleSemibold";
+export {default as RegularBig} from "./RegularBig";
+export {default as RegularNormal} from "./RegularNormal";
+export {default as RegularSmall} from "./RegularSmall";
+export {default as SemiboldBig} from "./SemiboldBig";
+export {default as SmallerMedium} from "./SmallerMedium";
+export {default as SmallerRegular} from "./SmallerRegular";
+export {default as SmallestLabelsRegular} from "./SmallestLabelsRegular";
+export {default as SmallItalic} from "./SmallItalic";
+export {default as SmallMedium} from "./SmallMedium";
+export {default as SubHeadingSemibold} from "./SubHeadingSemibold";
+export {default as CustomText} from "./CustomText";
+export {default as ButtonMediumCustom} from "./ButtonMediumCustom";

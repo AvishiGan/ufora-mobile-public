@@ -25,8 +25,8 @@ import RootStack from "./src/navigation/Nav/RootStack";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    "Text": require("./assets/fonts/Switzer-Variable.ttf"),
-    "ItalicText": require("./assets/fonts/Switzer-VariableItalic.ttf"),
+    Text: require("./assets/fonts/Switzer-Variable.ttf"),
+    ItalicText: require("./assets/fonts/Switzer-VariableItalic.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -34,8 +34,13 @@ export default function App() {
   }
 
   return (
-    <> 
-    <RootStack />
+    <>
+      <SafeAreaView style={{ flex: 1 }}>
+        {/* <ScrollView> */}
+        {/* <RootStack /> */}
+        <ProfileStack />
+        {/* </ScrollView> */}
+      </SafeAreaView>
     </>
   );
 }
