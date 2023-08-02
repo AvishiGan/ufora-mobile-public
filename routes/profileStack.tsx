@@ -6,7 +6,6 @@ import {
   ProfilePostSection,
   ProfileBlogSection,
   ProfilePortfolioSection,
-  ProfileCommonSection,
 } from "../src/screens";
 
 export type ProfileStackParamList = {
