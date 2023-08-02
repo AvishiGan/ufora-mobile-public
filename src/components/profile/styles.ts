@@ -85,7 +85,7 @@ export const styles = StyleSheet.create({
         width: 50,
         height: 50,
       },
-      profilePic: {
+      profilePicProfileHeader: {
         width: 50,
         height: 50,
         flexShrink: 0,

@@ -25,7 +25,7 @@ const PostAuthorBioFooter: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
   return (
     <View style={styles.authorBioContainer}>
       {/* Profile pic */}
-      <Image style={styles.profilePic} source={data.profilePic} />
+      <Image style={styles.profilePicBioFooter} source={data.profilePic} />
       <View style={styles.profileNameUniContainer}>
         <View style={styles.profileNameTwoIconsContainer}>
           <NameSmallSemibold>{data.profileName}</NameSmallSemibold>
