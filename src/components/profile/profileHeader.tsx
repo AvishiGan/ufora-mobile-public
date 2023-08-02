@@ -29,7 +29,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ data }) => {
       <View style={styles.profilePicNameUniContainer}>
         {/* Profile pic */}
         <View style={styles.profilePicContainer}>
-          <Image style={styles.profilePic} source={data.profilePic} />
+          <Image style={styles.profilePicProfileHeader} source={data.profilePic} />
           {/* Profile plus icon */}
           {/* <View style={styles.profilePlusIcon}>
             <ProfilePlusIcon size={30} color="blue" />
