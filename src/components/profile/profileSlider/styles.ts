@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     },
     individualSlideContainer: {
         display: "flex",
-        width: 80,
+        width: 90,
         paddingVertical: 10,
         paddingHorizontal: 5,
         flexDirection: "column",
@@ -16,5 +16,9 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         flexShrink: 0,
         borderRadius: 7,
+        backgroundColor: "#2656FF",
+    },
+    activeSlide: {
+        backgroundColor: "#FF2656",
     },
 });

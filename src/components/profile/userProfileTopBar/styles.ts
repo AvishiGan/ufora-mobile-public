@@ -3,11 +3,12 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     headerIconsContainer: {
         display: "flex",
-        width: 340,
+        width: "95%",
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
         paddingBottom: 15,
+        backgroundColor: "#FEFEFE",
     },
     backIconNameContainer: {
         display: "flex",

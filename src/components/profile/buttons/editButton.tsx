@@ -4,10 +4,6 @@ import { styles } from "./styles";
 import { EditIcon } from "../../../../assets/svg";
 import { RegularNormal } from "../../../constants";
 
-type ButtonProps = TouchableOpacityProps & {
-  onPress: () => void;
-};
-
 /**
  *
  * @param param0 | ButtonProps
@@ -25,6 +21,10 @@ const EditButton: React.FC<ButtonProps> = ({ onPress }) => (
     </View>
   </TouchableOpacity>
 );
+
+type ButtonProps = TouchableOpacityProps & {
+  onPress: () => void;
+};
 
 EditButton.defaultProps = {
   activeOpacity: 0.8,

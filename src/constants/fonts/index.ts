@@ -14,3 +14,5 @@ export {default as SmallestLabelsRegular} from "./SmallestLabelsRegular";
 export {default as SmallItalic} from "./SmallItalic";
 export {default as SmallMedium} from "./SmallMedium";
 export {default as SubHeadingSemibold} from "./SubHeadingSemibold";
+export {default as CustomText} from "./CustomText";
+export {default as ButtonMediumCustom} from "./ButtonMediumCustom";
