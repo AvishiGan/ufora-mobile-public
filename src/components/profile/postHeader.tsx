@@ -33,7 +33,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ data }) => {
     <View style={styles.postHeaderContainer}>
       <View style={styles.profilePicNameUniTimeContainer}>
         {/* Profile pic */}
-        <Image style={styles.profilePic} source={data.profilePic} />
+        <Image style={styles.profilePicPostHeader} source={data.profilePic} />
         <View style={styles.profileNameUniTimeContainer}>
           <View style={styles.profileNameTwoIconsContainer}>
             <SemiBoldBig>{data.profileName}</SemiBoldBig>

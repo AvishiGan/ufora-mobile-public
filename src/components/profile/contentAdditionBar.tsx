@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { styles } from "./contentAdditionBar/styles";
+import { styles } from "./styles";
 import AddIcon from "../../../assets/svg/myProfile/common/addIcon";
 import { RegularNormal } from "../../constants";
 
