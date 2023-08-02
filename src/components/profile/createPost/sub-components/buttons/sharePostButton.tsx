@@ -1,14 +1,10 @@
 import React from "react";
 import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import { styles } from "./styles";
-import { EditIcon } from "../../../../assets/svg";
-import { RegularNormal } from "../../../constants";
+import { Send } from "lucide-react-native";
+import { ButtonMedium } from "../../../../../constants";
+import { COLORS } from "../../../../../constants";
 
-/**
- *
- * @param param0 | ButtonProps
- * @returns | This component returns the edit button of the user profile
- */
 const EditButton: React.FC<ButtonProps> = ({ onPress }) => (
   <TouchableOpacity
     activeOpacity={0.8}
@@ -16,8 +12,8 @@ const EditButton: React.FC<ButtonProps> = ({ onPress }) => (
     style={styles.buttonContainer}
   >
     <View style={styles.buttonContent}>
-      <EditIcon size={17} fillColor="#111111" strokeColor="#4F4E4E" />
-      <RegularNormal>Edit Profile</RegularNormal>
+      <Send size={30} color={COLORS.brandGrey} fill={COLORS.brandGrey} />
+      <ButtonMedium>Share Post</ButtonMedium>
     </View>
   </TouchableOpacity>
 );

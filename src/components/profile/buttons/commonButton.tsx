@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
-import { styles } from "./styles";
+import { styles } from "../blogCard/styles";
 import { RegularNormal } from "../../../constants";
 
 type ButtonProps = TouchableOpacityProps & {
