@@ -25,4 +25,10 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 15,
     },
+    topSectionContainer: {
+        flexShrink: 0,
+        flexDirection: "column",
+        alignItems: "center",
+        display: "flex",
+    },
   });

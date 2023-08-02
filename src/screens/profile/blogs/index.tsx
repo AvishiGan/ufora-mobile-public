@@ -8,8 +8,10 @@ import BlogCard from "../../profile/blogs/blogCard/index";
 import { marketing, security, HCI } from "../../../../assets/images";
 import { styles } from "./styles";
 import ContentAdditionBar from "../../../components/profile/contentAdditionBar";
+import ProfileCommonSection from "../commonSection";
 
 const ProfileBlogSection = () => {
+  <ProfileCommonSection />;
   return (
     <View style={styles.blogActionContainer}>
       <ContentAdditionBar title="Add a new blog article" />
