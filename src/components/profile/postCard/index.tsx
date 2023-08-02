@@ -6,15 +6,15 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
-import { PostHeader } from "../../../../components";
-import { authorDataPost } from "./data";
-import { CommentIcon, LikeIcon, LikedIcon } from "../../../../../assets/svg";
-import PostShareIcon from "../../../../../assets/svg/myProfile/posts/postShareIcon";
+import { PostHeader } from "../..";
+import { profileData } from "../../../screens/profile/data";
+import { CommentIcon, LikeIcon, LikedIcon } from "../../../../assets/svg";
+import PostShareIcon from "../../../../assets/svg/myProfile/posts/postShareIcon";
 import {
   RegularNormal,
   RegularSmall,
   SmallerRegular,
-} from "../../../../constants";
+} from "../../../constants";
 
 interface PostCardData {
   postDescription: string;
@@ -36,7 +36,7 @@ const PostCard: React.FC<PostCardData> = ({
   return (
     <View style={styles.singlePostContainer}>
       {/* PostHeader component */}
-      <PostHeader data={authorDataPost} />
+      <PostHeader data={profileData} />
       <RegularNormal>
         {postDescription}
         {seeMore ? <Text style={styles.seeMore}>... see more</Text> : null}

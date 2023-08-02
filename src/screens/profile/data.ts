@@ -1,8 +1,8 @@
-import { profilePicture } from "../../../../assets/images";
+import { profilePicture } from "../../../assets/images";
 
 /**
  * @interface ProfileData
- *  Specify the properties and their types that the profileData object should have
+ *  This has all the data which contains in common profile sections
  */
 export interface ProfileData {
     profilePic: any;
@@ -14,6 +14,7 @@ export interface ProfileData {
     projectsCount: number;
     titleBarName: string;
     slideTitles: string[];
+    time?: string;
   }
   
   /**
@@ -31,4 +32,3 @@ export interface ProfileData {
     titleBarName: "isurur",
     slideTitles: ["About", "Posts", "Blogs", "Portfolio"],
   };
-  

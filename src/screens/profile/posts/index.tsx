@@ -4,7 +4,7 @@
 
 import React from "react";
 import { View } from "react-native";
-import PostCard from "../../profile/posts/postCard/index";
+import PostCard from "../../../components/profile/postCard/index";
 import {
   architecture,
   rugbyField,
