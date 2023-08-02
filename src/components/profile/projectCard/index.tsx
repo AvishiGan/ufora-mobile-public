@@ -6,9 +6,9 @@ import React from "react";
 import { View, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
-import { PostAuthorBioFooter } from "../../../../components";
-import { authorDataProject } from "./data";
-import { CardHeadingBold, RegularSmall } from "../../../../constants";
+import { PostAuthorBioFooter } from "../..";
+import { profileData } from "../../../screens/profile/data";
+import { CardHeadingBold, RegularSmall } from "../../../constants";
 
 interface ProjectCardData {
   projectImage: any;
@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardData> = ({
         </View>
       </View>
       {/* PostAuthorBioFooter component */}
-      <PostAuthorBioFooter data={authorDataProject} />
+      <PostAuthorBioFooter data={profileData} />
     </View>
   );
 };

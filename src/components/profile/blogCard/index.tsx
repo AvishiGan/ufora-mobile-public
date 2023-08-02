@@ -6,10 +6,10 @@ import React from "react";
 import { View, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
-import { DotIcon } from "../../../../../assets/svg";
-import { PostAuthorBioFooter } from "../../../../components";
-import { authorDataBlog } from "./data";
-import { CardHeadingBold, RegularSmall } from "../../../../constants";
+import { DotIcon } from "../../../../assets/svg";
+import { PostAuthorBioFooter } from "../..";
+import { profileData } from "../../../screens/profile/data";
+import { CardHeadingBold, RegularSmall } from "../../../constants";
 
 interface BlogCardData {
   blogImage: any;
@@ -40,7 +40,7 @@ const BlogCard: React.FC<BlogCardData> = ({
             <RegularSmall>{time}</RegularSmall>
           </View>
           {/* PostAuthorBioFooter component */}
-          <PostAuthorBioFooter data={authorDataBlog} />
+          <PostAuthorBioFooter data={profileData} />
         </View>
       </View>
     </View>

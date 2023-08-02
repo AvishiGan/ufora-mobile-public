@@ -3,7 +3,7 @@
  */
 import React from "react";
 import { View } from "react-native";
-import ProjectCard from "../../profile/portfolio/projectCard/index";
+import ProjectCard from "../../../components/profile/projectCard/index";
 import { mobileApp, hostel, robotic } from "../../../../assets/images";
 import { styles } from "./styles";
 import ContentAdditionBar from "../../../components/profile/contentAdditionBar";
