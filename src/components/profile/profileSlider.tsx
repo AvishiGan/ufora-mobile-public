@@ -65,4 +65,3 @@ const ProfileSlider: React.FC<ProfileSliderProps> = ({ slideTitles }) => {
 };
 
 export default ProfileSlider;
-
