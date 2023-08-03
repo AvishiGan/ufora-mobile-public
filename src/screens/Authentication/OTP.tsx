@@ -60,7 +60,7 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
     try{
       //const ip = process.env.IP
       //console.log(ip)
-      const response = await axios.post("http://192.168.1.6:3000/otp/verify/email",{
+      const response = await axios.post("http://192.168.1.5:3000/otp/verify/email",{
         email: email,
         otp: otp
       });

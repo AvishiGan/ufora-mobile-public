@@ -61,7 +61,7 @@ const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
     try{
       const token = await SecureStore.getItemAsync('token');
 
-      const response = await axios.post("http://192.168.1.6:3000/password/reset/otp/verify",{
+      const response = await axios.post("http://192.168.1.5:3000/password/reset/otp/verify",{
         otp: otp,
         token: token,
       });

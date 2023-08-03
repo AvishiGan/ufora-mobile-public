@@ -30,7 +30,7 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
     try {
       //const ip = process.env.IP
       //console.log(ip)
-        const response = await axios.post("http://192.168.1.6:3000/password/reset/otp/request",{
+        const response = await axios.post("http://192.168.1.5:3000/password/reset/otp/request",{
           email: values.email,
         });
   
@@ -66,7 +66,7 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
       <StatusBar />
       <View style={{alignItems: "center"}}>
         {/* Top section */}
-        <Logo source={logo} mainText="Forgot Password" subText="Choose an Account type to get started "/>
+        <Logo source={logo} mainText="Forgot Password" subText="Please enter your Emailto continue "/>
 
 
         {/* Bottom section */}

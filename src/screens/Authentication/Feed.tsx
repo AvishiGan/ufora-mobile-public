@@ -1,40 +1,80 @@
-// import React, { useState } from 'react'
-// import {
-//   SafeAreaView,
-//   Text,
-//   View,
-// } from "react-native";
-// import InputField from '../../components/inputField/InputField';
-
-// const Feed = () => {
-//   const [username, setUsername] = useState('');
-
-//   const handleUsernameChange = (text: string) => {
-//     setUsername(text);
-//   };
-//   return(
-//     <SafeAreaView>
-//     <InputField
-//       placeholder="Username"
-//       value="username"
-//       onChangeText={handleUsernameChange}
-//       style={{ margin: 16 }}
-//       imageSource={require("../../../assets/icons/user.png")}
-//     />
-//   </SafeAreaView>
-//   )
-// };
-// export default Feed
-
-
-
-import React, {Component, useEffect} from "react";
-import { TextInput } from "@react-native-material/core";
+import React, {Component, FunctionComponent, useEffect, useState} from "react";
+import { TextInput, useTheme } from "@react-native-material/core";
 import axios from 'axios';
-import {View, Text, SafeAreaView, Button} from 'react-native';
+import {View, StyleSheet,Image, SafeAreaView, Button, TouchableOpacity} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
+import EyeOff from "../../../assets/icons/eye-off.png";
+import {Icon} from "@react-native-material/core";
 
-const Feed = () => {
+
+interface TextInputWithFocusBorderProps {
+  label: string;
+  helperText: string;
+  leading: string;
+  value: string;
+  onChangeText: (text: string) => void;
+  secureTextEntry?: boolean;
+  showPasswordToggle?: boolean;
+  imageSource?: string;
+  leadingIcon?: React.ReactElement;
+}
+
+
+const TextInputWithFocusBorder: React.FC<TextInputWithFocusBorderProps> = ({
+  label,
+  helperText,
+  leading,
+  value,
+  onChangeText,
+  secureTextEntry = false,
+  showPasswordToggle = false,
+  imageSource,
+  leadingIcon,
+}) => {
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  
+  const styles = StyleSheet.create({
+
+    input: {
+      flex: 1,
+      fontSize: 16,
+      color: '#B8B8B8',
+      fontWeight: "400",
+      marginLeft: 8,
+    },
+  });
+
+  return (
+    <View>
+      <Image source={imageSource} style={{ marginRight: 18,marginLeft: 4, padding: 5 }} />
+
+      <TextInput
+        variant="outlined"
+        label={label}
+        color="#87929D"
+        //helperText={helperText}
+        //leading = {leading}
+        value={value}
+        secureTextEntry={secureTextEntry && !showPassword}
+        onChangeText={onChangeText}
+        style={{ marginLeft: 45 , width: 300, alignItems: "center", flexDirection: "row" }}
+      />
+      {showPasswordToggle && (
+        <TouchableOpacity onPress={togglePasswordVisibility} style={{ marginLeft: 8 }}>
+          <Image source={EyeOff} />
+        </TouchableOpacity>
+      )}
+    </View>
+  );
+};
+
+const Feed: FunctionComponent = () => {
+  const [username, setUsername] = useState('');
   useEffect(() => {
     const makeAPIRequestWithBearerToken = async () => {
       try {
@@ -47,7 +87,7 @@ const Feed = () => {
           return;
         }
 
-        const response = await axios.post("http://192.168.1.6:3000/test", null, {
+        const response = await axios.post("http://192.168.1.5:3000/test", null, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -79,26 +119,31 @@ const Feed = () => {
     makeAPIRequestWithBearerToken();
   }, []);
 
+
+
   return(
     <View>
       <SafeAreaView>
-
         <Button 
           title={"Fetch Me"} 
           //onPress={makeAPIRequestWithBearerToken}
         />
 
-      <TextInput 
-        variant="outlined" 
-        label="Label" 
-        style={{ margin: 20}}
-      /> 
-      </SafeAreaView>
+      <TextInputWithFocusBorder
+        //imageSource={require("../../../assets/icons/password.png")} 
+        label="Username / Email"
+        leadingIcon={<Icon name="lock" size={24} color="black" style={{ margin: 8 }} />}
+        //helperText="Enter your username"
+        //leading="100"
+        value={username}
+        onChangeText={setUsername}
+        secureTextEntry={true} 
+        showPasswordToggle={true}
+        
+      />   
+        
+        </SafeAreaView>
     </View>
   )
 }
-  
-  
-
-export default Feed;
-
+export default Feed; 

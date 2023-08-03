@@ -39,7 +39,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
      try {
     //const ip = process.env.IP
     //console.log(ip)
-      const response = await axios.post("http://192.168.1.6:3000/login",{
+      const response = await axios.post("http://192.168.1.5:3000/login",{
         username: values.email,
         password: values.password
       });
@@ -86,22 +86,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
             alignItems: "center",
           }}
         >
-          <Formik 
-          initialValues={initialValues} 
-          onSubmit={handleLogin} 
-          // validate={(values: FormValues) => {
-          //   const errors: Partial<FormValues> = {};
-
-          //   //validate username
-          //   if (!values.email){
-          //     errors.email = "Username is required";
-          //   }
-
-          //   if (!values.password){
-          //     errors.password = "Password is required";
-          //   }
-          // }}
-          >
+          <Formik initialValues={initialValues} onSubmit={handleLogin} >
             {({ handleChange, handleSubmit, values, errors }) => (
               <View>
                 <View
@@ -138,8 +123,9 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                     component={InputField}
                     imageSource={require("../../../assets/icons/password.png")}
                     name="password"
-                    placeholder="*********"
+                    placeholder="Password"
                     secureTextEntry={true}
+                    showPasswordToggle = {true}
                     onChangeText={handleChange("password")}
                     value={values.password}
                   />

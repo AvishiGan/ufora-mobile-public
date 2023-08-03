@@ -29,6 +29,7 @@ interface FormValues {
   }
 
 const CreateBusinessAccount:FunctionComponent<Props> = ({navigation}) => {
+    const [isSelected, setSelection] = useState(false);
 
 const initialValues: FormValues = {
     name: "",
@@ -39,7 +40,7 @@ const initialValues: FormValues = {
 
     const handleSubmit = async(values: FormValues) => {
         try{
-            const response = await axios.post("http://192.168.1.6:3000/register/company",{
+            const response = await axios.post("http://192.168.1.5:3000/register/company",{
                 name: values.name,
                 email: values.email,
                 username: values.username,
@@ -51,7 +52,7 @@ const initialValues: FormValues = {
 
             //Request OTP when create account success
             try{
-                const otpResponse = await axios.post("http://192.168.1.6:3000/otp/request", {
+                const otpResponse = await axios.post("http://192.168.1.5:3000/otp/request", {
                     email: values.email,
                 });
 
@@ -87,7 +88,7 @@ const initialValues: FormValues = {
         
 
     {/* Bottom section */}
-    <View style={{ paddingHorizontal: 10, marginTop: 62 ,alignItems: "center"}}>
+    <View style={{ paddingHorizontal: 10, marginTop: 40 ,alignItems: "center"}}>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
             {({ handleChange, handleSubmit, values }) => (
             <View>
@@ -96,7 +97,7 @@ const initialValues: FormValues = {
                     component={InputField}
                     imageSource={require("../../../assets/icons/building.png")}
                     name="name"
-                    placeholder="ABC Industry"
+                    placeholder="Business Name"
                     onChangeText={handleChange("name")}
                     value={values.name}
                 />
@@ -107,7 +108,7 @@ const initialValues: FormValues = {
                     component={InputField}
                     imageSource={require("../../../assets/icons/mail.png")}
                     name="email"
-                    placeholder="contact@abcindustries.com"
+                    placeholder="Business Email"
                     onChangeText={handleChange("email")}
                     value={values.email}
                 />
@@ -118,7 +119,7 @@ const initialValues: FormValues = {
                     component={InputField}
                     imageSource={require("../../../assets/icons/user.png")}
                     name="username"
-                    placeholder="abcindustry"
+                    placeholder="Username"
                     onChangeText={handleChange("username")}
                     value={values.username}
                 />
@@ -129,24 +130,36 @@ const initialValues: FormValues = {
                     component={InputField}
                     imageSource={require("../../../assets/icons/password.png")}
                     name="password"
-                    placeholder="*********"
+                    placeholder="Password"
                     secureTextEntry={true}
+                    showPasswordToggle = {true}
                     onChangeText={handleChange("password")}
                     value={values.password}
                 />
                 </View>
 
-                <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-                <View style={{ flexDirection: "row", justifyContent: "flex-end", marginTop: 5, }} >
-                    <RegularSmall>
-                        <Text style={{ color: "#2656FF" }}>
-                            Forgot Password?
-                        </Text>
-                    </RegularSmall>
-                </View>
-                </TouchableOpacity>
-
                 <View style={{ marginTop: 10, alignItems: 'center',flexDirection: 'row', justifyContent: "center"}}>
+
+                {/* Custom Checkbox */}
+                <TouchableOpacity onPress={() => setSelection(!isSelected)}>
+                    <View
+                      style={{
+                        width: 15,
+                        height: 15,
+                        borderWidth: 1,
+                        borderColor: isSelected ? '#FEFEFE' : '#000000',
+                        borderRadius: 3,
+                        marginRight: 10,
+                        backgroundColor: isSelected ? '#2656FF' : 'transparent',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}
+                    >
+                    {isSelected && (
+                      <View style={{ width: 7, height: 4, borderColor: '#FFFFFF', borderTopWidth: 2, borderRightWidth: 2, transform: [{ rotate: '130deg' }] }} />
+                    )}                    
+                    </View>
+                  </TouchableOpacity>
 
                     <SmallerRegular>
                         <Text style={{ alignItems: 'center'}}>I agree to the</Text>
@@ -185,12 +198,12 @@ const initialValues: FormValues = {
         {/* Button */}
         <View style={{ marginTop: 18, alignItems: 'center',flexDirection: 'row'}}>
             <RegularNormal>
-                <Text style={{ alignItems: 'center'}}>Don't have an account?</Text>
+                <Text style={{ alignItems: 'center'}}>Already have an Account?</Text>
             </RegularNormal>
-            <TouchableOpacity onPress={() => navigation.navigate('CreateAccount')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                 <View>
                 <RegularNormal>
-                    <Text style={{ color: '#2656FF' }}>Create Account</Text>
+                    <Text style={{ color: '#2656FF' }}>Login</Text>
                 </RegularNormal>
                 </View>
             </TouchableOpacity>
@@ -200,6 +213,18 @@ const initialValues: FormValues = {
             onPressGoogle={handlePressGoogle}
             onPressApple={handlePressApple}
         />
+        <View style={{ justifyContent: "center",marginTop: 8, alignItems: "center", flexDirection: "row", }}>
+        <SmallerRegular>
+          <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>
+        </SmallerRegular>
+        <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+        <View>
+          <SmallerRegular>
+            <Text style={{ color: "#2656FF" }}>Terms of Service</Text>
+          </SmallerRegular>
+        </View>
+      </TouchableOpacity>
+      </View>
         </View>
         </KeyboardAvoidingView>
     );

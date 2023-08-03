@@ -25,6 +25,7 @@ import CreateBusinessAccount from "./CreateBusinessAccount";
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
+import SmallerRegular from "../../constants/fonts/SmallerRegular";
 type Props = StackScreenProps<RootStackParamList, "CreateAccount">;
 
 interface CustomImageProps {
@@ -52,7 +53,7 @@ const CreateAccount: FunctionComponent<Props> = ({navigation}) => {
         {/* Bottom section */}
         <TouchableOpacity
           onPress={handleStudentClick}
-          style={{marginTop: 130,flexDirection: 'row',alignItems: 'center',}} >
+          style={{marginTop: 120,flexDirection: 'row',alignItems: 'center',}} >
         <View onPress={handleStudentClick} >
           {activeButton === 'student' && (
             <View/>
@@ -130,7 +131,7 @@ const CreateAccount: FunctionComponent<Props> = ({navigation}) => {
             </RegularButton>
           </View>
 
-          <View style={{ marginTop: 20, alignItems: "center", flexDirection: "row", }}>
+          <View style={{ marginTop: 15, alignItems: "center", flexDirection: "row", }}>
             <RegularNormal>
             <Text style={{ alignItems: "center" }}>Already have an account?</Text>
             </RegularNormal>
@@ -147,6 +148,19 @@ const CreateAccount: FunctionComponent<Props> = ({navigation}) => {
           onPressGoogle={handlePressGoogle}
           onPressApple={handlePressApple}
         />
+
+      <View style={{ justifyContent: "center",marginTop: 8, alignItems: "center", flexDirection: "row", }}>
+        <SmallerRegular>
+          <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>
+        </SmallerRegular>
+        <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+        <View>
+          <SmallerRegular>
+            <Text style={{ color: "#2656FF" }}>Terms of Service</Text>
+          </SmallerRegular>
+        </View>
+      </TouchableOpacity>
+      </View>
 
     </>
   );
