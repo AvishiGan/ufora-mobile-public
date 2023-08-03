@@ -1,54 +1,49 @@
-import React from "react";
-import { View, Text, Image } from "react-native";
-import { styles } from "./styles";
+import React, { useState } from "react";
+import { View, TextInput } from "react-native";
+import { styles } from "../styles";
 import PropTypes from "prop-types";
 import { TopBar } from "../../../components";
-import {
-  PageTitleSemibold,
-  RegularNormal,
-  RegularSmall,
-  SmallerRegular,
-} from "../../../constants";
+import { COLORS, PageTitleSemibold } from "../../../constants";
 import CreatePostHeader from "./header";
 import { profileData } from "../../../screens/profile/data";
-import { AddPhotoVideoButton } from "../buttons";
+import { AddPhotoVideoButton, SharePostButton } from "../buttons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-interface PostCardData {
-  postDescription: string;
-  postImage: any;
-  likedNames: string;
-  likedCount: number;
-  commentsCount: number;
-  seeMore: boolean;
-}
+const CreatePost = () => {
+  const [postText, setPostText] = useState("");
 
-const PostCard: React.FC<PostCardData> = ({
-  postDescription,
-  postImage,
-  likedNames,
-  likedCount,
-  commentsCount,
-  seeMore,
-}) => {
   return (
-    <View>
-      <TopBar titleBarName="Create Post" />
-      <CreatePostHeader data={profileData} />
-      <PageTitleSemibold>Hey Isuru, What’s special today?</PageTitleSemibold>
-      {/* <AddPhotoVideoButton /> */}
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        {/* Top bar */}
+        <TopBar titleBarName="Create Post" />
+        {/* Create post header */}
+        <CreatePostHeader data={profileData} />
+        {/* Input field */}
+        <TextInput
+          value={postText}
+          onChangeText={setPostText}
+          placeholder={`Hey ${profileData.firstName}, What’s special today?`}
+          placeholderTextColor={COLORS.placeHolder}
+          style={[styles.inputField]}
+          multiline={true} // Enable multiline
+        />
+        {/* Buttons */}
+        <View style={styles.twoButtonsContainer}>
+          <AddPhotoVideoButton onPress={handleButtonPress} />
+          <SharePostButton onPress={handleButtonPress} />
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
-/**
- * This is a type checking for the props which we are passing to the PostCard component
- */
-PostCard.propTypes = {
-  postDescription: PropTypes.string.isRequired,
+CreatePost.propTypes = {
   postImage: PropTypes.any.isRequired,
-  likedNames: PropTypes.string.isRequired,
-  likedCount: PropTypes.number.isRequired,
-  commentsCount: PropTypes.number.isRequired,
 };
 
-export default PostCard;
+const handleButtonPress = () => {
+  console.log("Button pressed!");
+};
+
+export default CreatePost;
