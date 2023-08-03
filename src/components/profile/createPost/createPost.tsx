@@ -2,15 +2,16 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
-import { PostHeader } from "../..";
-import { profileData } from "../../../screens/profile/data";
-import { CommentIcon, LikeIcon, LikedIcon } from "../../../../assets/svg";
-import PostShareIcon from "../../../../assets/svg/myProfile/posts/postShareIcon";
+import { TopBar } from "../../../components";
 import {
+  PageTitleSemibold,
   RegularNormal,
   RegularSmall,
   SmallerRegular,
 } from "../../../constants";
+import CreatePostHeader from "./header";
+import { profileData } from "../../../screens/profile/data";
+import { AddPhotoVideoButton } from "../buttons";
 
 interface PostCardData {
   postDescription: string;
@@ -30,39 +31,11 @@ const PostCard: React.FC<PostCardData> = ({
   seeMore,
 }) => {
   return (
-    
-    <View style={styles.singlePostContainer}>
-      {/* PostHeader component */}
-      <PostHeader data={profileData} />
-      <Image style={styles.postImage} source={postImage} />
-      <View style={styles.feedbackContainer}>
-        <View style={styles.likesCommentsContainer}>
-          <View style={styles.likeButtonAndNamesContainer}>
-            {/* Liked icon */}
-            <LikedIcon width={20} height={20} />
-            <RegularSmall>{likedNames}</RegularSmall>
-            <RegularSmall>{`& ${likedCount} others`}</RegularSmall>
-          </View>
-          <RegularSmall>{`${commentsCount} comments`}</RegularSmall>
-        </View>
-        <View style={styles.likeShareCommentButtonContainer}>
-          <View style={styles.eachButtonContainer}>
-            {/* Like icon */}
-            <LikeIcon width={18} height={18} />
-            <SmallerRegular>Like</SmallerRegular>
-          </View>
-          <View style={styles.eachButtonContainer}>
-            {/* Comment icon */}
-            <CommentIcon width={18} height={18} />
-            <SmallerRegular>Comment</SmallerRegular>
-          </View>
-          <View style={styles.eachButtonContainer}>
-            {/* Share icon */}
-            <PostShareIcon width={18} height={18} />
-            <SmallerRegular>Share</SmallerRegular>
-          </View>
-        </View>
-      </View>
+    <View>
+      <TopBar titleBarName="Create Post" />
+      <CreatePostHeader data={profileData} />
+      <PageTitleSemibold>Hey Isuru, What’s special today?</PageTitleSemibold>
+      {/* <AddPhotoVideoButton /> */}
     </View>
   );
 };
