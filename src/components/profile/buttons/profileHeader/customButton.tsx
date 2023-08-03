@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import { RegularNormal } from "../../../../constants";
-import { styles } from "../styles";
+import { styles } from "../../styles";
 
 type ButtonProps = TouchableOpacityProps & {
   onPress: () => void;
@@ -11,7 +11,7 @@ type ButtonProps = TouchableOpacityProps & {
 
 const CustomButton: React.FC<ButtonProps> = ({ onPress, icon, title }) => (
   <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
-    <View style={styles.buttonContainer}>
+    <View style={styles.profileHeaderButtonContainer}>
       <View style={styles.buttonContent}>
         {icon}
         <RegularNormal>{title}</RegularNormal>

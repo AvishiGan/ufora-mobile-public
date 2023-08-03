@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Image } from "react-native";
-import { styles } from "../../styles";
-import { UforaIcon, VerifiedIcon } from "../../../../../assets/svg";
-import { NameSmallSemibold } from "../../../../constants";
+import { styles } from "../styles";
+import { UforaIcon, VerifiedIcon } from "../../../../assets/svg";
+import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
 
 interface CreatePostHeader {
   profilePic?: any;
@@ -17,13 +17,13 @@ const CreatePostHeader: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
   return (
     <View style={styles.authorBioContainer}>
       {/* Profile pic */}
-      <Image style={styles.profilePicBioFooter} source={data.profilePic} />
+      <Image style={styles.profilePicCreatePost} source={data.profilePic} />
       <View style={styles.profileNameUniContainer}>
         <View style={styles.profileNameTwoIconsContainer}>
-          <NameSmallSemibold>{data.profileName}</NameSmallSemibold>
+          <SemiBoldBig>{data.profileName}</SemiBoldBig>
           {/* Two icons */}
-          <VerifiedIcon size={12} fillColor="#2656FF" strokeColor="#fff" />
-          <UforaIcon size={12} fillColor="#111" strokeColor="#fff" />
+          <VerifiedIcon size={16} fillColor="#2656FF" strokeColor="#fff" />
+          <UforaIcon size={16} fillColor="#111" strokeColor="#fff" />
         </View>
       </View>
       {/* Drop down icon comes here */}

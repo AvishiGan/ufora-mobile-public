@@ -5,7 +5,7 @@
 import React from "react";
 import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import { RegularNormal } from "../../../../constants";
-import { styles } from "../styles";
+import { styles } from "../../styles";
 
 type ButtonProps = TouchableOpacityProps & {
   onPress: () => void;
