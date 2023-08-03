@@ -1,21 +1,21 @@
 import React, {FunctionComponent} from "react";
-import Welcome from "../../screens/Authentication/Welcome";
-import Login from "../../screens/Authentication/Login";
-import ForgotPassword from "../../screens/Authentication/ForgotPassword";
-import CreateAccount from "../../screens/Authentication/CreateAccount";
-import OTP from "../../screens/Authentication/OTP";
-import ChangePassword from "../../screens/Authentication/ChangePassword";
-import CreateStudentAccount from "../../screens/Authentication/CreateStudentAccount";
-import CreateBusinessAccount from "../../screens/Authentication/CreateBusinessAccount";
-import SelectUniversity from "../../screens/Authentication/SelectUniversity";
-import UniOTP from "../../screens/Authentication/UniOTP";
-import ForgotPassOTP from "../../screens/Authentication/ForgotPassOTP";
+// import Welcome from "../../screens/Authentication/Welcome";
+// import Login from "../../screens/Authentication/Login";
+// import ForgotPassword from "../../screens/Authentication/ForgotPassword";
+// import CreateAccount from "../../screens/Authentication/CreateAccount";
+// import OTP from "../../screens/Authentication/OTP";
+// import ChangePassword from "../../screens/Authentication/ChangePassword";
+// import CreateStudentAccount from "../../screens/Authentication/CreateStudentAccount";
+// import CreateBusinessAccount from "../../screens/Authentication/CreateBusinessAccount";
+// import SelectUniversity from "../../screens/Authentication/SelectUniversity";
+// import UniOTP from "../../screens/Authentication/UniOTP";
+// import ForgotPassOTP from "../../screens/Authentication/ForgotPassOTP";
 
 //React Navigation
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Feed from "../../screens/Authentication/Feed";
-import StudentOTP from "../../screens/Authentication/StudentOTP";import BlogCentre  from "../../screens/blog";
+// import Feed from "../../screens/Authentication/Feed";
+// import StudentOTP from "../../screens/Authentication/StudentOTP";
 import { COLORS } from "../../constants";
 import { HeaderRight, HeaderLeft } from "../../components";
 import BlogCentre  from "../../screens/blog";
@@ -43,7 +43,7 @@ const RootStack = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Welcome">
-                <Stack.Screen name="Welcome" component={Welcome} options={{headerShown: false}}/>
+                {/* <Stack.Screen name="Welcome" component={Welcome} options={{headerShown: false}}/>
                 <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerShown: false}}/>  
                 <Stack.Screen name="CreateAccount" component={CreateAccount} options={{headerShown: false}}/>  
@@ -53,9 +53,9 @@ const RootStack = () => {
                 <Stack.Screen name="CreateBusinessAccount" component={CreateBusinessAccount} options={{headerShown: false}}/> 
                 <Stack.Screen name="SelectUniversity" component={SelectUniversity} options={{headerShown: false}}/>
                 <Stack.Screen name="UniOTP" component={UniOTP} options={{headerShown: false}}/>
-                <Stack.Screen name="StudentOTP" component={StudentOTP} options={{headerShown: false}}/>
-                <Stack.Screen name="ForgotPassOTP" component={ForgotPassOTP} options={{headerShown: false}}/>
-                <Stack.Screen name="Feed" component={Feed}/>
+                <Stack.Screen name="StudentOTP" component={StudentOTP} options={{headerShown: false}}/> */}
+                {/* <Stack.Screen name="ForgotPassOTP" component={ForgotPassOTP} options={{headerShown: false}}/>
+                <Stack.Screen name="Feed" component={Feed}/> */}
 
                 <Stack.Screen 
                     name="BlogCentre"

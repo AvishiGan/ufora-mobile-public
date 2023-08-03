@@ -6,7 +6,7 @@ const COLORS = {
   brandWhite: "#FEFEFE",
   placeHolder: "#B8B8B8",
   brandBlue: "#2656FF",
-  
+  lightGrayHalf: "rgba(211, 211, 211, 0.5)"
 };
 
 const SIZES = {

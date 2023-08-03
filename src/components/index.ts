@@ -3,12 +3,16 @@ import HeaderRight from "./blog/HeaderRight";
 import HeaderLeft from "./blog/HeaderLeft";
 import UpperBody from "./blog/UpperBody";
 import FeaturedArticles from "./blog/FeaturedArticles";
-import BlogCardRegular from "./blog/BlogCardRegular";
+import BlogCarouselCard from "./blog/BlogCarouselCard";
+import BlogDisplay from "./blog/BlogDisplay";
+import BlogCardSmall from "./blog/BlogCardSmall"
 
 export {
     HeaderRight,
     HeaderLeft,
     UpperBody,
     FeaturedArticles,
-    BlogCardRegular
+    BlogCarouselCard,
+    BlogDisplay,
+    BlogCardSmall
 };

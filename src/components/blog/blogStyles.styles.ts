@@ -68,10 +68,10 @@ const styles = StyleSheet.create({
         color: COLORS.brandGrey,
         alignSelf: "stretch"
     },
-    featuredCardContainer: {
+    carouselCardContainer: {
         flex: 1,
     },
-    featuredCard: {
+    carouselCard: {
         padding: 10,
         flexDirection: "row",
         justifyContent: "flex-end",
@@ -79,18 +79,27 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         overflow: "hidden",
         // width: 385,
-        // height: 200,
-        backgroundColor: 'rgba(211, 211, 211, 0.5)' 
+        height: 200,
+        backgroundColor: COLORS.lightGrayHalf 
     },
-    featuredImage: {
+    carouselCardImage: {
         resizeMode: "cover",
+    },
+    wrapContent: {
+        flexDirection: "column",
+        gap: 19,
+        marginTop: 78,
+    },
+    sideButtons: {
+        flexDirection: "row",
+        marginHorizontal: -4,
+        alignItems: "center", 
     },
     blogDetails: {
         flex: 1,
         flexirection: "column",
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: "flex-start",
-        //marginTop: 101
     },
     blogTitle: {
         color: COLORS.brandWhite,
@@ -103,7 +112,72 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
+        gap: 5,
+    },
+    blogAuthor: {
+        marginTop: 5,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
         gap: 5
+    },
+    profilePicture: {
+        width: 20,
+        height: 20,
+        borderRadius: 20,
+        resizeMode: "cover",
+        backgroundColor: COLORS.lightGrayHalf
+    },
+    authorName: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 5
+    },
+    carouselIcons: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 2
+    },
+    blogDisplay: {
+        marginTop: 25,
+        flexDirection: "column",
+    },
+    smallCardContainer: {
+        flexDirection: "row",
+    },
+    blogCardSmall: {
+        width: 195,
+        padding: 5,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        gap: 10,
+        flexShrink: 0,
+        backgroundColor: COLORS.brandWhite,
+        borderRadius: 15,
+    },
+    blogCardSmallImage: {
+        resizeMode: "cover",
+        backgroundColor: COLORS.lightGrayHalf,
+        borderRadius: 15,
+        height: 97,
+        width: 185,
+        alignSelf: "stretch",
+    },
+    blogCardSmallText: {
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        gap: 10,
+        alignSelf: "stretch",
+        paddingHorizontal: 5,
+        paddingVertical: 10
+    },
+    blogCardSmallTitle: {
+        color: COLORS.brandBlack,
+        alignSelf: "stretch"
     }
 });
 
