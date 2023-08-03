@@ -17,7 +17,7 @@ type PageTitleBarProps = {
  * @param param0 | PageTitleBarProps
  * @returns | This component returns the top bar of the user profile
  */
-const UserProfileTopBar: React.FC<PageTitleBarProps> = ({ titleBarName }) => (
+const TopBar: React.FC<PageTitleBarProps> = ({ titleBarName }) => (
   <View style={styles.headerIconsContainer}>
     <View style={styles.backIconNameContainer}>
       {/* Back icon */}
@@ -33,4 +33,4 @@ const UserProfileTopBar: React.FC<PageTitleBarProps> = ({ titleBarName }) => (
   </View>
 );
 
-export default UserProfileTopBar;
+export default TopBar;

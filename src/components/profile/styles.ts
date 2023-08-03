@@ -2,10 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 
-    /***************************************************User Profile Top Bar******************************************************** */
+    /***************************************************Top Bar******************************************************** */
     headerIconsContainer: {
         display: "flex",
-        width: "95%",
+        width: "100%",
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
@@ -283,10 +283,10 @@ export const styles = StyleSheet.create({
     /******************************************************Project Card************************************************************/
     singleProjectContainer: {
         display: 'flex',
-        width: 404,
+        width: "100%",
         padding: 5,
         flexDirection: 'column',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 10,
         borderRadius: 15,
@@ -318,7 +318,7 @@ export const styles = StyleSheet.create({
     /******************************************************Post Author Bio Footer************************************************************/
     authorBioContainer: {
         display: 'flex',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
         gap: 10,
         alignSelf: 'stretch',
@@ -343,4 +343,65 @@ export const styles = StyleSheet.create({
         paddingBottom: 15,
     },
 
+    /****************************************************Create Post***************************************************************/
+    twoButtonsContainer: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        flexDirection: 'row',
+    },
+
+    /**
+     * Create post header profile pic
+     */
+    profilePicCreatePost: {
+        width: 44,
+        height: 44,
+        borderRadius: 44,
+    },
+
+    inputField: {
+        fontFamily: "Switzer Variable",
+        fontSize: 25,
+        fontStyle: "normal",
+        fontWeight: "600",
+        paddingVertical: 15,
+        paddingHorizontal: 10,
+        marginBottom: 60,
+    },
+
+    //////////////////////////////////////////////////////////////////Buttons//////////////////////////////////////////////////////////////////////////////////
+
+    /*************************************************************Profile Header Buttons******************************************************************** */
+    profileHeaderButtonContainer: {
+        display: "flex",
+        padding: 5,
+        paddingHorizontal: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 10,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "#4F4E4E",
+        flexDirection: "row",
+      },
+      buttonContent: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
+      },
+    
+      /*************************************************************Create Post Buttons*********************************************************************** */
+      createPostButtonContainer: {
+        display: "flex",
+        padding: 10,
+        paddingHorizontal: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 10,
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: "#4F4E4E",
+        flexDirection: "row",
+      },
 });
