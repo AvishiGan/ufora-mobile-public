@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View, KeyboardAvoidingView, StyleSheet } from "react-native";
+import { Text, View, KeyboardAvoidingView, StyleSheet} from "react-native";
+
 import logo from "../../../assets/logo.png";
 import RegularButton from "../../components/buttons/RegularButton";
 import { TouchableOpacity } from "react-native";
@@ -11,10 +12,12 @@ import { Field, Formik } from "formik";
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import SmallerRegular from "../../constants/fonts/SmallerRegular";
 import axios from "axios";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Picker } from "@react-native-picker/picker";
+import Dropdown from "../../components/dropdown/Dropdown";
 type Props = StackScreenProps<RootStackParamList, "SelectUniversity">;
 
 interface FormValues {
@@ -23,6 +26,7 @@ interface FormValues {
 }
 
 const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
+  const [isSelected, setSelection] = useState(false);
   const initialValues: FormValues = {
     university: "",
     email: "",
@@ -33,7 +37,7 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
     console.log(username)
     try {
       const response = await axios.post(
-        "http://192.168.1.6:3000/register/undergraduate/university",
+        "http://192.168.1.5:3000/register/undergraduate/university",
         {
           username:username,
           university: values.university,
@@ -47,7 +51,7 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
       //Request OTP when create account success
       try {
         const otpResponse = await axios.post(
-          "http://192.168.1.6:3000/otp/request",
+          "http://192.168.1.5:3000/otp/request",
           {
             email: values.email,
           }
@@ -81,7 +85,7 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
 
   return (
     <KeyboardAvoidingView
-      keyboardVerticalOffset={255}
+      keyboardVerticalOffset={250}
       behavior="padding"
       style={styles.container}
     >
@@ -98,7 +102,7 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
         <View
           style={{
             paddingHorizontal: 10,
-            marginTop: 250,
+            marginTop: 180,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -108,19 +112,20 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
               <View>
                 <View
                   style={{
+                    marginTop: 10,
                     flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "center",
                     backgroundColor: "transparent",
                     borderRadius: 20,
                     padding: 2,
+                    borderColor: '#B8B8B8'
                   }}
                 >
                   <Field
-                    component={InputField}
-                    imageSource={require("../../../assets/icons/user.png")}
+                    imageSource={require("../../../assets/icons/gradcap.png")}
+                    component={Dropdown}
                     name="university"
-                    placeholder="University of Colombo"
                     onChangeText={handleChange("university")}
                     value={values.university}
                   />
@@ -141,7 +146,7 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                     component={InputField}
                     imageSource={require("../../../assets/icons/mail.png")}
                     name="email"
-                    placeholder="samanp@stu.ucsc.cmb.ac.lk"
+                    placeholder="University Email"
                     onChangeText={handleChange("email")}
                     value={values.email}
                   />
@@ -155,6 +160,28 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                     flexDirection: "row",
                   }}
                 >
+                  {/* Custom Checkbox */}
+                  <TouchableOpacity onPress={() => setSelection(!isSelected)}>
+                    <View
+                      style={{
+                        width: 15,
+                        height: 15,
+                        borderWidth: 1,
+                        borderColor: isSelected ? '#FEFEFE' : '#000000',
+                        borderRadius: 3,
+                        marginRight: 10,
+                        backgroundColor: isSelected ? '#2656FF' : 'transparent',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}
+                    >
+                    {isSelected && (
+                      <View style={{ width: 7, height: 4, borderColor: '#FFFFFF', borderTopWidth: 2, borderRightWidth: 2, transform: [{ rotate: '130deg' }] }} />
+                    )}                    
+                    </View>
+                  </TouchableOpacity>
+
+
                   <SmallerRegular>
                     <Text style={{ alignItems: "center" }}>I agree to the</Text>
                   </SmallerRegular>
@@ -235,6 +262,13 @@ const styles = StyleSheet.create({
     height: 40,
     borderWidth: 1,
     borderColor: "gray",
+  },
+  checkboxContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  checkbox: {
+    alignSelf: 'center',
   },
 });
 

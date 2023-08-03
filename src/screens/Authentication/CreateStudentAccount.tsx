@@ -38,7 +38,7 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
 
     const handleCreateStudentAcc = async(values: FormValues) => {
     try{
-        const response = await axios.post("http://192.168.1.6:3000/register/undergraduate",{
+        const response = await axios.post("http://192.168.1.5:3000/register/undergraduate",{
             name: values.name,
             email: values.email,
             username: values.username,
@@ -50,7 +50,7 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
 
         //Request OTP when create account success
         try{
-            const otpResponse = await axios.post("http://192.168.1.6:3000/otp/request", {
+            const otpResponse = await axios.post("http://192.168.1.5:3000/otp/request", {
                 email: values.email,
             });
 
@@ -82,7 +82,7 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
     }
 
 return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+    <KeyboardAvoidingView keyboardVerticalOffset={10} behavior="padding" style={styles.container}>
         <StatusBar />
         <View>
             {/* Top section */}
@@ -90,7 +90,7 @@ return (
         </View>
 
     {/* Bottom section */}
-    <View style={{ paddingHorizontal: 10, marginTop: 72 ,alignItems: "center"}}>
+    <View style={{ paddingHorizontal: 10, marginTop: 70 ,alignItems: "center"}}>
         <Formik initialValues={initialValues} onSubmit={handleCreateStudentAcc}>
             {({ handleChange, handleSubmit, values }) => (
             <View style={{alignItems: "center"}}>
@@ -99,7 +99,7 @@ return (
                     component={InputField}
                     imageSource={require("../../../assets/icons/person-standing.png")}
                     name="name"
-                    placeholder="Saman Perera"
+                    placeholder="Name"
                     onChangeText = {handleChange("name")}
                     value = {values.name}
                 />
@@ -110,7 +110,7 @@ return (
                     component={InputField}
                     imageSource={require("../../../assets/icons/mail.png")}
                     name="email"
-                    placeholder="samanperera@gmail.com"
+                    placeholder="Email"
                     onChangeText = {handleChange("email")}
                     value = {values.email}
                 />
@@ -121,7 +121,7 @@ return (
                     component={InputField}
                     imageSource={require("../../../assets/icons/user.png")}
                     name="username"
-                    placeholder="SamanPerera"
+                    placeholder="Username"
                     onChangeText = {handleChange("username")}
                     value = {values.username}
                 />
@@ -132,8 +132,9 @@ return (
                     component={InputField}
                     imageSource={require("../../../assets/icons/password.png")}
                     name="password"
-                    placeholder="*********"
+                    placeholder="Password"
                     secureTextEntry={true}
+                    showPasswordToggle = {true}
                     onChangeText = {handleChange("password")}
                     value = {values.password}
                 />
@@ -169,6 +170,18 @@ return (
             onPressGoogle={handlePressGoogle}
             onPressApple={handlePressApple}
         />
+        <View style={{ justifyContent: "center",marginTop: 8, alignItems: "center", flexDirection: "row", }}>
+        <SmallerRegular>
+          <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>
+        </SmallerRegular>
+        <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+        <View>
+          <SmallerRegular>
+            <Text style={{ color: "#2656FF" }}>Terms of Service</Text>
+          </SmallerRegular>
+        </View>
+      </TouchableOpacity>
+      </View>
         </View>
         </KeyboardAvoidingView>
     );

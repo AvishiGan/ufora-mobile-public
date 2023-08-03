@@ -31,7 +31,7 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
       try{
         const token = await SecureStore.getItemAsync('password_reset_token');
   
-        const response = await axios.post("http://192.168.1.6:3000/password/reset",{
+        const response = await axios.post("http://192.168.1.5:3000/password/reset",{
           password:values.password,
           confirm_password: values.confirmPassword,
           password_reset_token: token,
@@ -63,9 +63,9 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
    };
 
     return (
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <KeyboardAvoidingView keyboardVerticalOffset={255} behavior="padding" style={styles.container}>
         <StatusBar />
-        <View>
+        <View style={{marginTop: 0}}>
           {/* Top section */}
           <Logo source={logo} mainText="Change Password" subText="Please enter a new password to continue " />
 
@@ -89,8 +89,9 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
                       component={InputField}
                       imageSource={require("../../../assets/icons/password.png")}
                       name="password"
-                      placeholder="*********"
+                      placeholder="Password"
                       secureTextEntry={true}
+                      showPasswordToggle = {true}
                       onChangeText={handleChange("password")}
                       value={values.password}
                     />
@@ -110,8 +111,9 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
                       component={InputField}
                       imageSource={require("../../../assets/icons/password.png")}
                       name="ConfirmPassword"
-                      placeholder="*********"
+                      placeholder="Re Type Password"
                       secureTextEntry={true}
+                      showPasswordToggle = {true}
                       onChangeText={handleChange("confirmPassword")}
                       value={values.confirmPassword}
                     />
