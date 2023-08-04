@@ -35,7 +35,7 @@ const BlogCarouselCard = () => {
                         <View style={styles.descriptionContainer}>
                             <SmallerRegular><Text style={styles.blogDescription}>May 10th, 2023</Text></SmallerRegular>
                             <Circle color={COLORS.brandWhite} size={5} fill={COLORS.brandWhite} />
-                            <SmallerRegular><Text style={styles.blogDescription}>5mins read</Text></SmallerRegular>
+                            <SmallerRegular><Text style={styles.blogDescription}>5 mins read</Text></SmallerRegular>
                         </View>
                         <View style={styles.blogAuthor}>
                             <Image
