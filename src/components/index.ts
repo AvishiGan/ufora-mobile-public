@@ -5,7 +5,8 @@ import UpperBody from "./blog/UpperBody";
 import FeaturedArticles from "./blog/FeaturedArticles";
 import BlogCarouselCard from "./blog/BlogCarouselCard";
 import BlogDisplay from "./blog/BlogDisplay";
-import BlogCardSmall from "./blog/BlogCardSmall"
+import BlogCardSmall from "./blog/BlogCardSmall";
+import BlogCardLarge from "./blog/BlogCardLarge";
 
 export {
     HeaderRight,
@@ -14,5 +15,6 @@ export {
     FeaturedArticles,
     BlogCarouselCard,
     BlogDisplay,
-    BlogCardSmall
+    BlogCardSmall,
+    BlogCardLarge
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 // import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
-import styles from "./blogStyles.styles";
 import { COLORS, SIZES } from '../../constants';
 import { Search, FileText, PlusCircle } from 'lucide-react-native';
 import { RegularBig, SemiBoldBig } from '../../constants/fonts';
+import styles from "./blogStyles.styles";
 
 // Use satate for search
 // const [searchTerm, setSearchTerm] = useState();

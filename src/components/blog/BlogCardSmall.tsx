@@ -10,8 +10,8 @@ const BlogCardSmall = () => {
 
     const screenWidth = Dimensions.get('window').width;
   
-    // Calculate the width for the blog carousel card to make it responsive
-    const smallCardWidth = (screenWidth - 40)/2; // Subtract side margins values
+    // Calculate the width for the blog card small to make it responsive
+    const smallCardWidth = (screenWidth - 40)/2; // Subtract side margin, gap values
 
     return (
             <TouchableOpacity style={{...styles.blogCardSmall, width: smallCardWidth }}>
@@ -29,7 +29,7 @@ const BlogCardSmall = () => {
                                     <Text numberOfLines={1} ellipsizeMode="tail">
                                         <RegularSmall fontColor={COLORS.brandGrey}>3 mins read</RegularSmall>
                                     </Text>
-                            </View>
+                                </View>
                         </View>
                     </View>
                     <View style={styles.authorDetails}>
