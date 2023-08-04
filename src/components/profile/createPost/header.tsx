@@ -3,6 +3,7 @@ import { View, Image } from "react-native";
 import { styles } from "../styles";
 import { UforaIcon, VerifiedIcon } from "../../../../assets/svg";
 import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
+import Dropdown from "../../dropdown/Dropdown";
 
 interface CreatePostHeader {
   profilePic?: any;
@@ -27,6 +28,7 @@ const CreatePostHeader: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
         </View>
       </View>
       {/* Drop down icon comes here */}
+      {/* <Dropdown label="Public" value /> */}
     </View>
   );
 };
