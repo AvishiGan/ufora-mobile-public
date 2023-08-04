@@ -156,6 +156,11 @@ const styles = StyleSheet.create({
         marginTop: 10,
         flexDirection: "column",
         display: "flex",
+        //width: 404,
+        alignItems: "flex-start",
+        alignContent: "flex-start",
+        gap: 14,
+        flexWrap: "wrap",
     },
     smallCardContainer: {
         flexDirection: "row",
@@ -244,9 +249,71 @@ const styles = StyleSheet.create({
         color: COLORS.brandGrey,
         alignSelf: "stretch",    
     },
-    // textWrapper: {
-    //     width: 135
-    // }
+    blogCardLarge: {
+        display: "flex",
+        flexDirection: "row",
+        //width: 404,
+        padding: 5,
+        alignItems: "center",
+        gap: 10,
+        flexShrink: 0,
+        borderRadius: 15,
+        backgroundColor: COLORS.brandWhite
+    },
+    blogCardLargeImage: {
+        alignSelf: "stretch",
+        borderRadius: 15,
+        resizeMode: "cover",
+        backgroundColor: COLORS.lightGrayHalf,
+        width: 108,
+        height: 158
+    },
+    blogCardLargeText: {
+        display: "flex",
+        flex: 1,
+        //width: 276,
+        paddingHorizontal: 5,
+        paddingVertical: 10,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        gap: 10,
+        flexShrink: 0,
+    },
+    blogCardLargeDescription: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        gap: 5,
+        alignSelf: "stretch",
+    },
+    blogCardLargeContent: {
+        alignSelf: "stretch",
+        color: COLORS.brandBlack,
+        textAlign: "justify"
+    },
+    blogCardLargeAuthor: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 10,
+        alignSelf: "stretch"
+    },
+    blogCardLargeAuthorDetails: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        flex: 1
+    },
+    blogCardLargeAuthorName: {
+        flexDirection: "row",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 5,
+    }
 });
 
 export default styles;

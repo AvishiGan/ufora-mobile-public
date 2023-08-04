@@ -1,18 +1,18 @@
 import React from "react";
 import { Text, View, TouchableOpacity, ImageBackground, Dimensions, Image } from "react-native";
-import styles from "./blogStyles.styles";
 import { images, COLORS, SIZES } from "../../constants";
 import { SemiBoldBig, SmallMedium, SmallerRegular } from "../../constants/fonts";
 import { Circle, LucideChevronLeftCircle, LucideChevronRightCircle } from "lucide-react-native";
 import { profilePicture } from "../../../assets/images";
 import { UforaIcon, VerifiedIcon } from "../../../assets/svg";
+import styles from "./blogStyles.styles";
 
 const BlogCarouselCard = () => {
 
     const screenWidth = Dimensions.get('window').width;
   
     // Calculate the width for the blog carousel card to make it responsive
-    const cardWidth = screenWidth - 26; // Subtract side margins values
+    const cardWidth = screenWidth - 26; // Subtract side margin values
     
     return(
            <TouchableOpacity>
