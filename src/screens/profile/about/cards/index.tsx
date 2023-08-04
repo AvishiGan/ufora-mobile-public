@@ -10,7 +10,7 @@ import {
   ClubCard,
   AchievementCard,
   OtherAchievementCard,
-} from "./allCards";
+} from "./AllCards";
 
 const cardComponents = [
   IntroCard,
