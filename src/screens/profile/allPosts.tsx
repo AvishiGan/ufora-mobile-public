@@ -4,7 +4,7 @@
 
 import React from "react";
 import { View } from "react-native";
-import PostCard from "../../components/profile/postCard";
+import { PostCard, ContentAdditionBar } from "../../components";
 import {
   architecture,
   rugbyField,
@@ -12,8 +12,7 @@ import {
   office,
 } from "../../../assets/images";
 import { styles } from "./styles";
-import ContentAdditionBar from "../../components/profile/contentAdditionBar";
-import ProfileCommonSection from "./commonSection";
+import ProfileCommonSection from "./CommonSection";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProfilePostSection = () => {

@@ -3,7 +3,6 @@ import { View, Image } from "react-native";
 import { styles } from "../styles";
 import { UforaIcon, VerifiedIcon } from "../../../../assets/svg";
 import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
-import Dropdown from "../../dropdown/Dropdown";
 
 interface CreatePostHeader {
   profilePic?: any;

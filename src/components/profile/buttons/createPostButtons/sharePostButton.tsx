@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButton from "./customButton";
+import CustomButton from "./CustomButton";
 import { Send } from "lucide-react-native";
 import { COLORS } from "../../../../constants";
 
