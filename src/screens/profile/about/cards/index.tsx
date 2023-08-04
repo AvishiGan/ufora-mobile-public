@@ -1,7 +1,27 @@
 import React from "react";
 import { View } from "react-native";
-import { cardComponents } from "./data";
 import { styles } from "./styles";
+import {
+  IntroCard,
+  BasicInfoCard,
+  EducationCard,
+  DigitalBadgeCard,
+  SkillHexagonCard,
+  ClubCard,
+  AchievementCard,
+  OtherAchievementCard,
+} from "./allCards";
+
+const cardComponents = [
+  IntroCard,
+  BasicInfoCard,
+  EducationCard,
+  DigitalBadgeCard,
+  SkillHexagonCard,
+  ClubCard,
+  AchievementCard,
+  OtherAchievementCard,
+];
 
 const AboutCardSection: React.FC = () => {
   return (

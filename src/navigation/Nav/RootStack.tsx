@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from "react";
+import React, { FunctionComponent } from "react";
 import Welcome from "../../screens/Authentication/Welcome";
 import Login from "../../screens/Authentication/Login";
 import ForgotPassword from "../../screens/Authentication/ForgotPassword";
@@ -15,7 +15,7 @@ import ForgotPassOTP from "../../screens/Authentication/ForgotPassOTP";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Feed from "../../screens/Authentication/Feed";
-import StudentOTP from "../../screens/Authentication/StudentOTP";import BlogCentre  from "../../screens/blog";
+import StudentOTP from "../../screens/Authentication/StudentOTP";
 import { COLORS } from "../../constants";
 import { HeaderRight, HeaderLeft } from "../../components";
 import BlogCentre  from "../../screens/blog";
@@ -56,7 +56,6 @@ const RootStack = () => {
                 <Stack.Screen name="StudentOTP" component={StudentOTP} options={{headerShown: false}}/>
                 <Stack.Screen name="ForgotPassOTP" component={ForgotPassOTP} options={{headerShown: false}}/>
                 <Stack.Screen name="Feed" component={Feed}/>
-
                 <Stack.Screen 
                     name="BlogCentre"
                     component={BlogCentre}
