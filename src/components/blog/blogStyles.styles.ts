@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
         flexDirection: "column"
     },
     headerRight: {
+        display: "flex",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
@@ -18,6 +19,7 @@ const styles = StyleSheet.create({
         marginRight: SIZES.marginSide-1,
     },
     headerLeft: {
+        display: "flex",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
@@ -29,6 +31,7 @@ const styles = StyleSheet.create({
         color: COLORS.brandGrey
     },
     searchInput: {
+        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         gap: SIZES.gap,
@@ -42,6 +45,7 @@ const styles = StyleSheet.create({
         paddingVertical: 12,  
     },
     buttonContainer: {
+        display: "flex",
         flexDirection: "row",
         // justifyContent: "center",
         alignItems: "center",
@@ -49,6 +53,7 @@ const styles = StyleSheet.create({
         gap: 15,
     },
     buttonCard: {
+        display: "flex",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
@@ -63,6 +68,7 @@ const styles = StyleSheet.create({
         marginHorizontal: SIZES.marginSide,
         flexDirection: "column",
         gap: 15,
+        display: "flex",
         },
     featuredTitle: {
         color: COLORS.brandGrey,
@@ -96,6 +102,7 @@ const styles = StyleSheet.create({
         alignItems: "center", 
     },
     blogDetails: {
+        display: "flex",
         flex: 1,
         flexirection: "column",
         justifyContent: 'flex-start',
@@ -106,15 +113,18 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
     },
     blogDescription: {
+        display: "flex",
         color: COLORS.brandWhite,
     },
     descriptionContainer: {
+        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
         gap: 5,
     },
     blogAuthor: {
+        display: "flex",
         marginTop: 5,
         flexDirection: "row",
         alignItems: "center",
@@ -129,6 +139,7 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.lightGrayHalf
     },
     authorName: {
+        display: "flex",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
@@ -138,16 +149,21 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        gap: 2
+        gap: 2,
+        display: "flex",
     },
     blogDisplay: {
-        marginTop: 25,
+        marginTop: 10,
         flexDirection: "column",
+        display: "flex",
     },
     smallCardContainer: {
         flexDirection: "row",
+        display: "flex",
+        gap: 14
     },
     blogCardSmall: {
+        display: "flex",
         width: 195,
         padding: 5,
         flexDirection: "column",
@@ -163,10 +179,11 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.lightGrayHalf,
         borderRadius: 15,
         height: 97,
-        width: 185,
+        //width: 185,
         alignSelf: "stretch",
     },
     blogCardSmallText: {
+        display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "flex-start",
@@ -175,10 +192,61 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
         paddingVertical: 10
     },
+    titleUpper: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        gap: 5,
+        alignSelf: "stretch"
+    },
     blogCardSmallTitle: {
         color: COLORS.brandBlack,
         alignSelf: "stretch"
-    }
+    },
+    blogCardSmallDescription: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 5,
+        borderRadius: 5,
+    },
+    authorDetails: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 10,
+        alignSelf: "stretch"
+    },
+    blogCardSmallProfile: {
+        width: 30,
+        height: 30,
+        borderRadius: 30,
+        resizeMode: "cover",
+        backgroundColor: COLORS.lightGrayHalf
+    },
+    authorBio: {
+        flexDirection: "column",
+        alignItems: "flex-start",
+        flex: 1,
+    },
+    bioName: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 5,
+        color: COLORS.brandBlack,
+    },
+    bioInstitute: {
+        overflow: "hidden",
+        color: COLORS.brandGrey,
+        alignSelf: "stretch",    
+    },
+    // textWrapper: {
+    //     width: 135
+    // }
 });
 
 export default styles;
