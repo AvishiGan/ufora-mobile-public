@@ -9,8 +9,7 @@ export const styles = StyleSheet.create({
     },
     individualCardContainer: {
         display: 'flex',
-        // width: 405,
-        width: 385, // CHANGE THIS! MANUALLY ADDED
+        width: '100%',
         paddingVertical: 10,
         paddingHorizontal: 10,
         flexDirection: 'column',
