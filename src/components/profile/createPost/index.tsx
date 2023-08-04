@@ -4,7 +4,7 @@ import { styles } from "../styles";
 import PropTypes from "prop-types";
 import { TopBar } from "../..";
 import { COLORS } from "../../../constants";
-import CreatePostHeader from "./header";
+import CreatePostHeader from "./Header";
 import { profileData } from "../../../screens/profile/data";
 import { AddPhotoVideoButton, SharePostButton } from "../buttons";
 import { SafeAreaView } from "react-native-safe-area-context";

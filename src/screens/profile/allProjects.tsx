@@ -3,11 +3,10 @@
  */
 import React from "react";
 import { View } from "react-native";
-import ProjectCard from "../../components/profile/projectCard";
+import { ProjectCard, ContentAdditionBar } from "../../components";
 import { mobileApp, hostel, robotic } from "../../../assets/images";
 import { styles } from "./styles";
-import ContentAdditionBar from "../../components/profile/contentAdditionBar";
-import ProfileCommonSection from "./commonSection";
+import ProfileCommonSection from "./CommonSection";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProfilePortfolioSection = () => {

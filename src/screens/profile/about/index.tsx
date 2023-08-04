@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import AboutCardSection from "./cards";
 import { ProfileSlider } from "../../../components";
-import ProfileCommonSection from "../commonSection";
+import ProfileCommonSection from "../CommonSection";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProfileAboutSection: React.FC = () => {

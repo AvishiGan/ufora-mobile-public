@@ -1,6 +1,6 @@
 import React from "react";
 import { Edit } from "lucide-react-native";
-import CustomButton from "./customButton";
+import CustomButton from "./CustomButton";
 
 type ShareButtonProps = {
   onPress: () => void;

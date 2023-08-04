@@ -4,11 +4,10 @@
 
 import React from "react";
 import { View } from "react-native";
-import BlogCard from "../../components/profile/blogCard";
+import {BlogCard, ContentAdditionBar} from "../../components";
 import { marketing, security, HCI } from "../../../assets/images";
 import { styles } from "./styles";
-import ContentAdditionBar from "../../components/profile/contentAdditionBar";
-import ProfileCommonSection from "./commonSection";
+import ProfileCommonSection from "./CommonSection";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProfileBlogSection = () => {
