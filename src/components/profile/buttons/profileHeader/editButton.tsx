@@ -1,6 +1,7 @@
 import React from "react";
 import { Edit } from "lucide-react-native";
-import CustomButton from "./customButton";
+import CustomButton from "./CustomButton";
+import { COLORS } from "../../../../constants";
 
 type ShareButtonProps = {
   onPress: () => void;
@@ -10,8 +11,8 @@ const EditButton: React.FC<ShareButtonProps> = ({ onPress }) => {
   return (
     <CustomButton
       onPress={onPress}
-      icon={<Edit size={17} strokeColor="#4F4E4E" />}
-      title="Share Profile"
+      icon={<Edit size={16} color={COLORS.brandGrey} />}
+      title="Edit Profile"
     />
   );
 };
