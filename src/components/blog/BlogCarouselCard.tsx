@@ -3,47 +3,61 @@ import { Text, View, TouchableOpacity, ImageBackground, Dimensions, Image } from
 import { images, COLORS, SIZES } from "../../constants";
 import { SemiBoldBig, SmallMedium, SmallerRegular } from "../../constants/fonts";
 import { Circle, LucideChevronLeftCircle, LucideChevronRightCircle } from "lucide-react-native";
-import { profilePicture } from "../../../assets/images";
 import { UforaIcon, VerifiedIcon } from "../../../assets/svg";
 import styles from "./blogStyles.styles";
 
-const BlogCarouselCard = () => {
+interface CarouselCardData {
+    imageSource: any; 
+    title: string;
+    date: string;
+    readTime: string;
+    authorName: string;
+    authorProfilePic: any; 
+}
+
+interface CarouselCardProps {
+    data: CarouselCardData;
+    onForwardButtonPress: () => void;
+    onBackButtonPress: () => void;
+}
+
+const BlogCarouselCard: React.FC<CarouselCardProps> = ({ data, onForwardButtonPress, onBackButtonPress }) => {
 
     const screenWidth = Dimensions.get('window').width;
   
     // Calculate the width for the blog carousel card to make it responsive
     const cardWidth = screenWidth - 26; // Subtract side margin values
-    
+
     return(
            <TouchableOpacity>
             <ImageBackground
-                source={images.BlogCarouselCard}
+                source={data.imageSource}
                 style={{...styles.carouselCard, width: cardWidth}}
                 imageStyle={styles.carouselCardImage}
             >
                 <View style={styles.wrapContent}>
                     <View style={{...styles.sideButtons, gap: cardWidth-60}}>   
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={onBackButtonPress}>
                             <LucideChevronLeftCircle size={SIZES.iconSize} flexShrink={0} color={COLORS.brandGrey} />
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={onForwardButtonPress}>
                             <LucideChevronRightCircle size={SIZES.iconSize} flexShrink={0} color={COLORS.placeHolder} />
                         </TouchableOpacity>
                     </View> 
                     <View style={styles.blogDetails}>
-                        <SemiBoldBig><Text style={styles.blogTitle}>Marketing Essentials</Text></SemiBoldBig>
+                        <SemiBoldBig><Text style={styles.blogTitle}>{data.title}</Text></SemiBoldBig>
                         <View style={styles.descriptionContainer}>
-                            <SmallerRegular><Text style={styles.blogDescription}>May 10th, 2023</Text></SmallerRegular>
+                            <SmallerRegular><Text style={styles.blogDescription}>{data.date}</Text></SmallerRegular>
                             <Circle color={COLORS.brandWhite} size={5} fill={COLORS.brandWhite} />
-                            <SmallerRegular><Text style={styles.blogDescription}>5 mins read</Text></SmallerRegular>
+                            <SmallerRegular><Text style={styles.blogDescription}>{data.readTime}</Text></SmallerRegular>
                         </View>
                         <View style={styles.blogAuthor}>
                             <Image
-                            source={profilePicture}
+                            source={data.authorProfilePic}
                             style={styles.profilePicture}
                             />
                             <View style={styles.authorName}>
-                                <SmallMedium><Text style={styles.blogDescription}>Isuru Ranawaka</Text></SmallMedium>
+                                <SmallMedium><Text style={styles.blogDescription}>{data.authorName}</Text></SmallMedium>
                                 <VerifiedIcon size={12} fillColor={COLORS.brandBlue} strokeColor={COLORS.brandWhite} />
                                 <UforaIcon size={12} fillColor={COLORS.brandWhite} strokeColor={COLORS.brandBlack} />
                             </View>
