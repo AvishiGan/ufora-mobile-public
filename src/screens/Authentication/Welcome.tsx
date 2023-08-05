@@ -4,14 +4,15 @@ import {
   Text,
   View,
 } from "react-native";
+//import logo from "../../../assets/logo.svg";
 import logo from "../../../assets/logo.png";
-import UnfilledButton from "../../components/buttons/UnfilledButton";
-import SmallButton from "../../components/buttons/SmallButton";
+import UnfilledButton from "../../components/authentication/buttons/UnfilledButton";
+import SmallButton from "../../components/authentication/buttons/SmallButton";
 import Authentication, {
   handlePressGoogle,
   handlePressApple,
-} from "../../components/auth/Authentication";
-import Logo from "../../components/logo/Logo";
+} from "../../components/authentication/auth/Authentication";
+import Logo from "../../components/authentication/logo/Logo";
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
@@ -30,7 +31,6 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <>
       <StatusBar />
-      {/* welcome container */}
       <View>
         {/* Top section */}
         <Logo
@@ -45,7 +45,7 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
         <View
           style={{
             flexDirection: "row",
-            marginTop: 390,
+            marginTop: 410,
             justifyContent: "space-between",
             alignItems: "center",
             marginLeft: 20,

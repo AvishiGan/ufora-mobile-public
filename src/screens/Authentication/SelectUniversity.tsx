@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View, KeyboardAvoidingView, StyleSheet} from "react-native";
-
+import { Mail } from "lucide-react-native";
 import logo from "../../../assets/logo.png";
-import RegularButton from "../../components/buttons/RegularButton";
+import RegularButton from "../../components/authentication/buttons/RegularButton";
 import { TouchableOpacity } from "react-native";
-import InputField from "../../components/inputField/InputField";
-import Logo from "../../components/logo/Logo";
+import InputField from "../../components/authentication/inputField/InputField";
+import Logo from "../../components/authentication/logo/Logo";
 import RegularNormal from "../../constants/fonts/RegularNormal";
 import { Field, Formik } from "formik";
 
@@ -17,7 +17,8 @@ import SmallerRegular from "../../constants/fonts/SmallerRegular";
 import axios from "axios";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Picker } from "@react-native-picker/picker";
-import Dropdown from "../../components/dropdown/Dropdown";
+import Dropdown from "../../components/authentication/dropdown/Dropdown";
+import * as Yup from 'yup'
 type Props = StackScreenProps<RootStackParamList, "SelectUniversity">;
 
 interface FormValues {
@@ -25,8 +26,15 @@ interface FormValues {
   email: string;
 }
 
+const validationSchema = Yup.object({
+  university: Yup.string().required('Select a University'),
+  email: Yup.string().email("Invalid Email").required('Email is Required'),
+})
+
 const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [isSelected, setSelection] = useState(false);
+  const [isFormValid, setFormValid] = useState(true);
   const initialValues: FormValues = {
     university: "",
     email: "",
@@ -35,57 +43,59 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
   const handleNext = async (values: FormValues) => {
     const username = route.params.username;
     console.log(username)
-    try {
-      const response = await axios.post(
-        "http://192.168.1.5:3000/register/undergraduate/university",
-        {
-          username:username,
-          university: values.university,
-          university_email: values.email,
-        }
-      );
 
-      console.log(values);
-      navigation.navigate("UniOTP", { email: values.email });
-
-      //Request OTP when create account success
+    if (!isSelected) { 
+      setFormValid(false); 
+    } else {
+      setFormValid(true); 
       try {
-        const otpResponse = await axios.post(
-          "http://192.168.1.5:3000/otp/request",
-          {
-            email: values.email,
+        const response = await axios.post("http://192.168.1.4:3000/register/undergraduate/university",{
+            username:username,
+            university: values.university,
+            university_email: values.email,
           }
         );
-
-        console.log("OTP Request Response: ", otpResponse.data);
-      } catch (otpError) {
-        console.error("OTP Request Error: ", otpError);
-      }
-
-      console.log("API Response: ", response.data);
-    } catch (error: any) {
-      if (error.response) {
-        // The request was made and the server responded with a status code that falls out of the range of 2xx
-        const errorMessage = `${JSON.stringify(error.response.data)}`;
-        alert(errorMessage);
-        console.error("API error: ", error.response.data);
-        console.error("API error status: ", error.response.status);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error("API error: No response received");
-        console.log(error);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        const errorMessage = `${JSON.stringify(error.message)}`;
-        alert(errorMessage);
-        console.error("API error: ", error.message);
+  
+        console.log(values);
+        navigation.navigate("UniOTP", { email: values.email });
+  
+        //Request OTP when create account success
+        try {
+          const otpResponse = await axios.post("http://192.168.1.4:3000/otp/request",{
+              email: values.email,
+            }
+          );
+  
+          console.log("OTP Request Response: ", otpResponse.data);
+        } catch (otpError) {
+          console.error("OTP Request Error: ", otpError);
+        }
+  
+        console.log("API Response: ", response.data);
+      } catch (error: any) {
+        if (error.response) {
+          // The request was made and the server responded with a status code that falls out of the range of 2xx
+          const errorMessage = `${JSON.stringify(error.response.data)}`;
+          alert(errorMessage);
+          console.error("API error: ", error.response.data);
+          console.error("API error status: ", error.response.status);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.error("API error: No response received");
+          console.log(error);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          const errorMessage = `${JSON.stringify(error.message)}`;
+          alert(errorMessage);
+          console.error("API error: ", error.message);
+        }
       }
     }
   };
 
   return (
     <KeyboardAvoidingView
-      keyboardVerticalOffset={250}
+      keyboardVerticalOffset={255}
       behavior="padding"
       style={styles.container}
     >
@@ -102,13 +112,13 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
         <View
           style={{
             paddingHorizontal: 10,
-            marginTop: 180,
+            marginTop: 220,
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <Formik initialValues={initialValues} onSubmit={handleNext}>
-            {({ handleChange, handleSubmit, values }) => (
+          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleNext}>
+            {({ handleChange, handleSubmit, values, errors, handleBlur, touched }) => (
               <View>
                 <View
                   style={{
@@ -123,11 +133,12 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                   }}
                 >
                   <Field
-                    imageSource={require("../../../assets/icons/gradcap.png")}
                     component={Dropdown}
+                    error = {touched.university && errors.university}
                     name="university"
                     onChangeText={handleChange("university")}
                     value={values.university}
+                    onBlur={handleBlur('university')}
                   />
                 </View>
 
@@ -139,16 +150,17 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                     justifyContent: "center",
                     backgroundColor: "transparent",
                     borderRadius: 20,
-                    padding: 2,
                   }}
                 >
                   <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/mail.png")}
+                    error = {touched.email && errors.email}
+                    iconComponent={<Mail color={touched.email && errors.email ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="email"
                     placeholder="University Email"
                     onChangeText={handleChange("email")}
                     value={values.email}
+                    onBlur={handleBlur('email')}
                   />
                 </View>
 
@@ -160,7 +172,7 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                     flexDirection: "row",
                   }}
                 >
-                  {/* Custom Checkbox */}
+                  {/* Checkbox */}
                   <TouchableOpacity onPress={() => setSelection(!isSelected)}>
                     <View
                       style={{
@@ -180,7 +192,6 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                     )}                    
                     </View>
                   </TouchableOpacity>
-
 
                   <SmallerRegular>
                     <Text style={{ alignItems: "center" }}>I agree to the</Text>
@@ -205,6 +216,9 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                     </View>
                   </TouchableOpacity>
                 </View>
+                <View>
+                    {!isFormValid && <Text style={{fontSize: 10, color: "#CC3535", marginTop:5, marginLeft: 30}}>*Checkbox must be checked</Text>}
+                </View>
 
                 {/* Button */}
                 <View
@@ -222,7 +236,7 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                 </View>
               </View>
             )}
-          </Formik>
+          </Formik> 
 
           <View
             style={{

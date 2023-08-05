@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import {ImageSourcePropType,Text,View,Image, KeyboardAvoidingView,StyleSheet} from "react-native";
+import {Text,View,Image, KeyboardAvoidingView,StyleSheet} from "react-native";
 import logo from "../../../assets/logo.png";
 import { TouchableOpacity } from "react-native";
 import RegularNormal from "../../constants/fonts/RegularNormal";
-import Logo from "../../components/logo/Logo";
-import SmallButton from "../../components/buttons/SmallButton";
-import UnfilledButton from "../../components/buttons/UnfilledButton";
-import InputField from "../../components/inputField/InputField";
+import Logo from "../../components/authentication/logo/Logo";
+import SmallButton from "../../components/authentication/buttons/SmallButton";
+import UnfilledButton from "../../components/authentication/buttons/UnfilledButton";
+import InputField from "../../components/authentication/inputField/InputField";
+import { Mail } from "lucide-react-native";
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
@@ -15,6 +16,8 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
 import axios, { AxiosRequestConfig } from "axios";
 import * as SecureStore from 'expo-secure-store';
+import * as Yup from 'yup'
+import RegularSmall from "../../constants/fonts/RegularSmall";
 type Props = StackScreenProps<RootStackParamList, "ForgotPassword">;
 
 interface FormValues {
@@ -22,15 +25,21 @@ interface FormValues {
 }
 
 const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
   const initialValues: FormValues = {
     email: "",
   };
+
+  const validationSchema = Yup.object({
+    email: Yup.string().email("Invalid Email").required('Email is Required'),
+  })
 
   const handleNext = async(values: FormValues) => {
     try {
       //const ip = process.env.IP
       //console.log(ip)
-        const response = await axios.post("http://192.168.1.5:3000/password/reset/otp/request",{
+        const response = await axios.post("http://192.168.1.4:3000/password/reset/otp/request",{
           email: values.email,
         });
   
@@ -66,13 +75,13 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
       <StatusBar />
       <View style={{alignItems: "center"}}>
         {/* Top section */}
-        <Logo source={logo} mainText="Forgot Password" subText="Please enter your Emailto continue "/>
+        <Logo source={logo} mainText="Forgot Password" subText="Please enter your Email to continue "/>
 
 
         {/* Bottom section */}
         <View style={{paddingHorizontal: 10, marginTop: 350, alignItems: "center"}}>
-          <Formik initialValues={initialValues} onSubmit={handleNext}>
-            {({ handleChange, handleSubmit, values }) => (
+          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleNext}>
+            {({ handleChange, handleSubmit, values, errors, handleBlur, touched }) => (
               <View>
                 <View
                   style={{
@@ -81,22 +90,29 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
                     justifyContent: "center",
                     backgroundColor: "transparent",
                     borderRadius: 20,
-                    padding: 2,
+                    
                   }}
                 >
                   <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/mail.png")}
+                    error = {touched.email && errors.email}
+                    iconComponent={<Mail color={touched.email && errors.email ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="email"
                     placeholder="Please enter your Email"
                     onChangeText={handleChange("email")}
                     value={values.email}
+                    onBlur={handleBlur('email')}
                   />
                 </View>
 
+                <View style={{marginTop: 0,flexDirection: "row", marginLeft: 8}}>
+                  <RegularSmall>
+                    {errorMessage ? <Text style={{color: "#CC3535", fontSize: 12}}>{errorMessage}</Text> : null}
+                  </RegularSmall>
+                </View>
 
                 {/* Button */}
-                <View style={{flexDirection: "row",marginTop: 30,alignItems: "center",gap: 10,}} >
+                <View style={{flexDirection: "row",marginTop: 15,alignItems: "center",gap: 10,}} >
                   <UnfilledButton onPress={() => navigation.navigate('Login')}>
                     <Text style={{ color: "#2656FF" }}>Back</Text>
                   </UnfilledButton>

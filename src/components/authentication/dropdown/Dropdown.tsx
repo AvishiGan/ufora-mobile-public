@@ -1,15 +1,18 @@
-import { View, StyleSheet, Image } from 'react-native';
+import { ReactNode } from 'react';
+import { View, StyleSheet, Image, Text } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import React, { FunctionComponent, useState } from 'react'
+import { GraduationCap } from 'lucide-react-native';
 
 interface DropdownProps {
-  imageSource?: string;
+  iconComponent?: ReactNode;
   value: string;
   onChangeText: (text: string) => void;
-
+  error: string
+  onBlur?: () => void;
 }
 
-const Dropdown:FunctionComponent<DropdownProps> = ({imageSource, value, onChangeText}) => {
+const Dropdown:FunctionComponent<DropdownProps> = ({iconComponent, value, onChangeText, error, onBlur}) => {
   
   const styles = StyleSheet.create({
     container: {
@@ -20,32 +23,39 @@ const Dropdown:FunctionComponent<DropdownProps> = ({imageSource, value, onChange
       borderRadius: 15,
       marginBottom: 2,
       width: 320,
-      borderColor: '#87929D',
-    },
-    image: {
-      marginRight: 0,
-      marginLeft: 15,
-      padding: 5,
+      borderColor: error ? '#CC3535' : "#87929D",
     },
     picker: {
       flex: 1,
     },
     placeholder: {
       fontSize: 16, 
-      color: '#B8B8B8',
+      color: error ? '#CC3535': '#B8B8B8',
       fontWeight: "400",
     },
+    errorText: {
+      color: '#CC3535',
+      fontSize: 12,
+      marginTop: 0,
+      marginLeft: 4
+    },
+    inputError: {
+      borderColor: "#CC3535",
+    }
   });
 
 
   return (
-
-    <View style={styles.container}>
-      {imageSource && <Image source={imageSource} style={styles.image} />}
+    <View>
+      <View style={styles.container}>
+        <View style={{marginLeft: 15}}>
+           <GraduationCap color={error ? "#CC3535" : "#B8B8B8"} size={25} />
+        </View>
       <Picker
         selectedValue={value}
         onValueChange={(itemValue, itemIndex) => onChangeText(itemValue)}
         style={styles.picker}
+        onBlur={onBlur}
 
       >
         <Picker.Item label="University" value="" style={styles.placeholder} />
@@ -59,6 +69,9 @@ const Dropdown:FunctionComponent<DropdownProps> = ({imageSource, value, onChange
         <Picker.Item label="University of Ruhuna" value="University of Ruhuna" />
       </Picker>
     </View>
+    {error? <Text style={styles.errorText}>{error}</Text> : null}
+    </View>
+    
   )
 }
 
