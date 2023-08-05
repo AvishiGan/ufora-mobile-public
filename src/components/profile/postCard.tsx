@@ -33,10 +33,12 @@ const PostCard: React.FC<PostCardData> = ({
     <View style={styles.singlePostContainer}>
       {/* PostHeader component */}
       <PostHeader data={profileData} />
-      <RegularNormal>
-        {postDescription}
-        {seeMore ? <Text style={styles.seeMore}>... see more</Text> : null}
-      </RegularNormal>
+      {/* <View style={styles.descriptionContainer}> */}
+        <RegularNormal>
+          {postDescription}
+          {seeMore ? <Text style={styles.seeMore}>... see more</Text> : null}
+        </RegularNormal>
+      {/* </View> */}
       <Image style={styles.postImage} source={postImage} />
       <View style={styles.feedbackContainer}>
         <View style={styles.likesCommentsContainer}>

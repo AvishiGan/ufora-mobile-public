@@ -29,9 +29,11 @@ const ProjectCard: React.FC<ProjectCardData> = ({
           <CardHeadingBold>{projectTitle}</CardHeadingBold>
           <RegularSmall>{projectDescription}</RegularSmall>
         </View>
+        <View style={styles.projectArticleContainer}>
+          <PostAuthorBioFooter data={profileData} />
+        </View>
       </View>
       {/* PostAuthorBioFooter component */}
-      <PostAuthorBioFooter data={profileData} />
     </View>
   );
 };

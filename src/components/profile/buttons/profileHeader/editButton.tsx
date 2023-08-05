@@ -11,7 +11,7 @@ const EditButton: React.FC<ShareButtonProps> = ({ onPress }) => {
   return (
     <CustomButton
       onPress={onPress}
-      icon={<Edit size={17} color={COLORS.brandGrey} />}
+      icon={<Edit size={16} color={COLORS.brandGrey} />}
       title="Edit Profile"
     />
   );

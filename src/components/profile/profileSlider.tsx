@@ -1,67 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { View } from "react-native";
 import { styles } from "./styles";
-import { ButtonMediumCustom } from "../../constants";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { ProfileStackParamList } from "../../../routes/profileStack";
+import { ButtonMedium } from "../../constants";
 
 type ProfileSliderProps = {
   slideTitles: string[];
 };
 
-const ProfileSlider: React.FC<ProfileSliderProps> = ({ slideTitles }) => {
-  const [activeSlide, setActiveSlide] = useState<number | null>(null);
-
-  // Annotate the navigation prop with the correct type
-  const navigation =
-    useNavigation<
-      StackNavigationProp<ProfileStackParamList, keyof ProfileStackParamList>
-    >();
-
-  const handleSlidePress = (index: number) => {
-    setActiveSlide(index);
-
-    switch (index) {
-      case 0:
-        navigation.navigate("ProfileAboutSection");
-        break;
-      case 1:
-        navigation.navigate("ProfilePostSection");
-        break;
-      case 2:
-        navigation.navigate("ProfileBlogSection");
-        break;
-      case 3:
-        navigation.navigate("ProfilePortfolioSection");
-        break;
-      default:
-        break;
-    }
-  };
-
-  return (
-    <View style={styles.allSlidesContainer}>
-      {slideTitles.map((slideTitle, index) => (
-        <TouchableOpacity
-          key={index}
-          onPress={() => handleSlidePress(index)}
-          style={[
-            styles.individualSlideContainer,
-            activeSlide === index ? styles.activeSlide : null,
-          ]}
-        >
-          {/* Pass the color prop to ButtonMediumCustom */}
-          <ButtonMediumCustom
-            color={activeSlide === index ? "#2656FF" : "#FFFFFF"}
-          >
-            {slideTitle}
-          </ButtonMediumCustom>
-        </TouchableOpacity>
-      ))}
-    </View>
-  );
-};
+/**
+ *
+ * @param param0 | ProfileSliderProps
+ * @returns | This component returns the slider of the user profile
+ */
+const ProfileSlider: React.FC<ProfileSliderProps> = ({ slideTitles }) => (
+  <View style={styles.allSlidesContainer}>
+    {slideTitles.map((slideTitle, index) => (
+      <View style={styles.individualSlideContainer} key={index}>
+        <ButtonMedium>{slideTitle}</ButtonMedium>
+      </View>
+    ))}
+  </View>
+);
 
 export default ProfileSlider;

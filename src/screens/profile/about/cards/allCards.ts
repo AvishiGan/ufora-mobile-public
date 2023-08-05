@@ -1,4 +1,4 @@
-export { default as IntroCard } from "./introCard";
+export { default as IntroCard } from "./IntroCard";
 export { default as BasicInfoCard } from "./BasicInfoCard";
 export { default as EducationCard } from "./EducationCard";
 export { default as DigitalBadgeCard } from "./BadgesCard";
