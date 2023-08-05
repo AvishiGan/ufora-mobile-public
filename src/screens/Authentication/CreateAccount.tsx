@@ -7,20 +7,16 @@ import {
   Image,
 } from "react-native";
 import logo from "../../../assets/logo.png";
-import User from "../../../assets/icons/user.png";
-import UserWhite from "../../../assets/icons/user-white.png";
-import Business from "../../../assets/icons/business.png"
-import BusinessWhite from "../../../assets/icons/building-white.png";
+import { User, Building } from "lucide-react-native";
 import { TouchableOpacity } from "react-native";
 import Authentication, {
   handlePressGoogle,
   handlePressApple,
-} from "../../components/auth/Authentication";
-import Logo from "../../components/logo/Logo";
+} from "../../components/authentication/auth/Authentication";
+import Logo from "../../components/authentication/logo/Logo";
 import RegularNormal from "../../constants/fonts/RegularNormal";
-import RegularButton from "../../components/buttons/RegularButton";
+import RegularButton from "../../components/authentication/buttons/RegularButton";
 import SemiBoldBig from "../../constants/fonts/SemiboldBig";
-import CreateBusinessAccount from "./CreateBusinessAccount";
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
@@ -52,70 +48,67 @@ const CreateAccount: FunctionComponent<Props> = ({navigation}) => {
 
         {/* Bottom section */}
         <TouchableOpacity
-          onPress={handleStudentClick}
-          style={{marginTop: 120,flexDirection: 'row',alignItems: 'center',}} >
-        <View onPress={handleStudentClick} >
-          {activeButton === 'student' && (
-            <View/>
-          )}
-        </View>
-
+        onPress={handleStudentClick}
+        style={{ marginTop: 120, flexDirection: 'row', alignItems: 'center' }}>
         <View>
           <TouchableOpacity
             onPress={handleStudentClick}
-            style={{borderColor: activeButton === 'student' ? '#2656FF' : '#B8B8B8',borderWidth: 1,borderRadius: 15,backgroundColor: activeButton === 'student' ? '#2656FF' : 'transparent',justifyContent: 'center',alignItems: 'center',height: 106,width: 280, }}
-          >
-              <View>
-              {activeButton === 'student' ? (
-                <View
-                  style={{justifyContent: 'center',alignItems: 'center'}}>
-                  <Image style={{ height: 40, width: 40 }} source={UserWhite}/>
-                </View>
-              ) : (
-                <Image style={{ height: 40, width: 40}} source={User}/>
-              )}
+            style={{
+              borderColor: activeButton === 'student' ? '#2656FF' : '#B8B8B8',
+              borderWidth: 1,
+              borderRadius: 15,
+              backgroundColor: activeButton === 'student' ? '#2656FF' : 'transparent',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: 106,
+              width: 280,
+            }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <User
+                size={40}
+                color={activeButton === 'student' ? '#FEFEFE' : '#B8B8B8'}
+              />
             </View>
-
-            <SemiBoldBig fontColor="#B8B8B8" style={{color: activeButton === 'student' ? '#FEFEFE' : '#B8B8B8'}}>
+            <SemiBoldBig
+              fontColor={activeButton === 'student' ? '#FEFEFE' : '#B8B8B8'}
+              style={{ color: activeButton === 'student' ? '#FEFEFE' : '#B8B8B8' }}>
               Student
             </SemiBoldBig>
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={handleBusinessClick}
-          style={{marginTop: 10,flexDirection: 'row',alignItems: 'center'}}
-        >
+      <TouchableOpacity
+        onPress={handleBusinessClick}
+        style={{ marginTop: 10, flexDirection: 'row', alignItems: 'center' }}>
+        <View>
+          {/* Use Lucide icon component */}
           <TouchableOpacity
             onPress={handleBusinessClick}
-          >
-            {activeButton === 'business' && (
-              <View/>
-            )}
-          </TouchableOpacity>
-
-          <View>
-            <TouchableOpacity
-              onPress={handleBusinessClick}
-              style={{borderColor: activeButton === 'business' ? '#2656FF' : '#B8B8B8',borderWidth: 1,borderRadius: 15,backgroundColor: activeButton === 'business' ? '#2656FF' : 'transparent',justifyContent: 'center',alignItems: 'center',height: 106,width: 280}}
-            >
-              <View>
-              {activeButton === 'business' ? (
-                <View
-                  style={{justifyContent: 'center',alignItems: 'center'}}>
-                  <Image style={{ height: 40, width: 40 }} source={BusinessWhite}/>
-                </View>
-              ) : (
-                <Image style={{ height: 40, width: 40}} source={Business}/>
-              )}
+            style={{
+              borderColor: activeButton === 'business' ? '#2656FF' : '#B8B8B8',
+              borderWidth: 1,
+              borderRadius: 15,
+              backgroundColor: activeButton === 'business' ? '#2656FF' : 'transparent',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: 106,
+              width: 280,
+            }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Building
+                size={40}
+                color={activeButton === 'business' ? '#FEFEFE' : '#B8B8B8'}
+              />
             </View>
-            <SemiBoldBig fontColor="#B8B8B8" style={activeButton === 'business' ? { color: '#FEFEFE' } : { color: '#B8B8B8' }}>
+            <SemiBoldBig
+              fontColor={activeButton === 'business' ? '#FEFEFE' : '#B8B8B8'}
+              style={{ color: activeButton === 'business' ? '#FEFEFE' : '#B8B8B8' }}>
               Business
             </SemiBoldBig>
-            </TouchableOpacity>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
 
 
           {/* Button */}

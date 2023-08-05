@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
 import {StatusBar, View, Text, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image} from 'react-native';
-import Logo from '../../components/logo/Logo'
+import Logo from '../../components/authentication/logo/Logo'
 import logo from "../../../assets/logo.png"
 import RegularNormal from '../../constants/fonts/RegularNormal'
-import InputField from '../../components/inputField/InputField'
+import InputField from '../../components/authentication/inputField/InputField'
 import RegularSmall from '../../constants/fonts/RegularSmall'
-import SmallButton from '../../components/buttons/SmallButton'
-import UnfilledButton from '../../components/buttons/UnfilledButton'
+import SmallButton from '../../components/authentication/buttons/SmallButton'
+import UnfilledButton from '../../components/authentication/buttons/UnfilledButton'
 import Authentication, {
     handlePressGoogle,
     handlePressApple,
-  } from "../../components/auth/Authentication";
+  } from "../../components/authentication/auth/Authentication";
 import SmallerRegular from '../../constants/fonts/SmallerRegular'
+import { building } from 'lucide-react-native';
+import { Mail } from 'lucide-react-native';
+import { Key } from 'lucide-react-native';
+import { User } from 'lucide-react-native';
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent } from "react";
-import { Field, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import axios from 'axios';
+import * as Yup from 'yup'
+import { Building } from 'lucide-react-native';
 type Props = StackScreenProps<RootStackParamList, "CreateBusinessAccount">;
 
 interface FormValues {
@@ -28,51 +34,66 @@ interface FormValues {
     password: string;
   }
 
+const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Business name is Required'),
+    email: Yup.string().email("Invalid Email").required('Business email is Required'),
+    username: Yup.string().required('Username is Required'),
+    password: Yup.string().required('Password is Required'),
+
+})
+
 const CreateBusinessAccount:FunctionComponent<Props> = ({navigation}) => {
     const [isSelected, setSelection] = useState(false);
+    const [isFormValid, setFormValid] = useState(true);
+    const [errorMessage, setErrorMessage] = useState<string>("");
 
-const initialValues: FormValues = {
-    name: "",
-    email: "",
-    username: "",
-    password: "",
+    const initialValues: FormValues = {
+        name: "",
+        email: "",
+        username: "",
+        password: "",
     };
 
     const handleSubmit = async(values: FormValues) => {
-        try{
-            const response = await axios.post("http://192.168.1.5:3000/register/company",{
-                name: values.name,
-                email: values.email,
-                username: values.username,
-                password: values.password
-            });
-            console.log(values);
-            navigation.navigate("OTP", {email: values.email});
-            console.log("API Response: ", response.data);
 
-            //Request OTP when create account success
+        if (!isSelected) { 
+            setFormValid(false); 
+          } else {
+            setFormValid(true); 
             try{
-                const otpResponse = await axios.post("http://192.168.1.5:3000/otp/request", {
+                const response = await axios.post("http://192.168.1.4:3000/register/company",{
+                    name: values.name,
                     email: values.email,
+                    username: values.username,
+                    password: values.password
                 });
-
-                console.log("OTP Request Response: ", otpResponse.data);
-            } catch (otpError){
-                console.error("OTP Request Error: ", otpError);
-            }
-
-        } catch (error:any){
-            if(error.response){
-                console.error("API error: ", error.response.data);
-                console.error("API error status: ", error.response.status);
-            } else if (error.request){
-                // The request was made but no response was received
-                console.error("API error: No response received");
-                console.log(error);
-            } else {
-                console.error("API error: ", error.message);
-            }
-         }
+                console.log(values);
+                navigation.navigate("OTP", {email: values.email});
+                console.log("API Response: ", response.data);
+    
+                //Request OTP when create account success
+                try{
+                    const otpResponse = await axios.post("http://192.168.1.4:3000/otp/request", {
+                        email: values.email,
+                    });
+    
+                    console.log("OTP Request Response: ", otpResponse.data);
+                } catch (otpError){
+                    console.error("OTP Request Error: ", otpError);
+                }
+    
+            } catch (error:any){
+                if(error.response.status === 500){
+                    setErrorMessage("Server Error");
+                } else if (error.request){
+                    // The request was made but no response was received
+                    console.error("API error: No response received");
+                    console.log(error);
+                } else {
+                    console.error("API error: ", error.message);
+                }
+             }
+          }
     };
 
     const handleBack = () => {
@@ -80,7 +101,7 @@ const initialValues: FormValues = {
     }
 
     return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+    <KeyboardAvoidingView keyboardVerticalOffset={0} behavior="padding" style={styles.container}>
         <StatusBar />
         <View>
             {/* Top section */}
@@ -88,59 +109,72 @@ const initialValues: FormValues = {
         
 
     {/* Bottom section */}
-    <View style={{ paddingHorizontal: 10, marginTop: 40 ,alignItems: "center"}}>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-            {({ handleChange, handleSubmit, values }) => (
+    <View style={{ paddingHorizontal: 10, marginTop: 80 ,alignItems: "center"}}>
+        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+            {({ handleChange, handleSubmit, values, errors, handleBlur, touched  }) => (
             <View>
-                <View style={{flexDirection: "row", alignItems: "center",justifyContent: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2}} >
+                <View style={{flexDirection: "row", alignItems: "center",justifyContent: "center", backgroundColor: "transparent", borderRadius: 20}} >
                 <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/building.png")}
+                    error = {touched.name && errors.name}
+                    iconComponent={<Building color={touched.name && errors.name ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="name"
                     placeholder="Business Name"
                     onChangeText={handleChange("name")}
                     value={values.name}
+                    onBlur={handleBlur('name')}
                 />
                 </View>
 
-                <View style={{marginTop: 10, flexDirection: "row", alignItems: "center", justifyContent: "center",  backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
+                <View style={{marginTop: 8, flexDirection: "row", alignItems: "center", justifyContent: "center",  backgroundColor: "transparent", borderRadius: 20 }} >
                 <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/mail.png")}
+                    error = {touched.email && errors.email}
+                    iconComponent={<Mail color={touched.email && errors.email ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="email"
                     placeholder="Business Email"
                     onChangeText={handleChange("email")}
                     value={values.email}
+                    onBlur={handleBlur('email')}
                 />
                 </View>
 
-                <View style={{marginTop: 10, flexDirection: "row", alignItems: "center", justifyContent: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
+                <View style={{marginTop: 8, flexDirection: "row", alignItems: "center", justifyContent: "center", backgroundColor: "transparent", borderRadius: 20}} >
                 <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/user.png")}
+                    error = {touched.username && errors.username}
+                    iconComponent={<User color={touched.username && errors.username ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="username"
                     placeholder="Username"
                     onChangeText={handleChange("username")}
                     value={values.username}
+                    onBlur={handleBlur('username')}
                 />
                 </View>
 
-                <View style={{marginTop: 10, flexDirection: "row", alignItems: "center", justifyContent: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
+                <View style={{marginTop: 8, flexDirection: "row", alignItems: "center", justifyContent: "center", backgroundColor: "transparent", borderRadius: 20}} >
                 <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/password.png")}
+                    error = {touched.password && errors.password}
+                    iconComponent={<Key color={touched.password && errors.password ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="password"
                     placeholder="Password"
                     secureTextEntry={true}
                     showPasswordToggle = {true}
                     onChangeText={handleChange("password")}
                     value={values.password}
+                    onBlur={handleBlur('password')}
                 />
                 </View>
 
-                <View style={{ marginTop: 10, alignItems: 'center',flexDirection: 'row', justifyContent: "center"}}>
+                <View style={{marginTop: 0,flexDirection: "row", marginLeft: 8}}>
+                  <RegularSmall>
+                    {errorMessage ? <Text style={{color: "#CC3535", fontSize: 12}}>{errorMessage}</Text> : null}
+                  </RegularSmall>
+                </View>
 
-                {/* Custom Checkbox */}
+                <View style={{ marginTop: 0, alignItems: 'center',flexDirection: 'row', justifyContent: "center"}}>
+                {/*Checkbox */}
                 <TouchableOpacity onPress={() => setSelection(!isSelected)}>
                     <View
                       style={{
@@ -181,6 +215,10 @@ const initialValues: FormValues = {
                         </SmallerRegular>
                         </View>
                     </TouchableOpacity>
+                    
+                </View>
+                <View>
+                    {!isFormValid && <Text style={{fontSize: 10, color: "#CC3535", marginTop:5, marginLeft: 30}}>*Checkbox must be checked</Text>}
                 </View>
 
                 <View style={{flexDirection: "row",marginTop: 20,alignItems: "center", width: 340, gap:10}}>
@@ -196,7 +234,7 @@ const initialValues: FormValues = {
         </Formik>
 
         {/* Button */}
-        <View style={{ marginTop: 18, alignItems: 'center',flexDirection: 'row'}}>
+        <View style={{ marginTop: 15, alignItems: 'center',flexDirection: 'row'}}>
             <RegularNormal>
                 <Text style={{ alignItems: 'center'}}>Already have an Account?</Text>
             </RegularNormal>
@@ -213,7 +251,7 @@ const initialValues: FormValues = {
             onPressGoogle={handlePressGoogle}
             onPressApple={handlePressApple}
         />
-        <View style={{ justifyContent: "center",marginTop: 8, alignItems: "center", flexDirection: "row", }}>
+        <View style={{ justifyContent: "center",marginTop: 12, alignItems: "center", flexDirection: "row", }}>
         <SmallerRegular>
           <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>
         </SmallerRegular>

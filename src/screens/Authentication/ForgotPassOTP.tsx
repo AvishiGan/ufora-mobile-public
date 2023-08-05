@@ -8,10 +8,9 @@ import {
   TextInput,
 } from "react-native";
 import logo from "../../../assets/logo.png";
-import RegularButton from "../../components/buttons/RegularButton";
+import RegularButton from "../../components/authentication/buttons/RegularButton";
 import { TouchableOpacity } from "react-native";
-import Logo from "../../components/logo/Logo";
-import InputField from "../../components/inputField/OTPInput";
+import Logo from "../../components/authentication/logo/Logo";
 import RegularNormal from "../../constants/fonts/RegularNormal";
 
 //navigation
@@ -20,6 +19,8 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
 import axios from "axios";
 import * as SecureStore from 'expo-secure-store'
+import RegularSmall from "../../constants/fonts/RegularSmall";
+
 type Props = StackScreenProps<RootStackParamList, "ForgotPassOTP">;
 
 interface FormValues {
@@ -27,6 +28,7 @@ interface FormValues {
 }
 
 const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
+  const [errorMessage, setErrorMessage] = useState<string>("");
   
   const inputRefs = [
     useRef<TextInput>(null),
@@ -61,7 +63,7 @@ const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
     try{
       const token = await SecureStore.getItemAsync('token');
 
-      const response = await axios.post("http://192.168.1.5:3000/password/reset/otp/verify",{
+      const response = await axios.post("http://192.168.1.4:3000/password/reset/otp/verify",{
         otp: otp,
         token: token,
       });
@@ -76,11 +78,7 @@ const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
     } catch (error: any) {
   
       if (error.response) {
-        // The request was made and the server responded with a status code that falls out of the range of 2xx
-        const errorMessage = `${JSON.stringify(error.response.data)}`
-        alert(errorMessage);
-        console.error("API error: ", error.response.data);
-        //console.error("API error status: ", error.response.status);
+        setErrorMessage("Invalid OTP");
       } else if (error.request) {
         // The request was made but no response was received
         console.error("API error: No response received");
@@ -113,7 +111,8 @@ const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
                     <TextInput
                       ref={ref}
                       placeholder="0"
-                      style={styles.input}
+                      placeholderTextColor={errorMessage ? "#CC3535" : "#B8B8B8"}
+                      style={[styles.input, errorMessage ? styles.inputError : null]}
                       maxLength={1}
                       keyboardType="numeric"
                       onChangeText={(value) => {
@@ -127,6 +126,13 @@ const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
                   </View>
                 ))}
               </View>
+
+              <View style={{marginTop: 10,flexDirection: "row", marginLeft: 0}}>
+                  <RegularSmall>
+                    {errorMessage ? <Text style={{color: "#CC3535", fontSize: 12}}>{errorMessage}</Text> : null}
+                  </RegularSmall>
+                </View>
+
               {/* Button */}
               <View style={{ alignItems: "center", justifyContent: "center", marginTop: 30, width: 280 }}>
                 <RegularButton onPress={handleSubmit}>
@@ -171,6 +177,9 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     borderRadius: 12,
   },
+  inputError: {
+    borderColor: "#CC3535"
+  }
 });
 
 export default ForgotPassOTP;
