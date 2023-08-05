@@ -56,9 +56,9 @@ const PostHeader: React.FC<PostHeaderProps> = ({ data }) => {
       </View>
       <View style={styles.moreAndCrossIconContainer}>
         {/* More icon */}
-        <MoreIcon width={25} height={24} color="black" />
+        <MoreIcon width={22} height={22} color="black" />
         {/* Cross icon */}
-        <CrossIcon size={24} />
+        <CrossIcon size={22} />
       </View>
     </View>
   );

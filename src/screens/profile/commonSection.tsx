@@ -1,16 +1,18 @@
 import React from "react";
 import { View } from "react-native";
-import { styles } from "./styles";
+import { styles } from "../../components/profile/styles";
 import { profileData } from "./data";
-import { TopBar, ProfileSlider, ProfileHeader } from "../../components";
+import { TopBar, ProfileHeader } from "../../components";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProfileCommonSection: React.FC = () => {
   return (
-    <View style={styles.topSectionContainer}>
-      <TopBar titleBarName={profileData.titleBarName} />
-      <ProfileHeader data={profileData} />
-      <ProfileSlider slideTitles={profileData.slideTitles} />
-    </View>
+    <SafeAreaView>
+      <View style={styles.topSectionContainer}>
+        <TopBar titleBarName={profileData.titleBarName} />
+        <ProfileHeader data={profileData} />
+      </View>
+    </SafeAreaView>
   );
 };
 

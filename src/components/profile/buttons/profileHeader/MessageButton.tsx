@@ -1,5 +1,5 @@
 import React from "react";
-import { Share2 } from "lucide-react-native";
+import { MessageSquare } from "lucide-react-native";
 import CustomButton from "./CustomButton";
 import { COLORS } from "../../../../constants";
 
@@ -7,14 +7,14 @@ type ShareButtonProps = {
   onPress: () => void;
 };
 
-const ShareButton: React.FC<ShareButtonProps> = ({ onPress }) => {
+const EditButton: React.FC<ShareButtonProps> = ({ onPress }) => {
   return (
     <CustomButton
       onPress={onPress}
-      icon={<Share2 size={16} color={COLORS.brandGrey} />}
-      title="Share Profile"
+      icon={<MessageSquare size={16} color={COLORS.brandGrey} />}
+      title="Following"
     />
   );
 };
 
-export default ShareButton;
+export default EditButton;
