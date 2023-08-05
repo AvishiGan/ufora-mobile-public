@@ -21,6 +21,7 @@ import { FunctionComponent, useState } from "react";
 import axios from "axios";
 import * as SecureStore from 'expo-secure-store';
 import * as Yup from 'yup'
+import envs from "../../services/config/env"
 type Props = StackScreenProps<RootStackParamList, "Login">;
 
 interface FormValues {
@@ -34,6 +35,7 @@ const validationSchema = Yup.object({
 })
 
 const Login: FunctionComponent<Props> = ({ navigation }) => {
+  const {API_PATH} = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   const initialValues: FormValues = {
     email: "",
@@ -42,7 +44,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
 
   const handleLogin = async (values: FormValues) => {
      try {
-      const response = await axios.post("http://192.168.1.4:3000/login",{
+      const response = await axios.post(`${API_PATH}/login`,{
         username: values.email,
         password: values.password
       });

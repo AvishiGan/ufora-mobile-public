@@ -6,11 +6,13 @@ import {
   ImageSourcePropType,
 } from "react-native";
 import { View } from "react-native";
-import google from "../../../assets/icons/google.png";
-import apple from "../../../assets/icons/apple.png";
-import SmallText from "../../constants/fonts/SmallMedium";
-import MediumText from "../../constants/fonts/SmallMedium";
-import SmallMedium from "../../constants/fonts/SmallMedium";
+// import google from "../../../assets/icons/google.png";
+import google from "../../../../assets/icons/google.png";
+import apple from "../../../../assets/icons/apple.png";
+
+// import SmallMedium from "../../constants/fonts/SmallMedium";
+import SmallMedium from "../../../constants/fonts/SmallMedium";
+
 
 interface CustomImageProps {
   source: ImageSourcePropType;

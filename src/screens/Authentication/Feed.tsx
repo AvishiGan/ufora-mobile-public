@@ -5,7 +5,7 @@ import {View, StyleSheet,Image, SafeAreaView, Button, TouchableOpacity} from 're
 import * as SecureStore from 'expo-secure-store';
 import EyeOff from "../../../assets/icons/eye-off.png";
 import {Icon} from "@react-native-material/core";
-
+import envs from "../../services/config/env"
 
 interface TextInputWithFocusBorderProps {
   label: string;
@@ -74,6 +74,7 @@ const TextInputWithFocusBorder: React.FC<TextInputWithFocusBorderProps> = ({
 };
 
 const Feed: FunctionComponent = () => {
+  const {API_PATH} = envs;
   const [username, setUsername] = useState('');
   useEffect(() => {
     const makeAPIRequestWithBearerToken = async () => {
@@ -87,7 +88,7 @@ const Feed: FunctionComponent = () => {
           return;
         }
 
-        const response = await axios.post("http://192.168.1.4:3000/test", null, {
+        const response = await axios.post(`${API_PATH}/test`, null, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
