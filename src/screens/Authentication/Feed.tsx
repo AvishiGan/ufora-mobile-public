@@ -6,6 +6,7 @@ import * as SecureStore from 'expo-secure-store';
 import EyeOff from "../../../assets/icons/eye-off.png";
 import {Icon} from "@react-native-material/core";
 import envs from "../../services/config/env"
+import UforaLogo from "../../components/authentication/logo/UforaLogo";
 
 interface TextInputWithFocusBorderProps {
   label: string;
@@ -18,7 +19,6 @@ interface TextInputWithFocusBorderProps {
   imageSource?: string;
   leadingIcon?: React.ReactElement;
 }
-
 
 const TextInputWithFocusBorder: React.FC<TextInputWithFocusBorderProps> = ({
   label,
@@ -39,7 +39,6 @@ const TextInputWithFocusBorder: React.FC<TextInputWithFocusBorderProps> = ({
   };
   
   const styles = StyleSheet.create({
-
     input: {
       flex: 1,
       fontSize: 16,
@@ -120,8 +119,6 @@ const Feed: FunctionComponent = () => {
     makeAPIRequestWithBearerToken();
   }, []);
 
-
-
   return(
     <View>
       <SafeAreaView>
@@ -129,6 +126,8 @@ const Feed: FunctionComponent = () => {
           title={"Fetch Me"} 
           //onPress={makeAPIRequestWithBearerToken}
         />
+
+      <UforaLogo />
 
       <TextInputWithFocusBorder
         //imageSource={require("../../../assets/icons/password.png")} 

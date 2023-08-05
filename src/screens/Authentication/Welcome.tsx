@@ -4,20 +4,17 @@ import {
   Text,
   View,
 } from "react-native";
-//import logo from "../../../assets/logo.svg";
 import logo from "../../../assets/logo.png";
 import UnfilledButton from "../../components/authentication/buttons/UnfilledButton";
 import SmallButton from "../../components/authentication/buttons/SmallButton";
-import Authentication, {
-  handlePressGoogle,
-  handlePressApple,
-} from "../../components/authentication/auth/Authentication";
+import Authentication from "../../components/authentication/auth/Authentication";
 import Logo from "../../components/authentication/logo/Logo";
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 type Props = StackScreenProps<RootStackParamList, "Welcome">;
+
 
 const Welcome: FunctionComponent<Props> = ({ navigation }) => {
   const handlePressCreateAccount = () => {
@@ -62,10 +59,7 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
           </SmallButton>
         </View>
 
-        <Authentication
-          onPressGoogle={handlePressGoogle}
-          onPressApple={handlePressApple}
-        />
+        <Authentication/>
       </View>
     </>
   );

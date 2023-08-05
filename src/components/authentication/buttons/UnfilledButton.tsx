@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { GestureResponderEvent, TouchableOpacity } from "react-native";
 
 interface ButtonProps {
-  onPress: ((event: GestureResponderEvent) => void) | undefined;
+  onPress: () => void;
   children: React.ReactNode;
 }
 
@@ -25,7 +25,7 @@ const UnfilledButton: FunctionComponent<ButtonProps> = (props) => {
       }}
       onPress={props.onPress}
     >
-      <SemiBoldBig style={{ color: "#2656FF" }}>{props.children}</SemiBoldBig>
+      <SemiBoldBig fontColor="#2656FF">{props.children}</SemiBoldBig>
     </TouchableOpacity>
   );
 };
