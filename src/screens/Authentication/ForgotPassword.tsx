@@ -18,6 +18,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import * as SecureStore from 'expo-secure-store';
 import * as Yup from 'yup'
 import RegularSmall from "../../constants/fonts/RegularSmall";
+import envs from "../../services/config/env"
 type Props = StackScreenProps<RootStackParamList, "ForgotPassword">;
 
 interface FormValues {
@@ -25,6 +26,7 @@ interface FormValues {
 }
 
 const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
+  const {API_PATH} = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const initialValues: FormValues = {
@@ -39,7 +41,7 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
     try {
       //const ip = process.env.IP
       //console.log(ip)
-        const response = await axios.post("http://192.168.1.4:3000/password/reset/otp/request",{
+        const response = await axios.post(`${API_PATH}/password/reset/otp/request`,{
           email: values.email,
         });
   

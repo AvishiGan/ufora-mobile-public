@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Image, ImageSourcePropType, View, TextStyle  } from "react-native";
-import BoldHeading from "../../constants/fonts/BoldHeading";
-import RegularBig from "../../constants/fonts/RegularBig";
+import BoldHeading from "../../../constants/fonts/BoldHeading";
+import RegularBig from "../../../constants/fonts/RegularBig";
 import { SvgUri } from "react-native-svg";
 
 interface LogoProps {

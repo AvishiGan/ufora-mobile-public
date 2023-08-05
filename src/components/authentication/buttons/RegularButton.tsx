@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { GestureResponderEvent, TouchableOpacity } from "react-native";
-import SemiBoldBig from "../../constants/fonts/SemiboldBig";
+import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
 
 interface ButtonProps {
   onPress: ((event: GestureResponderEvent) => void) | undefined;

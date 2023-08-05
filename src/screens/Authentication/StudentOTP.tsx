@@ -19,6 +19,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
 import axios from "axios";
 import RegularSmall from "../../constants/fonts/RegularSmall";
+import envs from "../../services/config/env"
 type Props = StackScreenProps<RootStackParamList, "StudentOTP">;
 
 interface FormValues {
@@ -27,6 +28,7 @@ interface FormValues {
 
 
 const StudentOTP: FunctionComponent<Props> = ({route, navigation}) => {
+  const {API_PATH} = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   const inputRefs = [
     useRef<TextInput>(null),
@@ -60,7 +62,7 @@ const StudentOTP: FunctionComponent<Props> = ({route, navigation}) => {
     console.log(otp)
 
     try{
-      const response = await axios.post("http://192.168.1.4:3000/otp/verify/email",{
+      const response = await axios.post(`${API_PATH}/otp/verify/email`,{
         email: email,
         otp: otp
       });

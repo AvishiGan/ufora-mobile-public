@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import SemiBoldBig from "../../constants/fonts/SemiboldBig";
+import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
 import styled from "styled-components";
 import { GestureResponderEvent, TouchableOpacity } from "react-native";
 

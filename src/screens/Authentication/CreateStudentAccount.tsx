@@ -24,6 +24,7 @@ import { Field, Formik } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup'
 import RegularSmall from '../../constants/fonts/RegularSmall';
+import envs from "../../services/config/env"
 type Props = StackScreenProps<RootStackParamList, "CreateStudentAccount">;
 
 interface FormValues {
@@ -42,6 +43,7 @@ const validationSchema = Yup.object({
 
 
 const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
+    const {API_PATH} = envs;
     const [errorMessage, setErrorMessage] = useState<string>("");
     const initialValues: FormValues = {
         name: "",
@@ -52,7 +54,7 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
 
     const handleCreateStudentAcc = async(values: FormValues) => {
     try{
-        const response = await axios.post("http://192.168.1.4:3000/register/undergraduate",{
+        const response = await axios.post(`${API_PATH}/register/undergraduate`,{
             name: values.name,
             email: values.email,
             username: values.username,
@@ -64,7 +66,7 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
 
         //Request OTP when create account success
         try{
-            const otpResponse = await axios.post("http://192.168.1.4:3000/otp/request", {
+            const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
                 email: values.email,
             });
 

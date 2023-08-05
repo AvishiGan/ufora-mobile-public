@@ -20,6 +20,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
 import axios from "axios";
 import RegularSmall from "../../constants/fonts/RegularSmall";
+import envs from "../../services/config/env"
 type Props = StackScreenProps<RootStackParamList, "UniOTP">;
 
 interface FormValues {
@@ -27,6 +28,7 @@ interface FormValues {
 }
 
 const OTP: FunctionComponent<Props> = ({route, navigation}) => {
+  const {API_PATH} = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   
   const inputRefs = [
@@ -62,7 +64,7 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
     try {
       //const ip = process.env.IP
       //console.log(ip)
-        const response = await axios.post("http://192.168.1.4:3000/otp/verify/university/email",{
+        const response = await axios.post(`${API_PATH}/otp/verify/university/email`,{
           email: email,
           otp: otp
         });

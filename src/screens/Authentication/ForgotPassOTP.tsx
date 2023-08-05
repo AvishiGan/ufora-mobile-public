@@ -20,6 +20,7 @@ import { Field, Formik } from "formik";
 import axios from "axios";
 import * as SecureStore from 'expo-secure-store'
 import RegularSmall from "../../constants/fonts/RegularSmall";
+import envs from "../../services/config/env"
 
 type Props = StackScreenProps<RootStackParamList, "ForgotPassOTP">;
 
@@ -28,6 +29,7 @@ interface FormValues {
 }
 
 const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
+  const {API_PATH} = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   
   const inputRefs = [
@@ -63,7 +65,7 @@ const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
     try{
       const token = await SecureStore.getItemAsync('token');
 
-      const response = await axios.post("http://192.168.1.4:3000/password/reset/otp/verify",{
+      const response = await axios.post(`${API_PATH}/password/reset/otp/verify`,{
         otp: otp,
         token: token,
       });
