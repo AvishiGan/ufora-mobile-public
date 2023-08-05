@@ -4,10 +4,7 @@ import { Text, View, KeyboardAvoidingView, StyleSheet } from "react-native";
 import logo from "../../../assets/logo.png";
 import RegularButton from "../../components/authentication/buttons/RegularButton";
 import { TouchableOpacity } from "react-native";
-import Authentication, {
-  handlePressGoogle,
-  handlePressApple,
-} from "../../components/authentication/auth/Authentication";
+import Authentication from "../../components/authentication/auth/Authentication";
 import InputField from "../../components/authentication/inputField/InputField";
 import Logo from "../../components/authentication/logo/Logo";
 import RegularNormal from "../../constants/fonts/RegularNormal";
@@ -219,10 +216,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-        <Authentication
-          onPressGoogle={handlePressGoogle}
-          onPressApple={handlePressApple}
-        />
+        <Authentication/>
       </View>
     </KeyboardAvoidingView>
   );

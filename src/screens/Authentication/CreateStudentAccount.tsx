@@ -197,7 +197,7 @@ return (
             onPressGoogle={handlePressGoogle}
             onPressApple={handlePressApple}
         />
-        <View style={{ justifyContent: "center",marginTop: 0, alignItems: "center", flexDirection: "row", }}>
+        <View style={{ justifyContent: "center",marginTop: 20, alignItems: "center", flexDirection: "row", }}>
         <SmallerRegular>
           <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>
         </SmallerRegular>
