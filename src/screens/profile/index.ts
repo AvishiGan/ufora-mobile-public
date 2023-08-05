@@ -1,5 +1,5 @@
-export {default as ProfileAboutSection}  from './about';
-export {default as ProfilePostSection}  from './allPosts';
-export {default as ProfileBlogSection}  from './allBlogs';
-export {default as ProfilePortfolioSection}  from './allProjects';
-export {default as ProfileCommonSection}  from './commonSection';
+export {default as ProfileAboutSection}  from './about/';
+export {default as ProfilePostSection}  from './AllPosts';
+export {default as ProfileBlogSection}  from './AllBlogs';
+export {default as ProfilePortfolioSection}  from './AllProjects';
+export {default as ProfileCommonSection}  from './CommonSection';

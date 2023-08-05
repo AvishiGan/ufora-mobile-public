@@ -9,8 +9,10 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
-        paddingBottom: 15,
-        backgroundColor: "#FEFEFE",
+        // paddingBottom: 15,
+        // backgroundColor: "#FEFEFE",
+        paddingHorizontal: 13,
+
     },
     backIconNameContainer: {
         display: "flex",
@@ -55,11 +57,12 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         gap: 15,
-        width: "100%",
+        width: "95%",
         flexShrink: 0,
         borderRadius: 15,
         backgroundColor: "#FEFEFE",
-        paddingBottom: 25,
+        marginBottom: 25,
+        paddingVertical: 5,
       },
       profilePicNameUniContainer: {
         display: "flex",
@@ -71,8 +74,6 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        // flexGrow: 0,
-        // flexShrink: 0,
       },
       profileNameTwoIconsContainer: {
         display: "flex",
@@ -119,10 +120,12 @@ export const styles = StyleSheet.create({
     /******************************************************Post Header************************************************************/
     postHeaderContainer: {
         display: 'flex',
-        width: 350,
+        // Should be 90% of the screen width
+        width: "100%",
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
+        backgroundColor: "#87929D",
     },
     profilePicNameUniTimeContainer: {
         display: 'flex',
@@ -155,38 +158,45 @@ export const styles = StyleSheet.create({
     moreAndCrossIconContainer: {
         display: 'flex',
         alignItems: 'center',
-        gap: 15,
+        gap: 10,
         flexDirection: 'row',
     },
 
     /******************************************************Blog Card************************************************************/
     singleBlogContainer: {
         display: 'flex',
-        width: 350,
-        padding: 5,
+        width: "100%",
         alignItems: 'center',
         gap: 10,
         borderRadius: 15,
-        backgroundColor: "var(--brand-white, #FEFEFE)",
+        // backgroundColor: "var(--brand-white, #FEFEFE)",
+        backgroundColor: "orange",
         flexDirection: 'row',
     },
     blogImage: {
-        // flex: 1,
-        // flexShrink: 0,
-        // flexBasis: 0,
-        alignSelf: 'stretch',
         borderRadius: 15,
+        marginLeft: 5,
+        marginTop: 5,
+        marginBottom: 5,
+        // height: 180,
+        flexShrink: 0,
+        flex: 1,
+        flexGrow: 1,
+        alignSelf: 'stretch',
     },
     blogContentContainer: {
         display: 'flex',
-        width: 276,
+        width: "62%",
         paddingVertical: 10,
         paddingHorizontal: 5,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 10,
-        flexShrink: 0,
+        backgroundColor: "yellow",
+        marginRight: 5,
+        marginTop: 5,
+        marginBottom: 5,
     },
     /**
      * Blog content without profile header container 
@@ -197,7 +207,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 10,
-        // alignSelf: 'stretch',
     },
     dateTimeContainer: {
         display: 'flex',
@@ -208,18 +217,29 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
     },
 
+    /******************************************************All Blogs************************************************************/
+
+    blogActionContainer: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 10,
+        backgroundColor: "red",
+        marginHorizontal: 10,
+        marginTop: 25,
+        marginBottom: 25,
+    },
+
     /******************************************************Post Card************************************************************/
     singlePostContainer: {
         display: 'flex',
-        width: 350,
-        padding: 15,
-        paddingLeft: 10,
-        paddingRight: 10,
-        paddingTop: 0,
+        width: "100%",
+        paddingTop: 15,
         flexDirection: 'column',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
         gap: 15,
+        backgroundColor: "pink",
     },
     seeMore:{
         overflow: "hidden",
@@ -233,8 +253,9 @@ export const styles = StyleSheet.create({
         fontWeight: "700",
     },
     postImage: {
-        width: 350,
-        height: 350,
+        // width: 330,
+        width: "100%",
+        height: 330,
         borderRadius: 15,
     },
     feedbackContainer: {
@@ -279,23 +300,50 @@ export const styles = StyleSheet.create({
         gap: 5,
         flexShrink: 0,
     },
+    descriptionContainer: {
+        width: "90%",
+    },
+
+    /******************************************************All Posts************************************************************/
+    // Previous posts and add a new post container
+     postActionContainer: {
+        display: "flex",
+        paddingVertical: 0,
+        paddingHorizontal: 10,
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 15,
+        marginTop: 25,
+        marginBottom: 25,
+    },
+    allPostsContainer: {
+        display: 'flex',
+        width: '100%',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 15,
+    },
 
     /******************************************************Project Card************************************************************/
     singleProjectContainer: {
         display: 'flex',
         width: "100%",
-        padding: 5,
+        // padding: 5,
         flexDirection: 'column',
-        // justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 10,
         borderRadius: 15,
-        backgroundColor: "#FEFEFE",
+        backgroundColor: "lightgreen",
     },
     projectImage: {
         height: 150,
-        alignSelf: 'stretch',
+        // alignSelf: 'stretch',
+        width: "97%",
         borderRadius: 15,
+        marginTop: 5,
+        marginLeft: 5,
+        marginRight: 5,
     },
     projectContentContainer: {
         display: 'flex',
@@ -305,6 +353,9 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
         gap: 10,
         alignSelf: 'stretch',
+        marginBottom: 5,
+        marginHorizontal: 5,
+        backgroundColor: "yellow",
     },
     projectArticleContainer: {
         display: 'flex',
@@ -313,12 +364,38 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
         gap: 10,
         alignSelf: 'stretch',
+        // marginTop: 1,
+        // marginHorizontal: 5,
+        backgroundColor: "lightblue",
+    },
+
+    /******************************************************All Projects************************************************************/
+
+    projectActionContainer: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 10,
+        marginHorizontal: 10,
+        marginTop: 25,
+        marginBottom: 25,
+    },
+
+    /******************************************************All Common************************************************************/
+
+    topSectionContainer: {
+        flexShrink: 0,
+        flexDirection: "column",
+        alignItems: "center",
+        display: "flex",
+        // backgroundColor: "#B8B8B8",
+        backgroundColor: "red",
+        gap: 10,
     },
 
     /******************************************************Post Author Bio Footer************************************************************/
     authorBioContainer: {
         display: 'flex',
-        // justifyContent: 'center',
         alignItems: 'center',
         gap: 10,
         alignSelf: 'stretch',
@@ -338,9 +415,9 @@ export const styles = StyleSheet.create({
         gap: 10,
         alignSelf: "stretch",
         borderRadius: 15,
-        background: "#FEFEFE",
+        backgroundColor: "purple",
         flexDirection: "row",
-        paddingBottom: 15,
+        marginBottom: 15,
     },
 
     /****************************************************Create Post***************************************************************/
