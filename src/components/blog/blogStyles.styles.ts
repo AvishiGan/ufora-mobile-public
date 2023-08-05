@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     blogDetails: {
         display: "flex",
         flex: 1,
-        flexirection: "column",
+        flexDirection: "column",
         justifyContent: 'flex-start',
         alignItems: "flex-start",
     },
@@ -258,7 +258,8 @@ const styles = StyleSheet.create({
         gap: 10,
         flexShrink: 0,
         borderRadius: 15,
-        backgroundColor: COLORS.brandWhite
+        backgroundColor: COLORS.brandWhite,
+        height: 168
     },
     blogCardLargeImage: {
         alignSelf: "stretch",

@@ -1,12 +1,25 @@
 import React from "react";
 import { View, TouchableOpacity, Image, Text, Dimensions } from "react-native";
-import { COLORS, SIZES, images } from "../../constants";
+import { COLORS } from "../../constants";
 import { CardHeadingBold, NameSmallSemibold, RegularSmall, SmallerRegular } from "../../constants/fonts";
 import { Circle } from "lucide-react-native";
-import { profilePicture } from "../../../assets/images";
 import styles from "./blogStyles.styles";
 
-const BlogCardSmall = () => {
+interface BlogCardSmallData {
+    imageSource: any; 
+    title: string;
+    date: string;
+    readTime: string;
+    authorName: string;
+    authorProfilePic: any; 
+    authorInstitute: string;
+}
+
+interface BlogCardSmallProps {
+    data: BlogCardSmallData;
+}
+
+const BlogCardSmall: React.FC<BlogCardSmallProps> = ({ data }) => {
 
     const screenWidth = Dimensions.get('window').width;
   
@@ -16,32 +29,32 @@ const BlogCardSmall = () => {
     return (
             <TouchableOpacity style={{...styles.blogCardSmall, width: smallCardWidth }}>
                 <Image
-                    source={images.CyberSecurity}
+                    source={data.imageSource}
                     style={{...styles.blogCardSmallImage, width: smallCardWidth-10 }}    
                 />
                 <View style={styles.blogCardSmallText}>
                     <View style={styles.titleUpper}>
-                        <CardHeadingBold><Text style={styles.blogCardSmallTitle}>Cyber Security</Text></CardHeadingBold>
+                        <CardHeadingBold><Text style={styles.blogCardSmallTitle}>{data.title}</Text></CardHeadingBold>
                         <View style= {styles.blogCardSmallDescription}>
-                                <RegularSmall fontColor={COLORS.brandGrey}><Text>Jul 10th, 2023</Text></RegularSmall>
+                                <RegularSmall fontColor={COLORS.brandGrey}><Text>{data.date}</Text></RegularSmall>
                                 <Circle color={COLORS.brandGrey} size={5} fill={COLORS.brandGrey} />
                                 <View style={{ width: smallCardWidth-121}}>
                                     <Text numberOfLines={1} ellipsizeMode="tail">
-                                        <RegularSmall fontColor={COLORS.brandGrey}>3 mins read</RegularSmall>
+                                        <RegularSmall fontColor={COLORS.brandGrey}>{data.readTime}</RegularSmall>
                                     </Text>
                                 </View>
                         </View>
                     </View>
                     <View style={styles.authorDetails}>
                         <Image
-                            source={profilePicture}
+                            source={data.authorProfilePic}
                             style={styles.blogCardSmallProfile}
                         />
                         <View style={styles.authorBio}>
-                            <NameSmallSemibold><Text style={styles.bioName}>Samadhi Smith</Text></NameSmallSemibold>
+                            <NameSmallSemibold><Text style={styles.bioName}>{data.authorName}</Text></NameSmallSemibold>
                             <View style={{ width: smallCardWidth-60}}>
                                 <Text style={styles.bioInstitute} numberOfLines={1} ellipsizeMode="tail">
-                                    <SmallerRegular>Undergrad at University of Colombo</SmallerRegular>
+                                    <SmallerRegular>{data.authorInstitute}</SmallerRegular>
                                 </Text>
                             </View>
                         </View>

@@ -1,13 +1,27 @@
 import React from "react";
 import { View, TouchableOpacity, Image, Text, Dimensions } from "react-native";
-import { COLORS, images } from "../../constants";
+import { COLORS } from "../../constants";
 import { CardHeadingBold, NameSmallSemibold, RegularSmall, SmallerRegular } from "../../constants/fonts";
 import { Circle } from "lucide-react-native";
 import { UforaIcon, VerifiedIcon } from "../../../assets/svg";
-import { profilePicture } from "../../../assets/images";
 import styles from "./blogStyles.styles";
 
-const BlogCardLarge = () => {
+interface BlogCardLargeData {
+    imageSource: any; 
+    title: string;
+    content: string;
+    date: string;
+    readTime: string;
+    authorName: string;
+    authorProfilePic: any; 
+    authorInstitute: string;
+}
+
+interface BlogCardLargeProps {
+    data: BlogCardLargeData;
+}
+
+const BlogCardLarge: React.FC<BlogCardLargeProps> = ({ data }) => {
 
     const screenWidth = Dimensions.get('window').width;
   
@@ -18,37 +32,37 @@ const BlogCardLarge = () => {
         <TouchableOpacity style={{width: largeCardWidth}}>
             <View style={styles.blogCardLarge}>
                 <Image
-                    source={images.BioTechnology}
+                    source={data.imageSource}
                     style={styles.blogCardLargeImage}
                 />
                 <View style={styles.blogCardLargeText}>
                     <View style={styles.blogCardLargeDescription}>
-                        <CardHeadingBold><Text style={styles.blogCardLargeContent}>BioTechnology</Text></CardHeadingBold>
+                        <CardHeadingBold><Text style={styles.blogCardLargeContent}>{data.title}</Text></CardHeadingBold>
                         <View style={{ width: largeCardWidth-138}}>
                             <Text style={styles.blogCardLargeContent} numberOfLines={3} ellipsizeMode="tail">
-                                <RegularSmall>Lorem ipsum dolor sit amet consectetur. Donec vestibulum quisque tortor nulla sodales integer mattis. Lorem ipsum dolor sit amet consectetur. Donec vestibulum quisque tortor nulla sodales integer mattis.</RegularSmall>
+                                <RegularSmall>{data.content}</RegularSmall>
                             </Text>
                         </View>
                         <View style= {styles.blogCardSmallDescription}>
-                                <RegularSmall fontColor={COLORS.brandGrey}><Text>Jul 21st, 2023</Text></RegularSmall>
+                                <RegularSmall fontColor={COLORS.brandGrey}><Text>{data.date}</Text></RegularSmall>
                                 <Circle color={COLORS.brandGrey} size={5} fill={COLORS.brandGrey} />
-                                <RegularSmall fontColor={COLORS.brandGrey}><Text>7 mins read</Text></RegularSmall>
+                                <RegularSmall fontColor={COLORS.brandGrey}><Text>{data.readTime}</Text></RegularSmall>
                         </View>
                     </View>
                     <View style={styles.blogCardLargeAuthor}>
                         <Image 
-                            source={profilePicture}
+                            source={data.authorProfilePic}
                             style={styles.blogCardSmallProfile}
                         />
                         <View style={styles.blogCardLargeAuthorDetails}>
                             <View style={styles.blogCardLargeAuthorName}>
-                                <NameSmallSemibold><Text>Hiruni Ovitigala</Text></NameSmallSemibold>
+                                <NameSmallSemibold><Text>{data.authorName}</Text></NameSmallSemibold>
                                 <VerifiedIcon size={12} fillColor={COLORS.brandBlue} strokeColor={COLORS.brandWhite} />
                                 <UforaIcon size={12} fillColor={COLORS.brandBlack} strokeColor={COLORS.brandWhite} />
                             </View>
                             <View style={{ width: largeCardWidth-98}}>
                                 <Text style={styles.bioInstitute} numberOfLines={1} ellipsizeMode="tail">
-                                    <SmallerRegular>Undergrad at University of Colombo</SmallerRegular>
+                                    <SmallerRegular>{data.authorInstitute}</SmallerRegular>
                                 </Text>
                             </View>
                         </View>
