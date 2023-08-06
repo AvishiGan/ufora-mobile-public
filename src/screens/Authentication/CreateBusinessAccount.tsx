@@ -7,10 +7,7 @@ import InputField from '../../components/authentication/inputField/InputField'
 import RegularSmall from '../../constants/fonts/RegularSmall'
 import SmallButton from '../../components/authentication/buttons/SmallButton'
 import UnfilledButton from '../../components/authentication/buttons/UnfilledButton'
-import Authentication, {
-    handlePressGoogle,
-    handlePressApple,
-  } from "../../components/authentication/auth/Authentication";
+import Authentication from "../../components/authentication/auth/Authentication";
 import SmallerRegular from '../../constants/fonts/SmallerRegular'
 import { building } from 'lucide-react-native';
 import { Mail } from 'lucide-react-native';
@@ -249,10 +246,7 @@ const CreateBusinessAccount:FunctionComponent<Props> = ({navigation}) => {
             </TouchableOpacity>
             </View>
         </View>
-        <Authentication
-            onPressGoogle={handlePressGoogle}
-            onPressApple={handlePressApple}
-        />
+        <Authentication/>
         <View style={{ justifyContent: "center",marginTop: 12, alignItems: "center", flexDirection: "row", }}>
         <SmallerRegular>
           <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>

@@ -54,6 +54,19 @@ const StudentOTP: FunctionComponent<Props> = ({route, navigation}) => {
     }
   };
 
+  const handleResendOTP = async(values: FormValues) => {
+    const email = route.params.email;
+    try {
+      const otpResponse = await axios.post(`${API_PATH}/otp/request`,{
+          email: email,
+        }
+      );
+      console.log("OTP Request Response: ", otpResponse.data);
+    } catch (otpError) {
+      console.error("OTP Request Error: ", otpError);
+    }
+  }
+
   const handleSubmit = async (values: FormValues) => {
     
     const email = route.params.email;
@@ -143,7 +156,7 @@ const StudentOTP: FunctionComponent<Props> = ({route, navigation}) => {
             <RegularNormal>
               <Text style={{ alignItems: 'center'}}>Didn't receive an OTP?</Text>
             </RegularNormal>
-            <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+            <TouchableOpacity onPress={handleResendOTP}>
               <View>
                 <RegularNormal>
                     <Text style={{ color: '#2656FF' }}>Resend OTP</Text>

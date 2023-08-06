@@ -4,73 +4,71 @@ import axios from 'axios';
 import {View, StyleSheet,Image, SafeAreaView, Button, TouchableOpacity} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import EyeOff from "../../../assets/icons/eye-off.png";
-import {Icon} from "@react-native-material/core";
 import envs from "../../services/config/env"
-import UforaLogo from "../../components/authentication/logo/UforaLogo";
 
-interface TextInputWithFocusBorderProps {
-  label: string;
-  helperText: string;
-  leading: string;
-  value: string;
-  onChangeText: (text: string) => void;
-  secureTextEntry?: boolean;
-  showPasswordToggle?: boolean;
-  imageSource?: string;
-  leadingIcon?: React.ReactElement;
-}
+// interface TextInputWithFocusBorderProps {
+//   label: string;
+//   helperText: string;
+//   leading: string;
+//   value: string;
+//   onChangeText: (text: string) => void;
+//   secureTextEntry?: boolean;
+//   showPasswordToggle?: boolean;
+//   imageSource?: string;
+//   leadingIcon?: React.ReactElement;
+// }
 
-const TextInputWithFocusBorder: React.FC<TextInputWithFocusBorderProps> = ({
-  label,
-  helperText,
-  leading,
-  value,
-  onChangeText,
-  secureTextEntry = false,
-  showPasswordToggle = false,
-  imageSource,
-  leadingIcon,
-}) => {
+// const TextInputWithFocusBorder: React.FC<TextInputWithFocusBorderProps> = ({
+//   label,
+//   helperText,
+//   leading,
+//   value,
+//   onChangeText,
+//   secureTextEntry = false,
+//   showPasswordToggle = false,
+//   imageSource,
+//   leadingIcon,
+// }) => {
 
-  const [showPassword, setShowPassword] = useState(false);
+//   const [showPassword, setShowPassword] = useState(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+//   const togglePasswordVisibility = () => {
+//     setShowPassword(!showPassword);
+//   };
   
-  const styles = StyleSheet.create({
-    input: {
-      flex: 1,
-      fontSize: 16,
-      color: '#B8B8B8',
-      fontWeight: "400",
-      marginLeft: 8,
-    },
-  });
+//   const styles = StyleSheet.create({
+//     input: {
+//       flex: 1,
+//       fontSize: 16,
+//       color: '#B8B8B8',
+//       fontWeight: "400",
+//       marginLeft: 8,
+//     },
+//   });
 
-  return (
-    <View>
-      <Image source={imageSource} style={{ marginRight: 18,marginLeft: 4, padding: 5 }} />
+//   return (
+//     <View>
+//       <Image source={imageSource} style={{ marginRight: 18,marginLeft: 4, padding: 5 }} />
 
-      <TextInput
-        variant="outlined"
-        label={label}
-        color="#87929D"
-        //helperText={helperText}
-        //leading = {leading}
-        value={value}
-        secureTextEntry={secureTextEntry && !showPassword}
-        onChangeText={onChangeText}
-        style={{ marginLeft: 45 , width: 300, alignItems: "center", flexDirection: "row" }}
-      />
-      {showPasswordToggle && (
-        <TouchableOpacity onPress={togglePasswordVisibility} style={{ marginLeft: 8 }}>
-          <Image source={EyeOff} />
-        </TouchableOpacity>
-      )}
-    </View>
-  );
-};
+//       <TextInput
+//         variant="outlined"
+//         label={label}
+//         color="#87929D"
+//         //helperText={helperText}
+//         //leading = {leading}
+//         value={value}
+//         secureTextEntry={secureTextEntry && !showPassword}
+//         onChangeText={onChangeText}
+//         style={{ marginLeft: 45 , width: 300, alignItems: "center", flexDirection: "row" }}
+//       />
+//       {showPasswordToggle && (
+//         <TouchableOpacity onPress={togglePasswordVisibility} style={{ marginLeft: 8 }}>
+//           <Image source={EyeOff} />
+//         </TouchableOpacity>
+//       )}
+//     </View>
+//   );
+// };
 
 const Feed: FunctionComponent = () => {
   const {API_PATH} = envs;
@@ -127,9 +125,7 @@ const Feed: FunctionComponent = () => {
           //onPress={makeAPIRequestWithBearerToken}
         />
 
-      <UforaLogo />
-
-      <TextInputWithFocusBorder
+      {/* <TextInputWithFocusBorder
         //imageSource={require("../../../assets/icons/password.png")} 
         label="Username / Email"
         leadingIcon={<Icon name="lock" size={24} color="black" style={{ margin: 8 }} />}
@@ -140,7 +136,7 @@ const Feed: FunctionComponent = () => {
         secureTextEntry={true} 
         showPasswordToggle={true}
         
-      />   
+      />    */}
         
         </SafeAreaView>
     </View>

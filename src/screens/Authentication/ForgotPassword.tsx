@@ -51,7 +51,7 @@ const ForgotPassword: FunctionComponent<Props> = ({ navigation }) => {
         await SecureStore.setItemAsync('token', token);
 
 
-        navigation.navigate("ForgotPassOTP");
+        navigation.navigate("ForgotPassOTP", {email: values.email});
   
         console.log("API Response: ", response.data);
 

@@ -6,10 +6,7 @@ import RegularNormal from '../../constants/fonts/RegularNormal'
 import InputField from '../../components/authentication/inputField/InputField'
 import SmallButton from '../../components/authentication/buttons/SmallButton'
 import UnfilledButton from '../../components/authentication/buttons/UnfilledButton'
-import Authentication, {
-    handlePressGoogle,
-    handlePressApple,
-  } from "../../components/authentication/auth/Authentication";
+import Authentication from "../../components/authentication/auth/Authentication";
 import SmallerRegular from '../../constants/fonts/SmallerRegular'
 import { PersonStanding } from 'lucide-react-native';
 import { Mail } from 'lucide-react-native';
@@ -193,10 +190,7 @@ return (
             </TouchableOpacity>
             </View>
         
-        <Authentication
-            onPressGoogle={handlePressGoogle}
-            onPressApple={handlePressApple}
-        />
+        <Authentication/>
         <View style={{ justifyContent: "center",marginTop: 20, alignItems: "center", flexDirection: "row", }}>
         <SmallerRegular>
           <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>

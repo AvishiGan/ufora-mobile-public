@@ -29,7 +29,7 @@ export type RootStackParamList = {
     SelectUniversity: {username:string};
     UniOTP: {email:string};
     StudentOTP: {username:string, email:string};
-    ForgotPassOTP: undefined;
+    ForgotPassOTP: {email:string};
     Feed: undefined;
 };
 

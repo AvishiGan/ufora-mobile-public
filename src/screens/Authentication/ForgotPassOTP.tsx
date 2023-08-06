@@ -28,7 +28,7 @@ interface FormValues {
   [key: string]: string;
 }
 
-const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
+const ForgotPassOTP: FunctionComponent<Props> = ({route, navigation}) => {
   const {API_PATH} = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   
@@ -50,6 +50,19 @@ const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
     num5: "",
     num6: "",
   };
+
+  const handleResendOTP = async(values: FormValues) => {
+    const email = route.params.email;
+    try {
+      const otpResponse = await axios.post(`${API_PATH}/password/reset/otp/request`,{
+          email: email,
+        }
+      );
+      console.log("OTP Request Response: ", otpResponse.data);
+    } catch (otpError) {
+      console.error("OTP Request Error: ", otpError);
+    }
+  }
 
   const focusNextField = (index: number) => {
     if (index < inputRefs.length - 1) {
@@ -149,7 +162,7 @@ const ForgotPassOTP: FunctionComponent<Props> = ({navigation}) => {
             <RegularNormal>
               <Text style={{ alignItems: 'center'}}>Didn't receive an OTP?</Text>
             </RegularNormal>
-            <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+            <TouchableOpacity onPress={handleResendOTP}>
               <View>
                 <RegularNormal>
                     <Text style={{ color: '#2656FF' }}>Resend OTP</Text>
