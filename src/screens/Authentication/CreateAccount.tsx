@@ -9,10 +9,7 @@ import {
 import logo from "../../../assets/logo.png";
 import { User, Building } from "lucide-react-native";
 import { TouchableOpacity } from "react-native";
-import Authentication, {
-  handlePressGoogle,
-  handlePressApple,
-} from "../../components/authentication/auth/Authentication";
+import Authentication from "../../components/authentication/auth/Authentication";
 import Logo from "../../components/authentication/logo/Logo";
 import RegularNormal from "../../constants/fonts/RegularNormal";
 import RegularButton from "../../components/authentication/buttons/RegularButton";
@@ -137,12 +134,9 @@ const CreateAccount: FunctionComponent<Props> = ({navigation}) => {
             </TouchableOpacity>
           </View>
         </View>
-        <Authentication
-          onPressGoogle={handlePressGoogle}
-          onPressApple={handlePressApple}
-        />
+        <Authentication/>
 
-      <View style={{ justifyContent: "center",marginTop: 8, alignItems: "center", flexDirection: "row", }}>
+      <View style={{ justifyContent: "center",marginTop: 20, alignItems: "center", flexDirection: "row", }}>
         <SmallerRegular>
           <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>
         </SmallerRegular>

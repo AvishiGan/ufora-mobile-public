@@ -6,7 +6,7 @@ import {
 import { View } from "react-native";
 
 import SmallMedium from "../../../constants/fonts/SmallMedium";
-import Google from "./google";
+import Google from "./Google";
 import Apple from "./Apple";
 
 interface ImagesSectionProps {
