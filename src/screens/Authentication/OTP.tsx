@@ -1,34 +1,44 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useRef, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   KeyboardAvoidingView,
   Text,
   View,
   StyleSheet,
+  TextInput,
 } from "react-native";
 import logo from "../../../assets/logo.png";
-import RegularButton from "../../components/buttons/RegularButton";
+import RegularButton from "../../components/authentication/buttons/RegularButton";
 import { TouchableOpacity } from "react-native";
-import Logo from "../../components/logo/Logo";
-import InputField from "../../components/inputField/OTPInput";
+import Logo from "../../components/authentication/logo/Logo";
 import RegularNormal from "../../constants/fonts/RegularNormal";
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
+import axios from "axios";
+import RegularSmall from "../../constants/fonts/RegularSmall";
+import envs from "../../services/config/env"
 type Props = StackScreenProps<RootStackParamList, "OTP">;
 
 interface FormValues {
-  num1: string;
-  num2: string;
-  num3: string;
-  num4: string;
-  num5: string;
-  num6: string;
+  [key: string]: string;
 }
 
-const OTP: FunctionComponent<Props> = ({navigation}) => {
+const OTP: FunctionComponent<Props> = ({route, navigation}) => {
+  const {API_PATH} = envs;
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const inputRefs = [
+    useRef<TextInput>(null),
+    useRef<TextInput>(null),
+    useRef<TextInput>(null),
+    useRef<TextInput>(null),
+    useRef<TextInput>(null),
+    useRef<TextInput>(null),
+  ];
+
   const initialValues: FormValues = {
     num1: "",
     num2: "",
@@ -38,15 +48,62 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
     num6: "",
   };
 
-  const handleVerify = (values: FormValues) => {
-    //const handleVerify = () => Alert.alert("Login");
-    // Making the API request
-    //console.log(values);
-    navigation.navigate("Feed");
+  const focusNextField = (index: number) => {
+    if (index < inputRefs.length - 1) {
+      inputRefs[index + 1].current?.focus();
+    }
+  };
+
+  const handleResendOTP = async(values: FormValues) => {
+    const email = route.params.email;
+    try {
+      const otpResponse = await axios.post(`${API_PATH}/otp/request`,{
+          email: email,
+        }
+      );
+      console.log("OTP Request Response: ", otpResponse.data);
+    } catch (otpError) {
+      console.error("OTP Request Error: ", otpError);
+    }
+  }
+
+  const handleVerify = async(values: FormValues) => {
+    const email = route.params.email;
+    console.log(email)
+    const otp = `${values.num1}${values.num2}${values.num3}${values.num4}${values.num5}${values.num6}`;
+    console.log(otp)
+
+    try{
+      //const ip = process.env.IP
+      //console.log(ip)
+      const response = await axios.post(`${API_PATH}/otp/verify/email`,{
+        email: email,
+        otp: otp
+      });
+      console.log(values);
+      navigation.navigate("Login");
+      console.log("API Response: ", response.data);
+
+    } catch (error: any) {
+  
+      if (error.response) {
+        setErrorMessage("Invalid OTP");
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("API error: No response received");
+        console.log(error);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        const errorMessage = `${JSON.stringify(error.message)}`
+        alert(errorMessage);
+        console.error("API error: ", error.message);
+      }
+    }
+    
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+    <KeyboardAvoidingView keyboardVerticalOffset={250} behavior="padding" style={styles.container}>
       <StatusBar />
       <View>
         {/* Top section */}
@@ -59,57 +116,35 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
         {({ handleChange, handleSubmit, values }) => (
           <View>
             <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8 }}>
-              <View>
-                <Field
-                  component={InputField}
-                  name="num1"
-                  placeholder="0"
-                />
-              </View>
+            {inputRefs.map((ref, index) => (
+                  <View key={index}>
+                    <TextInput
+                      ref={ref}
+                      placeholder="0"
+                      placeholderTextColor={errorMessage ? "#CC3535" : "#B8B8B8"}
+                      style={[styles.input, errorMessage ? styles.inputError : null]}
+                      maxLength={1}
+                      keyboardType="numeric"
+                      onChangeText={(value) => {
+                        handleChange(`num${index + 1}`)(value);
+                        if (value) {
+                          focusNextField(index);
+                        }
+                      }}
+                      value={values[`num${index + 1}`]}
+                    />
+                  </View>
+                ))}
+            </View>
 
-              <View>
-                <Field
-                  component={InputField}
-                  name="num2"
-                  placeholder="0"
-                />
-              </View>
-
-              <View>
-                <Field
-                  component={InputField}
-                  name="num3"
-                  placeholder="0"
-                />
-              </View>
-
-              <View>
-                <Field
-                  component={InputField}
-                  name="num4"
-                  placeholder="0"
-                />
-              </View>
-
-              <View>
-                <Field
-                  component={InputField}
-                  name="num5"
-                  placeholder="0"
-                />
-              </View>
-
-              <View>
-                <Field
-                  component={InputField}
-                  name="num6"
-                  placeholder="0"
-                />
-              </View> 
+            <View style={{marginTop: 10,flexDirection: "row", marginLeft: 0, alignItems: "center", justifyContent: "center"}}>
+              <RegularSmall>
+                {errorMessage ? <Text style={{color: "#CC3535", fontSize: 12}}>{errorMessage}</Text> : null}
+              </RegularSmall>
             </View>
 
             {/* Button */}
-            <View style={{ marginLeft:25 ,alignItems: "center", justifyContent: "center", marginTop: 25, width: 280 }}>
+            <View style={{ marginLeft:25 ,alignItems: "center", justifyContent: "center", marginTop: 10, width: 280 }}>
               <RegularButton onPress={handleSubmit}>
                 <Text style={{ color: "#FEFEFE" }}>Verify</Text>
               </RegularButton>
@@ -122,7 +157,7 @@ const OTP: FunctionComponent<Props> = ({navigation}) => {
             <RegularNormal>
               <Text style={{ alignItems: 'center'}}>Didn't receive an OTP?</Text>
             </RegularNormal>
-            <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+            <TouchableOpacity onPress={handleResendOTP}>
               <View>
                 <RegularNormal>
                     <Text style={{ color: '#2656FF' }}>Resend OTP</Text>
@@ -143,11 +178,18 @@ const styles = StyleSheet.create({
       alignItems: 'center',
   },
   input: {
-      width: '80%',
-      height: 40,
-      borderWidth: 1,
-      borderColor: 'gray',
+    width: 48,
+    height: 48,
+    borderWidth: 1,
+    borderColor: "gray",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "400",
+    borderRadius: 12,
   },
+  inputError: {
+    borderColor: "#CC3535"
+  }
 });
 
 // export default OTP;

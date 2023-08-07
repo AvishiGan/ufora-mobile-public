@@ -8,10 +8,10 @@ import {
   TextInput,
 } from "react-native";
 import logo from "../../../assets/logo.png";
-import RegularButton from "../../components/buttons/RegularButton";
+import RegularButton from "../../components/authentication/buttons/RegularButton";
 import { TouchableOpacity } from "react-native";
-import Logo from "../../components/logo/Logo";
-import InputField from "../../components/inputField/OTPInput";
+import Logo from "../../components/authentication/logo/Logo";
+import InputField from "../../components/authentication/inputField/OTPInput";
 import RegularNormal from "../../constants/fonts/RegularNormal";
 
 //navigation
@@ -19,6 +19,8 @@ import { RootStackParamList } from "../../navigation/Nav/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
 import axios from "axios";
+import RegularSmall from "../../constants/fonts/RegularSmall";
+import envs from "../../services/config/env"
 type Props = StackScreenProps<RootStackParamList, "UniOTP">;
 
 interface FormValues {
@@ -26,6 +28,8 @@ interface FormValues {
 }
 
 const OTP: FunctionComponent<Props> = ({route, navigation}) => {
+  const {API_PATH} = envs;
+  const [errorMessage, setErrorMessage] = useState<string>("");
   
   const inputRefs = [
     useRef<TextInput>(null),
@@ -51,33 +55,41 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
     }
   };
 
+  const handleResendOTP = async(values: FormValues) => {
+    const email = route.params.email;
+    try {
+      const otpResponse = await axios.post(`${API_PATH}/otp/request`,{
+          email: email,
+        }
+      );
+      console.log("OTP Request Response: ", otpResponse.data);
+    } catch (otpError) {
+      console.error("OTP Request Error: ", otpError);
+    }
+  }
+
   const handleVerify = async(values: FormValues) => {
     const email = route.params.email;
-    console.log(email)
+    //console.log(email)
     const otp = `${values.num1}${values.num2}${values.num3}${values.num4}${values.num5}${values.num6}`;
-
     console.log(otp)
 
     try {
       //const ip = process.env.IP
       //console.log(ip)
-        const response = await axios.post("http://192.168.1.6:3000/otp/verify/university/email",{
+        const response = await axios.post(`${API_PATH}/otp/verify/university/email`,{
           email: email,
           otp: otp
         });
   
         console.log(values);
-        navigation.navigate("Feed");
+        navigation.navigate("Login");
   
         console.log("API Response: ", response.data);
       } catch (error: any) {
   
         if (error.response) {
-          // The request was made and the server responded with a status code that falls out of the range of 2xx
-          const errorMessage = `${JSON.stringify(error.response.data)}`
-          alert(errorMessage);
-          console.error("API error: ", error.response.data);
-          //console.error("API error status: ", error.response.status);
+          setErrorMessage("Invalid OTP");
         } else if (error.request) {
           // The request was made but no response was received
           console.error("API error: No response received");
@@ -90,7 +102,6 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
         }
       }
 
-    
   };
 
   return (
@@ -104,7 +115,7 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
         {/* Bottom section */}
         <View style={{ paddingHorizontal: 10, marginTop: 350, alignItems: "center", justifyContent: "center"}}>
         <Formik initialValues={initialValues} onSubmit={handleVerify}>
-          {({ handleChange, values }) => (
+          {({ handleChange, handleSubmit, values }) => (
             <>
               <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8 }}>
                 {inputRefs.map((ref, index) => (
@@ -112,7 +123,8 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
                     <TextInput
                       ref={ref}
                       placeholder="0"
-                      style={styles.input}
+                      placeholderTextColor={errorMessage ? "#CC3535" : "#B8B8B8"}
+                      style={[styles.input, errorMessage ? styles.inputError : null]}
                       maxLength={1}
                       keyboardType="numeric"
                       onChangeText={(digit) => {
@@ -121,14 +133,21 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
                           focusNextField(index);
                         }
                       }}
+                      
                       value={values[`num${index + 1}`]}
                     />
                   </View>
                 ))}
               </View>
+              <View style={{marginTop: 10,flexDirection: "row", marginLeft: 0}}>
+                  <RegularSmall>
+                    {errorMessage ? <Text style={{color: "#CC3535", fontSize: 12}}>{errorMessage}</Text> : null}
+                  </RegularSmall>
+                </View>
+                
               {/* Button */}
-              <View style={{ alignItems: "center", justifyContent: "center", marginTop: 30, width: 280 }}>
-                <RegularButton onPress={handleVerify}>
+              <View style={{ alignItems: "center", justifyContent: "center", marginTop: 15, width: 280 }}>
+                <RegularButton onPress={handleSubmit}>
                   <Text style={{ color: "#FEFEFE" }}>Verify</Text>
                 </RegularButton>
               </View>
@@ -141,7 +160,7 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
             <RegularNormal>
               <Text style={{ alignItems: 'center'}}>Didn't receive an OTP?</Text>
             </RegularNormal>
-            <TouchableOpacity onPress={{}}>
+            <TouchableOpacity onPress={handleResendOTP}>
               <View>
                 <RegularNormal>
                     <Text style={{ color: '#2656FF' }}>Resend OTP</Text>
@@ -165,12 +184,16 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderWidth: 1,
-    borderColor: "gray",
+    borderColor: "#87929D",
     textAlign: "center",
     fontSize: 16,
     fontWeight: "400",
     borderRadius: 12,
+    
   },
+  inputError: {
+    borderColor: "#CC3535"
+  }
 });
 
 export default OTP;

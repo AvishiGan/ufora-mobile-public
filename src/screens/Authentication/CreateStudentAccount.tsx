@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import {StatusBar, View, Text, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image} from 'react-native';
-import Logo from '../../components/logo/Logo'
+import Logo from '../../components/authentication/logo/Logo'
 import logo from "../../../assets/logo.png"
 import RegularNormal from '../../constants/fonts/RegularNormal'
-import InputField from '../../components/inputField/InputField'
-import SmallButton from '../../components/buttons/SmallButton'
-import UnfilledButton from '../../components/buttons/UnfilledButton'
-import Authentication, {
-    handlePressGoogle,
-    handlePressApple,
-  } from "../../components/auth/Authentication";
+import InputField from '../../components/authentication/inputField/InputField'
+import SmallButton from '../../components/authentication/buttons/SmallButton'
+import UnfilledButton from '../../components/authentication/buttons/UnfilledButton'
+import Authentication from "../../components/authentication/auth/Authentication";
 import SmallerRegular from '../../constants/fonts/SmallerRegular'
+import { PersonStanding } from 'lucide-react-native';
+import { Mail } from 'lucide-react-native';
+import { Key } from 'lucide-react-native';
+import { User } from 'lucide-react-native';
 
 //navigation
 import { RootStackParamList } from "../../navigation/Nav/RootStack";
@@ -18,7 +19,10 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent } from "react";
 import { Field, Formik } from 'formik';
 import axios from 'axios';
-type Props = StackScreenProps<RootStackParamList, "CreateBusinessAccount">;
+import * as Yup from 'yup'
+import RegularSmall from '../../constants/fonts/RegularSmall';
+import envs from "../../services/config/env"
+type Props = StackScreenProps<RootStackParamList, "CreateStudentAccount">;
 
 interface FormValues {
     name: string;
@@ -27,8 +31,17 @@ interface FormValues {
     password: string;
   }
 
-const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
+const validationSchema = Yup.object({
+  name: Yup.string().required('Name is Required'),
+  email: Yup.string().email("Invalid Email").required('Email is Required'),
+  username: Yup.string().required('Username is Required'),
+  password: Yup.string().required('Password is Required')
+})
 
+
+const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
+    const {API_PATH} = envs;
+    const [errorMessage, setErrorMessage] = useState<string>("");
     const initialValues: FormValues = {
         name: "",
         email: "",
@@ -38,19 +51,19 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
 
     const handleCreateStudentAcc = async(values: FormValues) => {
     try{
-        const response = await axios.post("http://192.168.1.6:3000/register/undergraduate",{
+        const response = await axios.post(`${API_PATH}/register/undergraduate`,{
             name: values.name,
             email: values.email,
             username: values.username,
             password: values.password
         });
         console.log(values);
-        navigation.navigate("StudentOTP");
+        navigation.navigate("StudentOTP", {username: values.username, email: values.email});
         console.log("API Response: ", response.data);
 
         //Request OTP when create account success
         try{
-            const otpResponse = await axios.post("http://192.168.1.6:3000/otp/request", {
+            const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
                 email: values.email,
             });
 
@@ -60,11 +73,8 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
         }
 
     } catch (error:any){
-        if(error.response){
-            const errorMessage = `${JSON.stringify(error.response.data)}`
-            alert(errorMessage);
-            console.error("API error: ", error.response.data);
-            //console.error("API error status: ", error.response.status);
+        if(error.response.status === 500){
+            setErrorMessage("Server Error");
         } else if (error.request){
             // The request was made but no response was received
             console.error("API error: No response received");
@@ -82,7 +92,7 @@ const CreateStudentAccount:FunctionComponent<Props> = ({navigation}) => {
     }
 
 return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+    <KeyboardAvoidingView keyboardVerticalOffset={5} behavior="padding" style={styles.container}>
         <StatusBar />
         <View>
             {/* Top section */}
@@ -90,56 +100,71 @@ return (
         </View>
 
     {/* Bottom section */}
-    <View style={{ paddingHorizontal: 10, marginTop: 72 ,alignItems: "center"}}>
-        <Formik initialValues={initialValues} onSubmit={handleCreateStudentAcc}>
-            {({ handleChange, handleSubmit, values }) => (
+    <View style={{ paddingHorizontal: 10, marginTop: 100 ,alignItems: "center"}}>
+        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleCreateStudentAcc}>
+            {({ handleChange, handleSubmit, values, errors, handleBlur, touched }) => (
             <View style={{alignItems: "center"}}>
                 <View style={{flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2}} >
                 <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/person-standing.png")}
+                    error = {touched.name && errors.name}
+                    iconComponent={<PersonStanding color={touched.name && errors.name ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="name"
-                    placeholder="Saman Perera"
+                    placeholder="Name"
                     onChangeText = {handleChange("name")}
                     value = {values.name}
+                    onBlur={handleBlur('name')}
                 />
                 </View>
 
-                <View style={{marginTop: 10, flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
+                <View style={{marginTop: 8, flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20}} >
                 <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/mail.png")}
+                    error = {touched.email && errors.email}
+                    iconComponent={<Mail color={touched.email && errors.email ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="email"
-                    placeholder="samanperera@gmail.com"
+                    placeholder="Email"
                     onChangeText = {handleChange("email")}
                     value = {values.email}
+                    onBlur={handleBlur('email')}
                 />
                 </View>
 
-                <View style={{marginTop: 10, flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
+                <View style={{marginTop: 8, flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20 }} >
                 <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/user.png")}
+                    error = {touched.username && errors.username}
+                    iconComponent={<User color={touched.username && errors.username ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="username"
-                    placeholder="SamanPerera"
+                    placeholder="Username"
                     onChangeText = {handleChange("username")}
                     value = {values.username}
+                    onBlur={handleBlur('username')}
                 />
                 </View>
 
-                <View style={{marginTop: 10, flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
+                <View style={{marginTop: 8, flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20 }} >
                 <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/password.png")}
+                    error = {touched.password && errors.password}
+                    iconComponent={<Key color={touched.password && errors.password ? "#CC3535" : "#B8B8B8"} size={24} />}
                     name="password"
-                    placeholder="*********"
+                    placeholder="Password"
                     secureTextEntry={true}
+                    showPasswordToggle = {true}
                     onChangeText = {handleChange("password")}
                     value = {values.password}
+                    onBlur={handleBlur('password')}
                 />
                 </View>
 
-                <View style={{flexDirection: "row",marginTop: 30,alignItems: "center", width: 340, gap:10}}>
+                <View style={{marginTop: 0,flexDirection: "row", marginLeft: 8}}>
+                  <RegularSmall>
+                    {errorMessage ? <Text style={{color: "#CC3535", fontSize: 12}}>{errorMessage}</Text> : null}
+                  </RegularSmall>
+                </View>
+
+                <View style={{flexDirection: "row",marginTop: 0,alignItems: "center", width: 340, gap:10}}>
                     <UnfilledButton onPress={handleBack}>
                         <Text style={{ color: "#2656FF" }}>Back</Text>
                     </UnfilledButton>
@@ -152,7 +177,7 @@ return (
         </Formik>
 
         {/* Button */}
-        <View style={{ marginTop: 18, alignItems: 'center',flexDirection: 'row'}}>
+        <View style={{ marginTop: 15, alignItems: 'center',flexDirection: 'row'}}>
             <RegularNormal>
                 <Text style={{ alignItems: 'center'}}>Already have an account?</Text>
             </RegularNormal>
@@ -165,10 +190,19 @@ return (
             </TouchableOpacity>
             </View>
         
-        <Authentication
-            onPressGoogle={handlePressGoogle}
-            onPressApple={handlePressApple}
-        />
+        <Authentication/>
+        <View style={{ justifyContent: "center",marginTop: 20, alignItems: "center", flexDirection: "row", }}>
+        <SmallerRegular>
+          <Text style={{ alignItems: "center" }}>By Creating an Account, you agree to our </Text>
+        </SmallerRegular>
+        <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+        <View>
+          <SmallerRegular>
+            <Text style={{ color: "#2656FF" }}>Terms of Service</Text>
+          </SmallerRegular>
+        </View>
+      </TouchableOpacity>
+      </View>
         </View>
         </KeyboardAvoidingView>
     );
