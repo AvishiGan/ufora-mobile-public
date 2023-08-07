@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 // import Welcome from "./src/screens/Authentication/Welcome";
 import RootNavigator from "./src/navigation/Nav/RootStack";
 import { NavigationContainer } from "@react-navigation/native";
+import * as SplashScreen from 'expo-splash-screen';
 
 //custom fonts
 import AppLoading from "expo-app-loading";
