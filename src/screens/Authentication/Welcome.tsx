@@ -65,4 +65,4 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
   );
 };
 
-export default Welcome;
+// export default Welcome;
