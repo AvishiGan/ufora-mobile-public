@@ -13,7 +13,7 @@ const ProfilePortfolioSection = () => {
   return (
     <SafeAreaView>
       <View>
-        <ScrollView>
+        {/* <ScrollView> */}
           <View style={styles.projectActionContainer}>
             <ContentAdditionBar title="Add a new project" />
             <ProjectCard
@@ -34,7 +34,7 @@ const ProfilePortfolioSection = () => {
               projectDescription="Unlock the potential of the future with our Robotics & IoT innovations."
             />
           </View>
-        </ScrollView>
+        {/* </ScrollView> */}
       </View>
     </SafeAreaView>
   );

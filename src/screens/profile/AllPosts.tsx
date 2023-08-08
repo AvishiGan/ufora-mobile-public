@@ -19,7 +19,7 @@ const ProfilePostSection = () => {
   return (
     <SafeAreaView>
       <View>
-        <ScrollView>
+        {/* <ScrollView> */}
           <View style={styles.postActionContainer}>
             <ContentAdditionBar title="Add a new post" />
             <View style={styles.allPostsContainer}>
@@ -60,7 +60,7 @@ const ProfilePostSection = () => {
               />
             </View>
           </View>
-        </ScrollView>
+        {/* </ScrollView> */}
       </View>
     </SafeAreaView>
   );
