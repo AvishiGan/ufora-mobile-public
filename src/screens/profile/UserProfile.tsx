@@ -1,14 +1,13 @@
 import React from "react";
-import { View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import MiddleTabNavigator from "../../navigation/navigator/middleTabNavigator/MiddleTabNavigator";
 import ProfileCommonSection from "./CommonSection";
+import { ScrollView } from "react-native-gesture-handler";
 
 const UserProfile: React.FC = () => {
   return (
     <React.Fragment>
-      <ProfileCommonSection />
-      <MiddleTabNavigator />
+        <ProfileCommonSection />
+        <MiddleTabNavigator />
     </React.Fragment>
   );
 };

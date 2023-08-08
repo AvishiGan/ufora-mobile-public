@@ -28,13 +28,13 @@ const cardComponents = [
 const ProfileAboutSection: React.FC = () => {
   return (
     <SafeAreaView>
-      <ScrollView>
+      {/* <ScrollView> */}
         <View style={styles.allCardsContainer}>
           {cardComponents.map((CardComponent, index) => (
             <CardComponent key={index} />
           ))}
         </View>
-      </ScrollView>
+      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };
