@@ -1,16 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-// import Welcome from "./src/screens/Authentication/Welcome";
-import RootNavigator from "./src/navigation/Nav/RootStack";
-import { NavigationContainer } from "@react-navigation/native";
-
-//custom fonts
+// custom fonts
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 
-//React Navigation
+// React Navigation
 import RootStack from "./src/navigation/Nav/RootStack";
-import ProfileStack from "./routes/profileStack";
+import {
+  ProfileAboutSection,
+  ProfileBlogSection,
+  ProfileCommonSection,
+  ProfilePostSection,
+} from "./src/screens";
+import { UserProfileTabs } from "./src/navigation";
+import TopTabNavigator from "./src/navigation/navigator/middleTabNavigator/MiddleTabNavigator";
+import MiddleTabNavigator from "./src/navigation/navigator/middleTabNavigator/MiddleTabNavigator";
+import { CreatePost } from "./src/components";
+import UserProfile from "./src/screens/profile/UserProfile";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,21 +29,10 @@ export default function App() {
   return (
     <>
       {/* <RootStack /> */}
-      <ProfileStack />
+      {/* <ProfileCommonSection />
+      <MiddleTabNavigator /> */}
+      {/* <CreatePost /> */}
+      <UserProfile />
     </>
   );
 }
-
-// // //////////////////////////////////////////////////////////////////////////
-// // SHEHAN ENTRY
-
-// import { NavigationContainer } from "@react-navigation/native";
-// import RootNavigator from "./src/navigation/Navigator/RootNavigator";
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//        <RootNavigator/>
-//     </NavigationContainer>
-//   );
-// }
