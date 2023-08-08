@@ -3,8 +3,8 @@ import { View, TextInput } from "react-native";
 import { styles } from "../styles";
 import PropTypes from "prop-types";
 import { TopBar } from "../../../components";
-import { COLORS, PageTitleSemibold } from "../../../constants";
-import CreatePostHeader from "./header";
+import { COLORS } from "../../../constants";
+import CreatePostHeader from "./Header";
 import { profileData } from "../../../screens/profile/data";
 import { AddPhotoVideoButton, SharePostButton } from "../buttons";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -30,7 +30,7 @@ const CreatePost = () => {
         />
         {/* Buttons */}
         <View style={styles.twoButtonsContainer}>
-          <AddPhotoVideoButton onPress={handleButtonPress} />
+          <AddPhotoVideoButton onPress={handleMediaSelection} />
           <SharePostButton onPress={handleButtonPress} />
         </View>
       </View>
@@ -40,6 +40,10 @@ const CreatePost = () => {
 
 CreatePost.propTypes = {
   postImage: PropTypes.any.isRequired,
+};
+
+const handleMediaSelection = async () => {
+  console.log("Button pressed!");
 };
 
 const handleButtonPress = () => {
