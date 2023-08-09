@@ -7,7 +7,6 @@ import { ProjectCard, ContentAdditionBar } from "../../components";
 import { mobileApp, hostel, robotic } from "../../../assets/images";
 import { styles } from "../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
 
 const ProfilePortfolioSection = () => {
   return (
