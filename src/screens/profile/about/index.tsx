@@ -12,7 +12,6 @@ import {
   OtherAchievementCard,
 } from "./cards/AllCards";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
 
 const cardComponents = [
   IntroCard,
@@ -28,13 +27,11 @@ const cardComponents = [
 const ProfileAboutSection: React.FC = () => {
   return (
     <SafeAreaView>
-      {/* <ScrollView> */}
-        <View style={styles.allCardsContainer}>
-          {cardComponents.map((CardComponent, index) => (
-            <CardComponent key={index} />
-          ))}
-        </View>
-      {/* </ScrollView> */}
+      <View style={styles.allCardsContainer}>
+        {cardComponents.map((CardComponent, index) => (
+          <CardComponent key={index} />
+        ))}
+      </View>
     </SafeAreaView>
   );
 };

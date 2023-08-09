@@ -9,8 +9,6 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
-        // paddingBottom: 15,
-        // backgroundColor: "#FEFEFE",
         paddingHorizontal: 13,
 
     },
@@ -125,7 +123,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
-        backgroundColor: "#87929D",
     },
     profilePicNameUniTimeContainer: {
         display: 'flex',
@@ -169,8 +166,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
         borderRadius: 15,
-        // backgroundColor: "var(--brand-white, #FEFEFE)",
-        backgroundColor: "orange",
         flexDirection: 'row',
     },
     blogImage: {
@@ -193,7 +188,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 10,
-        backgroundColor: "yellow",
+        // backgroundColor: "yellow",
         marginRight: 5,
         marginTop: 5,
         marginBottom: 5,
@@ -224,7 +219,6 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         gap: 10,
-        backgroundColor: "red",
         marginHorizontal: 10,
         marginTop: 25,
         marginBottom: 25,
@@ -236,10 +230,8 @@ export const styles = StyleSheet.create({
         width: "100%",
         paddingTop: 15,
         flexDirection: 'column',
-        // justifyContent: 'center',
         alignItems: 'center',
         gap: 15,
-        backgroundColor: "pink",
     },
     seeMore:{
         overflow: "hidden",
@@ -329,16 +321,13 @@ export const styles = StyleSheet.create({
     singleProjectContainer: {
         display: 'flex',
         width: "100%",
-        // padding: 5,
         flexDirection: 'column',
         alignItems: 'flex-start',
         gap: 10,
         borderRadius: 15,
-        backgroundColor: "lightgreen",
     },
     projectImage: {
         height: 150,
-        // alignSelf: 'stretch',
         width: "97%",
         borderRadius: 15,
         marginTop: 5,
@@ -355,7 +344,6 @@ export const styles = StyleSheet.create({
         alignSelf: 'stretch',
         marginBottom: 5,
         marginHorizontal: 5,
-        backgroundColor: "yellow",
     },
     projectArticleContainer: {
         display: 'flex',
@@ -364,9 +352,6 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
         gap: 10,
         alignSelf: 'stretch',
-        // marginTop: 1,
-        // marginHorizontal: 5,
-        backgroundColor: "lightblue",
     },
 
     /******************************************************All Projects************************************************************/
@@ -388,8 +373,6 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         display: "flex",
-        // backgroundColor: "#B8B8B8",
-        backgroundColor: "red",
         gap: 10,
     },
 
@@ -415,7 +398,6 @@ export const styles = StyleSheet.create({
         gap: 10,
         alignSelf: "stretch",
         borderRadius: 15,
-        backgroundColor: "purple",
         flexDirection: "row",
         marginBottom: 15,
     },
