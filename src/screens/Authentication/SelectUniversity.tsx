@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View, KeyboardAvoidingView, StyleSheet} from "react-native";
+import { Text, View, KeyboardAvoidingView, StyleSheet } from "react-native";
 import { Mail } from "lucide-react-native";
 import logo from "../../../assets/logo.png";
 import RegularButton from "../../components/authentication/buttons/RegularButton";
@@ -10,7 +10,7 @@ import RegularNormal from "../../constants/fonts/RegularNormal";
 import { Field, Formik } from "formik";
 
 //navigation
-import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator";
 import { StackScreenProps } from "@react-navigation/stack";
 import React, { FunctionComponent, useState } from "react";
 import SmallerRegular from "../../constants/fonts/SmallerRegular";
@@ -18,8 +18,8 @@ import axios from "axios";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Picker } from "@react-native-picker/picker";
 import Dropdown from "../../components/authentication/dropdown/Dropdown";
-import * as Yup from 'yup'
-import envs from "../../services/config/env"
+import * as Yup from "yup";
+import envs from "../../services/config/env";
 type Props = StackScreenProps<RootStackParamList, "SelectUniversity">;
 
 interface FormValues {
@@ -28,12 +28,12 @@ interface FormValues {
 }
 
 const validationSchema = Yup.object({
-  university: Yup.string().required('Select a University'),
-  email: Yup.string().email("Invalid Email").required('Email is Required'),
-})
+  university: Yup.string().required("Select a University"),
+  email: Yup.string().email("Invalid Email").required("Email is Required"),
+});
 
-const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
-  const {API_PATH} = envs;
+const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
+  const { API_PATH } = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [isSelected, setSelection] = useState(false);
   const [isFormValid, setFormValid] = useState(true);
@@ -44,35 +44,36 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
 
   const handleNext = async (values: FormValues) => {
     const username = route.params.username;
-    console.log(username)
+    console.log(username);
 
-    if (!isSelected) { 
-      setFormValid(false); 
+    if (!isSelected) {
+      setFormValid(false);
     } else {
-      setFormValid(true); 
+      setFormValid(true);
       try {
-        const response = await axios.post(`${API_PATH}/register/undergraduate/university`,{
-            username:username,
+        const response = await axios.post(
+          `${API_PATH}/register/undergraduate/university`,
+          {
+            username: username,
             university: values.university,
             university_email: values.email,
           }
         );
-  
+
         console.log(values);
         navigation.navigate("UniOTP", { email: values.email });
-  
+
         //Request OTP when create account success
         try {
-          const otpResponse = await axios.post(`${API_PATH}/otp/request`,{
-              email: values.email,
-            }
-          );
-  
+          const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
+            email: values.email,
+          });
+
           console.log("OTP Request Response: ", otpResponse.data);
         } catch (otpError) {
           console.error("OTP Request Error: ", otpError);
         }
-  
+
         console.log("API Response: ", response.data);
       } catch (error: any) {
         if (error.response) {
@@ -119,8 +120,19 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
             justifyContent: "center",
           }}
         >
-          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleNext}>
-            {({ handleChange, handleSubmit, values, errors, handleBlur, touched }) => (
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleNext}
+          >
+            {({
+              handleChange,
+              handleSubmit,
+              values,
+              errors,
+              handleBlur,
+              touched,
+            }) => (
               <View>
                 <View
                   style={{
@@ -131,16 +143,16 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                     backgroundColor: "transparent",
                     borderRadius: 20,
                     padding: 2,
-                    borderColor: '#B8B8B8'
+                    borderColor: "#B8B8B8",
                   }}
                 >
                   <Field
                     component={Dropdown}
-                    error = {touched.university && errors.university}
+                    error={touched.university && errors.university}
                     name="university"
                     onChangeText={handleChange("university")}
                     value={values.university}
-                    onBlur={handleBlur('university')}
+                    onBlur={handleBlur("university")}
                   />
                 </View>
 
@@ -156,13 +168,20 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                 >
                   <Field
                     component={InputField}
-                    error = {touched.email && errors.email}
-                    iconComponent={<Mail color={touched.email && errors.email ? "#CC3535" : "#B8B8B8"} size={24} />}
+                    error={touched.email && errors.email}
+                    iconComponent={
+                      <Mail
+                        color={
+                          touched.email && errors.email ? "#CC3535" : "#B8B8B8"
+                        }
+                        size={24}
+                      />
+                    }
                     name="email"
                     placeholder="University Email"
                     onChangeText={handleChange("email")}
                     value={values.email}
-                    onBlur={handleBlur('email')}
+                    onBlur={handleBlur("email")}
                   />
                 </View>
 
@@ -181,17 +200,26 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                         width: 15,
                         height: 15,
                         borderWidth: 1,
-                        borderColor: isSelected ? '#FEFEFE' : '#000000',
+                        borderColor: isSelected ? "#FEFEFE" : "#000000",
                         borderRadius: 3,
                         marginRight: 10,
-                        backgroundColor: isSelected ? '#2656FF' : 'transparent',
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        backgroundColor: isSelected ? "#2656FF" : "transparent",
+                        justifyContent: "center",
+                        alignItems: "center",
                       }}
                     >
-                    {isSelected && (
-                      <View style={{ width: 7, height: 4, borderColor: '#FFFFFF', borderTopWidth: 2, borderRightWidth: 2, transform: [{ rotate: '130deg' }] }} />
-                    )}                    
+                      {isSelected && (
+                        <View
+                          style={{
+                            width: 7,
+                            height: 4,
+                            borderColor: "#FFFFFF",
+                            borderTopWidth: 2,
+                            borderRightWidth: 2,
+                            transform: [{ rotate: "130deg" }],
+                          }}
+                        />
+                      )}
                     </View>
                   </TouchableOpacity>
 
@@ -219,7 +247,18 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                   </TouchableOpacity>
                 </View>
                 <View>
-                    {!isFormValid && <Text style={{fontSize: 10, color: "#CC3535", marginTop:5, marginLeft: 30}}>*Checkbox must be checked</Text>}
+                  {!isFormValid && (
+                    <Text
+                      style={{
+                        fontSize: 10,
+                        color: "#CC3535",
+                        marginTop: 5,
+                        marginLeft: 30,
+                      }}
+                    >
+                      *Checkbox must be checked
+                    </Text>
+                  )}
                 </View>
 
                 {/* Button */}
@@ -238,7 +277,7 @@ const SelectUniversity: FunctionComponent<Props> = ({route, navigation }) => {
                 </View>
               </View>
             )}
-          </Formik> 
+          </Formik>
 
           <View
             style={{
@@ -280,11 +319,11 @@ const styles = StyleSheet.create({
     borderColor: "gray",
   },
   checkboxContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 20,
   },
   checkbox: {
-    alignSelf: 'center',
+    alignSelf: "center",
   },
 });
 
