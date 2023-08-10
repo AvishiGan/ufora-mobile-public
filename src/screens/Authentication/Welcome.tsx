@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import logo from "../../../assets/logo.png";
 import UnfilledButton from "../../components/authentication/buttons/UnfilledButton";
 import SmallButton from "../../components/authentication/buttons/SmallButton";
@@ -11,10 +8,9 @@ import Authentication from "../../components/authentication/auth/Authentication"
 import Logo from "../../components/authentication/logo/Logo";
 
 //navigation
-import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator";
 import { StackScreenProps } from "@react-navigation/stack";
 type Props = StackScreenProps<RootStackParamList, "Welcome">;
-
 
 const Welcome: FunctionComponent<Props> = ({ navigation }) => {
   const handlePressCreateAccount = () => {
@@ -59,10 +55,10 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
           </SmallButton>
         </View>
 
-        <Authentication/>
+        <Authentication />
       </View>
     </>
   );
 };
 
-// export default Welcome;
+export default Welcome;
