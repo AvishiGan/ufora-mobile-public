@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { UserProfileTopBar } from "../../components";
+import { TopBar } from "../../components";
 import { TextInput, TouchableOpacity, View, StyleSheet } from "react-native";
 import { Search } from "lucide-react-native";
 import UserProfileNameTagsCard from "../../components/universityMentoring/UserProfileNameTagsCard";
@@ -12,7 +12,7 @@ const imageLink: string =
 const MentorsScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <UserProfileTopBar titleBarName="Mentors" />
+      <TopBar titleBarName="Mentors" />
       {/* input text */}
       <TouchableOpacity style={styles.inputContainer}>
         <View style={styles.row}>

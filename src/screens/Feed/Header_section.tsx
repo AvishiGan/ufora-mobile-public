@@ -1,7 +1,7 @@
 import { TouchableOpacity, View, StyleSheet } from "react-native";
 import React from "react";
 
-import Logo from "../../assets/ufora_logo.svg";
+import Logo from "../../../assets/logo.svg";
 import { Search, MessagesSquare } from "lucide-react-native";
 
 const Header_section = () => {
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     height: 48,
     flexDirection: "row",
     alignItems: "center",
+    marginRight: 15
   },
   logoContainer: {
     height: 36,
@@ -37,13 +38,14 @@ const styles = StyleSheet.create({
   logo: {
     width: 96,
     height: 36,
-    backgroundColor: "#00FF7F",
+    // backgroundColor: "#00FF7F",
     alignItems: "center",
   },
   icons: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    gap: 10,
     width: 48,
+
   },
 });
 

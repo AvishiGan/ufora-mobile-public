@@ -18,7 +18,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="Welcome">
+    <RootStack.Navigator initialRouteName="Main">
         <RootStack.Screen name='Welcome' component={WelcomeNavigator} options={{headerShown: false}}/>
 
         <RootStack.Group>

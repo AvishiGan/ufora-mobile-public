@@ -1,7 +1,7 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
-import { UserProfileTopBar } from "../../components";
+import { TopBar } from "../../components";
 import {
   CardHeadingBold,
   NameSemiboldNormal,
@@ -20,7 +20,7 @@ const imageLink: string =
 const MyMentorshipScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <UserProfileTopBar titleBarName="Mentorship" />
+      <TopBar titleBarName="Mentorship" />
       {/* input text */}
       <View style={styles.inputContainer}></View>
 

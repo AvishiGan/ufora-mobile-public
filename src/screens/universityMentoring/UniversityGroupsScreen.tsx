@@ -1,7 +1,7 @@
 import { View, ScrollView, StyleSheet } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { UserProfileTopBar } from "../../components";
+import { TopBar } from "../../components";
 import UniversityGroupCard from "../../components/universityMentoring/UniversityGroupCard";
 
 const imageLink: string =
@@ -17,7 +17,7 @@ const UniversityGroupsScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Top Bar */}
-      <UserProfileTopBar titleBarName="University Groups" />
+      <TopBar titleBarName="University Groups" />
 
       <View style={styles.inputContainer}></View>
 
