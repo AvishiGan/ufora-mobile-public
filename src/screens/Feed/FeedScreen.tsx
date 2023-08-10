@@ -3,12 +3,11 @@ import {
   useNavigation,
 } from "@react-navigation/native";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { TabStackParamList } from "../../../navigation/navigator/TabNavigator";
-import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
+import { TabStackParamList } from "../../navigator/TabNavigator";
+import { RootStackParamList } from "../../navigator/RootNavigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useLayoutEffect } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 
 import Header from "./Header_section";
 import Story_section from "./Story_section";
@@ -32,7 +31,7 @@ const FeedScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView className="flex-1 mx-4 ">
+    <SafeAreaView style={styles.container}>
       {/* SECTION : header */}
       <Header />
 
@@ -52,5 +51,12 @@ const FeedScreen = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginHorizontal: 16,
+  },
+});
 
 export default FeedScreen;
