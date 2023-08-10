@@ -1,26 +1,24 @@
 import { StatusBar } from "expo-status-bar";
+import { User, Key } from "lucide-react-native";
 import { Text, View, KeyboardAvoidingView, StyleSheet } from "react-native";
 import logo from "../../../assets/logo.png";
-import RegularButton from "../../components/buttons/RegularButton";
+import RegularButton from "../../components/authentication/buttons/RegularButton";
 import { TouchableOpacity } from "react-native";
-import Authentication, {
-  handlePressGoogle,
-  handlePressApple,
-} from "../../components/auth/Authentication";
-import InputField from "../../components/inputField/InputField";
-import Logo from "../../components/logo/Logo";
+import Authentication from "../../components/authentication/auth/Authentication";
+import InputField from "../../components/authentication/inputField/InputField";
+import Logo from "../../components/authentication/logo/Logo";
 import RegularNormal from "../../constants/fonts/RegularNormal";
 import RegularSmall from "../../constants/fonts/RegularSmall";
 import { Field, Formik } from "formik";
 
-//import Constants from 'expo-constants';
-//import IP from '@env'
-
 //navigation
-import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator";
 import { StackScreenProps } from "@react-navigation/stack";
 import { FunctionComponent, useState } from "react";
 import axios from "axios";
+import * as SecureStore from "expo-secure-store";
+import * as Yup from "yup";
+import envs from "../../services/config/env";
 type Props = StackScreenProps<RootStackParamList, "Login">;
 
 interface FormValues {
@@ -28,40 +26,66 @@ interface FormValues {
   password: string;
 }
 
+const validationSchema = Yup.object({
+  email: Yup.string().required("Username / Email is Required"),
+  password: Yup.string().required("Password is Required"),
+});
+
 const Login: FunctionComponent<Props> = ({ navigation }) => {
+  const { API_PATH } = envs;
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const initialValues: FormValues = {
     email: "",
     password: "",
   };
 
   const handleLogin = async (values: FormValues) => {
-     try {
-    //const ip = process.env.IP
-    //console.log(ip)
-      const response = await axios.post("http://192.168.1.6:3000/login",{
+    try {
+      //const response = await axios.post(`${API_PATH}/login`,{
+       const response = await axios.post("http://10.22.167.182:3000/login", {
         username: values.email,
-        password: values.password
+        password: values.password,
       });
 
-      console.log(values);
-      navigation.navigate("Feed");
+      //console.log(values);
+      await SecureStore.setItemAsync("token", response.data.Success.token);
+      //console.log("Token stored in SecureStore.");
+      navigation.navigate("Main");
 
-      console.log("API Response: ", response.data);
+      //console.log("API Response: ", response.data);
+      //console.log("API Response: ", response.status)
     } catch (error: any) {
-
       if (error.response) {
-        // The request was made and the server responded with a status code that falls out of the range of 2xx
-        const errorMessage = `${JSON.stringify(error.response.data)}`
-        alert(errorMessage);
-        console.error("API error: ", error.response.data);
+        //console.error("API error: ", error.response.data);
         //console.error("API error status: ", error.response.status);
+
+        if (error.response.status === 404) {
+          setErrorMessage("Invalid Login Credentials");
+        } else if (
+          error.response.status === 401 &&
+          error.response.data.InvalidLogin
+        ) {
+          const message = error.response.data.InvalidLogin.message;
+          if (
+            message ===
+            "User Account is Locked. Please verify email to continue"
+          ) {
+            setErrorMessage("Locked account. Please verify email to continue.");
+          } else {
+            setErrorMessage("Invalid Login Credentials");
+          }
+        } else {
+          setErrorMessage(
+            "Unexpected response status: " + error.response.status
+          );
+        }
       } else if (error.request) {
         // The request was made but no response was received
         console.error("API error: No response received");
         console.log(error);
       } else {
         // Something happened in setting up the request that triggered an Error
-        const errorMessage = `${JSON.stringify(error.message)}`
+        const errorMessage = `${JSON.stringify(error.message)}`;
         alert(errorMessage);
         console.error("API error: ", error.message);
       }
@@ -83,23 +107,19 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
             alignItems: "center",
           }}
         >
-          <Formik 
-          initialValues={initialValues} 
-          onSubmit={handleLogin} 
-          // validate={(values: FormValues) => {
-          //   const errors: Partial<FormValues> = {};
-
-          //   //validate username
-          //   if (!values.email){
-          //     errors.email = "Username is required";
-          //   }
-
-          //   if (!values.password){
-          //     errors.password = "Password is required";
-          //   }
-          // }}
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleLogin}
           >
-            {({ handleChange, handleSubmit, values, errors }) => (
+            {({
+              handleChange,
+              handleSubmit,
+              values,
+              errors,
+              handleBlur,
+              touched,
+            }) => (
               <View>
                 <View
                   style={{
@@ -112,14 +132,22 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                 >
                   <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/user.png")}
+                    error={touched.email && errors.email}
+                    iconComponent={
+                      <User
+                        color={
+                          touched.email && errors.email ? "#CC3535" : "#B8B8B8"
+                        }
+                        size={24}
+                      />
+                    }
                     name="email"
                     placeholder="Username / Email"
                     onChangeText={handleChange("email")}
                     value={values.email}
+                    onBlur={handleBlur("email")}
                   />
                 </View>
-                {errors.email && <Text>{errors.email}</Text>}
 
                 <View
                   style={{
@@ -133,33 +161,60 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                 >
                   <Field
                     component={InputField}
-                    imageSource={require("../../../assets/icons/password.png")}
+                    error={touched.password && errors.password}
+                    iconComponent={
+                      <Key
+                        color={
+                          touched.password && errors.password
+                            ? "#CC3535"
+                            : "#B8B8B8"
+                        }
+                        size={24}
+                      />
+                    }
                     name="password"
-                    placeholder="*********"
+                    placeholder="Password"
                     secureTextEntry={true}
+                    showPasswordToggle={true}
                     onChangeText={handleChange("password")}
                     value={values.password}
+                    onBlur={handleBlur("password")}
                   />
-
-
                 </View>
-                {errors.password && <Text>{errors.password}</Text>}
 
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("ForgotPassword")}
+                <View
+                  style={{
+                    marginTop: 10,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
                 >
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      justifyContent: "flex-end",
-                      marginTop: 10,
-                    }}
-                  >
+                  <View style={{ marginLeft: 8 }}>
                     <RegularSmall>
-                      <Text style={{ color: "#2656FF" }}>Forgot Password?</Text>
+                      {errorMessage ? (
+                        <Text style={{ color: "#CC3535", fontSize: 12 }}>
+                          {errorMessage}
+                        </Text>
+                      ) : null}
                     </RegularSmall>
                   </View>
-                </TouchableOpacity>
+
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("ForgotPassword")}
+                  >
+                    <View
+                      style={{
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      <RegularSmall>
+                        <Text style={{ color: "#2656FF" }}>
+                          Forgot Password?
+                        </Text>
+                      </RegularSmall>
+                    </View>
+                  </TouchableOpacity>
+                </View>
 
                 {/* Button */}
                 <View
@@ -201,10 +256,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-        <Authentication
-          onPressGoogle={handlePressGoogle}
-          onPressApple={handlePressApple}
-        />
+        <Authentication />
       </View>
     </KeyboardAvoidingView>
   );
@@ -224,4 +276,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// export default Login;
+export default Login;

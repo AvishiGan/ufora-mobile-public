@@ -1,20 +1,14 @@
 import React, { FunctionComponent } from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import logo from "../../../assets/logo.png";
-import UnfilledButton from "../../components/buttons/UnfilledButton";
-import SmallButton from "../../components/buttons/SmallButton";
-import Authentication, {
-  handlePressGoogle,
-  handlePressApple,
-} from "../../components/auth/Authentication";
-import Logo from "../../components/logo/Logo";
+import UnfilledButton from "../../components/authentication/buttons/UnfilledButton";
+import SmallButton from "../../components/authentication/buttons/SmallButton";
+import Authentication from "../../components/authentication/auth/Authentication";
+import Logo from "../../components/authentication/logo/Logo";
 
 //navigation
-import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator";
 import { StackScreenProps } from "@react-navigation/stack";
 type Props = StackScreenProps<RootStackParamList, "Welcome">;
 
@@ -30,7 +24,6 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <>
       <StatusBar />
-      {/* welcome container */}
       <View>
         {/* Top section */}
         <Logo
@@ -45,7 +38,7 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
         <View
           style={{
             flexDirection: "row",
-            marginTop: 390,
+            marginTop: 410,
             justifyContent: "space-between",
             alignItems: "center",
             marginLeft: 20,
@@ -62,13 +55,10 @@ const Welcome: FunctionComponent<Props> = ({ navigation }) => {
           </SmallButton>
         </View>
 
-//         <Authentication
-//           onPressGoogle={handlePressGoogle}
-//           onPressApple={handlePressApple}
-//         />
-//       </View>
-//     </>
-//   );
-// };
+        <Authentication />
+      </View>
+    </>
+  );
+};
 
-// export default Welcome;
+export default Welcome;
