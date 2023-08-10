@@ -3,17 +3,31 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { COLORS, SIZES } from "../../constants";
 import { ChevronLeft } from 'lucide-react-native';
 import { PageTitleSemibold } from '../../constants/fonts/';
+import { useNavigation } from '@react-navigation/native';
 import styles from './blogStyles.styles';
 
-const HeaderLeft = () => {
+interface HeaderLeftProps {
+  showTitle: boolean; 
+}
+
+const HeaderLeft: React.FC<HeaderLeftProps> = ({ showTitle }) => {
+
+  const navigation=useNavigation();
+
+  const handleGoBack = () => {
+    navigation.goBack(); // Navigate back when the button is clicked
+  };
+
   return (
   <View style={styles.headerLeft}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={handleGoBack}>
       <ChevronLeft color={COLORS.brandGrey} size={SIZES.iconSize}/>
     </TouchableOpacity>
-    <PageTitleSemibold>
-          <Text style={styles.headerTitle}>Blog Centre</Text>
-    </PageTitleSemibold>
+    {showTitle && ( // Conditionally render the title based on the showTitle prop
+      <PageTitleSemibold>
+            <Text style={styles.headerTitle}>Blog Centre</Text>
+      </PageTitleSemibold>
+    )}
   </View>
   )
 }

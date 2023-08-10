@@ -16,5 +16,5 @@ export {
     BlogCarouselCard,
     BlogDisplay,
     BlogCardSmall,
-    BlogCardLarge
+    BlogCardLarge,
 };
