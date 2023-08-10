@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // SCREENS
-import FeedScreen from "../../screens/feed/FeedScreen";
+import FeedScreen from "../../screens/Feed/FeedScreen";
 import MyUniversity from "../../screens/universityMentoring/UniversityScreen";
 
 import {
@@ -11,14 +11,15 @@ import {
   Bell,
   LayoutDashboard,
 } from "lucide-react-native";
+import Friends from "../../screens/friends/Friends";
 
 // type checking
 export type TabStackParamList = {
   Home: undefined;
   University: undefined;
-  //   Notification: undefined;
-  //   Friends: undefined;
-//   More: undefined;
+  Notification: undefined;
+  Friends: undefined;
+  More: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabStackParamList>();
@@ -57,7 +58,9 @@ const TabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={FeedScreen} options={{headerShown: false}}/>
-      <Tab.Screen name="Home" component={MyUniversity} options={{headerShown: false}}/>
+      <Tab.Screen name="University" component={MyUniversity} options={{headerShown: false}}/>
+      <Tab.Screen name="Friends" component={Friends} options={{headerShown: false}}/>
+
     </Tab.Navigator>
   );
 };
