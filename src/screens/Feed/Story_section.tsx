@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 
 // PROFILE PICTURE
-const imageLink: string = "'../../../assets/images/myProfile/common/profile-picture.png'";
+// const imageLink: string = "'../../../assets/images/myProfile/common/profile-picture.png'";
 
 const Story_section = () => {
   return (
@@ -10,20 +10,20 @@ const Story_section = () => {
       <ScrollView horizontal className="">
         <TouchableOpacity className="items-center w-16 mx-1">
           <View className=" w-16 h-16 content-center items-center ">
-            <Image
+            {/* <Image
               source={require(imageLink)}
               className="h-full w-full rounded-full"
-            />
+            /> */}
           </View>
           <Text numberOfLines={1}>Pasan</Text>
         </TouchableOpacity>
 
         <TouchableOpacity className="items-center w-16 mx-1">
           <View className=" w-16 h-16 content-center items-center ">
-            <Image
+            {/* <Image
               source={require(imageLink)}
               className="h-full w-full rounded-full"
-            />
+            /> */}
           </View>
           <Text numberOfLines={1}>Pasan</Text>
         </TouchableOpacity>
