@@ -8794,7 +8794,7 @@ react-native-webview@^11.26.0, react-native-webview@>=7.5.2:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
 
-react-native@*, react-native@^0.71.8, "react-native@>= 0.62", react-native@>=0.50.0, react-native@>=0.59.0:
+react-native@*, react-native@^0.71.8, "react-native@>= 0.62", react-native@>=0.42.0, react-native@>=0.50.0, react-native@>=0.57, react-native@>=0.59.0:
   version "0.71.8"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.71.8.tgz"
   integrity sha512-ftMAuhpgTkbHU9brrqsEyxcNrpYvXKeATY+if22Nfhhg1zW+6wn95w9otwTnA3xHkljPCbng8mUhmmERjGEl7g==
