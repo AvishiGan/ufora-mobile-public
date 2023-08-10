@@ -9,7 +9,11 @@ import styles from './blogStyles.styles';
 
 const blogArticle = [1,2,3,4];
 
-const FeaturedArticles = () => {
+interface FeaturedArticleProps {
+  navigation : any;
+}
+
+const FeaturedArticles: React.FC<FeaturedArticleProps> = ({navigation}) => {
 
   const screenWidth = Dimensions.get('window').width;
 
@@ -71,6 +75,7 @@ const FeaturedArticles = () => {
               data={carouselCardData}
               onForwardButtonPress={handleForwardButtonPress}
               onBackButtonPress={handleBackButtonPress} 
+              navigation={navigation}
             />
           )}
           //keyExtractor={(item, index) => index.toString()} // Use keyExtractor directly as a prop

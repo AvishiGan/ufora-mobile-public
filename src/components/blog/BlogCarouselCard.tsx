@@ -19,17 +19,23 @@ interface CarouselCardProps {
     data: CarouselCardData;
     onForwardButtonPress: () => void;
     onBackButtonPress: () => void;
+    navigation : any;
 }
 
-const BlogCarouselCard: React.FC<CarouselCardProps> = ({ data, onForwardButtonPress, onBackButtonPress }) => {
+const BlogCarouselCard: React.FC<CarouselCardProps> = ({ data, onForwardButtonPress, onBackButtonPress, navigation }) => {
 
     const screenWidth = Dimensions.get('window').width;
+
+    const handleDisplayBlog = () => {
+        navigation.navigate('BlogContent'); // Navigate to the 'AddBlog' screen when 'Add Blog' is clicked
+      };
+    
   
     // Calculate the width for the blog carousel card to make it responsive
     const cardWidth = screenWidth - 26; // Subtract side margin values
 
     return(
-           <TouchableOpacity>
+           <TouchableOpacity onPress={handleDisplayBlog}>
             <ImageBackground
                 source={data.imageSource}
                 style={{...styles.carouselCard, width: cardWidth}}

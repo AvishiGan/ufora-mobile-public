@@ -18,7 +18,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 // import StudentOTP from "../../screens/Authentication/StudentOTP";
 import { COLORS } from "../../constants";
 import { HeaderRight, HeaderLeft } from "../../components";
-import BlogCentre  from "../../screens/blog";
+import BlogCentre from "../../screens/blog/blogCentreScreen";
+import AddBlog from "../../screens/blog/blogEditorScreen";
+import BlogContent from "../../screens/blog/blogContentScreen";
 
 export type RootStackParamList = {
     Welcome: undefined;
@@ -35,6 +37,8 @@ export type RootStackParamList = {
     ForgotPassOTP: undefined;
     Feed: undefined;
     BlogCentre: undefined;
+    AddBlog: undefined;
+    BlogContent: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -64,14 +68,44 @@ const RootStack = () => {
                     headerStyle: {backgroundColor: '#F2F2F2'},
                     headerShadowVisible: false,
                     headerLeft: () => (
-                      <HeaderLeft />
+                        <HeaderLeft showTitle={true} /> // Show the "Blog Centre" text
                     ),
                     headerRight: () => (
                       <HeaderRight />
                     ),
                     headerTitle: ""
                     }}
+                />
+                <Stack.Screen 
+                    name="AddBlog" 
+                    component={AddBlog} 
+                    options={{headerShown: true,
+                    headerStyle: {backgroundColor: '#F2F2F2'},
+                    headerShadowVisible: false,
+                    headerLeft: () => (
+                        <HeaderLeft showTitle={false} /> // Show the "Blog Centre" text
+                    ),
+                    headerRight: () => (
+                        <HeaderRight />
+                    ),
+                    headerTitle: ""
+                    }}
                 /> 
+                <Stack.Screen 
+                    name="BlogContent"
+                    component={BlogContent}
+                    options={{headerShown: true,
+                    headerStyle: {backgroundColor: '#F2F2F2'},
+                    headerShadowVisible: false,
+                    headerLeft: () => (
+                        <HeaderLeft showTitle={false} /> // Show the "Blog Centre" text
+                    ),
+                    headerRight: () => (
+                      <HeaderRight />
+                    ),
+                    headerTitle: ""
+                    }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     )
