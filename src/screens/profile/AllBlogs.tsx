@@ -14,34 +14,34 @@ const ProfileBlogSection = () => {
   return (
     <SafeAreaView>
       <View>
-        <ScrollView>
-          <View style={styles.blogActionContainer}>
-            <ContentAdditionBar title="Add a new blog article" />
-            <BlogCard
-              blogImage={marketing}
-              blogTitle="Digital Marketing"
-              blogDescription="Unleash your business's potential with strategic digital marketing tactics..."
-              date="Jun 25th, 2023"
-              time="7 mins read"
-            />
+        {/* <ScrollView> */}
+        <View style={styles.blogActionContainer}>
+          <ContentAdditionBar title="Add a new blog article" />
+          <BlogCard
+            blogImage={marketing}
+            blogTitle="Digital Marketing"
+            blogDescription="Unleash your business's potential with strategic digital marketing tactics..."
+            date="Jun 25th, 2023"
+            time="7 mins read"
+          />
 
-            <BlogCard
-              blogImage={security}
-              blogTitle="Cyber Security"
-              blogDescription="Protect your digital assets with robust cybersecurity measures and strategies..."
-              date="Jun 10th, 2023"
-              time="5 mins read"
-            />
+          <BlogCard
+            blogImage={security}
+            blogTitle="Cyber Security"
+            blogDescription="Protect your digital assets with robust cybersecurity measures and strategies..."
+            date="Jun 10th, 2023"
+            time="5 mins read"
+          />
 
-            <BlogCard
-              blogImage={HCI}
-              blogTitle="Human Computer Interaction"
-              blogDescription="Unlocking human potential through seamless and intuitive Human-Computer Interaction (HCI)..."
-              date="Jun 1st, 2023"
-              time="7 mins read"
-            />
-          </View>
-        </ScrollView>
+          <BlogCard
+            blogImage={HCI}
+            blogTitle="Human Computer Interaction"
+            blogDescription="Unlocking human potential through seamless and intuitive Human-Computer Interaction (HCI)..."
+            date="Jun 1st, 2023"
+            time="7 mins read"
+          />
+        </View>
+        {/* </ScrollView> */}
       </View>
     </SafeAreaView>
   );
