@@ -1,1 +1,0 @@
-export {default as UserProfileTabs} from './MiddleTabNavigator';

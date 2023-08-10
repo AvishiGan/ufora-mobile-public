@@ -8,6 +8,7 @@ import CreatePostHeader from "./Header";
 import { profileData } from "../../../screens/profile/data";
 import { AddPhotoVideoButton, SharePostButton } from "../buttons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import DropdownPost from "../DropdownPost";
 
 const CreatePost = () => {
   const [postText, setPostText] = useState("");
@@ -17,25 +18,35 @@ const CreatePost = () => {
       <View style={{ flex: 1 }}>
         {/* Top bar */}
         <TopBar titleBarName="Create Post" />
+        <View style={styles.headerAccessLevelContainer} />
         {/* Create post header */}
         <CreatePostHeader data={profileData} />
-        {/* Input field */}
-        <TextInput
-          value={postText}
-          onChangeText={setPostText}
-          placeholder={`Hey ${profileData.firstName}, What’s special today?`}
-          placeholderTextColor={COLORS.placeHolder}
-          style={[styles.inputField]}
-          multiline={true} // Enable multiline
+        <DropdownPost
+          iconType="users"
+          value="Friends"
+          onChangeText={handleDropdownChange}
         />
-        {/* Buttons */}
-        <View style={styles.twoButtonsContainer}>
-          <AddPhotoVideoButton onPress={handleMediaSelection} />
-          <SharePostButton onPress={handleButtonPress} />
-        </View>
+      </View>
+      {/* Input field */}
+      <TextInput
+        value={postText}
+        onChangeText={setPostText}
+        placeholder={`Hey ${profileData.firstName}, What’s special today?`}
+        placeholderTextColor={COLORS.placeHolder}
+        style={[styles.inputField]}
+        multiline={true} // Enable multiline
+      />
+      {/* Buttons */}
+      <View style={styles.twoButtonsContainer}>
+        <AddPhotoVideoButton onPress={handleMediaSelection} />
+        <SharePostButton onPress={handleButtonPress} />
       </View>
     </SafeAreaView>
   );
+};
+
+const handleDropdownChange = () => {
+  console.log("Dropdown changed!");
 };
 
 CreatePost.propTypes = {

@@ -6,31 +6,28 @@ import { profilePicture } from "../../assets/images";
  * @interface PostData | Interface for post data
  */
 interface PostData {
-  name: string;
-  postDescription: string;
+  caption: string;
   accessLevel: AccessLevel;
-  media?: File;
+  content?: File;
 }
 
 /**
  * @constant newPost | Example post data
  */
 const newPost: PostData = {
-  name: "John Doe",
-  postDescription: "Hi my name is John! I'm a software engineer.",
+  caption: "Hi my name is John! I'm a software engineer.",
   accessLevel: AccessLevel.Public,
-  media: profilePicture,
+  content: profilePicture,
 };
 
 const createPost = async (postData: PostData) => {
   try {
     const formData = new FormData();
-    formData.append("name", postData.name);
-    formData.append("postDescription", postData.postDescription);
-    formData.append("accessLevel", postData.accessLevel);
+    formData.append("caption", postData.caption);
+    formData.append("access_level", postData.accessLevel);
 
-    if (postData.media) {
-      formData.append("media", postData.media);
+    if (postData.content) {
+      formData.append("content", postData.content);
     }
 
     const response: PostData = await ApiClient.post<PostData>(

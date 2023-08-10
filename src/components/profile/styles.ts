@@ -1,3 +1,4 @@
+import { Flex } from "@react-native-material/core";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -461,6 +462,14 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 1,
         borderColor: "#4F4E4E",
+        flexDirection: "row",
+      },
+
+      headerAccessLevelContainer: {
+        display: "flex",
+        width: "100%",
+        justifyContent: "space-between",
+        alignItems: "center",
         flexDirection: "row",
       },
 });

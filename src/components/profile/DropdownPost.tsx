@@ -1,6 +1,6 @@
 import { View, StyleSheet } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { Globe, Users, Lock } from "lucide-react-native";
 
 interface DropdownProps {
@@ -10,20 +10,22 @@ interface DropdownProps {
 }
 
 const DropdownPost: FunctionComponent<DropdownProps> = ({
-  iconType,
-  value,
-  onChangeText,
+  iconType = "globe",
+  value = "Public",
+  onChangeText = () => {},
 }) => {
   const styles = StyleSheet.create({
     container: {
       flexDirection: "row",
       alignItems: "center",
-      backgroundColor: "transparent",
+      // backgroundColor: "transparent",
       borderWidth: 1,
-      borderRadius: 15,
-      marginBottom: 2,
-      width: 320,
-      borderColor: "#87929D",
+      borderRadius: 5,
+      paddingVertical: 5,
+      paddingHorizontal: 10,
+      // width: 320,
+      borderColor: "#2656FF",
+      gap: 5,
     },
     icon: {
       marginRight: 8,
@@ -33,21 +35,20 @@ const DropdownPost: FunctionComponent<DropdownProps> = ({
       flex: 1,
     },
     placeholder: {
-      fontSize: 16,
-      color: "#B8B8B8",
+      fontSize: 12,
+      color: "#2656FF",
       fontWeight: "400",
     },
   });
 
-  // Function to get the appropriate icon based on the iconType prop
   const getIcon = () => {
     switch (iconType) {
       case "globe":
-        return <Globe size={20} color="#000" />;
+        return <Globe size={20} color="#2656FF" />;
       case "users":
-        return <Users size={20} color="#000" />;
+        return <Users size={20} color="#2656FF" />;
       case "lock":
-        return <Lock size={20} color="#000" />;
+        return <Lock size={20} color="#2656FF" />;
       default:
         return null;
     }
@@ -61,20 +62,14 @@ const DropdownPost: FunctionComponent<DropdownProps> = ({
         onValueChange={(itemValue, itemIndex) => onChangeText(itemValue)}
         style={styles.picker}
       >
-        <Picker.Item label="University" value="" style={styles.placeholder} />
         <Picker.Item
-          label="University of Colombo"
-          value="University of Colombo"
+          label="accessLevel"
+          value="accessLevel"
+          style={styles.placeholder}
         />
-        <Picker.Item
-          label="University of Peradeniya"
-          value="University of Peradeniya"
-        />
-        <Picker.Item
-          label="University of Moratuwa"
-          value="University of Moratuwa"
-        />
-        {/* Add other items as needed */}
+        <Picker.Item label="Public" value="Public" />
+        <Picker.Item label="Friends" value="Friends" />
+        <Picker.Item label="Only me" value="Only me" />
       </Picker>
     </View>
   );
