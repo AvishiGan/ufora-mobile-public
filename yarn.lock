@@ -2397,10 +2397,10 @@
   resolved "https://registry.npmjs.org/@react-native-picker/picker/-/picker-1.16.8.tgz"
   integrity sha512-pacdQDX6V6EmjF+HoiIh6u++qx4mTK0WnhgUHRc01B+Qt5eoeUwseBqmqfTSXTx/aHDEd6PiIw7UGvKgFoqgFQ==
 
-"@react-native/assets-registry@^0.72.0":
-  version "0.72.0"
-  resolved "https://registry.npmjs.org/@react-native/assets-registry/-/assets-registry-0.72.0.tgz"
-  integrity sha512-Im93xRJuHHxb1wniGhBMsxLwcfzdYreSZVQGDoMJgkd6+Iky61LInGEHnQCTN0fKNYF1Dvcofb4uMmE1RQHXHQ==
+"@react-native-picker/picker@^2.4.10":
+  version "2.4.10"
+  resolved "https://registry.npmjs.org/@react-native-picker/picker/-/picker-2.4.10.tgz"
+  integrity sha512-EvAlHmPEPOwvbP6Pjg/gtDV3XJzIjIxr10fXFNlX5r9HeHw582G1Zt2o8FLyB718nOttgj8HYUTGxvhu4N65sQ==
 
 "@react-native/codegen@^0.72.6":
   version "0.72.6"
@@ -2823,6 +2823,11 @@
   integrity sha512-wyUkmaaSZEzFZivD8F2ftSyAfk6L+DfFliVj/mYdOXbVjRcS87fQJLTnhk6dRZPuJjI+9g6RZJO4PNCngUrmyw==
   dependencies:
     "@types/react" "*"
+
+"@types/react-native-dotenv@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/@types/react-native-dotenv/-/react-native-dotenv-0.2.0.tgz"
+  integrity sha512-ZxX+dU/yoQc0jTk+/NWttkiuXceJyN5FpOSqDl0WynN5GDzxwH7OMruQ47qcY8llo2RD3irjvzJ9BwC8gDiq0A==
 
 "@types/react-native-vector-icons@^6.4.13":
   version "6.4.13"
@@ -4226,6 +4231,24 @@ cosmiconfig@^7.0.0, cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+cosmiconfig@^8.1.3:
+  version "8.2.0"
+  resolved "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-8.2.0.tgz"
+  integrity sha512-3rTMnFJA1tCOPwRxtgF4wd7Ab2qvDbL8jX+3smjIbS4HlZBagTlpERbdN7iAbWlrfxE3M8c27kTwTawQ7st+OQ==
+  dependencies:
+    import-fresh "^3.2.1"
+    js-yaml "^4.1.0"
+    parse-json "^5.0.0"
+    path-type "^4.0.0"
+
+create-react-class@^15.7.0:
+  version "15.7.0"
+  resolved "https://registry.npmjs.org/create-react-class/-/create-react-class-15.7.0.tgz"
+  integrity sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==
+  dependencies:
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 cross-fetch@^3.1.5:
   version "3.1.8"
   resolved "https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.1.8.tgz"
@@ -4993,6 +5016,11 @@ expo-pwa@0.0.126:
     chalk "^4.0.0"
     commander "2.20.0"
     update-check "1.5.3"
+
+expo-secure-store@^12.3.1:
+  version "12.3.1"
+  resolved "https://registry.npmjs.org/expo-secure-store/-/expo-secure-store-12.3.1.tgz"
+  integrity sha512-XLIgWDiIuiR0c+AA4NCWWibAMHCZUyRcy+lQBU49U6rvG+xmd3YrBJfQjfqAPyLroEqnLPGTWUX57GyRsfDOQw==
 
 expo-splash-screen@~0.18.0:
   version "0.18.2"
@@ -8006,6 +8034,11 @@ prop-types@*, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
+property-expr@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/property-expr/-/property-expr-2.0.5.tgz"
+  integrity sha512-IJUkICM5dP5znhCckHSv30Q4b5/JA5enCtkRHYaOVOAocnH/1BQEYTC5NMfT3AVl/iXKdr3aqQbQn9DxyWknwA==
+
 proxy-addr@~2.0.7:
   version "2.0.7"
   resolved "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz"
@@ -8160,6 +8193,11 @@ react-native-dotenv@^3.4.9:
   integrity sha512-dbyd+mcy7SUzxEgmt33TRf1FGcNe6swJhXmB0unKkI49F7+pidog9kPtjxMLTAfmKA8gcN2XHQSKltGfGbGCLQ==
   dependencies:
     dotenv "^16.3.1"
+
+react-native-dropdown-picker@^5.4.6:
+  version "5.4.6"
+  resolved "https://registry.npmjs.org/react-native-dropdown-picker/-/react-native-dropdown-picker-5.4.6.tgz"
+  integrity sha512-T1XBHbE++M6aRU3wFYw3MvcOuabhWZ29RK/Ivdls2r1ZkZ62iEBZknLUPeVLMX3x6iUxj4Zgr3X2DGlEGXeHsA==
 
 react-native-flex-layout@^0.1.5:
   version "0.1.5"
@@ -9421,6 +9459,11 @@ thunky@^1.0.2:
   resolved "https://registry.npmjs.org/thunky/-/thunky-1.1.0.tgz"
   integrity sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==
 
+tiny-case@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/tiny-case/-/tiny-case-1.0.3.tgz"
+  integrity sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==
+
 tiny-warning@^1.0.2:
   version "1.0.3"
   resolved "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz"
@@ -9454,6 +9497,11 @@ toidentifier@1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz"
   integrity sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==
+
+toposort@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/toposort/-/toposort-2.0.2.tgz"
+  integrity sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==
 
 tr46@~0.0.3:
   version "0.0.3"
@@ -9504,6 +9552,11 @@ type-fest@^0.7.1:
   version "0.7.1"
   resolved "https://registry.npmjs.org/type-fest/-/type-fest-0.7.1.tgz"
   integrity sha512-Ne2YiiGN8bmrmJJEuTWTLJR32nh/JdL1+PSicowtNb0WFpn59GK8/lfD61bVtzguz7b3PBt74nxpv/Pw5po5Rg==
+
+type-fest@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.npmjs.org/type-fest/-/type-fest-2.19.0.tgz"
+  integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
 type-is@~1.6.18:
   version "1.6.18"
@@ -10083,3 +10136,13 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+yup@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/yup/-/yup-1.2.0.tgz"
+  integrity sha512-PPqYKSAXjpRCgLgLKVGPA33v5c/WgEx3wi6NFjIiegz90zSwyMpvTFp/uGcVnnbx6to28pgnzp/q8ih3QRjLMQ==
+  dependencies:
+    property-expr "^2.0.5"
+    tiny-case "^1.0.3"
+    toposort "^2.0.2"
+    type-fest "^2.19.0"
