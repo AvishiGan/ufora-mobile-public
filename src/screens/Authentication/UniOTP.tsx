@@ -15,22 +15,22 @@ import InputField from "../../components/authentication/inputField/OTPInput";
 import RegularNormal from "../../constants/fonts/RegularNormal";
 
 //navigation
-import { RootStackParamList } from "../../navigation/Nav/RootStack";
+import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Field, Formik } from "formik";
 import axios from "axios";
 import RegularSmall from "../../constants/fonts/RegularSmall";
-import envs from "../../services/config/env"
+import envs from "../../services/config/env";
 type Props = StackScreenProps<RootStackParamList, "UniOTP">;
 
 interface FormValues {
   [key: string]: string;
 }
 
-const OTP: FunctionComponent<Props> = ({route, navigation}) => {
-  const {API_PATH} = envs;
+const OTP: FunctionComponent<Props> = ({ route, navigation }) => {
+  const { API_PATH } = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
-  
+
   const inputRefs = [
     useRef<TextInput>(null),
     useRef<TextInput>(null),
@@ -55,116 +55,161 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
     }
   };
 
-  const handleResendOTP = async(values: FormValues) => {
+  const handleResendOTP = async (values: FormValues) => {
     const email = route.params.email;
     try {
-      const otpResponse = await axios.post(`${API_PATH}/otp/request`,{
-          email: email,
-        }
-      );
+      const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
+        email: email,
+      });
       console.log("OTP Request Response: ", otpResponse.data);
     } catch (otpError) {
       console.error("OTP Request Error: ", otpError);
     }
-  }
+  };
 
-  const handleVerify = async(values: FormValues) => {
+  const handleVerify = async (values: FormValues) => {
     const email = route.params.email;
     //console.log(email)
     const otp = `${values.num1}${values.num2}${values.num3}${values.num4}${values.num5}${values.num6}`;
-    console.log(otp)
+    console.log(otp);
 
     try {
       //const ip = process.env.IP
       //console.log(ip)
-        const response = await axios.post(`${API_PATH}/otp/verify/university/email`,{
+      const response = await axios.post(
+        `${API_PATH}/otp/verify/university/email`,
+        {
           email: email,
-          otp: otp
-        });
-  
-        console.log(values);
-        navigation.navigate("Login");
-  
-        console.log("API Response: ", response.data);
-      } catch (error: any) {
-  
-        if (error.response) {
-          setErrorMessage("Invalid OTP");
-        } else if (error.request) {
-          // The request was made but no response was received
-          console.error("API error: No response received");
-          console.log(error);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          const errorMessage = `${JSON.stringify(error.message)}`
-          alert(errorMessage);
-          console.error("API error: ", error.message);
+          otp: otp,
         }
-      }
+      );
 
+      console.log(values);
+      navigation.navigate("Login");
+
+      console.log("API Response: ", response.data);
+    } catch (error: any) {
+      if (error.response) {
+        setErrorMessage("Invalid OTP");
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("API error: No response received");
+        console.log(error);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        const errorMessage = `${JSON.stringify(error.message)}`;
+        alert(errorMessage);
+        console.error("API error: ", error.message);
+      }
+    }
   };
 
   return (
-    <KeyboardAvoidingView keyboardVerticalOffset={250} behavior="padding" style={styles.container}>
+    <KeyboardAvoidingView
+      keyboardVerticalOffset={250}
+      behavior="padding"
+      style={styles.container}
+    >
       <StatusBar />
       <View>
         {/* Top section */}
-        <Logo source={logo} mainText="Uni OTP" subText="Please enter the OTP sent to your Uni Email"/>
-
+        <Logo
+          source={logo}
+          mainText="Uni OTP"
+          subText="Please enter the OTP sent to your Uni Email"
+        />
 
         {/* Bottom section */}
-        <View style={{ paddingHorizontal: 10, marginTop: 350, alignItems: "center", justifyContent: "center"}}>
-        <Formik initialValues={initialValues} onSubmit={handleVerify}>
-          {({ handleChange, handleSubmit, values }) => (
-            <>
-              <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8 }}>
-                {inputRefs.map((ref, index) => (
-                  <View key={index}>
-                    <TextInput
-                      ref={ref}
-                      placeholder="0"
-                      placeholderTextColor={errorMessage ? "#CC3535" : "#B8B8B8"}
-                      style={[styles.input, errorMessage ? styles.inputError : null]}
-                      maxLength={1}
-                      keyboardType="numeric"
-                      onChangeText={(digit) => {
-                        handleChange(`num${index + 1}`)(digit);
-                        if (digit) {
-                          focusNextField(index);
+        <View
+          style={{
+            paddingHorizontal: 10,
+            marginTop: 350,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Formik initialValues={initialValues} onSubmit={handleVerify}>
+            {({ handleChange, handleSubmit, values }) => (
+              <>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: 8,
+                  }}
+                >
+                  {inputRefs.map((ref, index) => (
+                    <View key={index}>
+                      <TextInput
+                        ref={ref}
+                        placeholder="0"
+                        placeholderTextColor={
+                          errorMessage ? "#CC3535" : "#B8B8B8"
                         }
-                      }}
-                      
-                      value={values[`num${index + 1}`]}
-                    />
-                  </View>
-                ))}
-              </View>
-              <View style={{marginTop: 10,flexDirection: "row", marginLeft: 0}}>
+                        style={[
+                          styles.input,
+                          errorMessage ? styles.inputError : null,
+                        ]}
+                        maxLength={1}
+                        keyboardType="numeric"
+                        onChangeText={(digit) => {
+                          handleChange(`num${index + 1}`)(digit);
+                          if (digit) {
+                            focusNextField(index);
+                          }
+                        }}
+                        value={values[`num${index + 1}`]}
+                      />
+                    </View>
+                  ))}
+                </View>
+                <View
+                  style={{ marginTop: 10, flexDirection: "row", marginLeft: 0 }}
+                >
                   <RegularSmall>
-                    {errorMessage ? <Text style={{color: "#CC3535", fontSize: 12}}>{errorMessage}</Text> : null}
+                    {errorMessage ? (
+                      <Text style={{ color: "#CC3535", fontSize: 12 }}>
+                        {errorMessage}
+                      </Text>
+                    ) : null}
                   </RegularSmall>
                 </View>
-                
-              {/* Button */}
-              <View style={{ alignItems: "center", justifyContent: "center", marginTop: 15, width: 280 }}>
-                <RegularButton onPress={handleSubmit}>
-                  <Text style={{ color: "#FEFEFE" }}>Verify</Text>
-                </RegularButton>
-              </View>
-            </>
-          )}
-        </Formik>
 
+                {/* Button */}
+                <View
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: 15,
+                    width: 280,
+                  }}
+                >
+                  <RegularButton onPress={handleSubmit}>
+                    <Text style={{ color: "#FEFEFE" }}>Verify</Text>
+                  </RegularButton>
+                </View>
+              </>
+            )}
+          </Formik>
 
-          <View style={{ marginTop: 30, alignItems: 'center',flexDirection: 'row'}}>
+          <View
+            style={{
+              marginTop: 30,
+              alignItems: "center",
+              flexDirection: "row",
+            }}
+          >
             <RegularNormal>
-              <Text style={{ alignItems: 'center'}}>Didn't receive an OTP?</Text>
+              <Text style={{ alignItems: "center" }}>
+                Didn't receive an OTP?
+              </Text>
             </RegularNormal>
             <TouchableOpacity onPress={handleResendOTP}>
               <View>
                 <RegularNormal>
-                    <Text style={{ color: '#2656FF' }}>Resend OTP</Text>
-                  </RegularNormal>
+                  <Text style={{ color: "#2656FF" }}>Resend OTP</Text>
+                </RegularNormal>
               </View>
             </TouchableOpacity>
           </View>
@@ -176,9 +221,9 @@ const OTP: FunctionComponent<Props> = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   input: {
     width: 48,
@@ -189,11 +234,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "400",
     borderRadius: 12,
-    
   },
   inputError: {
-    borderColor: "#CC3535"
-  }
+    borderColor: "#CC3535",
+  },
 });
 
 export default OTP;
