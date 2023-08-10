@@ -3,11 +3,12 @@ import {
   useNavigation,
 } from "@react-navigation/native";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { TabStackParamList } from "../../navigator/TabNavigator";
-import { RootStackParamList } from "../../navigator/RootNavigator";
+import { TabStackParamList } from "../../navigation/navigator/TabNavigator";
+import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useLayoutEffect } from "react";
-import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
+import {ScrollView, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import Header from "./Header_section";
 import Story_section from "./Story_section";

@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { UserProfileTopBar } from "../../components";
+import { TopBar } from "../../components";
 import {
   CardHeadingBold,
 } from "../../constants";
@@ -33,7 +33,7 @@ const authorData6 = {
 const MentorhipScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <UserProfileTopBar titleBarName="Mentorship" />
+      <TopBar titleBarName="Mentorship" />
       <View style={styles.slider}>
         <Text>slider</Text>
       </View>

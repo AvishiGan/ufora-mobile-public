@@ -2,7 +2,7 @@ import { View, Image, TextInput, TouchableOpacity, StyleSheet } from "react-nati
 import React from "react";
 
 // dummy data
-const imageLink: string = "../../assets/profileLo.jpg";
+// const imageLink: string = "?";
 
 const Search_and_Profile_section = () => {
   return (
@@ -10,7 +10,7 @@ const Search_and_Profile_section = () => {
       {/* profile picture */}
       <TouchableOpacity style={styles.profilePicture}>
         <Image
-          source={require(imageLink)}
+          source={require("../../../assets/images/myProfile/common/profile-picture.png")}
           style={styles.image}
         />
       </TouchableOpacity>
@@ -29,8 +29,8 @@ const Search_and_Profile_section = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    width: 48,
+    width: 100,
+    gap: 5
   },
   profilePicture: {
     width: 48,
@@ -46,9 +46,10 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
     padding: 12,
-    borderRadius: 9999,
+    borderRadius: 15,
     borderColor: "black",
     borderWidth: 0.5,
+    width: 300
   },
 });
 
