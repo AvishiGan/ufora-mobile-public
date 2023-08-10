@@ -7,8 +7,8 @@ declare module '*.svg' {
 }
 
 // declare module "@env";
-declare module '@env' {
-  export const IP: string;
+declare module "@env" {
+  export const API_PATH: string;
 }
 
 declare module "*.png";

@@ -1,11 +1,9 @@
 import React, { FunctionComponent } from "react";
-import MediumText from "../../constants/fonts/RegularBig";
 import { GestureResponderEvent, TouchableOpacity } from "react-native";
-import RegularText from "../../constants/fonts/RegularBig";
-import SemiBoldBig from "../../constants/fonts/SemiboldBig";
+import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
 
 interface ButtonProps {
-  onPress: ((event: GestureResponderEvent) => void) | undefined;
+  onPress: () => void;
   children: React.ReactNode;
 }
 
@@ -26,7 +24,7 @@ const SmallButton: FunctionComponent<ButtonProps> = (props) => {
       }}
       onPress={props.onPress}
     >
-      <SemiBoldBig style={{ color: "white" }}>{props.children}</SemiBoldBig>
+      <SemiBoldBig fontColor="white">{props.children}</SemiBoldBig>
     </TouchableOpacity>
   );
 };
