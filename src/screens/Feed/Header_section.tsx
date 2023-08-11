@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
     height: 48,
     flexDirection: "row",
     alignItems: "center",
-    marginRight: 15
+    marginRight: 15,
+    marginTop:20,
+    marginBottom:10
   },
   logoContainer: {
     height: 36,

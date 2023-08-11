@@ -28,7 +28,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+              source={require("../../../assets/images/myProfile/common/pic2.jpg")}
               style={styles.image}
             />
           </View>
@@ -37,7 +37,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+              source={require("../../../assets/images/myProfile/common/pic3.png")}
               style={styles.image}
             />
           </View>
@@ -46,7 +46,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+              source={require("../../../assets/images/myProfile/common/pic4.png")}
               style={styles.image}
             />
           </View>
@@ -55,7 +55,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+              source={require("../../../assets/images/myProfile/common/pic5.png")}
               style={styles.image}
             />
           </View>
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 4,
+
   },
   story: {
     alignItems: "center",

@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     width: 100,
-    gap: 5
+    gap: 5,
+    marginBottom:20
   },
   profilePicture: {
     width: 48,
@@ -44,12 +45,12 @@ const styles = StyleSheet.create({
     borderRadius: 9999,
   },
   inputContainer: {
-    flex: 1,
     padding: 12,
     borderRadius: 15,
     borderColor: "black",
     borderWidth: 0.5,
-    width: 300
+    width: 290,
+    marginLeft: 5
   },
 });
 

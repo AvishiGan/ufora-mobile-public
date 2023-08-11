@@ -58,13 +58,105 @@ const MyMentorshipScreen = () => {
             {/* Image */}
             <Image
               style={styles.image}
-              source={require(imageLink)}
+              source={require("../../../assets/images/myProfile/common/pic3.png")}
             />
 
             <View>
               {/* Name, Icons*/}
               <View style={styles.row}>
                 <NameSemiboldNormal>Samadi Smith</NameSemiboldNormal>
+                <VerifiedIcon
+                  size={16}
+                  fillColor="#2656FF"
+                  strokeColor="#fff"
+                />
+                <UforaIcon size={16} fillColor="#111" strokeColor="#fff" />
+              </View>
+            </View>
+          </View>
+
+          {/*Accept and Deny Buttons */}
+          <View style={styles.buttonRow}>
+            <TouchableOpacity
+              style={styles.acceptButton}
+              onPress={() => console.log("Button clicked")}
+            >
+              <Text>
+                <RegularSmall>Accept</RegularSmall>
+              </Text>
+            </TouchableOpacity>
+            {/*  */}
+            <TouchableOpacity
+              style={styles.denyButton}
+              onPress={() => console.log("Button clicked")}
+            >
+              <Text>
+                <RegularSmall>Deny</RegularSmall>
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+
+      <View style={styles.cardContainer}>
+        <View style={styles.innerCardContainer}>
+          <View style={styles.row}>
+            {/* Image */}
+            <Image
+              style={styles.image}
+              source={require("../../../assets/images/myProfile/common/pic4.png")}
+            />
+
+            <View>
+              {/* Name, Icons*/}
+              <View style={styles.row}>
+                <NameSemiboldNormal>Hanifa Kuzaka</NameSemiboldNormal>
+                <VerifiedIcon
+                  size={16}
+                  fillColor="#2656FF"
+                  strokeColor="#fff"
+                />
+                <UforaIcon size={16} fillColor="#111" strokeColor="#fff" />
+              </View>
+            </View>
+          </View>
+
+          {/*Accept and Deny Buttons */}
+          <View style={styles.buttonRow}>
+            <TouchableOpacity
+              style={styles.acceptButton}
+              onPress={() => console.log("Button clicked")}
+            >
+              <Text>
+                <RegularSmall>Accept</RegularSmall>
+              </Text>
+            </TouchableOpacity>
+            {/*  */}
+            <TouchableOpacity
+              style={styles.denyButton}
+              onPress={() => console.log("Button clicked")}
+            >
+              <Text>
+                <RegularSmall>Deny</RegularSmall>
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+
+      <View style={styles.cardContainer}>
+        <View style={styles.innerCardContainer}>
+          <View style={styles.row}>
+            {/* Image */}
+            <Image
+              style={styles.image}
+              source={require("../../../assets/images/myProfile/common/pic5.png")}
+            />
+
+            <View>
+              {/* Name, Icons*/}
+              <View style={styles.row}>
+                <NameSemiboldNormal>Kaithlyn Grero</NameSemiboldNormal>
                 <VerifiedIcon
                   size={16}
                   fillColor="#2656FF"
@@ -106,8 +198,20 @@ const MyMentorshipScreen = () => {
       {/* LOOP HERE */}
       <UserProfileNameUniMutualCard
         data={{
-          profilePic: require(imageLink),
-          profileName: "Pasan Phelps",
+          profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+          profileName: "Ravien Harith",
+        }}
+      />
+      <UserProfileNameUniMutualCard
+        data={{
+          profilePic: require("../../../assets/images/myProfile/common/pic2.jpg"),
+          profileName: "Sheila Perera",
+        }}
+      />
+      <UserProfileNameUniMutualCard
+        data={{
+          profilePic: require("../../../assets/images/myProfile/common/pic3.png"),
+          profileName: "Kaveen Heshaka",
         }}
       />
     </SafeAreaView>
@@ -116,13 +220,11 @@ const MyMentorshipScreen = () => {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor :"#fed7d7",
         flex :1,
         marginHorizontal :16
     },
     inputContainer:{
         height :40,
-        backgroundColor :"#b3f0ff"
     },
     subHeading:{
         flexDirection :"row",
@@ -142,13 +244,13 @@ const styles = StyleSheet.create({
     },
     cardContainer:{
        paddingHorizontal :8,
-       paddingVertical :16,
+       paddingVertical :10,
        marginVertical :4,
-       backgroundColor :"#b3f0ff"
+       backgroundColor :"white",
+       borderRadius: 10
    },
    innerCardContainer:{
        flexDirection :"row",
-       backgroundColor :"#b3f0ff",
        height :46,
        justifyContent :"space-between",
        alignItems :"center"
@@ -164,7 +266,6 @@ const styles = StyleSheet.create({
        borderRadius :20
    },
    buttonRow:{
-       backgroundColor :"#ccffcc",
        flexDirection :"row",
        alignItems :"center",
        justifyContent :"space-between"
