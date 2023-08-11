@@ -26,6 +26,7 @@ import FeedScreen from "../../screens/Feed/FeedScreen";
 
 // Profile related navigation
 import CreatePost from "../../components/profile/createPost/CreatePost";
+import AllPosts from "../../screens/profile/AllPosts";
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -46,6 +47,7 @@ export type RootStackParamList = {
   MyFriends: undefined;
   FeedScreen: undefined;
   Main: undefined;
+  AllPosts: undefined;
   CreatePost: undefined;
 };
 
@@ -154,6 +156,11 @@ const WelcomeNavigator = () => {
       <Stack.Screen
         name="CreatePost"
         component={CreatePost}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="AllPosts"
+        component={AllPosts}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
