@@ -11,7 +11,7 @@ import SelectUniversity from "../../screens/Authentication/SelectUniversity";
 import UniOTP from "../../screens/Authentication/UniOTP";
 import ForgotPassOTP from "../../screens/Authentication/ForgotPassOTP";
 import Friends from "../../screens/friends/Friends";
-import MyFriendsScreen from "../../screens/friends/MyFriendsScreen";
+import MyFriends from "../../screens/friends/MyFriends";
 
 //React Navigation
 import { NavigationContainer } from "@react-navigation/native";
@@ -44,7 +44,7 @@ export type RootStackParamList = {
   Feed: undefined;
   BlogCentre: undefined;
   Friends: undefined;
-  MyFriendsScreen: undefined;
+  MyFriends: undefined;
   FeedScreen: undefined;
   Main: undefined;
   AllPosts: undefined;
@@ -117,7 +117,7 @@ const WelcomeNavigator = () => {
         component={ForgotPassOTP}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Main"
         component={TabNavigator}
         options={{ headerShown: false }}
@@ -144,8 +144,8 @@ const WelcomeNavigator = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="MyFriendsScreen"
-        component={MyFriendsScreen}
+        name="MyFriends"
+        component={MyFriends}
         options={{ headerShown: false }}
       />
       <Stack.Screen
