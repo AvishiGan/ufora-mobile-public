@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         flexDirection: "row",
         paddingHorizontal: 13,
+        marginTop:20
 
     },
     backIconNameContainer: {
