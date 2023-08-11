@@ -8,5 +8,5 @@ export {default as PostAuthorBioFooter} from "./PostAuthorBioFooter";
 export {default as BlogCard} from "./BlogCard";
 export {default as PostCard} from "./PostCard";
 export {default as ProjectCard} from "./ProjectCard";
-export {default as CreatePost} from "./createPost";
+export {default as CreatePost} from "./createPost/CreatePost";
 
