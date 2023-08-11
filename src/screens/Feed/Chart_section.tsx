@@ -1,11 +1,13 @@
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import React from "react";
 
 const Chart_section = () => {
   return (
-    <View>
-      <View className="h-40 bg-cyan-400 my-1"></View>
-    </View>
+    <Image
+      source={require('../../../assets/images/chart.png')} // Update the path to your image
+      style={{ height: 112, width: '100%', marginTop: 2, marginBottom:15 }}
+    />
+ 
   );
 };
 
