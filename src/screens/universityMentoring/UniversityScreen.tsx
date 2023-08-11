@@ -2,10 +2,11 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet } from "react-native";
-import { UserProfileTopBar } from "../../components";
+import { TopBar } from "../../components/";
+
 import {
   CardHeadingBold,
-  SemiBoldBig,
+  SemiboldBig,
   SubHeadingSemibold,
 } from "../../constants";
 import { VerifiedIcon } from "../../../assets/svg";
@@ -41,7 +42,7 @@ const UniversityScreen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         {/* Header */}
-        <UserProfileTopBar titleBarName="My University" />
+        <TopBar titleBarName="My University" />
 
         {/* University Logo, Name, People, Blogs, Projects */}
         <View style={styles.universityContainer}>
@@ -61,13 +62,13 @@ const UniversityScreen = () => {
           {/* data */}
           <View style={styles.dataContainer}>
             <Text>
-              <SemiBoldBig>2500</SemiBoldBig> People
+              <SemiboldBig>2500</SemiboldBig> People
             </Text>
             <Text>
-              <SemiBoldBig>200</SemiBoldBig> Blogs
+              <SemiboldBig>200</SemiboldBig> Blogs
             </Text>
             <Text>
-              <SemiBoldBig>10</SemiBoldBig> Projects
+              <SemiboldBig>10</SemiboldBig> Projects
             </Text>
           </View>
         </View>
@@ -80,6 +81,14 @@ const UniversityScreen = () => {
 
         {/* Announcement details ********LOOP HERE */}
         <UniAnnouncementCard data={authorData} />
+        <UniAnnouncementCard data={authorData} />
+        <UniAnnouncementCard data={authorData} />
+        <UniAnnouncementCard data={authorData} />
+        <UniAnnouncementCard data={authorData} />
+        <UniAnnouncementCard data={authorData} />
+
+
+
       </ScrollView>
 
       {/* All Groups and Mentorship Buttons */}
@@ -92,7 +101,7 @@ const UniversityScreen = () => {
           {/* left button */}
           <View style={styles.row}>
             <PersonStanding color="#4F4E4E" size={24} />
-            <SemiBoldBig>All Groups</SemiBoldBig>
+            <SemiboldBig>All Groups</SemiboldBig>
           </View>
         </TouchableOpacity>
         {/* right button */}
@@ -102,7 +111,7 @@ const UniversityScreen = () => {
         >
           <View style={styles.row}>
             <Sprout color="#4F4E4E" size={24} />
-            <SemiBoldBig>Mentorship</SemiBoldBig>
+            <SemiboldBig>Mentorship</SemiboldBig>
           </View>
         </TouchableOpacity>
       </View>
@@ -113,19 +122,19 @@ const UniversityScreen = () => {
 const styles = StyleSheet.create({
     container:{
        marginHorizontal :16,
-       backgroundColor :"#fed7d7",
+      //  backgroundColor :"#fed7d7",
        flex :1
    },
    scrollView:{
        flex :1
    },
    universityContainer:{
-       backgroundColor :"#b3f0ff",
+      //  backgroundColor :"#b3f0ff",
        height :172,
        justifyContent :"center"
    },
    universityDetails:{
-       backgroundColor :"#b3f0ff",
+      //  backgroundColor :"#b3f0ff",
        height :96,
        alignItems :"center"
    },
@@ -145,7 +154,7 @@ const styles = StyleSheet.create({
        alignItems :"center"
    },
    dataContainer:{
-       backgroundColor :"#b3f0ff",
+      //  backgroundColor :"#b3f0ff",
        height :21,
        flexDirection :"row",
        justifyContent :"space-between",
@@ -158,19 +167,19 @@ const styles = StyleSheet.create({
        marginVertical :8
    },
    buttonRow:{
-       backgroundColor :"#63b3ed",
+      //  backgroundColor :"#63b3ed",
        height :70,
        flexDirection :"row"
    },
    allGroupsButton:{
-       backgroundColor :"#9ae6b4",
+      //  backgroundColor :"#9ae6b4",
        height :70,
        flex :1,
        justifyContent :"center",
        alignItems :"center"
    },
    mentorshipButton:{
-       backgroundColor :"#90cdf4",
+      //  backgroundColor :"#90cdf4",
        height :70,
        flex :1,
        justifyContent :"center",
