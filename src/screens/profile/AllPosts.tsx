@@ -13,13 +13,20 @@ import {
 } from "../../../assets/images";
 import { styles } from "../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator";
 
-const ProfilePostSection = () => {
+type Props = StackScreenProps<RootStackParamList, "AllPosts">;
+
+const ProfilePostSection: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView>
       <ScrollView>
         <View style={styles.postActionContainer}>
-          <ContentAdditionBar title="Add a new post" />
+          <ContentAdditionBar
+            title="Add a new post"
+            onPress={() => navigation.navigate("CreatePost")}
+          />
           <View style={styles.allPostsContainer}>
             <PostCard
               postDescription="This is an amazing architectural concept which we can implement in our group project"
