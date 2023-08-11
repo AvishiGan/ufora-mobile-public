@@ -1,6 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import CreatePost from "../../components/profile/createPost/CreatePost";
+import { CreatePost } from "../../../components";
 
 const Stack = createStackNavigator();
 

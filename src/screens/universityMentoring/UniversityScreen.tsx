@@ -13,7 +13,7 @@ import NameSmallSemibold from "../../constants/fonts/NameSemiboldNormal";
 import { PersonStanding } from "lucide-react-native";
 import { Sprout } from "lucide-react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../navigation/Navigator/RootNavigator";
+import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
 import UniAnnouncementCard from "../../components/universityMentoring/UniAnnouncementCard";
 
 const imageLink: string =

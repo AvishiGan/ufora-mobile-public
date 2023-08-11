@@ -22,7 +22,10 @@ import { COLORS } from "../../constants";
 import { HeaderRight, HeaderLeft } from "../../components";
 import BlogCentre from "../../screens/blog";
 import FeedScreen from "../../screens/Feed/FeedScreen";
-import TabNavigator from "./TabNavigator";
+// import TabNavigator from "./TabNavigator";
+
+// Profile related navigation
+import CreatePost from "../../components/profile/createPost/CreatePost";
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -43,6 +46,7 @@ export type RootStackParamList = {
   MyFriends: undefined;
   FeedScreen: undefined;
   Main: undefined;
+  CreatePost: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -111,11 +115,11 @@ const WelcomeNavigator = () => {
         component={ForgotPassOTP}
         options={{ headerShown: false }}
       />
-       <Stack.Screen
+      {/* <Stack.Screen
         name="Main"
         component={TabNavigator}
         options={{ headerShown: false }}
-      />
+      /> */}
       <Stack.Screen name="Feed" component={Feed} />
       {/* <Stack.Screen 
                     name="BlogCentre"
@@ -147,8 +151,12 @@ const WelcomeNavigator = () => {
         component={FeedScreen}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="CreatePost"
+        component={CreatePost}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
-    // </NavigationContainer>
   );
 };
 
