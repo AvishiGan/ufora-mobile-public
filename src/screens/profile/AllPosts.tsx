@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import { PostCard, ContentAdditionBar, CreatePost } from "../../components";
 import {
   architecture,
@@ -13,12 +13,11 @@ import {
 } from "../../../assets/images";
 import { styles } from "../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
 
 const ProfilePostSection = () => {
   return (
     <SafeAreaView>
-      <View>
+      <ScrollView>
         <View style={styles.postActionContainer}>
           <ContentAdditionBar title="Add a new post" />
           <View style={styles.allPostsContainer}>
@@ -59,7 +58,7 @@ const ProfilePostSection = () => {
             />
           </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

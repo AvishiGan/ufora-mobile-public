@@ -3,17 +3,16 @@
  */
 
 import React from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import { BlogCard, ContentAdditionBar } from "../../components";
 import { marketing, security, HCI } from "../../../assets/images";
 import { styles } from "../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
 
 const ProfileBlogSection = () => {
   return (
     <SafeAreaView>
-      <View>
+      <ScrollView>
         {/* <ScrollView> */}
         <View style={styles.blogActionContainer}>
           <ContentAdditionBar title="Add a new blog article" />
@@ -42,7 +41,7 @@ const ProfileBlogSection = () => {
           />
         </View>
         {/* </ScrollView> */}
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

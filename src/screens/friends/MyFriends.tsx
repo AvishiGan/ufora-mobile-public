@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity, View} from 'react-native'
 import FriendRequests from '../../components/friends/FriendRequests'
 import { ScrollView } from 'react-native-gesture-handler';
 import { ChevronLeft } from 'lucide-react-native';

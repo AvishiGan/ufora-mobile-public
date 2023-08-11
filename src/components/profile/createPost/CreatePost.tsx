@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, TextInput } from "react-native";
 import { styles } from "../styles";
 import PropTypes from "prop-types";
-import { TopBar } from "../../../components";
+import { TopBar } from "../..";
 import { COLORS } from "../../../constants";
 import CreatePostHeader from "./Header";
 import { profileData } from "../../../screens/profile/data";
