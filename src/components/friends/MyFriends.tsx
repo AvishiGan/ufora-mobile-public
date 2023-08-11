@@ -21,7 +21,11 @@ interface userProfileNameUniMutualProps {
 }
 
 const MyFriends: React.FC<userProfileNameUniMutualProps> = ({
-  data,
+  data = { 
+    profileName: '', 
+    university: '', 
+    mutualFriends: '', 
+  }
 }) => {
   return (
     <View style={{alignItems: "center", paddingVertical: 3}}>

@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
         // paddingBottom: 15,
         // backgroundColor: "#FEFEFE",
         paddingHorizontal: 13,
+        marginTop:20
 
     },
     backIconNameContainer: {

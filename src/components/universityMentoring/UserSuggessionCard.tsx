@@ -1,5 +1,5 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { ButtonMedium, SemiBoldBig, SmallerRegular } from "../../constants";
+import { ButtonMedium, SemiboldBig, SmallerRegular } from "../../constants";
 import { UforaIcon, VerifiedIcon } from "../../../assets/svg";
 
 //user suggession card interface
@@ -18,20 +18,20 @@ interface UserSuggessionCardProps {
 
 const UserSuggessionCard: React.FC<UserSuggessionCardProps> = ({ data }) => {
   return (
-    <View className="bg-white h-full  w-[200] items-center px-4 rounded-lg py-1 mx-2">
+    <View className="bg-white h-full  w-[200] items-center px-4 rounded-lg py-4 mx-2">
       {/* image here */}
       <View className=" w-28 h-28 content-center items-center ">
         <Image
           source={data.profilePicture}
-          className="h-full w-full rounded-full"
+          className="h-full w-full rounded-full "
         />
       </View>
 
       {/* name and university */}
-      <View className=" p-1 w-100 bg-cyan-200 items-center">
+      <View className=" p-1 w-100 items-center py-3">
         <View className="flex-row items-center">
           <Text numberOfLines={1}>
-            <SemiBoldBig>{data.userName}</SemiBoldBig>
+            <SemiboldBig>{data.userName}</SemiboldBig>
           </Text>
           <View className="flex-row ml-1">
             <VerifiedIcon size={16} fillColor="#2656FF" strokeColor="#fff" />

@@ -14,7 +14,7 @@ interface UniversityGroupCardProp {
 
 const UniversityGroupCard: React.FC<UniversityGroupCardProp> = ({ data }) => {
   return (
-    <View className="bg-cyan-400 h-[60] flex-row items-center mx-2 my-1">
+    <View className="bg-white h-[60] flex-row items-center my-1 px-2 rounded-lg">
       <View className="flex-row items-center flex-1">
         {/* Image */}
         <Image
