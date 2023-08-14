@@ -4,7 +4,7 @@ import { COLORS, SIZES } from "../../constants";
 const styles = StyleSheet.create({
     container: {
         width: "100%",
-        marginTop: -30
+        //marginTop: -30
     },
     wrapContainer: {
         gap: 25,
@@ -64,12 +64,12 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         flex: 1
     },
-    featuredContainer: {
+    blogArticlesContainer: {
         marginHorizontal: SIZES.marginSide,
         flexDirection: "column",
         gap: 15,
         display: "flex",
-        },
+    },
     featuredTitle: {
         color: COLORS.brandGrey,
         alignSelf: "stretch"
@@ -91,15 +91,13 @@ const styles = StyleSheet.create({
     carouselCardImage: {
         resizeMode: "cover",
     },
-    wrapContent: {
-        flexDirection: "column",
-        gap: 19,
-        marginTop: 78,
-    },
     sideButtons: {
         flexDirection: "row",
-        marginHorizontal: -4,
         alignItems: "center", 
+        position: 'absolute', 
+        top: 125, 
+        right: 6, 
+        elevation: 10
     },
     blogDetails: {
         display: "flex",
@@ -107,6 +105,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: 'flex-start',
         alignItems: "flex-start",
+        marginTop: 121,
     },
     blogTitle: {
         color: COLORS.brandWhite,
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center",
+        //justifyContent: "center",
         gap: 5,
     },
     blogAuthor: {
@@ -220,7 +219,7 @@ const styles = StyleSheet.create({
     authorDetails: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center",
+        //justifyContent: "center",
         alignItems: "center",
         gap: 10,
         alignSelf: "stretch"
@@ -233,6 +232,7 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.lightGrayHalf
     },
     authorBio: {
+        display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         flex: 1,
@@ -314,7 +314,72 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         gap: 5,
-    }
+    },
+    upperImage: {
+        //width: 404,
+        height: 206,
+        flexShrink: 0,
+        //marginHorizontal: SIZES.marginSide,
+        //overflow: "hidden",
+        borderRadius: 15,
+        backgroundColor: COLORS.lightGrayHalf
+    },
+    contentWrap: {
+        display: "flex",
+        //width: 404,
+        paddingHorizontal: 10,
+        paddingVertical: 0, 
+        flexDirection: "column",
+        alignitems: "flex-start",
+        gap: 15,
+        marginTop: 25
+    },
+    contentDescription: {
+        flexDirection: "column",
+        gap: 15
+    },
+    contentProfile: {
+        width: 50,
+        height: 50,
+        borderRadius: 50,
+        resizeMode: "cover",
+        backgroundColor: COLORS.lightGrayHalf
+    },
+    wrapBio: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+    },
+    blogBodyText: {
+        alignSelf: "stretch",
+        textAlign: "justify",
+        color: COLORS.brandBlack
+    },
+    blogBodyImage: {
+        alignSelf: "stretch",
+        height: 187,
+        borderRadius: 15,
+        backgroundColor: COLORS.lightGrayHalf
+    },
+    relatedArticles: {
+        display: "flex",
+        //width: 404,
+        flexDirection: "column",
+        //justifyContent: "center",
+        alignItems: "flex-start",
+        gap: 15,
+        paddingHorizontal: 10,
+        paddingVertical: 0, 
+        marginTop: 55,
+    },
+    cardContainer: {
+        display: "flex",
+        //width: 404;
+        alignItems: "flex-start",
+        alignContent: "flex-start",
+        gap: 14,
+        flexWrap: "wrap",
+    }     
 });
 
 export default styles;

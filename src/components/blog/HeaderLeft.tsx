@@ -8,9 +8,10 @@ import styles from './blogStyles.styles';
 
 interface HeaderLeftProps {
   showTitle: boolean; 
+  headerTitle: string;
 }
 
-const HeaderLeft: React.FC<HeaderLeftProps> = ({ showTitle }) => {
+const HeaderLeft: React.FC<HeaderLeftProps> = ({ showTitle, headerTitle }) => {
 
   const navigation=useNavigation();
 
@@ -25,7 +26,7 @@ const HeaderLeft: React.FC<HeaderLeftProps> = ({ showTitle }) => {
     </TouchableOpacity>
     {showTitle && ( // Conditionally render the title based on the showTitle prop
       <PageTitleSemibold>
-            <Text style={styles.headerTitle}>Blog Centre</Text>
+            <Text style={styles.headerTitle}>{headerTitle}</Text>
       </PageTitleSemibold>
     )}
   </View>

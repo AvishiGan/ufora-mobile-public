@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Platform, KeyboardAvoidingView, SafeAreaView, ScrollView } from "react-native";
 import { RichEditor, RichToolbar } from "react-native-pell-rich-editor";
+import { SIZES } from "../../../constants";
 
 const AddBlog = () => {
   const richText = React.useRef(null); // Initialize with null instead of undefined
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     //backgroundColor: "#fff",
   },
   scrollContainer: {
-    padding: 10,
+    //padding: 10,
   },
   editor: {
     backgroundColor: "#fff",
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     minHeight: 200,
     padding: 10,
+    marginHorizontal: SIZES.marginSide
   },
   toolbar: {
     backgroundColor: "#FFF"
