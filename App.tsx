@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
 // import Welcome from "./src/screens/Authentication/Welcome";
-import RootNavigator from "./src/navigation/navigator/RootNavigator";
+//import RootNavigator from "./src/navigation/navigator/RootNavigator";
 // import { NavigationContainer } from "@react-navigation/native";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -11,7 +11,7 @@ import * as SplashScreen from "expo-splash-screen";
 
 //React Navigation
 import WelcomeNavigator from "./src/navigation/navigator/WelcomeNavigator";
-import ProfileStack from "./routes/profileStack";
+//import ProfileStack from "./routes/profileStack";
 
 // export default function App() {
 //   const [fontsLoaded] = useFonts({
@@ -50,8 +50,8 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>
+    <>
+      <WelcomeNavigator />
+    </>
   );
 }

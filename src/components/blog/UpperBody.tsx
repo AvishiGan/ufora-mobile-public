@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { COLORS, SIZES } from '../../constants';
 import { Search, FileText, PlusCircle } from 'lucide-react-native';
-import { RegularBig, SemiBoldBig } from '../../constants/fonts';
+import { RegularBig, SemiboldBig } from '../../constants/fonts';
 import styles from "./blogStyles.styles";
 
 // Use satate for search
@@ -11,13 +11,16 @@ import styles from "./blogStyles.styles";
 
 interface UpperBodyProps {
   navigation: any; 
+  route: string; // Pass the current route as a prop
 }
 
-const UpperBody: React.FC<UpperBodyProps> = ({navigation}) => {
+const UpperBody: React.FC<UpperBodyProps> = ({navigation, route}) => {
 
   const handleAddBlog = () => {
     navigation.navigate('AddBlog'); // Navigate to the 'AddBlog' screen when 'Add Blog' is clicked
   };
+
+  const isBlogCentre = route === 'BlogCentre';
 
   return (
     <View style={styles.container}>
@@ -26,7 +29,7 @@ const UpperBody: React.FC<UpperBodyProps> = ({navigation}) => {
           <Search color={COLORS.placeHolder} size={SIZES.iconSize} />
             {/* <RegularBig> */}
               <TextInput
-                placeholder='Find blogs...'
+                placeholder={isBlogCentre ? 'Find blogs...' : 'Find projects...'}
                 placeholderTextColor={COLORS.placeHolder}
                 value=''
               />
@@ -35,11 +38,11 @@ const UpperBody: React.FC<UpperBodyProps> = ({navigation}) => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.buttonCard}>
               <FileText color={COLORS.brandGrey} size={40} />
-              <SemiBoldBig><Text>My Articles</Text></SemiBoldBig>
+              <SemiboldBig><Text>{isBlogCentre ? 'My Articles' : 'My Projects'}</Text></SemiboldBig>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonCard} onPress={handleAddBlog}>
               <PlusCircle color={COLORS.brandGrey} size={40} />
-              <SemiBoldBig><Text>Add Blog</Text></SemiBoldBig>
+              <SemiboldBig><Text>{isBlogCentre ? 'Add Blog' : 'Add Project'}</Text></SemiboldBig>
           </TouchableOpacity>
         </View>
       </View>

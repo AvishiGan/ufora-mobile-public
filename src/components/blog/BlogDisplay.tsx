@@ -1,11 +1,17 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Dimensions } from "react-native";
 import { BlogCardSmall, BlogCardLarge } from "../../components"
 import { images } from "../../constants";
 import { profilePicture } from "../../../assets/images";
 import styles from "./blogStyles.styles";
 
 const BlogDisplay = () => {
+
+    const screenWidth = Dimensions.get('window').width;
+    // Calculate the width for the blog card small to make it responsive
+    const smallCardWidth = (screenWidth - 40)/2; // Subtract side margin, gap values
+    // Calculate the width for the blog card large to make it responsive
+    const largeCardWidth = screenWidth - 26; // Subtract side margin values
 
     const largeCardData = {
         imageSource: images.BioTechnology,
@@ -16,9 +22,10 @@ const BlogDisplay = () => {
         authorName: "Hiruni Ovitigala",
         authorProfilePic: profilePicture,
         authorInstitute: "Undergrad at University of Colombo",
+        largeCardWidth: largeCardWidth
       };
 
-      const smallCardData = {
+    const smallCardData = {
         imageSource: images.CyberSecurity,
         title: "Cyber Security",
         date: "Jul 10th, 2023",
@@ -26,6 +33,7 @@ const BlogDisplay = () => {
         authorName: "Samadhi Smith",
         authorProfilePic: profilePicture,
         authorInstitute: "Undergrad at University of Colombo",
+        smallCardWidth: smallCardWidth
       };
     
     return (
