@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { styles } from "./cards/styles";
 import {
   IntroCard,
@@ -12,7 +12,6 @@ import {
   OtherAchievementCard,
 } from "./cards/AllCards";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
 
 const cardComponents = [
   IntroCard,

@@ -3,8 +3,8 @@
  */
 
 import React from "react";
-import { View } from "react-native";
-import { PostCard, ContentAdditionBar } from "../../components";
+import { View, ScrollView } from "react-native";
+import { PostCard, ContentAdditionBar, CreatePost } from "../../components";
 import {
   architecture,
   rugbyField,
@@ -13,55 +13,59 @@ import {
 } from "../../../assets/images";
 import { styles } from "../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator";
 
-const ProfilePostSection = () => {
+type Props = StackScreenProps<RootStackParamList, "AllPosts">;
+
+const ProfilePostSection: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView>
-      <View>
-        <ScrollView>
-          <View style={styles.postActionContainer}>
-            <ContentAdditionBar title="Add a new post" />
-            <View style={styles.allPostsContainer}>
-              <PostCard
-                postDescription="This is an amazing architectural concept which we can implement in our group project"
-                postImage={architecture}
-                likedNames="Kasun"
-                likedCount={100}
-                commentsCount={20}
-                seeMore={true}
-              />
+      <ScrollView>
+        <View style={styles.postActionContainer}>
+          <ContentAdditionBar
+            title="Add a new post"
+            onPress={() => navigation.navigate("CreatePost")}
+          />
+          <View style={styles.allPostsContainer}>
+            <PostCard
+              postDescription="This is an amazing architectural concept which we can implement in our group project"
+              postImage={architecture}
+              likedNames="Kasun"
+              likedCount={100}
+              commentsCount={20}
+              seeMore={true}
+            />
 
-              <PostCard
-                postDescription="Me and my homies at the Bradby finals!!!"
-                postImage={rugbyField}
-                likedNames="Kasun, Sumith"
-                likedCount={10}
-                commentsCount={5}
-                seeMore={false}
-              />
+            <PostCard
+              postDescription="Me and my homies at the Bradby finals!!!"
+              postImage={rugbyField}
+              likedNames="Kasun, Sumith"
+              likedCount={10}
+              commentsCount={5}
+              seeMore={false}
+            />
 
-              <PostCard
-                postDescription="Recently we participated and became the champions at Realhack 5.0"
-                postImage={champions}
-                likedNames="You"
-                likedCount={50}
-                commentsCount={20}
-                seeMore={false}
-              />
+            <PostCard
+              postDescription="Recently we participated and became the champions at Realhack 5.0"
+              postImage={champions}
+              likedNames="You"
+              likedCount={50}
+              commentsCount={20}
+              seeMore={false}
+            />
 
-              <PostCard
-                postDescription="Interested in kickstarting your global career from Sri Lanka itself?"
-                postImage={office}
-                likedNames=""
-                likedCount={120}
-                commentsCount={0}
-                seeMore={false}
-              />
-            </View>
+            <PostCard
+              postDescription="Interested in kickstarting your global career from Sri Lanka itself?"
+              postImage={office}
+              likedNames=""
+              likedCount={120}
+              commentsCount={0}
+              seeMore={false}
+            />
           </View>
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
