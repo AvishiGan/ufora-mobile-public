@@ -15,11 +15,12 @@ import { StackScreenProps } from "@react-navigation/stack";
 import React, { FunctionComponent, useState } from "react";
 import SmallerRegular from "../../constants/fonts/SmallerRegular";
 import axios from "axios";
-import { SafeAreaView } from "react-native-safe-area-context";
+
 import { Picker } from "@react-native-picker/picker";
 import Dropdown from "../../components/authentication/dropdown/Dropdown";
 import * as Yup from "yup";
 import envs from "../../services/config/env";
+import { SafeAreaView } from "react-native-safe-area-context";
 type Props = StackScreenProps<RootStackParamList, "SelectUniversity">;
 
 interface FormValues {
@@ -29,7 +30,10 @@ interface FormValues {
 
 const validationSchema = Yup.object({
   university: Yup.string().required("Select a University"),
-  email: Yup.string().email("Invalid Email").required("Email is Required"),
+  email: Yup.string()
+    .email("Invalid Email")
+    .required("Email is Required")
+    .matches(/^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+ac\.lk$/i, "Invalid domain. It should end with .ac.lk"),
 });
 
 const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
@@ -97,12 +101,13 @@ const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
   };
 
   return (
-    <KeyboardAvoidingView
+    
+      <KeyboardAvoidingView
       keyboardVerticalOffset={255}
       behavior="padding"
       style={styles.container}
     >
-      <SafeAreaView />
+    
       <View>
         {/* Top section */}
         <Logo
@@ -302,7 +307,10 @@ const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
           </View>
         </View>
       </View>
+      
     </KeyboardAvoidingView>
+    
+    
   );
 };
 
