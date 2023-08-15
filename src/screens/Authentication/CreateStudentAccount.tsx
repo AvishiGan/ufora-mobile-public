@@ -60,7 +60,7 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
   const handleCreateStudentAcc = async (values: FormValues) => {
     try {
       const response = await axios.post(`${API_PATH}/register/undergraduate`, {
-        // const response = await axios.post("http://192.168.1.7:3000/register/undergraduate", {
+      //  const response = await axios.post("http://10.22.167.182:3000/api/register/undergraduate", {
         name: values.name,
         email: values.email,
         username: values.username,
@@ -92,6 +92,8 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
         // The request was made but no response was received
         console.error("API error: No response received");
         console.log(error);
+        console.log(API_PATH)
+
       } else {
         const errorMessage = `${JSON.stringify(error.message)}`;
         alert(errorMessage);
