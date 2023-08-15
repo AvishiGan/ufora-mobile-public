@@ -9,6 +9,7 @@ import MentorhipScreen from '../../screens/universityMentoring/MentorhipScreen';
 import MentorsScreen from '../../screens/universityMentoring/MentorsScreen';
 import MyMentorshipScreen from '../../screens/universityMentoring/MyMentorshipScreen';
 import UniversityPeopleScreen from '../../screens/universityMentoring/UniversityPeopleScreen';
+import UserProfileScreen from '../../screens/profile';
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -20,14 +21,15 @@ export type RootStackParamList = {
   MyMentorshipScreen: undefined;
   UniversityPeopleScreen: undefined;
   Friends:undefined;
-  MyFriendsScreen:undefined
+  MyFriendsScreen:undefined;
+  UserProfileScreen: undefined;
 }
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="Welcome">
+    <RootStack.Navigator initialRouteName="Main">
         <RootStack.Screen name='Welcome' component={WelcomeNavigator} options={{headerShown: false}}/>
         <RootStack.Screen name='Friends' component={Friends} options={{headerShown: false}}/>
         <RootStack.Screen name='MyFriendsScreen' component={MyFriendsScreen} options={{headerShown: false}}/>
@@ -46,6 +48,12 @@ const RootNavigator = () => {
         <RootStack.Screen name="MentorsScreen" component={MentorsScreen} options={{headerShown: false}}/>
         <RootStack.Screen name="MyMentorshipScreen" component={MyMentorshipScreen} options={{headerShown: false}}/>
         <RootStack.Screen name="UniversityPeopleScreen" component={UniversityPeopleScreen} options={{headerShown: false}}/>
+
+
+        {/* Profile Screen */}
+        <RootStack.Screen name='UserProfileScreen' component={UserProfileScreen} options={{headerShown: false}} />
+
+
     </RootStack.Navigator>
   )
 }

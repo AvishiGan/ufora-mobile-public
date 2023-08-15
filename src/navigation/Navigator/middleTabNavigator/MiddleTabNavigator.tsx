@@ -85,7 +85,7 @@ const MiddleTabNavigator = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <NavigationContainer>
+      <>
         <Tab.Navigator
           initialRouteName="Posts"
           tabBar={(props) => (
@@ -101,7 +101,7 @@ const MiddleTabNavigator = () => {
           <Tab.Screen name="Blog" component={ProfileBlogSection} />
           <Tab.Screen name="Portfolio" component={ProfilePortfolioSection} />
         </Tab.Navigator>
-      </NavigationContainer>
+      </>
     </SafeAreaView>
   );
 };

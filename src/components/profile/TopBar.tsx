@@ -18,13 +18,11 @@ const TopBar: React.FC<PageTitleBarProps> = ({ titleBarName }) => {
 
   return (
     <View style={styles.headerIconsContainer}>
-      <View style={styles.backIconNameContainer}>
+      <TouchableOpacity onPress={handleGoBack} style={styles.backIconNameContainer}>
         {/* Back icon with TouchableOpacity */}
-        <TouchableOpacity onPress={handleGoBack}>
-          <BackIcon width={8} height={14} color="#4F4E4E" />
-        </TouchableOpacity>
+        <BackIcon width={8} height={14} color="#4F4E4E" />
         <PageTitleSemibold>{titleBarName}</PageTitleSemibold>
-      </View>
+      </TouchableOpacity>
       <View style={styles.chatSearchIconsContainer}>
         <SearchIcon size={24} strokeColor="#4F4E4E" />
         <ChatIcon size={24} strokeColor="#4F4E4E" />
