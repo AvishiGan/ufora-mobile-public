@@ -5,6 +5,7 @@ import FeedScreen from "../../screens/Feed/FeedScreen";
 import MyUniversity from "../../screens/universityMentoring/UniversityScreen";
 import Friends from "../../screens/friends/Friends";
 import NotificationScreen from "../../screens/notification/NotificationScreen";
+import MoreScreen from "../../screens/more/MoreScreen";
 
 import {
   Home,
@@ -47,6 +48,13 @@ const TabNavigator = () => {
             return <Users color={focused ? "#2656FF" : "#B8B8B8"} size={24} />;
           } else if (route.name === "Notification") {
             return <Bell color={focused ? "#2656FF" : "#B8B8B8"} size={24} />;
+          } else if (route.name === "More") {
+            return (
+              <LayoutDashboard
+                color={focused ? "#2656FF" : "#B8B8B8"}
+                size={24}
+              />
+            );
           }
         },
       })}
@@ -69,6 +77,11 @@ const TabNavigator = () => {
       <Tab.Screen
         name="Notification"
         component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="More"
+        component={MoreScreen}
         options={{ headerShown: false }}
       />
     </Tab.Navigator>
