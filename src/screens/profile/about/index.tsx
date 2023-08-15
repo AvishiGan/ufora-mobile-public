@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { styles } from "./cards/styles";
 import {
   IntroCard,
@@ -27,11 +27,13 @@ const cardComponents = [
 const ProfileAboutSection: React.FC = () => {
   return (
     <SafeAreaView>
-      <View style={styles.allCardsContainer}>
-        {cardComponents.map((CardComponent, index) => (
-          <CardComponent key={index} />
-        ))}
-      </View>
+      <ScrollView>
+        <View style={styles.allCardsContainer}>
+          {cardComponents.map((CardComponent, index) => (
+            <CardComponent key={index} />
+          ))}
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

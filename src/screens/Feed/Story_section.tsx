@@ -1,8 +1,15 @@
-import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 import React from "react";
 
 // dummy data
-const imageLink: string = "../../assets/profileLo.jpg";
+// const imageLink: string = "../../assets/profileLo.jpg";
 
 const Story_section = () => {
   return (
@@ -11,7 +18,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require(imageLink)}
+              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
               style={styles.image}
             />
           </View>
@@ -21,14 +28,48 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require(imageLink)}
+              source={require("../../../assets/images/myProfile/common/pic2.jpg")}
               style={styles.image}
             />
           </View>
           <Text numberOfLines={1}>Pasan</Text>
         </TouchableOpacity>
-
-
+        <TouchableOpacity style={styles.story}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require("../../../assets/images/myProfile/common/pic3.png")}
+              style={styles.image}
+            />
+          </View>
+          <Text numberOfLines={1}>Pasan</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.story}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require("../../../assets/images/myProfile/common/pic4.png")}
+              style={styles.image}
+            />
+          </View>
+          <Text numberOfLines={1}>Pasan</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.story}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require("../../../assets/images/myProfile/common/pic5.png")}
+              style={styles.image}
+            />
+          </View>
+          <Text numberOfLines={1}>Pasan</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.story}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+              style={styles.image}
+            />
+          </View>
+          <Text numberOfLines={1}>Pasan</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
@@ -40,6 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 4,
+
   },
   story: {
     alignItems: "center",
