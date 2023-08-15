@@ -1,11 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // SCREENS
-import FeedScreen from "../../screens/Feed/FeedScreen";
+//import FeedScreen from "../../screens/Feed/FeedScreen";
 import MyUniversity from "../../screens/universityMentoring/UniversityScreen";
 import Friends from "../../screens/friends/Friends";
-import NotificationScreen from "../../screens/notification/NotificationScreen";
-import MoreScreen from "../../screens/more/MoreScreen";
+//import NotificationScreen from "../../screens/notification/NotificationScreen";
+import UserMenu from "../../screens/UserMenu";
+import { HeaderLeft, HeaderRight } from "../../components";
 
 import {
   Home,
@@ -22,6 +23,8 @@ export type TabStackParamList = {
   Friends: undefined;
   Notification: undefined;
   More: undefined;
+  blogCenterScreen: undefined;
+  UserMenu: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabStackParamList>();
@@ -48,22 +51,17 @@ const TabNavigator = () => {
             return <Users color={focused ? "#2656FF" : "#B8B8B8"} size={24} />;
           } else if (route.name === "Notification") {
             return <Bell color={focused ? "#2656FF" : "#B8B8B8"} size={24} />;
-          } else if (route.name === "More") {
-            return (
-              <LayoutDashboard
-                color={focused ? "#2656FF" : "#B8B8B8"}
-                size={24}
-              />
-            );
+          } else if (route.name === "blogCenterScreen") {
+            return <LayoutDashboard color={focused ? "#2656FF" : "#B8B8B8"} />;
           }
         },
       })}
     >
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Home"
         component={FeedScreen}
         options={{ headerShown: false }}
-      />
+      /> */}
       <Tab.Screen
         name="University"
         component={MyUniversity}
@@ -74,16 +72,26 @@ const TabNavigator = () => {
         component={Friends}
         options={{ headerShown: false }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Notification"
         component={NotificationScreen}
         options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="More"
-        component={MoreScreen}
-        options={{ headerShown: false }}
-      />
+      /> */}
+      {/* <Tab.Screen
+        name="UserMenu" 
+        component={UserMenu} 
+        options={{headerShown: true,
+        headerStyle: {backgroundColor: '#F2F2F2'},
+        headerShadowVisible: false,
+        headerLeft: () => (
+        <HeaderLeft showTitle={false} headerTitle="Menu" />
+        ),
+        headerRight: () => (
+        <HeaderRight />
+        ),
+        headerTitle: ""
+        }}
+      /> */}
     </Tab.Navigator>
   );
 };
