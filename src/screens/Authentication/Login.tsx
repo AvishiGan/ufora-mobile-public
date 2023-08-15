@@ -19,6 +19,7 @@ import axios from "axios";
 import * as SecureStore from "expo-secure-store";
 import * as Yup from "yup";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
 type Props = StackScreenProps<RootStackParamList, "Login">;
 
 interface FormValues {
@@ -32,7 +33,7 @@ const validationSchema = Yup.object({
 });
 
 const Login: FunctionComponent<Props> = ({ navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
   console.log(API_PATH);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const initialValues: FormValues = {
@@ -42,8 +43,8 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
 
   const handleLogin = async (values: FormValues) => {
     try {
-      const response = await axios.post(`${API_PATH}/login`,{
-      //  const response = await axios.post("http://192.168.1.7:3000/login", {
+    const response = await axios.post(`${API_PATH}/login`,{
+      // const response = await axios.post("http://10.22.167.182:3000/login", {
         username: values.email,
         password: values.password,
       });

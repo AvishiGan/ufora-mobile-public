@@ -20,6 +20,7 @@ import { Picker } from "@react-native-picker/picker";
 import Dropdown from "../../components/authentication/dropdown/Dropdown";
 import * as Yup from "yup";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
 import { SafeAreaView } from "react-native-safe-area-context";
 type Props = StackScreenProps<RootStackParamList, "SelectUniversity">;
 
@@ -37,7 +38,7 @@ const validationSchema = Yup.object({
 });
 
 const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [isSelected, setSelection] = useState(false);
   const [isFormValid, setFormValid] = useState(true);
@@ -55,9 +56,8 @@ const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
     } else {
       setFormValid(true);
       try {
-        const response = await axios.post(
-          `${API_PATH}/register/undergraduate/university`,
-          {
+        const response = await axios.post(`${API_PATH}/register/undergraduate/university`, {
+        // const response = await axios.post("http://192.168.1.7:3000/register/undergraduate/university", {
             username: username,
             university: values.university,
             university_email: values.email,
@@ -70,6 +70,7 @@ const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
         //Request OTP when create account success
         try {
           const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
+          // const otpResponse = await axios.post("http://192.168.1.7:3000/otp/request", {
             email: values.email,
           });
 

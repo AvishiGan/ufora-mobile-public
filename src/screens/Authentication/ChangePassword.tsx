@@ -24,6 +24,7 @@ import * as SecureStore from "expo-secure-store";
 import * as Yup from "yup";
 import RegularSmall from "../../constants/fonts/RegularSmall";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
 type Props = StackScreenProps<RootStackParamList, "ChangePassword">;
 
 interface FormValues {
@@ -39,7 +40,7 @@ const validationSchema = Yup.object({
 });
 
 const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const initialValues: FormValues = {
@@ -51,7 +52,8 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
     try {
       const token = await SecureStore.getItemAsync("password_reset_token");
 
-      const response = await axios.post(`${API_PATH}/password/reset`, {
+       const response = await axios.post(`${API_PATH}/password/reset`, {
+      // const response = await axios.post("http://192.168.1.7:3000/password/reset", {
         password: values.password,
         confirm_password: values.confirmPassword,
         password_reset_token: token,

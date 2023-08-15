@@ -21,6 +21,7 @@ import axios from "axios";
 import * as SecureStore from "expo-secure-store";
 import RegularSmall from "../../constants/fonts/RegularSmall";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
 
 type Props = StackScreenProps<RootStackParamList, "ForgotPassOTP">;
 
@@ -29,7 +30,7 @@ interface FormValues {
 }
 
 const ForgotPassOTP: FunctionComponent<Props> = ({ route, navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const inputRefs = [
@@ -53,9 +54,8 @@ const ForgotPassOTP: FunctionComponent<Props> = ({ route, navigation }) => {
   const handleResendOTP = async (values: FormValues) => {
     const email = route.params.email;
     try {
-      const otpResponse = await axios.post(
-        `${API_PATH}/password/reset/otp/request`,
-        {
+      const otpResponse = await axios.post(`${API_PATH}/password/reset/otp/request`,{
+      // const otpResponse = await axios.post("http://192.168.1.7:3000/password/reset/otp/request",{
           email: email,
         }
       );
@@ -78,9 +78,8 @@ const ForgotPassOTP: FunctionComponent<Props> = ({ route, navigation }) => {
     try {
       const token = await SecureStore.getItemAsync("token");
 
-      const response = await axios.post(
-        `${API_PATH}/password/reset/otp/verify`,
-        {
+      const response = await axios.post(`${API_PATH}/password/reset/otp/verify`,{
+      // const response = await axios.post("http://192.168.1.7:3000/password/reset/otp/verify",{
           otp: otp,
           token: token,
         }

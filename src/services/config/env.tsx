@@ -4,4 +4,5 @@ const apiPath = {
   API_PATH,
 };
 
+console.log(API_PATH)
 export default apiPath;

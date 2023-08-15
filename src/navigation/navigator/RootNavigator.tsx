@@ -27,7 +27,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="Main">
+    <RootStack.Navigator initialRouteName="Welcome">
         <RootStack.Screen name='Welcome' component={WelcomeNavigator} options={{headerShown: false}}/>
         <RootStack.Screen name='Friends' component={Friends} options={{headerShown: false}}/>
         <RootStack.Screen name='MyFriendsScreen' component={MyFriendsScreen} options={{headerShown: false}}/>
@@ -35,6 +35,10 @@ const RootNavigator = () => {
 
         <RootStack.Group>
             <RootStack.Screen name='Main' component={TabNavigator} options={{headerShown : false}}/>
+        </RootStack.Group>
+
+        <RootStack.Group>
+
         </RootStack.Group>
 
         <RootStack.Screen name="UniversityGroupsScreen" component={UniversityGroupsScreen} options={{headerShown: false}}/>
