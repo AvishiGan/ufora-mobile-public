@@ -40,7 +40,7 @@ import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import UserProfile from "./src/screens/profile";
 // import { Text } from "react-native";
-import RootNavigator from "./src/navigation/navigator/RootNavigator";
+//import RootNavigator from "./src/navigation/navigator/RootNavigator";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -53,7 +53,7 @@ export default function App() {
   }
   return (
     <NavigationContainer>
-      <RootNavigator />
+      <WelcomeNavigator />
     </NavigationContainer>
     // <UserProfile />
   );
