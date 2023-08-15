@@ -30,6 +30,7 @@ import axios from "axios";
 import * as Yup from "yup";
 import RegularSmall from "../../constants/fonts/RegularSmall";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
 type Props = StackScreenProps<RootStackParamList, "CreateStudentAccount">;
 
 interface FormValues {
@@ -47,7 +48,7 @@ const validationSchema = Yup.object({
 });
 
 const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   const initialValues: FormValues = {
     name: "",
@@ -59,6 +60,7 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
   const handleCreateStudentAcc = async (values: FormValues) => {
     try {
       const response = await axios.post(`${API_PATH}/register/undergraduate`, {
+        // const response = await axios.post("http://192.168.1.7:3000/register/undergraduate", {
         name: values.name,
         email: values.email,
         username: values.username,
@@ -74,6 +76,7 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
       //Request OTP when create account success
       try {
         const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
+        // const otpResponse = await axios.post("http://10.22.167.182:3000/otp/request", {
           email: values.email,
         });
 
@@ -82,6 +85,7 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
         console.error("OTP Request Error: ", otpError);
       }
     } catch (error: any) {
+      console.log(error)
       if (error.response.status === 500) {
         setErrorMessage("Server Error");
       } else if (error.request) {
