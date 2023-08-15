@@ -23,9 +23,9 @@ import envs from "../../services/config/env";
 import { API_PATH } from '@env';
 type Props = StackScreenProps<RootStackParamList, "StudentOTP">;
 
-// interface FormValues {
-//   [key: string]: string;
-// }
+interface FormValues {
+  [key: string]: string;
+}
 
 const StudentOTP: FunctionComponent<Props> = ({ route, navigation }) => {
   // const { API_PATH } = envs;
@@ -39,14 +39,14 @@ const StudentOTP: FunctionComponent<Props> = ({ route, navigation }) => {
     useRef<TextInput>(null),
   ];
 
-//   const initialValues: FormValues = {
-//     num1: "",
-//     num2: "",
-//     num3: "",
-//     num4: "",
-//     num5: "",
-//     num6: "",
-//   };
+  const initialValues: FormValues = {
+    num1: "",
+    num2: "",
+    num3: "",
+    num4: "",
+    num5: "",
+    num6: "",
+  };
 
   const focusNextField = (index: number) => {
     if (index < inputRefs.length - 1) {

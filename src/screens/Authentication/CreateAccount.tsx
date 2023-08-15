@@ -16,20 +16,20 @@ import { StackScreenProps } from "@react-navigation/stack";
 import SmallerRegular from "../../constants/fonts/SmallerRegular";
 type Props = StackScreenProps<RootStackParamList, "CreateAccount">;
 
-// // interface CustomImageProps {
-// //   source: ImageSourcePropType;
-// // }
+  interface CustomImageProps {
+    source: ImageSourcePropType;
+  }
 
 const CreateAccount: FunctionComponent<Props> = ({ navigation }) => {
   const [activeButton, setActiveButton] = useState("");
 
-//   const handleStudentClick = () => {
-//     setActiveButton("student");
-//   };
+  const handleStudentClick = () => {
+    setActiveButton("student");
+  };
 
-//   const handleBusinessClick = () => {
-//     setActiveButton("business");
-//   };
+  const handleBusinessClick = () => {
+    setActiveButton("business");
+  };
 
   return (
     <>

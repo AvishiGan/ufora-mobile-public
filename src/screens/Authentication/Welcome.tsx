@@ -12,14 +12,14 @@ import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator"
 import { StackScreenProps } from "@react-navigation/stack";
 type Props = StackScreenProps<RootStackParamList, "Welcome">;
 
-// const Welcome: FunctionComponent<Props> = ({ navigation }) => {
-//   const handlePressCreateAccount = () => {
-//     navigation.navigate("CreateAccount");
-//   };
+const Welcome: FunctionComponent<Props> = ({ navigation }) => {
+  const handlePressCreateAccount = () => {
+    navigation.navigate("CreateAccount");
+  };
 
-//   const handlePressLogin = () => {
-//     navigation.navigate("Login");
-//   };
+  const handlePressLogin = () => {
+    navigation.navigate("Login");
+  };
 
   return (
     <>

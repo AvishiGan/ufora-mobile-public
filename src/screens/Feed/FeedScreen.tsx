@@ -7,7 +7,7 @@ import { TabStackParamList } from "../../navigation/navigator/TabNavigator";
 import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useLayoutEffect } from "react";
-import { Image, ScrollView, StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, TextInput, TouchableOpacity, View, Text} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Header from "./Header_section";
@@ -18,24 +18,24 @@ import Chart_section from "./Chart_section";
 import { Rows } from "lucide-react-native";
 
 // // type script navigation protection
-// export type FeedScreeenNavigationProp = CompositeNavigationProp<
-//   BottomTabNavigationProp<TabStackParamList, "Home">,
-//   NativeStackNavigationProp<RootStackParamList>
-// >;
+export type FeedScreeenNavigationProp = CompositeNavigationProp<
+  BottomTabNavigationProp<TabStackParamList, "Home">,
+  NativeStackNavigationProp<RootStackParamList>
+>;
 
-// const FeedScreen = () => {
-//   const navigation = useNavigation<FeedScreeenNavigationProp>();
+const FeedScreen = () => {
+  const navigation = useNavigation<FeedScreeenNavigationProp>();
 
-//   useLayoutEffect(() => {
-//     navigation.setOptions({
-//       headerShown: false,
-//     });
-//   }, []);
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
 
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       {/* SECTION : header */}
-//       <Header />
+  return (
+    <SafeAreaView style={styles.container}>
+      {/* SECTION : header */}
+      <Header />
 
       <ScrollView>
         {/* SECTION : search and profile */}
@@ -59,17 +59,17 @@ import { Rows } from "lucide-react-native";
         </View>
 
 //         {/* SECTION : chart  */}
-//         <Chart_section />
+         <Chart_section />
 
 //         {/* SECTION : stories */}
-//         <Story_section />
+         <Story_section />
 
 //         {/* SECTION : post */}
 //         <Post_section />
 //       </ScrollView>
 //     </SafeAreaView>
-//   );
-// };
+      );
+    };
 
 const styles = StyleSheet.create({
   container: {
@@ -103,4 +103,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// export default FeedScreen;
+export default FeedScreen;
