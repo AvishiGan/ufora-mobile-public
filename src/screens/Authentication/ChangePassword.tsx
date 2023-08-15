@@ -27,10 +27,10 @@ import envs from "../../services/config/env";
 import { API_PATH } from '@env';
 type Props = StackScreenProps<RootStackParamList, "ChangePassword">;
 
-// interface FormValues {
-//   password: string;
-//   confirmPassword: string;
-// }
+interface FormValues {
+  password: string;
+  confirmPassword: string;
+}
 
 const validationSchema = Yup.object({
   password: Yup.string().required("Password is Required"),
@@ -242,4 +242,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// export default ChangePassword;
+export default ChangePassword;

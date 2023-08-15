@@ -95,12 +95,12 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
     }
   };
 
-//   return (
-//     <KeyboardAvoidingView behavior="padding" style={styles.container}>
-//       <StatusBar />
-//       <View>
-//         {/* Top section */}
-//         <Logo source={logo} mainText="Login" subText="Login to your account " />
+  return (
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <StatusBar />
+      <View>
+        {/* Top section */}
+        <Logo source={logo} mainText="Login" subText="Login to your account " />
 
         {/* Bottom section */}
         <View
@@ -220,21 +220,21 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                 </View>
 
 //                 {/* Button */}
-//                 <View
-//                   style={{
-//                     flexDirection: "row",
-//                     marginTop: 25,
-//                     alignItems: "center",
-//                     width: 330,
-//                   }}
-//                 >
-//                   <RegularButton onPress={handleSubmit}>
-//                     <Text style={{ color: "#FEFEFE" }}>Log In</Text>
-//                   </RegularButton>
-//                 </View>
-//               </View>
-//             )}
-//           </Formik>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginTop: 25,
+                    alignItems: "center",
+                    width: 330,
+                  }}
+                >
+                  <RegularButton onPress={handleSubmit}>
+                    <Text style={{ color: "#FEFEFE" }}>Log In</Text>
+                  </RegularButton>
+                </View>
+              </View>
+            )}
+          </Formik>
 
           <View
             style={{
@@ -265,18 +265,18 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
-//   input: {
-//     width: "80%",
-//     height: 40,
-//     borderWidth: 1,
-//     borderColor: "gray",
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  input: {
+    width: "80%",
+    height: 40,
+    borderWidth: 1,
+    borderColor: "gray",
+  },
+});
 
 export default Login;

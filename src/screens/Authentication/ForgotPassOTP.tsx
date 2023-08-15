@@ -249,4 +249,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// export default ForgotPassOTP;
+export default ForgotPassOTP;

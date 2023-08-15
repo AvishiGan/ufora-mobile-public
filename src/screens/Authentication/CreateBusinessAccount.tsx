@@ -428,4 +428,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// export default CreateBusinessAccount;
+export default CreateBusinessAccount;

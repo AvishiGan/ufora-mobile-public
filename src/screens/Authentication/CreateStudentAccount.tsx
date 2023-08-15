@@ -341,4 +341,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// export default CreateStudentAccount;
+export default CreateStudentAccount;
