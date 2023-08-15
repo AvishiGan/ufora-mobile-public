@@ -39,10 +39,6 @@ const RootNavigator = () => {
             <RootStack.Screen name='Main' component={TabNavigator} options={{headerShown : false}}/>
         </RootStack.Group>
 
-        <RootStack.Group>
-
-        </RootStack.Group>
-
         <RootStack.Screen name="UniversityGroupsScreen" component={UniversityGroupsScreen} options={{headerShown: false}}/>
         <RootStack.Screen name="MentorshipScreen" component={MentorhipScreen} options={{headerShown: false}}/>
         <RootStack.Screen name="MentorsScreen" component={MentorsScreen} options={{headerShown: false}}/>
