@@ -1,7 +1,7 @@
 import { View, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
-import { UserProfileTopBar } from "../../components";
+import { TopBar } from "../../components";
 import { Search } from "lucide-react-native";
 import UserProfileNameUniMutualCard from "../../components/universityMentoring/UserProfileNameUniMutualCard";
 
@@ -13,7 +13,7 @@ const UniversityPeopleScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
-      <UserProfileTopBar titleBarName="University of Colombo" />
+      <TopBar titleBarName="University of Colombo" />
 
       {/* input text */}
       <TouchableOpacity style={styles.inputContainer}>
