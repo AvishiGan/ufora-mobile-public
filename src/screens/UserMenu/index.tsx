@@ -5,6 +5,13 @@ import { COLORS } from "../../constants";
 import { ButtonMedium, CardHeadingBold, SemiboldBig } from "../../constants/fonts";
 import { MessageSquarePlus, FileText, FolderKanban, PersonStanding, Sprout, GraduationCap, Shapes, CalendarRange, HeartHandshake, BarChart3, BadgeHelp, Settings, Building2, Briefcase } from "lucide-react-native";
 import menuStyles from "./userMenuStyles.styles";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
+import { useNavigation } from "@react-navigation/native";
+
+export type MoreScreenProps =
+  NativeStackNavigationProp<RootStackParamList>;
+
 
 interface UserMenuProps {
   navigation: any;
@@ -20,6 +27,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ navigation }) => {
   };
 
   const handleProject = () => {
+    const navigation = useNavigation<MoreScreenProps>();
     navigation.navigate('ProjectCentre');
   };
 //   style={{marginTop: -30}}
@@ -105,9 +113,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ navigation }) => {
                                 <BarChart3 size={24} color={COLORS.brandGrey}/>
                                 <ButtonMedium><Text style={{textAlign: "center", color: COLORS.brandGrey}}>Productivity</Text></ButtonMedium>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{...menuStyles.innerRowWrap, width: (cardWidth-50)/3}}>
+                            <TouchableOpacity style={{...menuStyles.innerRowWrap, width: (cardWidth-50)/3}} onPress={() => navigation.navigate("Welcome")}>
                                 <Settings size={24} color={COLORS.brandGrey}/>
-                                <ButtonMedium><Text style={{textAlign: "center", color: COLORS.brandGrey}}>Settings</Text></ButtonMedium>
+                                <ButtonMedium><Text style={{textAlign: "center", color: COLORS.brandGrey}} >Logout</Text></ButtonMedium>
                             </TouchableOpacity>
                             <TouchableOpacity style={{...menuStyles.innerRowWrap, width: (cardWidth-50)/3}}>
                                 <BadgeHelp size={24} color={COLORS.brandGrey}/>

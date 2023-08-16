@@ -58,7 +58,7 @@ const StudentOTP: FunctionComponent<Props> = ({ route, navigation }) => {
     const email = route.params.email;
     try {
       const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
-      // const otpResponse = await axios.post("http://192.168.1.7:3000/otp/request", {
+      // const otpResponse = await axios.post("http://192.168.1.7:3000/api/otp/request", {
         email: email,
       });
       console.log("OTP Request Response: ", otpResponse.data);
@@ -75,7 +75,7 @@ const StudentOTP: FunctionComponent<Props> = ({ route, navigation }) => {
 
     try {
       const response = await axios.post(`${API_PATH}/otp/verify/email`, {
-      // const response = await axios.post("http://192.168.1.7:3000/otp/verify/email", {
+      // const response = await axios.post("http://192.168.1.7:3000/api/otp/verify/email", {
         email: email,
         otp: otp,
       });

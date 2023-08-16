@@ -44,7 +44,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
   const handleLogin = async (values: FormValues) => {
     try {
     const response = await axios.post(`${API_PATH}/login`,{
-      // const response = await axios.post("http://10.22.167.182:3000/login", {
+      // const response = await axios.post("http://10.22.167.182:3000/api/login", {
         username: values.email,
         password: values.password,
       });
@@ -63,7 +63,10 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
 
         if (error.response.status === 404) {
           setErrorMessage("Invalid Login Credentials");
-        } else if (
+        } else if (error.response.status === 400){
+          setErrorMessage("Invalid Login Credentials");
+        }
+        else if (
           error.response.status === 401 &&
           error.response.data.InvalidLogin
         ) {
