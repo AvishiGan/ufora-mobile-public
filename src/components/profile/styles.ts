@@ -241,7 +241,7 @@ export const styles = StyleSheet.create({
         webkitLineClamp: 2,
         color: "#2656FF",
         textOverflow: "ellipsis",
-        fontFamily: "Poppins",
+        // fontFamily: "Poppins",
         fontSize: 14,
         fontStyle: "normal",
         fontWeight: "700",

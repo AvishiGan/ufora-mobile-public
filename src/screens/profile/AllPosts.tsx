@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Text, TouchableOpacity } from "react-native";
 import { PostCard, ContentAdditionBar, CreatePost } from "../../components";
 import {
   architecture,
