@@ -87,7 +87,7 @@ const MiddleTabNavigator = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <>
         <Tab.Navigator
-          initialRouteName="Posts"
+          initialRouteName="About"
           tabBar={(props) => (
             <CustomTab
               {...props}

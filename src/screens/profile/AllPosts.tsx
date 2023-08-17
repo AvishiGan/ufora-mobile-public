@@ -14,19 +14,28 @@ import {
 import { styles } from "../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/navigator/WelcomeNavigator";
+import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
 
-type Props = StackScreenProps<RootStackParamList, "AllPosts">;
+// type Props = StackScreenProps<RootStackParamList, "AllPosts">;
+type Props =  NativeStackNavigationProp<RootStackParamList>;
 
-const ProfilePostSection: React.FC<Props> = ({ navigation }) => {
+
+const ProfilePostSection: React.FC = () => {
+  const navigation = useNavigation<Props>();
   return (
     <SafeAreaView>
       <ScrollView>
         <View style={styles.postActionContainer}>
-          <ContentAdditionBar
+          {/* <ContentAdditionBar
             title="Add a new post"
             onPress={() => navigation.navigate("CreatePost")}
-          />
+          /> */}
+
+          <TouchableOpacity onPress={() => navigation.navigate("CreatePost")}>
+            <Text>Add a new post</Text>
+          </TouchableOpacity>
           <View style={styles.allPostsContainer}>
             <PostCard
               postDescription="This is an amazing architectural concept which we can implement in our group project"
