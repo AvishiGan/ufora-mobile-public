@@ -59,6 +59,7 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
 
   const handleCreateStudentAcc = async (values: FormValues) => {
     try {
+      console.log(API_PATH)
       const response = await axios.post(`${API_PATH}/register/undergraduate`, {
       //  const response = await axios.post("http://10.22.167.182:3000/api/register/undergraduate", {
         name: values.name,

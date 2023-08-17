@@ -8,9 +8,9 @@ import RootNavigator from "./src/navigation/navigator/RootNavigator";
 import React, { useState, useEffect } from 'react';
 
  //remove the following 3 lines after interim
-import { LogBox } from 'react-native';
-LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
-LogBox.ignoreAllLogs();//Ignore all log notifications
+// import { LogBox } from 'react-native';
+// LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+// LogBox.ignoreAllLogs();//Ignore all log notifications
 
 export default function App() {
   const [fontsLoaded] = useFonts({

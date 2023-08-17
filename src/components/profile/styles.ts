@@ -241,7 +241,7 @@ export const styles = StyleSheet.create({
         webkitLineClamp: 2,
         color: "#2656FF",
         textOverflow: "ellipsis",
-        // fontFamily: "Poppins",
+        fontFamily: "Poppins",
         fontSize: 14,
         fontStyle: "normal",
         fontWeight: "700",
@@ -426,9 +426,23 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         fontStyle: "normal",
         fontWeight: "600",
-        paddingVertical: 15,
-        paddingHorizontal: 10,
         marginBottom: 60,
+        marginTop: 0,
+        marginLeft: 15,
+        marginRight: 15,
+    },
+
+    createPostHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        alignSelf: 'stretch',
+        flexDirection: 'row',
+        marginTop: 20,
+        marginBottom: 15,
+        paddingHorizontal: 5,
+        marginRight: 10,
+        marginLeft: 10,
     },
 
     //////////////////////////////////////////////////////////////////Buttons//////////////////////////////////////////////////////////////////////////////////
@@ -436,8 +450,8 @@ export const styles = StyleSheet.create({
     /*************************************************************Profile Header Buttons******************************************************************** */
     profileHeaderButtonContainer: {
         display: "flex",
-        padding: 5,
-        paddingHorizontal: 10,
+        // padding: 5,
+        // paddingHorizontal: 10,
         justifyContent: "center",
         alignItems: "center",
         gap: 10,
@@ -456,21 +470,17 @@ export const styles = StyleSheet.create({
       createPostButtonContainer: {
         display: "flex",
         padding: 10,
-        paddingHorizontal: 10,
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 10,
+        justifyContent: "space-between",
+        alignItems: "flex-start",
         borderRadius: 10,
         borderWidth: 1,
         borderColor: "#4F4E4E",
         flexDirection: "row",
+        marginLeft: 13,
+        marginRight: 13,
+        marginBottom: 15,
       },
-
-      headerAccessLevelContainer: {
-        display: "flex",
-        width: "100%",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexDirection: "row",
-      },
+    //   sharePostButton: {
+    //     backgroundColor: "#2656FF",
+    //   }
 });

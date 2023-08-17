@@ -15,29 +15,32 @@ const httpClient = axios.create({
   baseURL: HOST_NAME,
   headers: {
     "Content-Type": "application/json",
+    Authorization:
+      // Remove this manually added token
+      "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWZ5OTJ1Y2g2OWk2OHVkd2Z5dGEiLCJ1c2VyX3R5cGUiOiJ1bmRlcmdyYWR1YXRlIiwiaWF0IjoxNjkyMTI1MDg4LCJleHAiOjE2OTQ3MTcwODgsInVzZXJuYW1lIjpudWxsfQ.yinLBy2sx0gAW5jvWJrv_EFfnvUShA0ylKckUNWGhU0",
   },
 });
 
-/**
- * @constant ApiClient | HTTP client wrapper for handling API requests
- */
 const ApiClient = {
   post: async <T,>(url: string, data: any): Promise<T> => {
     try {
       const response = await httpClient.post<ApiResponse<T>>(url, data);
       return response.data.data;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        throw new Error(JSON.stringify(error.response?.data));
-      } else if (error instanceof Error && "request" in error) {
-        throw new Error("API error: No response received");
-      } else {
-        throw new Error(
-          error instanceof Error ? error.message : "Unknown error"
-        );
-      }
+      // Handle errors here
+      throw error;
+    }
+  },
+
+  get: async <T,>(url: string): Promise<T> => {
+    try {
+      const response = await httpClient.get<ApiResponse<T>>(url);
+      return response.data;
+    } catch (error) {
+      // Handle errors here
+      throw error;
     }
   },
 };
 
-export default ApiClient;
+export default ApiClient;

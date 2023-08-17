@@ -27,7 +27,6 @@ const UserMenu: React.FC<UserMenuProps> = ({ navigation }) => {
   };
 
   const handleProject = () => {
-    const navigation = useNavigation<MoreScreenProps>();
     navigation.navigate('ProjectCentre');
   };
 //   style={{marginTop: -30}}

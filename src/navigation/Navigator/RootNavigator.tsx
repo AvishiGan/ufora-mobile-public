@@ -17,6 +17,10 @@ import ProjectCentre from "../../screens/project/projectCentreScreen";
 import ProjectContent from "../../screens/project/projectContentScreen";
 import { HeaderLeft, HeaderRight } from "../../components";
 
+//
+import CreatePost from "../../components/profile/createPost/CreatePost";
+
+
 export type RootStackParamList = {
   Welcome: undefined;
   Main: undefined;
@@ -34,6 +38,9 @@ export type RootStackParamList = {
   BlogContent: undefined;
   ProjectCentre: undefined;
   ProjectContent: undefined;
+
+  // avishi
+  CreatePost : undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -41,6 +48,12 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 const RootNavigator = () => {
   return (
     <RootStack.Navigator initialRouteName="Main">
+      <RootStack.Screen
+        name="CreatePost"
+        component={CreatePost}
+        options={{ headerShown: false }}
+      />
+
       <RootStack.Screen
         name="Welcome"
         component={WelcomeNavigator}

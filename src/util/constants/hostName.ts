@@ -1,1 +1,3 @@
-export const HOST_NAME = "http://192.168.1.6:3000";
+import { API_PATH } from '@env';
+
+export const HOST_NAME = API_PATH;
