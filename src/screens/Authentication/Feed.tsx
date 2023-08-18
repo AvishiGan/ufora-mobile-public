@@ -85,7 +85,8 @@ const Feed: FunctionComponent = () => {
           return;
         }
 
-        const response = await axios.post(`${API_PATH}/test`, null, {
+        // const response = await axios.post(`${API_PATH}/test`, null, {
+        const response = await axios.post("http://192.168.1.7:3000/test", null, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },

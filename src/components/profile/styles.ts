@@ -1,3 +1,4 @@
+import { Flex } from "@react-native-material/core";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -9,9 +10,8 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
-        // paddingBottom: 15,
-        // backgroundColor: "#FEFEFE",
         paddingHorizontal: 13,
+        marginTop:20
 
     },
     backIconNameContainer: {
@@ -125,7 +125,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
-        backgroundColor: "#87929D",
     },
     profilePicNameUniTimeContainer: {
         display: 'flex',
@@ -169,8 +168,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
         borderRadius: 15,
-        // backgroundColor: "var(--brand-white, #FEFEFE)",
-        backgroundColor: "orange",
         flexDirection: 'row',
     },
     blogImage: {
@@ -193,7 +190,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
         gap: 10,
-        backgroundColor: "yellow",
+        // backgroundColor: "yellow",
         marginRight: 5,
         marginTop: 5,
         marginBottom: 5,
@@ -224,7 +221,6 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         gap: 10,
-        backgroundColor: "red",
         marginHorizontal: 10,
         marginTop: 25,
         marginBottom: 25,
@@ -236,10 +232,8 @@ export const styles = StyleSheet.create({
         width: "100%",
         paddingTop: 15,
         flexDirection: 'column',
-        // justifyContent: 'center',
         alignItems: 'center',
         gap: 15,
-        backgroundColor: "pink",
     },
     seeMore:{
         overflow: "hidden",
@@ -329,16 +323,13 @@ export const styles = StyleSheet.create({
     singleProjectContainer: {
         display: 'flex',
         width: "100%",
-        // padding: 5,
         flexDirection: 'column',
         alignItems: 'flex-start',
         gap: 10,
         borderRadius: 15,
-        backgroundColor: "lightgreen",
     },
     projectImage: {
         height: 150,
-        // alignSelf: 'stretch',
         width: "97%",
         borderRadius: 15,
         marginTop: 5,
@@ -355,7 +346,6 @@ export const styles = StyleSheet.create({
         alignSelf: 'stretch',
         marginBottom: 5,
         marginHorizontal: 5,
-        backgroundColor: "yellow",
     },
     projectArticleContainer: {
         display: 'flex',
@@ -364,9 +354,6 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
         gap: 10,
         alignSelf: 'stretch',
-        // marginTop: 1,
-        // marginHorizontal: 5,
-        backgroundColor: "lightblue",
     },
 
     /******************************************************All Projects************************************************************/
@@ -388,8 +375,6 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         display: "flex",
-        // backgroundColor: "#B8B8B8",
-        backgroundColor: "red",
         gap: 10,
     },
 
@@ -415,7 +400,6 @@ export const styles = StyleSheet.create({
         gap: 10,
         alignSelf: "stretch",
         borderRadius: 15,
-        backgroundColor: "purple",
         flexDirection: "row",
         marginBottom: 15,
     },
@@ -442,9 +426,23 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         fontStyle: "normal",
         fontWeight: "600",
-        paddingVertical: 15,
-        paddingHorizontal: 10,
         marginBottom: 60,
+        marginTop: 0,
+        marginLeft: 15,
+        marginRight: 15,
+    },
+
+    createPostHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        alignSelf: 'stretch',
+        flexDirection: 'row',
+        marginTop: 20,
+        marginBottom: 15,
+        paddingHorizontal: 5,
+        marginRight: 10,
+        marginLeft: 10,
     },
 
     //////////////////////////////////////////////////////////////////Buttons//////////////////////////////////////////////////////////////////////////////////
@@ -452,8 +450,8 @@ export const styles = StyleSheet.create({
     /*************************************************************Profile Header Buttons******************************************************************** */
     profileHeaderButtonContainer: {
         display: "flex",
-        padding: 5,
-        paddingHorizontal: 10,
+        // padding: 5,
+        // paddingHorizontal: 10,
         justifyContent: "center",
         alignItems: "center",
         gap: 10,
@@ -472,13 +470,17 @@ export const styles = StyleSheet.create({
       createPostButtonContainer: {
         display: "flex",
         padding: 10,
-        paddingHorizontal: 10,
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 10,
+        justifyContent: "space-between",
+        alignItems: "flex-start",
         borderRadius: 10,
         borderWidth: 1,
         borderColor: "#4F4E4E",
         flexDirection: "row",
+        marginLeft: 13,
+        marginRight: 13,
+        marginBottom: 15,
       },
+    //   sharePostButton: {
+    //     backgroundColor: "#2656FF",
+    //   }
 });

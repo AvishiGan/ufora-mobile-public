@@ -31,6 +31,7 @@ import axios from "axios";
 import * as Yup from "yup";
 import { Building } from "lucide-react-native";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
 type Props = StackScreenProps<RootStackParamList, "CreateBusinessAccount">;
 
 interface FormValues {
@@ -50,7 +51,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const CreateBusinessAccount: FunctionComponent<Props> = ({ navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
   const [isSelected, setSelection] = useState(false);
   const [isFormValid, setFormValid] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -69,6 +70,7 @@ const CreateBusinessAccount: FunctionComponent<Props> = ({ navigation }) => {
       setFormValid(true);
       try {
         const response = await axios.post(`${API_PATH}/register/company`, {
+        // const response = await axios.post("http://192.168.1.7:3000/register/company", {
           name: values.name,
           email: values.email,
           username: values.username,
@@ -81,6 +83,7 @@ const CreateBusinessAccount: FunctionComponent<Props> = ({ navigation }) => {
         //Request OTP when create account success
         try {
           const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
+          // const otpResponse = await axios.post("http://192.168.1.7:3000/otp/request", {
             email: values.email,
           });
 

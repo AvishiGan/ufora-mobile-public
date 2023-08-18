@@ -20,6 +20,7 @@ import { Field, Formik } from "formik";
 import axios from "axios";
 import RegularSmall from "../../constants/fonts/RegularSmall";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
 type Props = StackScreenProps<RootStackParamList, "StudentOTP">;
 
 interface FormValues {
@@ -27,7 +28,7 @@ interface FormValues {
 }
 
 const StudentOTP: FunctionComponent<Props> = ({ route, navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   const inputRefs = [
     useRef<TextInput>(null),
@@ -57,6 +58,7 @@ const StudentOTP: FunctionComponent<Props> = ({ route, navigation }) => {
     const email = route.params.email;
     try {
       const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
+      // const otpResponse = await axios.post("http://192.168.1.7:3000/api/otp/request", {
         email: email,
       });
       console.log("OTP Request Response: ", otpResponse.data);
@@ -73,6 +75,7 @@ const StudentOTP: FunctionComponent<Props> = ({ route, navigation }) => {
 
     try {
       const response = await axios.post(`${API_PATH}/otp/verify/email`, {
+      // const response = await axios.post("http://192.168.1.7:3000/api/otp/verify/email", {
         email: email,
         otp: otp,
       });

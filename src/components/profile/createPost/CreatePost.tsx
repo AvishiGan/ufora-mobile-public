@@ -1,49 +1,84 @@
 import React, { useState } from "react";
 import { View, TextInput } from "react-native";
 import { styles } from "../styles";
-import PropTypes from "prop-types";
-import { TopBar } from "../../../components";
-import { COLORS, PageTitleSemibold } from "../../../constants";
-import CreatePostHeader from "./header";
+import { TopBar } from "../..";
+import { COLORS } from "../../../constants";
+import CreatePostHeader from "./Header";
 import { profileData } from "../../../screens/profile/data";
 import { AddPhotoVideoButton, SharePostButton } from "../buttons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import * as ImagePicker from "expo-image-picker";
+import Post from "../../../model/PostModel";
+import { createPost } from "../../../services/PostService";
 
 const CreatePost = () => {
-  const [postText, setPostText] = useState("");
+  const [caption, setCaption] = useState("");
+  const [selectedMedia, setSelectedMedia] = useState<string | undefined>(
+    undefined
+  );
+
+  const handleMediaSelection = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (status !== "granted") {
+      console.log("Permission denied");
+      return;
+    }
+
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 0.8,
+    });
+
+    if (!result.canceled) {
+      console.log(result.assets[0].uri);
+      setSelectedMedia(result.assets[0].uri);
+    }
+  };
+
+  const handleSharePostButtonClick = async () => {
+    console.log("Button pressed! Caption:", caption);
+
+    try {
+      if (!caption) throw new Error("Caption is empty");
+
+      const post: Post = {
+        caption,
+        content: selectedMedia || "",
+        access_level: "public",
+      };
+
+      await createPost(post);
+      alert("Created post");
+    } catch (error) {
+      alert("Failed to create post" + error);
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1 }}>
-        {/* Top bar */}
-        <TopBar titleBarName="Create Post" />
-        {/* Create post header */}
-        <CreatePostHeader data={profileData} />
-        {/* Input field */}
-        <TextInput
-          value={postText}
-          onChangeText={setPostText}
-          placeholder={`Hey ${profileData.firstName}, What’s special today?`}
-          placeholderTextColor={COLORS.placeHolder}
-          style={[styles.inputField]}
-          multiline={true} // Enable multiline
-        />
-        {/* Buttons */}
-        <View style={styles.twoButtonsContainer}>
-          <AddPhotoVideoButton onPress={handleButtonPress} />
-          <SharePostButton onPress={handleButtonPress} />
-        </View>
+      {/* Top bar */}
+      <TopBar titleBarName="Create Post" />
+      {/* Create post header */}
+      <CreatePostHeader data={profileData} />
+      {/* Input field */}
+      <TextInput
+        onChangeText={(val) => setCaption(val)} // Update the caption state
+        value={caption} // Bind the value of the input field to the caption state
+        placeholder={`Hey ${profileData.firstName}, What’s special today?`}
+        placeholderTextColor={COLORS.placeHolder}
+        style={[styles.inputField]}
+        multiline={true} // Enable multiline
+      />
+      {/* Buttons */}
+      <View style={styles.twoButtonsContainer}>
+        <AddPhotoVideoButton onPress={handleMediaSelection} />
+        <SharePostButton onPress={handleSharePostButtonClick} />
       </View>
     </SafeAreaView>
   );
-};
-
-CreatePost.propTypes = {
-  postImage: PropTypes.any.isRequired,
-};
-
-const handleButtonPress = () => {
-  console.log("Button pressed!");
 };
 
 export default CreatePost;

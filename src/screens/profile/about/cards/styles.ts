@@ -12,21 +12,15 @@ export const styles = StyleSheet.create({
     individualCardContainer: {
         display: 'flex',
         width: '95%',
-        // height: 'auto',
-        // paddingVertical: 10,
-        // paddingHorizontal: 10,
         flexDirection: 'column',
         alignItems: 'flex-start',
         gap: 10,
         borderRadius: 15,
         backgroundColor: '#FEFEFE',
-        // flexShrink: 0,
-        // flexWrap: 'wrap',
     },
     allDetailsContainer: {
       display: 'flex',
       flexDirection: 'column',
-      // marginLeft: 50,
     },
     iconAndDetailsContainer: {
         display: 'flex',

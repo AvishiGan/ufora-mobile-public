@@ -11,7 +11,7 @@ import SelectUniversity from "../../screens/Authentication/SelectUniversity";
 import UniOTP from "../../screens/Authentication/UniOTP";
 import ForgotPassOTP from "../../screens/Authentication/ForgotPassOTP";
 import Friends from "../../screens/friends/Friends";
-import MyFriends from "../../screens/friends/MyFriends";
+import MyFriendsScreen from "../../screens/friends/MyFriendsScreen";
 
 //React Navigation
 import { NavigationContainer } from "@react-navigation/native";
@@ -20,9 +20,13 @@ import Feed from "../../screens/Authentication/Feed";
 import StudentOTP from "../../screens/Authentication/StudentOTP";
 import { COLORS } from "../../constants";
 import { HeaderRight, HeaderLeft } from "../../components";
-import BlogCentre from "../../screens/blog";
+// import BlogCentre from "../../screens/blog";
 import FeedScreen from "../../screens/Feed/FeedScreen";
-import TabNavigator from "./TabNavigator";
+// import TabNavigator from "./TabNavigator";
+
+// Profile related navigation
+import CreatePost from "../../components/profile/createPost/CreatePost";
+import AllPosts from "../../screens/profile/AllPosts";
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -40,9 +44,11 @@ export type RootStackParamList = {
   Feed: undefined;
   BlogCentre: undefined;
   Friends: undefined;
-  MyFriends: undefined;
+  MyFriendsScreen: undefined;
   FeedScreen: undefined;
   Main: undefined;
+  AllPosts: undefined;
+  CreatePost: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -111,11 +117,11 @@ const WelcomeNavigator = () => {
         component={ForgotPassOTP}
         options={{ headerShown: false }}
       />
-       <Stack.Screen
+      {/* <Stack.Screen
         name="Main"
         component={TabNavigator}
         options={{ headerShown: false }}
-      />
+      /> */}
       <Stack.Screen name="Feed" component={Feed} />
       {/* <Stack.Screen 
                     name="BlogCentre"
@@ -138,8 +144,8 @@ const WelcomeNavigator = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="MyFriends"
-        component={MyFriends}
+        name="MyFriendsScreen"
+        component={MyFriendsScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -147,8 +153,17 @@ const WelcomeNavigator = () => {
         component={FeedScreen}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="CreatePost"
+        component={CreatePost}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="AllPosts"
+        component={AllPosts}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
-    // </NavigationContainer>
   );
 };
 
