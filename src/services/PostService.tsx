@@ -8,15 +8,6 @@ import { Post } from "../model";
  */
 export const createPost = async (post: Post) => {
   try {
-    // const formData = new FormData();
-    // formData.append("caption", post.caption);
-    // formData.append("access_level", AccessLevel.Public); // Hardcoded access level
-    // formData.append("content", post.media); // Hardcoded access level
-
-    // if (post.media) {
-    //   formData.append("content", post.media);
-    // }
-
     const response = await ApiClient.post("/post/create", post);
     console.log("Post created:", response);
     alert("Post created!");
