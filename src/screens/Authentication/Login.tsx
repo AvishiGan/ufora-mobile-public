@@ -19,6 +19,7 @@ import axios from "axios";
 import * as SecureStore from "expo-secure-store";
 import * as Yup from "yup";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
 type Props = StackScreenProps<RootStackParamList, "Login">;
 
 interface FormValues {
@@ -32,7 +33,8 @@ const validationSchema = Yup.object({
 });
 
 const Login: FunctionComponent<Props> = ({ navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
+  console.log(API_PATH);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const initialValues: FormValues = {
     email: "",
@@ -41,8 +43,8 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
 
   const handleLogin = async (values: FormValues) => {
     try {
-      //const response = await axios.post(`${API_PATH}/login`,{
-       const response = await axios.post("http://10.22.167.182:3000/login", {
+    const response = await axios.post(`${API_PATH}/login`,{
+      // const response = await axios.post("http://10.22.167.182:3000/api/login", {
         username: values.email,
         password: values.password,
       });
@@ -61,7 +63,10 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
 
         if (error.response.status === 404) {
           setErrorMessage("Invalid Login Credentials");
-        } else if (
+        } else if (error.response.status === 400){
+          setErrorMessage("Invalid Login Credentials");
+        }
+        else if (
           error.response.status === 401 &&
           error.response.data.InvalidLogin
         ) {
@@ -83,6 +88,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
         // The request was made but no response was received
         console.error("API error: No response received");
         console.log(error);
+        console.log(API_PATH)
       } else {
         // Something happened in setting up the request that triggered an Error
         const errorMessage = `${JSON.stringify(error.message)}`;

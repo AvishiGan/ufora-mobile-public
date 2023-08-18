@@ -15,11 +15,13 @@ import { StackScreenProps } from "@react-navigation/stack";
 import React, { FunctionComponent, useState } from "react";
 import SmallerRegular from "../../constants/fonts/SmallerRegular";
 import axios from "axios";
-import { SafeAreaView } from "react-native-safe-area-context";
+
 import { Picker } from "@react-native-picker/picker";
 import Dropdown from "../../components/authentication/dropdown/Dropdown";
 import * as Yup from "yup";
 import envs from "../../services/config/env";
+import { API_PATH } from '@env';
+import { SafeAreaView } from "react-native-safe-area-context";
 type Props = StackScreenProps<RootStackParamList, "SelectUniversity">;
 
 interface FormValues {
@@ -29,11 +31,14 @@ interface FormValues {
 
 const validationSchema = Yup.object({
   university: Yup.string().required("Select a University"),
-  email: Yup.string().email("Invalid Email").required("Email is Required"),
+  email: Yup.string()
+    .email("Invalid Email")
+    .required("Email is Required")
+    .matches(/^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+ac\.lk$/i, "Invalid domain. It should end with .ac.lk"),
 });
 
 const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
-  const { API_PATH } = envs;
+  // const { API_PATH } = envs;
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [isSelected, setSelection] = useState(false);
   const [isFormValid, setFormValid] = useState(true);
@@ -51,9 +56,8 @@ const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
     } else {
       setFormValid(true);
       try {
-        const response = await axios.post(
-          `${API_PATH}/register/undergraduate/university`,
-          {
+        const response = await axios.post(`${API_PATH}/register/undergraduate/university`, {
+        // const response = await axios.post("http://192.168.1.7:3000/register/undergraduate/university", {
             username: username,
             university: values.university,
             university_email: values.email,
@@ -66,6 +70,7 @@ const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
         //Request OTP when create account success
         try {
           const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
+          // const otpResponse = await axios.post("http://192.168.1.7:3000/otp/request", {
             email: values.email,
           });
 
@@ -97,12 +102,13 @@ const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
   };
 
   return (
-    <KeyboardAvoidingView
+    
+      <KeyboardAvoidingView
       keyboardVerticalOffset={255}
       behavior="padding"
       style={styles.container}
     >
-      <SafeAreaView />
+    
       <View>
         {/* Top section */}
         <Logo
@@ -302,7 +308,10 @@ const SelectUniversity: FunctionComponent<Props> = ({ route, navigation }) => {
           </View>
         </View>
       </View>
+      
     </KeyboardAvoidingView>
+    
+    
   );
 };
 

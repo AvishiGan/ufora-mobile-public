@@ -1,21 +1,21 @@
+import { View, Image, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
-import { View, Image, TextInput, TouchableOpacity } from "react-native";
 
-// PROFILE PICTURE
-// const imageLink: string = "'../../../assets/images/myProfile/common/profile-picture.png'";
+// dummy data
+// const imageLink: string = "?";
 
 const Search_and_Profile_section = () => {
   return (
-    <View className="flex-row space-x-2">
+    <View style={styles.container}>
       {/* profile picture */}
-      <TouchableOpacity className=" w-12 h-12 content-center items-center ">
-        {/* <Image
-          source={require(imageLink)}
-          className="h-full w-full rounded-full"
-        /> */}
+      <TouchableOpacity style={styles.profilePicture}>
+        <Image
+          source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+          style={styles.image}
+        />
       </TouchableOpacity>
       {/* input text */}
-      <TouchableOpacity className="flex-1 p-3 rounded-xl border-black border-0.5">
+      <TouchableOpacity style={styles.inputContainer}>
         <TextInput
           editable={false}
           placeholder="Hey Isuru, What's special Today?"
@@ -25,5 +25,33 @@ const Search_and_Profile_section = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    width: 100,
+    gap: 5,
+    marginBottom:20
+  },
+  profilePicture: {
+    width: 48,
+    height: 48,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    height: "100%",
+    width: "100%",
+    borderRadius: 9999,
+  },
+  inputContainer: {
+    padding: 12,
+    borderRadius: 15,
+    borderColor: "black",
+    borderWidth: 0.5,
+    width: 290,
+    marginLeft: 5
+  },
+});
 
 export default Search_and_Profile_section;

@@ -1,31 +1,187 @@
-import React from 'react'
-import TabNavigator from './TabNavigator';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import WelcomeNavigator from './WelcomeNavigator';
+import React from "react";
+import TabNavigator from "./TabNavigator";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import WelcomeNavigator from "./WelcomeNavigator";
+import Friends from "../../screens/friends/Friends";
+import MyFriendsScreen from "../../screens/friends/MyFriendsScreen";
+import UniversityGroupsScreen from "../../screens/universityMentoring/UniversityGroupsScreen";
+import MentorhipScreen from "../../screens/universityMentoring/MentorhipScreen";
+import MentorsScreen from "../../screens/universityMentoring/MentorsScreen";
+import MyMentorshipScreen from "../../screens/universityMentoring/MyMentorshipScreen";
+import UniversityPeopleScreen from "../../screens/universityMentoring/UniversityPeopleScreen";
+import UserProfileScreen from "../../screens/profile";
+import BlogCentre from "../../screens/blog/blogCentreScreen";
+import BlogContent from "../../screens/blog/blogContentScreen";
+import AddBlog from "../../screens/blog/blogEditorScreen";
+import ProjectCentre from "../../screens/project/projectCentreScreen";
+import ProjectContent from "../../screens/project/projectContentScreen";
+import { HeaderLeft, HeaderRight } from "../../components";
+
+//
+import CreatePost from "../../components/profile/createPost/CreatePost";
+
 
 export type RootStackParamList = {
   Welcome: undefined;
-  Main : undefined;
-  Login:undefined;
-  UniversityGroupsScreen : undefined;
-  MentorshipScreen : undefined;
-  MentorsScreen : undefined;
+  Main: undefined;
+  Login: undefined;
+  UniversityGroupsScreen: undefined;
+  MentorshipScreen: undefined;
+  MentorsScreen: undefined;
   MyMentorshipScreen: undefined;
   UniversityPeopleScreen: undefined;
-}
+  Friends: undefined;
+  MyFriendsScreen: undefined;
+  UserProfileScreen: undefined;
+  BlogCentre: undefined;
+  AddBlog: undefined;
+  BlogContent: undefined;
+  ProjectCentre: undefined;
+  ProjectContent: undefined;
+
+  // avishi
+  CreatePost : undefined;
+};
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
     <RootStack.Navigator initialRouteName="Main">
-        <RootStack.Screen name='Welcome' component={WelcomeNavigator} options={{headerShown: false}}/>
+      <RootStack.Screen
+        name="CreatePost"
+        component={CreatePost}
+        options={{ headerShown: false }}
+      />
 
-        <RootStack.Group>
-            <RootStack.Screen name='Main' component={TabNavigator} options={{headerShown : false}}/>
-        </RootStack.Group>
+      <RootStack.Screen
+        name="Welcome"
+        component={WelcomeNavigator}
+        options={{ headerShown: false }}
+      />
+      <RootStack.Screen
+        name="Friends"
+        component={Friends}
+        options={{ headerShown: false }}
+      />
+      <RootStack.Screen
+        name="MyFriendsScreen"
+        component={MyFriendsScreen}
+        options={{ headerShown: false }}
+      />
+
+      <RootStack.Group>
+        <RootStack.Screen
+          name="Main"
+          component={TabNavigator}
+          options={{ headerShown: false }}
+        />
+      </RootStack.Group>
+
+      <RootStack.Screen
+        name="UniversityGroupsScreen"
+        component={UniversityGroupsScreen}
+        options={{ headerShown: false }}
+      />
+      <RootStack.Screen
+        name="MentorshipScreen"
+        component={MentorhipScreen}
+        options={{ headerShown: false }}
+      />
+      <RootStack.Screen
+        name="MentorsScreen"
+        component={MentorsScreen}
+        options={{ headerShown: false }}
+      />
+      <RootStack.Screen
+        name="MyMentorshipScreen"
+        component={MyMentorshipScreen}
+        options={{ headerShown: false }}
+      />
+      <RootStack.Screen
+        name="UniversityPeopleScreen"
+        component={UniversityPeopleScreen}
+        options={{ headerShown: false }}
+      />
+
+      {/* Profile Screen */}
+      <RootStack.Screen
+        name="UserProfileScreen"
+        component={UserProfileScreen}
+        options={{ headerShown: false }}
+      />
+
+      {/* Blogs */}
+      <RootStack.Screen
+        name="BlogCentre"
+        component={BlogCentre}
+        options={{
+          headerShown: true,
+          headerStyle: { backgroundColor: "#F2F2F2" },
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <HeaderLeft showTitle={true} headerTitle={"Blog Centre"} /> // Show the "Blog Centre" text
+          ),
+          headerRight: () => <HeaderRight />,
+          headerTitle: "",
+        }}
+      />
+
+      <RootStack.Screen
+        name="AddBlog"
+        component={AddBlog}
+        options={{
+          headerShown: true,
+          headerStyle: { backgroundColor: "#F2F2F2" },
+          headerShadowVisible: false,
+          headerLeft: () => <HeaderLeft showTitle={false} headerTitle="" />,
+          headerRight: () => <HeaderRight />,
+          headerTitle: "",
+        }}
+      />
+
+      <RootStack.Screen
+        name="BlogContent"
+        component={BlogContent}
+        options={{
+          headerShown: true,
+          headerStyle: { backgroundColor: "#F2F2F2" },
+          headerShadowVisible: false,
+          headerLeft: () => <HeaderLeft showTitle={false} headerTitle="" />,
+          headerRight: () => <HeaderRight />,
+          headerTitle: "",
+        }}
+      />
+      {/* Projects */}
+      <RootStack.Screen
+        name="ProjectCentre"
+        component={ProjectCentre}
+        options={{
+          headerShown: true,
+          headerStyle: { backgroundColor: "#F2F2F2" },
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <HeaderLeft showTitle={true} headerTitle={"Project Centre"} />
+          ),
+          headerRight: () => <HeaderRight />,
+          headerTitle: "",
+        }}
+      />
+
+      <RootStack.Screen
+        name="ProjectContent"
+        component={ProjectContent}
+        options={{
+          headerShown: true,
+          headerStyle: { backgroundColor: "#F2F2F2" },
+          headerShadowVisible: false,
+          headerLeft: () => <HeaderLeft showTitle={false} headerTitle="" />,
+          headerRight: () => <HeaderRight />,
+          headerTitle: "",
+        }}
+      />
     </RootStack.Navigator>
-  )
-}
+  );
+};
 
-export default RootNavigator
+export default RootNavigator;
