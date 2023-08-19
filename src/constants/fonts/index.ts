@@ -7,7 +7,7 @@ export {default as PageTitleSemibold} from "./PageTitleSemibold";
 export {default as RegularBig} from "./RegularBig";
 export {default as RegularNormal} from "./RegularNormal";
 export {default as RegularSmall} from "./RegularSmall";
-export {default as SemiboldBig} from "./SemiboldBig";
+export {default as SemiBoldBig} from "./SemiboldBig";
 export {default as SmallerMedium} from "./SmallerMedium";
 export {default as SmallerRegular} from "./SmallerRegular";
 export {default as SmallestLabelsRegular} from "./SmallestLabelsRegular";
