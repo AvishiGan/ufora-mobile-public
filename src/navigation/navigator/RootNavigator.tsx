@@ -17,9 +17,11 @@ import ProjectCentre from "../../screens/project/projectCentreScreen";
 import ProjectContent from "../../screens/project/projectContentScreen";
 import { HeaderLeft, HeaderRight } from "../../components";
 
-//
+/**
+ * Profile related navigation
+ */
 import CreatePost from "../../components/profile/createPost/CreatePost";
-
+import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -39,8 +41,11 @@ export type RootStackParamList = {
   ProjectCentre: undefined;
   ProjectContent: undefined;
 
-  // avishi
-  CreatePost : undefined;
+  /**
+   * Profile related navigation
+   */
+  CreatePost: undefined;
+  CreateProfile: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -179,6 +184,12 @@ const RootNavigator = () => {
           headerRight: () => <HeaderRight />,
           headerTitle: "",
         }}
+      />
+
+      <RootStack.Screen
+        name="CreateProfile"
+        component={CreateProfile}
+        options={{ headerShown: false }}
       />
     </RootStack.Navigator>
   );
