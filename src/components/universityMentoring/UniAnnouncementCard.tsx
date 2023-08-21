@@ -28,7 +28,7 @@ interface UniAnnouncementCardProps {
  */
 const UniAnnouncementCard: React.FC<UniAnnouncementCardProps> = ({ data }) => {
   return (
-    <View className="px-2 py-4 my-1 bg-white rounded-md">
+    <View className="px-2 py-4 my-1 mx-3 w-[360] bg-white rounded-lg">
       <View className="flex-row bg-white h-[46] justify-between items-center">
         <View className="flex-row space-x-2 items-center">
           {/* Image */}
