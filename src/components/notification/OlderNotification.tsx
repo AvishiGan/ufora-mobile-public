@@ -37,18 +37,18 @@ const OlderNotification: React.FC<UniAnnouncementCardProps> = ({ data }) => {
             source={data.profilePic}
           />
 
-          <View>
-            {/* Name, Icons*/}
-            <View className="flex-row w-[150]">
+          <View className="flex-row text-start w-[250]">
+            {/* Profile Name */}
+            <Text>
               <NameSemiboldNormal>{data.profileName}</NameSemiboldNormal>
-              <View>
-                
-              </View>
+              {/* Description */}
               <Text numberOfLines={2}>
                 <RegularNormal>{data.description}</RegularNormal>
               </Text>
-            </View>
+            </Text>
+
           </View>
+
         </View>
 
         {/* Date and Moreover */}
