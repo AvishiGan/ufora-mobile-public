@@ -55,21 +55,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
       <ScrollView>
         {/* top part */}
         <View style={{flexDirection: "row", alignItems: "center", gap: 180}}>
-            {/* <View style={{flexDirection: "row", alignItems: "center"}}>
-                <TouchableOpacity>
-                  <ChevronLeft color={"black"}/>
-                </TouchableOpacity>
-                <PageTitleSemibold>Friends</PageTitleSemibold>
-            </View>
-            <View style={{flexDirection: "row", alignItems: "center", gap: 18}}>
-            <TouchableOpacity>
-             <Search color={"black"} size={24}/>
-            </TouchableOpacity> 
-            <TouchableOpacity>
-             <MessagesSquare color={"black"} size={24}/>
-            </TouchableOpacity>
-                
-            </View>  */}
+          
             <TopBar titleBarName="Friends" />
         </View>
         {/*friend requests */}
