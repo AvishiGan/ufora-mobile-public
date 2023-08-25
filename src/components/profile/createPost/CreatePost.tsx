@@ -9,7 +9,7 @@ import { AddPhotoVideoButton, SharePostButton } from "../buttons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as ImagePicker from "expo-image-picker";
 import Post from "../../../model/PostModel";
-import { createPost } from "../../../services/PostService";
+import { createPostRequest } from "../../../services/PostService";
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
@@ -50,7 +50,7 @@ const CreatePost = () => {
         access_level: "public",
       };
 
-      await createPost(post);
+      await createPostRequest(post);
       alert("Created post");
     } catch (error) {
       alert("Failed to create post" + error);
