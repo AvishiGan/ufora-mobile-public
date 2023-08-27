@@ -50,7 +50,7 @@ const InputField: FunctionComponent<InputFieldProps> = ({
       fontSize: 12,
       marginTop: 0,
       marginLeft: 4,
-      fontFamily: "Switzer Variable",
+      // fontFamily: "Switzer Variable",
     },
     input: {
       flexDirection: "row",

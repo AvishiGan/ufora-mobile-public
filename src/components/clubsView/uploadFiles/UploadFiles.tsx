@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { FunctionComponent, useState} from 'react'
 import * as DocumentPicker from 'expo-document-picker';
 import { useFormikContext, Field } from 'formik';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import SmallestLabelsRegular from '../../../constants/fonts/SmallestLabelsRegular';
 import RegularNormal from '../../../constants/fonts/RegularNormal';
-import { UploadCloud } from 'lucide-react-native';
 
-const UploadFiles = () => {
+interface UploadFilesProps{
+    icon: string;
+    error?: string;
+    style?: object;
+}
+
+const UploadFiles: FunctionComponent<UploadFilesProps> = ({icon, error, style = {},}) => {
   const { setFieldValue } = useFormikContext();
+  const [uploadedFile, setUploadedFile] = useState<string | null>(null);
+
 
   const selectDoc = async () => {
     try {
@@ -16,13 +23,21 @@ const UploadFiles = () => {
           copyToCacheDirectory: true, // ensures compatibility with 'expo-file-system'
       });
 
+      console.log("doc: ", doc);
+      console.log("doc.assets: ", doc.assets)
+  
+    //   if (!doc.canceled) {
+    //     console.log(doc);
+    //   }
+
       if (!doc.canceled) {
-          console.log(doc);
+        console.log(doc.assets[1].uri);
       }
-  } catch (err) {
+    } catch (err) {
       console.log("Error", err);
-  }
+    }
   };
+  
 
   return (
     <TouchableOpacity onPress={selectDoc}>
@@ -51,11 +66,14 @@ const UploadFiles = () => {
 
             }}
           >
-              <UploadCloud
-              color={"#B8B8B8"}
-              size={35}
-          />
-          
+              {icon}
+              {error ? <Text style={styles.errorText}>{error}</Text> : null}
+              {uploadedFile ? (
+                <Text style={{ color: 'green' }}>File Uploaded: {uploadedFile}</Text>
+                ) : (
+                <Text style={{ color: 'red' }}>No File Uploaded</Text>
+                )
+              }
           <View style={{marginLeft: 10}}>
               <RegularNormal fontColor='#87929D'>Upload file</RegularNormal>
               <SmallestLabelsRegular fontColor='#87929D'>PDF,JPG,PNG</SmallestLabelsRegular>
@@ -67,6 +85,16 @@ const UploadFiles = () => {
       </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+    errorText: {
+        color: "#CC3535",
+        fontSize: 12,
+        marginTop: 0,
+        marginLeft: 4,
+        // fontFamily: "Switzer Variable",
+      },
+})
 
 
 export default UploadFiles
