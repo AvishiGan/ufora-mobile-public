@@ -17,11 +17,16 @@ import ProjectCentre from "../../screens/project/projectCentreScreen";
 import ProjectContent from "../../screens/project/projectContentScreen";
 import { HeaderLeft, HeaderRight } from "../../components";
 
+import createClub from "../../screens/clubView/createClub/CreateClub";
+import ClubOTP from "../../screens/clubView/createClub/ClubOTP";
+import SuccessScreen from "../../screens/clubView/createClub/SuccessScreen";
+
 /**
  * Profile related navigation
  */
 import CreatePost from "../../components/profile/createPost/CreatePost";
-import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
+import TabNavigatorClub from "./TabNavigatorClub";
+// import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -40,6 +45,10 @@ export type RootStackParamList = {
   BlogContent: undefined;
   ProjectCentre: undefined;
   ProjectContent: undefined;
+  createClub: undefined;
+  clubOTP: undefined;
+  SuccessScreen: undefined;
+  CubView: undefined
 
   /**
    * Profile related navigation
@@ -52,7 +61,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="Main">
+    <RootStack.Navigator initialRouteName="CubView">
       <RootStack.Screen
         name="CreatePost"
         component={CreatePost}
@@ -186,11 +195,38 @@ const RootNavigator = () => {
         }}
       />
 
-      <RootStack.Screen
+      {/* <RootStack.Screen
         name="CreateProfile"
         component={CreateProfile}
         options={{ headerShown: false }}
+      /> */}
+
+      <RootStack.Screen 
+        name="createClub"
+        component={createClub}
+        options={{ headerShown: false }}
       />
+
+      <RootStack.Screen 
+        name="clubOTP"
+        component={ClubOTP}
+        options={{ headerShown: false }}
+      />
+
+    <RootStack.Screen 
+        name="SuccessScreen"
+        component={SuccessScreen}
+        options={{ headerShown: false }}
+      />
+
+      <RootStack.Group>
+        <RootStack.Screen
+          name="CubView"
+          component={TabNavigatorClub}
+          options={{ headerShown: false }}
+        />
+      </RootStack.Group>
+
     </RootStack.Navigator>
   );
 };
