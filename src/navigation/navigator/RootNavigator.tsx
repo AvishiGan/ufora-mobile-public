@@ -25,6 +25,7 @@ import SuccessScreen from "../../screens/clubView/createClub/SuccessScreen";
  * Profile related navigation
  */
 import CreatePost from "../../components/profile/createPost/CreatePost";
+import TabNavigatorClub from "./TabNavigatorClub";
 // import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
 
 export type RootStackParamList = {
@@ -47,6 +48,7 @@ export type RootStackParamList = {
   createClub: undefined;
   clubOTP: undefined;
   SuccessScreen: undefined;
+  CubView: undefined
 
   /**
    * Profile related navigation
@@ -59,7 +61,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="SuccessScreen">
+    <RootStack.Navigator initialRouteName="CubView">
       <RootStack.Screen
         name="CreatePost"
         component={CreatePost}
@@ -216,6 +218,14 @@ const RootNavigator = () => {
         component={SuccessScreen}
         options={{ headerShown: false }}
       />
+
+      <RootStack.Group>
+        <RootStack.Screen
+          name="CubView"
+          component={TabNavigatorClub}
+          options={{ headerShown: false }}
+        />
+      </RootStack.Group>
 
     </RootStack.Navigator>
   );

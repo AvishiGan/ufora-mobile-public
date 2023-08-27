@@ -39,7 +39,7 @@ const handlePress = async (values: FormValues) => {}
 const CreateClub: FunctionComponent<Props> = () => {
   const [clubLogo, setClubLogo] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>("");
-  
+  const [uploadedFile, setUploadedFile] = useState(null);
 
   const initialValues: FormValues = {
     name: "",
@@ -232,14 +232,22 @@ const CreateClub: FunctionComponent<Props> = () => {
                     {/* uploading files */}
                     <Field 
                         component={UploadFiles} 
+                        icon={<UploadCloud color={
+                            touched.file && errors.file
+                                ? "#CC3535"
+                                : "#B8B8B8"
+                            } size={35} />}
                         name="file" 
                         onChangeText={handleChange("file")}
+                        uploadedFile={uploadedFile} // Pass the uploaded file state
+                        setUploadedFile={setUploadedFile}
                         value={values.file}
                         onBlur={handleBlur("file")}
+                        error={errors.file}
                     />
                     
 
-                    {/* error handling */}
+                    {/* backend error handling */}
                     <View
                     style={{
                         marginTop: 8,
