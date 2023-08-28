@@ -11,9 +11,11 @@ import * as ImagePicker from "expo-image-picker";
 import Post from "../../../model/PostModel";
 import { createPostRequest } from "../../../services/PostService";
 
+import getImagekitUrlFromSrc from "../../../../src/services/imagekit";
+
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
-  const [selectedMedia, setSelectedMedia] = useState<string | undefined>(
+  const [selectedMediaURL, setSelectedMediaURL] = useState<string | undefined>(
     undefined
   );
 
@@ -33,8 +35,16 @@ const CreatePost = () => {
     });
 
     if (!result.canceled) {
-      console.log(result.assets[0].uri);
-      setSelectedMedia(result.assets[0].uri);
+      // console.log(result.assets[0].uri);
+      // setSelectedMedia(result.assets[0].uri);
+      /**
+       * Transform the image URL to ImageKit URL
+       */
+      const transformedImageUrl = getImagekitUrlFromSrc(
+        result.assets[0].uri,
+        []
+      );
+      setSelectedMediaURL(transformedImageUrl);
     }
   };
 
@@ -46,7 +56,7 @@ const CreatePost = () => {
 
       const post: Post = {
         caption,
-        content: selectedMedia || "",
+        content: selectedMediaURL || "",
         access_level: "public",
       };
 
