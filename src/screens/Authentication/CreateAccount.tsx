@@ -16,9 +16,9 @@ import { StackScreenProps } from "@react-navigation/stack";
 import SmallerRegular from "../../constants/fonts/SmallerRegular";
 type Props = StackScreenProps<RootStackParamList, "CreateAccount">;
 
-// interface CustomImageProps {
-//   source: ImageSourcePropType;
-// }
+  interface CustomImageProps {
+    source: ImageSourcePropType;
+  }
 
 const CreateAccount: FunctionComponent<Props> = ({ navigation }) => {
   const [activeButton, setActiveButton] = useState("");

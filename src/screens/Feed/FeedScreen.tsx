@@ -7,7 +7,7 @@ import { TabStackParamList } from "../../navigation/navigator/TabNavigator";
 import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useLayoutEffect } from "react";
-import { Image, ScrollView, StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, TextInput, TouchableOpacity, View, Text} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Header from "./Header_section";
@@ -17,7 +17,7 @@ import Search_and_Profile_section from "./Search_and_Profile_section";
 import Chart_section from "./Chart_section";
 import { Rows } from "lucide-react-native";
 
-// type script navigation protection
+// // type script navigation protection
 export type FeedScreeenNavigationProp = CompositeNavigationProp<
   BottomTabNavigationProp<TabStackParamList, "Home">,
   NativeStackNavigationProp<RootStackParamList>
@@ -58,18 +58,18 @@ const FeedScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* SECTION : chart  */}
-        <Chart_section />
+//         {/* SECTION : chart  */}
+         <Chart_section />
 
-        {/* SECTION : stories */}
-        <Story_section />
+//         {/* SECTION : stories */}
+         <Story_section />
 
-        {/* SECTION : post */}
-        <Post_section />
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+//         {/* SECTION : post */}
+//         <Post_section />
+//       </ScrollView>
+//     </SafeAreaView>
+      );
+    };
 
 const styles = StyleSheet.create({
   container: {

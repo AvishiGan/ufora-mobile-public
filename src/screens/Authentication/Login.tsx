@@ -222,7 +222,7 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
                   </TouchableOpacity>
                 </View>
 
-                {/* Button */}
+//                 {/* Button */}
                 <View
                   style={{
                     flexDirection: "row",
