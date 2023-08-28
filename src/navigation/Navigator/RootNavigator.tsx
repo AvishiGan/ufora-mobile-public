@@ -57,7 +57,7 @@ export type RootStackParamList = {
   CreateProfile: undefined;
 };
 
-// const RootStack = createNativeStackNavigator<RootStackParamList>();
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (

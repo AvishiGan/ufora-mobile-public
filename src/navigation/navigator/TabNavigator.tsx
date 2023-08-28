@@ -1,4 +1,4 @@
-// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // SCREENS
 import FeedScreen from "../../screens/Feed/FeedScreen";
@@ -8,26 +8,26 @@ import NotificationScreen from "../../screens/notification/NotificationScreen";
 import { HeaderLeft, HeaderRight } from "../../components";
 import MoreScreen from "../../screens/UserMenu/index";
 
-// import {
-//   Home,
-//   Users,
-//   GraduationCap,
-//   Bell,
-//   LayoutDashboard,
-// } from "lucide-react-native";
+import {
+  Home,
+  Users,
+  GraduationCap,
+  Bell,
+  LayoutDashboard,
+} from "lucide-react-native";
 
-// // type checking
-// export type TabStackParamList = {
-//   Home: undefined;
-//   University: undefined;
-//   Friends: undefined;
-//   Notification: undefined;
-//   More: undefined;
-//   blogCenterScreen: undefined;
-//   UserMenu: undefined;
-// };
+// type checking
+export type TabStackParamList = {
+  Home: undefined;
+  University: undefined;
+  Friends: undefined;
+  Notification: undefined;
+  More: undefined;
+  blogCenterScreen: undefined;
+  UserMenu: undefined;
+};
 
-// const Tab = createBottomTabNavigator<TabStackParamList>();
+const Tab = createBottomTabNavigator<TabStackParamList>();
 
 const TabNavigator = () => {
   return (
@@ -98,4 +98,4 @@ const TabNavigator = () => {
   );
 };
 
-// export default TabNavigator;
+export default TabNavigator;
