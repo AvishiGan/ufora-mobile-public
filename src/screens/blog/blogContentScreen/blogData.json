@@ -1,0 +1,19 @@
+{
+    "FirstImageData": {
+      "imageSource": "BlogCarouselCard"
+    },
+    "ArticleData": {
+      "title": "Marketing Essentials",
+      "date": "Jul 20th, 2023",
+      "readTime": "5 mins read",
+      "authorName": "Pasan Phelps",
+      "authorProfilePic": "profilePicture",
+      "authorInstitute": "Undergrad at University of Colombo",
+      "content": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere enim quis sapien commodo ullamcorper. Vestibulum mollis felis eget magna cursus aliquam. Quisque condimentum lobortis placerat.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere enim quis sapien commodo ullamcorper. Vestibulum mollis felis eget magna cursus aliquam. Quisque condimentum lobortis placerat."
+      ],
+      "imageSource": "BlogContentImage"
+    }
+  }
+  

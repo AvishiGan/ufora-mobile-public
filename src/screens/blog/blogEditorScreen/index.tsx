@@ -1,15 +1,18 @@
-import React, { useRef } from 'react';
-import { View, TouchableOpacity, Text, Dimensions } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, Dimensions, TextInput } from 'react-native';
 import { WebView } from 'react-native-webview';
-import { ButtonMedium, RegularBig } from '../../../constants/fonts';
 import {  COLORS, SIZES } from "../../../constants";
-import { ImagePlusIcon } from 'lucide-react-native';
+import * as SecureStore from 'expo-secure-store';
+import axios from 'axios';
+import { API_PATH } from '@env';
 
 const AddBlog = () => {
 
   const screenWidth = Dimensions.get('window').width;
 
   const webViewRef = useRef<WebView | null>(null);
+
+  const [title, setTitle] = useState('');
 
   const editorHTML = `
     <!DOCTYPE html>
@@ -25,6 +28,7 @@ const AddBlog = () => {
     </head>
     <body>
       <div id="editorjs"></div>
+      <button id="save"style="background-color: ${COLORS.brandBlue}; padding: 10px 20px; color: ${COLORS.brandWhite}; border: none; border-radius: 5px; text-align: center; font-size: 16px; outline: none;">Save Content</button>
       <script>
         const editor = new EditorJS({
           holder: 'editorjs',
@@ -55,52 +59,92 @@ const AddBlog = () => {
             },
           },
         });
+
+        document.getElementById("save").addEventListener("click", function() {
+          editor.save().then((data) => {
+            window.ReactNativeWebView.postMessage(JSON.stringify(data));
+          })
+        });
       </script>
     </body>
     </html>
   `;
 
-  const handleWebViewMessage = (event: any) => {
-    const data = JSON.parse(event.nativeEvent.data);
-    console.log('Editor content:', data);
-    // You can now use the data as needed (e.g., send it to a server)
-  };
+  const handleWebViewMessage = async (event: any) => {
+    try {
+        const token = await SecureStore.getItemAsync('token');
+        console.log(token)
+        const data = JSON.parse(event.nativeEvent.data);
+      if (data.error) {
+        console.error('Received an error:', data.error);
+      } else {
+        if (!token) {
+          console.error('Token not found in SecureStore.');
+          return;
+        }
 
+        const response = await axios.post(`${API_PATH}/project/create`, {
+          title: title,
+          content: data,
+        }, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+
+        console.log('API response:', response.data);
+        console.log('API response status:', response.status);
+        console.log('Editor content:', data);
+        console.log('Title:', title); // Log the entered title
+        // Process the received data here, such as sending it to a server
+        // or updating the React Native component's state
+      }
+    } catch (error: any) {
+      console.error('Error processing WebView message:', error);
+      if (error.response) {
+        // The request was made and the server responded with a status code that falls out of the range of 2xx
+        const errorMessage = `${JSON.stringify(error.response.data)}`
+        alert(errorMessage);
+        console.error("API error: ", error.response.data);
+        console.error("API error status: ", error.response.status);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("API error: No response received");
+        console.log(error);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        const errorMessage = `${JSON.stringify(error.message)}`
+        alert(errorMessage);
+        console.error("API error: ", error.message);
+      }
+    }
+  };
+  
+  
   return (
     <View style={{ flex: 1, marginHorizontal: SIZES.marginSide, marginBottom: 25, gap: 25, }}>
+      <TextInput
+                placeholder={'Your title here...'}
+                placeholderTextColor={COLORS.placeHolder}
+                value={title}
+                onChangeText={setTitle}
+                style={{
+                  color: COLORS.brandBlack,
+                  fontSize: 18,
+                  fontWeight: '700', // Use string value for fontWeight
+                }}
+              />
       <WebView
         ref={webViewRef}
         source={{ html: editorHTML }}
         onMessage={handleWebViewMessage}
+        //injectedJavaScript={`document.title = '${title.replace("'", "\\'")}';`}
+        //originWhitelist={['*']}
         style={{backgroundColor: '#F2F2F2', marginHorizontal: -10}}
       />
-      <TouchableOpacity
-        style={{backgroundColor: COLORS.brandWhite, padding: 10, width:(screenWidth-26)/10, alignItems:"center", borderRadius: 5 }}
-        onPress={() => {
-          if (webViewRef.current) {
-            const input = 'document.querySelector(".ce-image-input").click()';
-            webViewRef.current.injectJavaScript(input);
-          }
-        }}
-      >
-        <ImagePlusIcon size={24} color={COLORS.brandBlack}/>
-        {/* <ButtonMedium><Text style={{color: COLORS.brandBlack}}>Add Image</Text></ButtonMedium> */}
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          if (webViewRef.current) {
-            webViewRef.current.injectJavaScript(`
-              const outputData = window.editor.save();
-              window.ReactNativeWebView.postMessage(JSON.stringify(outputData));
-            `);
-          }
-        }}
-        style={{backgroundColor: COLORS.brandBlue, paddingHorizontal: 20, paddingVertical: 10, width:(screenWidth-26)/2, alignItems:"center", borderRadius: 5 }}
-      >
-        <RegularBig><Text style={{color: COLORS.brandWhite}}>Save Content</Text></RegularBig>
-      </TouchableOpacity>
+
     </View>
   );
 };
 
-export default AddBlog;
+export default AddBlog;

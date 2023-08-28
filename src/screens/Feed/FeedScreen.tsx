@@ -49,7 +49,7 @@ const FeedScreen = () => {
             />
           </TouchableOpacity>
           {/* input text */}
-          <TouchableOpacity style={styles.inputContainer}>
+          <TouchableOpacity style={styles.inputContainer} onPress={() => navigation.navigate("CreatePost")}>
             <TextInput
               editable={false}
               placeholder="Hey Isuru, What's special Today?"

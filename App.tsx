@@ -1,46 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
-// import Welcome from "./src/screens/Authentication/Welcome";
-// import RootNavigator from "./src/navigation/navigator/RootNavigator";
-// import { NavigationContainer } from "@react-navigation/native";
 import * as SplashScreen from "expo-splash-screen";
-
-//custom fonts
-// import AppLoading from "expo-app-loading";
-// import { useFonts } from "expo-font";
-
-//React Navigation
-import WelcomeNavigator from "./src/navigation/navigator/WelcomeNavigator";
-// import ProfileStack from "./routes/profileStack";
-
-// export default function App() {
-//   const [fontsLoaded] = useFonts({
-//     Text: require("./assets/fonts/Switzer-Variable.ttf"),
-//     ItalicText: require("./assets/fonts/Switzer-VariableItalic.ttf"),
-//   });
-
-//   if (!fontsLoaded) {
-//     return <AppLoading />;
-//   }
-
-//   return (
-//     <NavigationContainer>
-//       <RootNavigator />
-//       {/* <ProfileStack /> */}
-//     </NavigationContainer>
-//   );
-// }
-
-// // //////////////////////////////////////////////////////////////////////////
-// // SHEHAN ENTRY
-
 import { NavigationContainer } from "@react-navigation/native";
-// import RootNavigator from "./src/navigation/Navigator/RootNavigator";
 import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
-import UserProfile from "./src/screens/profile";
-// import { Text } from "react-native";
-//import RootNavigator from "./src/navigation/navigator/RootNavigator";
+
+import WelcomeNavigator from "./src/navigation/navigator/WelcomeNavigator";
+import RootNavigator from "./src/navigation/navigator/RootNavigator";
+import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -48,13 +14,45 @@ export default function App() {
     ItalicText: require("./assets/fonts/Switzer-VariableItalic.ttf"),
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
+  const [appIsReady, setAppIsReady] = useState(false);
+
+  // SplashScreen code
+  useEffect(() => {
+    async function prepare() {
+      try {
+        // This will prevent the splash screen from hiding too soon
+        await SplashScreen.preventAutoHideAsync();
+        
+        // Do any other app preparation logic you might have here
+        
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        // Wait for fonts to load before setting the app as ready
+        if (fontsLoaded) {
+          setAppIsReady(true);
+        }
+      }
+    }
+
+    prepare();
+  }, [fontsLoaded]);
+
+  useEffect(() => {
+    if (appIsReady) {
+      // Once app is ready, hide the splash screen
+      SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  if (!appIsReady) {
+    return null;
   }
+
   return (
+    
     <NavigationContainer>
       <WelcomeNavigator />
     </NavigationContainer>
-    // <UserProfile />
-  );
+  );
 }

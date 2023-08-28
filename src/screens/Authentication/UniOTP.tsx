@@ -60,7 +60,7 @@ const OTP: FunctionComponent<Props> = ({ route, navigation }) => {
     const email = route.params.email;
     try {
       const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
-      // const otpResponse = await axios.post("http://192.168.1.7:3000/otp/request", {
+      // const otpResponse = await axios.post("http://192.168.1.7:3000/api/otp/request", {
         email: email,
       });
       console.log("OTP Request Response: ", otpResponse.data);
@@ -79,7 +79,7 @@ const OTP: FunctionComponent<Props> = ({ route, navigation }) => {
       //const ip = process.env.IP
       //console.log(ip)
       const response = await axios.post(`${API_PATH}/otp/verify/university/email`,{
-        // const response = await axios.post("http://192.168.1.7:3000/otp/verify/university/email",{
+        // const response = await axios.post("http://192.168.1.7:3000/api/otp/verify/university/email",{
           email: email,
           otp: otp,
         }
