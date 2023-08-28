@@ -1,7 +1,7 @@
 import ApiClient from "../util/ApiClient";
 import { Profile } from "../model";
 
-export const CreateProfile = async (profile: Profile) => {
+export const createProfileRequest = async (profile: Profile) => {
   try {
     const response = await ApiClient.post("/profile/create", profile);
     console.log("Profile created:", response);
@@ -11,7 +11,7 @@ export const CreateProfile = async (profile: Profile) => {
   }
 };
 
-export const ViewProfileWithID = async (id: string) => {
+export const viewProfileWithIDRequest = async (id: string) => {
   try {
     const response = await ApiClient.get(`/profile/retrieveProfileByID/${id}`);
     console.log("Profile:", response);
@@ -21,7 +21,7 @@ export const ViewProfileWithID = async (id: string) => {
   }
 };
 
-export const ViewProfileWithUsernameOrEmail = async (
+export const viewProfileWithUsernameOrEmailRequest = async (
   identifier: string,
   identifierType: "username" | "email"
 ) => {
@@ -36,7 +36,7 @@ export const ViewProfileWithUsernameOrEmail = async (
   }
 };
 
-export const UpdateProfile = async (profile: Profile) => {
+export const UpdateProfileRequest = async (profile: Profile) => {
   try {
     const response = await ApiClient.put("/profile/updateProfile/", profile);
     console.log("Profile updated:", response);
