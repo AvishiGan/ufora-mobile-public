@@ -1,15 +1,15 @@
 import axios from "axios";
-import { HOST_NAME } from "./constants/hostName";
+import BACKEND_SERVER from "@env";
 
 interface ApiResponse<T> {
   data: T;
 }
 
 const httpClient = axios.create({
-  baseURL: HOST_NAME,
+  baseURL: BACKEND_SERVER as unknown as string,
   headers: {
     "Content-Type": "application/json",
-    Authorization: "Bearer YOUR_ACCESS_TOKEN",
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, Alert } from "react-native";
 import { styles } from "../styles";
 import { TopBar } from "../..";
 import { COLORS } from "../../../constants";
@@ -45,6 +45,7 @@ const CreatePost = () => {
         []
       );
       setSelectedMediaURL(transformedImageUrl);
+      Alert.alert("Image Uploaded", "1 item has been uploaded");
     }
   };
 
@@ -80,7 +81,7 @@ const CreatePost = () => {
         placeholder={`Hey ${profileData.firstName}, What’s special today?`}
         placeholderTextColor={COLORS.placeHolder}
         style={[styles.inputField]}
-        multiline={true} // Enable multiline
+        multiline={true}
       />
       {/* Buttons */}
       <View style={styles.twoButtonsContainer}>
