@@ -3,19 +3,20 @@ import { View, Image } from "react-native";
 import { styles } from "../styles";
 import { UforaIcon, VerifiedIcon } from "../../../../assets/svg";
 import SemiBoldBig from "../../../constants/fonts/SemiboldBig";
+import DropdownPost from "../../../components/profile/DropdownPost";
 
-interface CreatePostHeader {
+interface CreatePostHeaderData {
   profilePic?: any;
   profileName: string;
 }
 
-interface PostAuthorBioFooterProps {
-  data: CreatePostHeader;
+interface CreatePostHeaderProps {
+  data: CreatePostHeaderData;
 }
 
-const CreatePostHeader: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
+const CreatePostHeader: React.FC<CreatePostHeaderProps> = ({ data }) => {
   return (
-    <View style={styles.authorBioContainer}>
+    <View style={styles.createPostHeader}>
       {/* Profile pic */}
       <Image style={styles.profilePicCreatePost} source={data.profilePic} />
       <View style={styles.profileNameUniContainer}>
@@ -26,12 +27,18 @@ const CreatePostHeader: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
           <UforaIcon size={16} fillColor="#111" strokeColor="#fff" />
         </View>
       </View>
-      {/* Drop down icon comes here */}
-      {/* <Dropdown label="Public" value /> */}
+      {/* Dropdown */}
+      <DropdownPost
+        iconType="globe"
+        value="Public"
+        onChangeText={handleDropdownChange}
+      />
     </View>
   );
 };
 
-export default CreatePostHeader;
+const handleDropdownChange = () => {
+  console.log("Dropdown changed!");
+};
 
-// Got this from post author bio footer
+export default CreatePostHeader;

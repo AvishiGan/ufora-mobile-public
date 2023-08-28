@@ -59,8 +59,9 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
 
   const handleCreateStudentAcc = async (values: FormValues) => {
     try {
+      console.log(API_PATH)
       const response = await axios.post(`${API_PATH}/register/undergraduate`, {
-        // const response = await axios.post("http://192.168.1.7:3000/register/undergraduate", {
+      //  const response = await axios.post("http://10.22.167.182:3000/api/register/undergraduate", {
         name: values.name,
         email: values.email,
         username: values.username,
@@ -76,7 +77,7 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
       //Request OTP when create account success
       try {
         const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
-        // const otpResponse = await axios.post("http://10.22.167.182:3000/otp/request", {
+        // const otpResponse = await axios.post("http://192.168.1.7:3000/api/otp/request", {
           email: values.email,
         });
 
@@ -88,10 +89,14 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
       console.log(error)
       if (error.response.status === 500) {
         setErrorMessage("Server Error");
+      } else if  (error.response.status === 400){
+        setErrorMessage("Email Already Exists");
       } else if (error.request) {
         // The request was made but no response was received
         console.error("API error: No response received");
         console.log(error);
+        console.log(API_PATH)
+
       } else {
         const errorMessage = `${JSON.stringify(error.message)}`;
         alert(errorMessage);
@@ -257,7 +262,7 @@ const CreateStudentAccount: FunctionComponent<Props> = ({ navigation }) => {
               </View>
 
               <View
-                style={{ marginTop: 0, flexDirection: "row", marginLeft: 8 }}
+                style={{ marginTop: 5, marginBottom: 5, flexDirection: "row", marginLeft: -190 }}
               >
                 <RegularSmall>
                   {errorMessage ? (

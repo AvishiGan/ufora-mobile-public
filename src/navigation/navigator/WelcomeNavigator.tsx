@@ -196,8 +196,18 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Feed from "../../screens/Authentication/Feed";
 import StudentOTP from "../../screens/Authentication/StudentOTP";
-// import FeedScreen from "../../screens/Feed/FeedScreen";
+import { COLORS } from "../../constants";
+import { HeaderRight, HeaderLeft } from "../../components";
+// import BlogCentre from "../../screens/blog";
+import FeedScreen from "../../screens/Feed/FeedScreen";
 // import TabNavigator from "./TabNavigator";
+
+/**
+ * Profile related navigation
+ */
+import CreatePost from "../../components/profile/createPost/CreatePost";
+import AllPosts from "../../screens/profile/AllPosts";
+// import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -217,12 +227,9 @@ export type RootStackParamList = {
   MyFriends: undefined;
   FeedScreen: undefined;
   Main: undefined;
-  BlogCentre: undefined;
-  AddBlog: undefined;
-  BlogContent: undefined;
-  ProjectCentre: undefined;
-  ProjectContent: undefined;
-  UserMenu:  undefined;
+  AllPosts: undefined;
+  CreatePost: undefined;
+  CreateProfile: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -376,39 +383,16 @@ const WelcomeNavigator = () => {
         headerTitle: ""
         }}
       />
-
-      <Stack.Screen 
-        name="ProjectCentre"
-        component={ProjectCentre}
-        options={{headerShown: true,
-        headerStyle: {backgroundColor: '#F2F2F2'},
-        headerShadowVisible: false,
-        headerLeft: () => (
-        <HeaderLeft showTitle={true} headerTitle={"Project Centre"} />
-        ),
-        headerRight: () => (
-        <HeaderRight />
-        ),
-        headerTitle: ""
-        }}
+      <Stack.Screen
+        name="AllPosts"
+        component={AllPosts}
+        options={{ headerShown: false }}
       />
-
-      <Stack.Screen 
-        name="ProjectContent"
-        component={ProjectContent}
-        options={{headerShown: true,
-        headerStyle: {backgroundColor: '#F2F2F2'},
-        headerShadowVisible: false,
-        headerLeft: () => (
-        <HeaderLeft showTitle={false} headerTitle="" />
-        ),
-        headerRight: () => (
-        <HeaderRight />
-        ),
-        headerTitle: ""
-        }}
-      /> 
-
+      {/* <Stack.Screen
+        name="CreateProfile"
+        component={CreateProfile}
+        options={{ headerShown: false }}
+      /> */}
     </Stack.Navigator>
     //</NavigationContainer>
   );

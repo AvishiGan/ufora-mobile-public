@@ -6,6 +6,7 @@ import { BoldHeading, CardHeadingBold, RegularNormal, RegularSmall, SubHeadingSe
 import { Circle } from "lucide-react-native";
 import { profilePicture } from "../../../../assets";
 import { BlogCardSmall, BlogCardLarge } from "../../../components";
+import blogData from "./blogData.json";
 
 const BlogContent = () => {
 
@@ -15,6 +16,7 @@ const BlogContent = () => {
   const cardWidth = screenWidth - 26; // Subtract side margin values
   const smallCardWidth = (screenWidth - 60)/2;
   const largeCardWidth = screenWidth - 46;
+
 
   const smallCardData = {
     imageSource: images.CyberSecurity,
@@ -39,6 +41,26 @@ const BlogContent = () => {
     largeCardWidth: largeCardWidth
   };
 
+  interface firstImageData {
+    imageSource: string;
+  }
+  
+  interface ArticleData {
+    title: string;
+    date: string;
+    readTime: string;
+    authorName: string;
+    authorProfilePic: string;
+    authorInstitute: string;
+    content: string[];
+    imageSource: string;
+  }
+  
+  const {
+    FirstImageData,
+    ArticleData,
+  } = blogData;
+  
   return (
     <SafeAreaView style = {{flex: 1, gap: 25}}>
       <ScrollView style={{marginHorizontal: SIZES.marginSide}} showsVerticalScrollIndicator={false}>
@@ -50,11 +72,11 @@ const BlogContent = () => {
         <View style={{...styles.contentWrap, width: cardWidth}}>
           <View style={styles.contentDescription}>
             <View style={{flexDirection: "column"}}>
-              <BoldHeading><Text style={{alignSelf: "stretch", color: COLORS.brandGrey}}>Marketing Essentials</Text></BoldHeading>
+              <BoldHeading><Text style={{alignSelf: "stretch", color: COLORS.brandGrey}}>{ArticleData.title}</Text></BoldHeading>
               <View style={styles.descriptionContainer}>
-                <RegularSmall><Text style={{color: COLORS.brandGrey}}>Jul 20th, 2023</Text></RegularSmall>
+                <RegularSmall><Text style={{color: COLORS.brandGrey}}>{ArticleData.date}</Text></RegularSmall>
                 <Circle color={COLORS.brandGrey} size={5} fill={COLORS.brandGrey} />
-                <RegularSmall><Text style={{color: COLORS.brandGrey}}>5 mins read</Text></RegularSmall>
+                <RegularSmall><Text style={{color: COLORS.brandGrey}}>{ArticleData.readTime}</Text></RegularSmall>
               </View>
             </View>
             <View style={styles.authorDetails}>
@@ -63,23 +85,23 @@ const BlogContent = () => {
                 style={styles.contentProfile}
               />
               <View style={{...styles.authorBio, width: cardWidth-106}}>
-                <SubHeadingSemibold><Text style={styles.bioName}>Pasan Phelps</Text></SubHeadingSemibold>
+                <SubHeadingSemibold><Text style={styles.bioName}>{ArticleData.authorName}</Text></SubHeadingSemibold>
                   <View>
                       <Text numberOfLines={1} ellipsizeMode="tail" style={styles.bioInstitute}>
-                        <RegularNormal>Undergrad at University of Colombo</RegularNormal>
+                        <RegularNormal>{ArticleData.authorInstitute}</RegularNormal>
                       </Text>
                   </View>
               </View>
             </View>
           </View>
-          <View>
+          {/* <View>
             <Text style={styles.blogBodyText}>
-             <RegularNormal>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere enim quis sapien commodo ullamcorper. Vestibulum mollis felis eget magna cursus aliquam. Quisque condimentum lobortis placerat.</RegularNormal>
+             <RegularNormal>{ArticleData.content}</RegularNormal>
             </Text>
           </View>
           <View>
             <Text style={styles.blogBodyText}>
-             <RegularNormal>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere enim quis sapien commodo ullamcorper. Vestibulum mollis felis eget magna cursus aliquam. Quisque condimentum lobortis placerat.</RegularNormal>
+             <RegularNormal>{ArticleData.content}</RegularNormal>
             </Text>
           </View>
           <Image
@@ -89,14 +111,37 @@ const BlogContent = () => {
           />
           <View>
             <Text style={styles.blogBodyText}>
-             <RegularNormal>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere enim quis sapien commodo ullamcorper. Vestibulum mollis felis eget magna cursus aliquam. Quisque condimentum lobortis placerat.</RegularNormal>
+             <RegularNormal>{ArticleData.content}</RegularNormal>
             </Text>
-          </View>
-          <View>
+          </View> */}
+          {ArticleData.content.map((item, index) => {
+            if (item.startsWith("image")) {
+              // Placeholder for an image, replace with actual logic
+              const imageSource = item as keyof typeof images; // Cast item to correct type
+              // return (
+              //   <Image
+              //     key={index}
+              //     source={images[ArticleData.imageSource]}
+              //     resizeMode="cover"
+              //     style={{ ...styles.blogBodyImage, width: cardWidth - 20 }}
+              //   />
+              // );
+            } else {
+              // Text paragraph
+              return (
+                <View key={index}>
+                  <Text style={styles.blogBodyText}>
+                    <RegularNormal>{item}</RegularNormal>
+                  </Text>
+                </View>
+              );
+            }
+          })}
+          {/* <View>
             <Text style={styles.blogBodyText}>
-             <RegularNormal>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere enim quis sapien commodo ullamcorper. Vestibulum mollis felis eget magna cursus aliquam. Quisque condimentum lobortis placerat.</RegularNormal>
+             <RegularNormal>{ArticleData.content}</RegularNormal>
             </Text>
-          </View>
+          </View> */}
         </View>
         <View style={{...styles.relatedArticles, width: cardWidth-20}}>
           <CardHeadingBold><Text style={styles.featuredTitle}>Related Articles</Text></CardHeadingBold>
@@ -113,4 +158,4 @@ const BlogContent = () => {
   );  
 }
 
-export default BlogContent;
+export default BlogContent;

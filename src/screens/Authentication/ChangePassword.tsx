@@ -53,7 +53,7 @@ const ChangePassword: FunctionComponent<Props> = ({ navigation }) => {
       const token = await SecureStore.getItemAsync("password_reset_token");
 
        const response = await axios.post(`${API_PATH}/password/reset`, {
-      // const response = await axios.post("http://192.168.1.7:3000/password/reset", {
+      // const response = await axios.post("http://192.168.1.7:3000/api/password/reset", {
         password: values.password,
         confirm_password: values.confirmPassword,
         password_reset_token: token,
