@@ -1,29 +1,30 @@
 import React from "react";
 import { View, Image } from "react-native";
-import { styles } from "./styles";
-import { VerifiedIcon, UforaIcon } from "../../../assets/svg";
-import { EditButton, ShareButton } from ".";
+import { styles } from "../../../components/profile/styles";
+import { VerifiedIcon, UforaIcon } from "../../../../assets/svg";
+import { EditButton, ShareButton } from "../../../components/profile/buttons/profileHeader";
 import {
   SubHeadingSemibold,
   RegularNormal,
   SemiBoldBig,
-} from "../../constants";
+} from "../../../constants";
+import ManageButton from "../../profile/buttons/profileHeader/ManageButton";
 
 interface ProfileHeaderData {
   profilePic: any;
   profileName: string;
-  university: string;
-  friendsCount: number;
+  description: string;
+  memberCount: number;
   postsCount: number;
-  blogsCount: number;
-  projectsCount: number;
+  eventsCount: number;
+  followersCount: number;
 }
 
 interface ProfileHeaderProps {
   data: ProfileHeaderData;
 }
 
-const ProfileHeader: React.FC<ProfileHeaderProps> = ({ data }) => {
+const ProfileHeaderClubs: React.FC<ProfileHeaderProps> = ({ data }) => {
   return (
     <View style={styles.userDetailsContainer}>
       <View style={styles.profilePicNameUniContainer}>
@@ -49,21 +50,24 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ data }) => {
                 strokeColor="#FEFEFE"
               />
               {/* Ufora icon */}
-              <UforaIcon size={21} fillColor="#111111" strokeColor="#FEFEFE" />
+              {/* <UforaIcon size={21} fillColor="#111111" strokeColor="#FEFEFE" /> */}
             </View>
           </View>
-          <RegularNormal>{data.university}</RegularNormal>
+          <RegularNormal>{data.description}</RegularNormal>
         </View>
       </View>
       <View style={styles.statusContainer}>
         <View style={styles.individualStatusContainer}>
-          <StatusCount count={data.friendsCount} name="Friends" />
+          <StatusCount count={data.memberCount} name="Members" />
+          <StatusCount count={data.followersCount} name="Followers" />
           <StatusCount count={data.postsCount} name="Posts" />
-          <StatusCount count={data.blogsCount} name="Blogs" />
-          <StatusCount count={data.projectsCount} name="Projects" />
+          <StatusCount count={data.eventsCount} name="Events" />
+          
         </View>
       </View>
       <View style={styles.buttonContainer}>
+        {/* Manage profile button */}
+        <ManageButton onPress={handleButtonPress}/>
         {/* Edit profile button */}
         <EditButton onPress={handleButtonPress} />
         {/* Share profile button */}
@@ -101,4 +105,4 @@ const handleButtonPress = () => {
   console.log("Button pressed!");
 };
 
-export default ProfileHeader;
+export default ProfileHeaderClubs;

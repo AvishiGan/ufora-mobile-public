@@ -27,6 +27,9 @@ import SuccessScreen from "../../screens/clubView/createClub/SuccessScreen";
 import CreatePost from "../../components/profile/createPost/CreatePost";
 import TabNavigatorClub from "./TabNavigatorClub";
 // import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
+import CreateProfile from "../../components/profile/createEditProfile/createProfile/CreateProfile";
+
+
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -195,11 +198,11 @@ const RootNavigator = () => {
         }}
       />
 
-      {/* <RootStack.Screen
+      <RootStack.Screen
         name="CreateProfile"
         component={CreateProfile}
         options={{ headerShown: false }}
-      /> */}
+      />
 
       <RootStack.Screen 
         name="createClub"

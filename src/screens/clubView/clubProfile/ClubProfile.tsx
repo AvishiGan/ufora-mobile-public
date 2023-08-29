@@ -1,12 +1,14 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from "react";
+import MiddleTabNavigator from "../../../navigation/navigator/middleTabNavigator/MiddleTabNavigatorClubs";
+import ProfileCommonSection from "../../../components/clubsView/clubProfile/CommonSection";
 
-const ClubProfile = () => {
+const ClubProfile: React.FC = () => {
   return (
-    <View>
-        <Text>Club Profile</Text>
-    </View>
-  )
-}
+    <React.Fragment>
+      <ProfileCommonSection />
+      <MiddleTabNavigator />
+    </React.Fragment>
+  );
+};
 
-export default ClubProfile
+export default ClubProfile;

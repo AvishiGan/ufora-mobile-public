@@ -43,14 +43,15 @@ const Login: FunctionComponent<Props> = ({ navigation }) => {
 
   const handleLogin = async (values: FormValues) => {
     try {
-    const response = await axios.post(`${API_PATH}/login`,{
-      // const response = await axios.post("http://10.22.167.182:3000/api/login", {
+    // const response = await axios.post(`${API_PATH}/login`,{
+      const response = await axios.post("http://192.168.1.5:3000/api/login", {
         username: values.email,
         password: values.password,
       });
 
       //console.log(values);
       await SecureStore.setItemAsync("token", response.data.Success.token);
+
       //console.log("Token stored in SecureStore.");
       navigation.navigate("Main");
 
