@@ -10,6 +10,7 @@ import {
 } from "../../../screens";
 import ClubProfilePostsSection from "../../../screens/clubView/clubProfile/AllClubPosts";
 import AboutClub from "../../../screens/clubView/clubProfile/AboutClub";
+import AllClubEvents from "../../../screens/clubView/clubProfile/AllClubEvents";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -99,7 +100,7 @@ const MiddleTabNavigatorClubs = () => {
         >
           <Tab.Screen name="Posts" component={ClubProfilePostsSection} />
           <Tab.Screen name="About" component={AboutClub} />
-          <Tab.Screen name="Events" component={ProfileBlogSection} />
+          <Tab.Screen name="Events" component={AllClubEvents} />
           
         </Tab.Navigator>
       </>

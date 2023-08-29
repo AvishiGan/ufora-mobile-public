@@ -1,4 +1,4 @@
-import { profilePicture } from "../../../../assets/images";
+import club1  from "../../../../assets/images/myProfile/about/clubs/club1.png";
 
 /**
  * @interface ProfileData
@@ -23,7 +23,7 @@ export interface ProfileData {
    * Object contain actual data
    */
   export const profileData: ProfileData = {
-    profilePic: profilePicture,
+    profilePic: club1,
     profileName: "Rotaract Club of UCSC",
     firstName: "Isuru",
     description: "Youth Organization",

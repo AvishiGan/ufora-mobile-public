@@ -8,12 +8,13 @@ import {
   RegularNormal,
   RegularSmall,
 } from "../../../../constants";
+import { UforaIcon, VerifiedIcon } from "../../../../../assets";
 
 const BoardofOfficials: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <CardHeadingBold>Clubs and Societies</CardHeadingBold>
+        <CardHeadingBold>Board of Officials</CardHeadingBold>
       </Card.Content>
       <Card.Content style={styles.contentWithGap}>
         {clubData.map((club, index) => (
@@ -26,8 +27,26 @@ const BoardofOfficials: React.FC = () => {
               />
             </View>
             <View style={styles.detailsContainer}>
-              <RegularNormal>{club.title}</RegularNormal>
-              <RegularSmall>{club.period}</RegularSmall>
+              <View style={{flexDirection: "row"}}>
+                  <RegularNormal>{club.name}</RegularNormal>
+                  <View style={{flexDirection: "row", marginLeft: 5, gap: 3}}>
+                  {/* Verified icon */}
+                  <VerifiedIcon
+                    size={18}
+                    fillColor="#2656FF"
+                    strokeColor="#FEFEFE"
+                  />
+                  <UforaIcon
+                    size={18}
+                    fillColor="#111111"
+                    strokeColor="#FEFEFE"
+                  />
+                  
+                  {/* <UforaIcon size={21} fillColor="#111111" strokeColor="#FEFEFE" /> */}
+                </View>
+              </View>
+              
+              <RegularSmall>{club.position}</RegularSmall>
             </View>
           </Card.Content>
         ))}

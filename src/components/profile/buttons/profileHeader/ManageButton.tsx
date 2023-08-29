@@ -12,7 +12,7 @@ const ManageButton: React.FC<ShareButtonProps> = ({ onPress }) => {
     <CustomButton
       onPress={onPress}
       icon={<Settings size={16} color={COLORS.brandGrey} />}
-      title="Manage Profile"
+      title="Manage"
     />
   );
 };
