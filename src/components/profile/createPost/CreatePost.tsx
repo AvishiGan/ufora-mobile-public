@@ -7,47 +7,41 @@ import CreatePostHeader from "./Header";
 import { profileData } from "../../../screens/profile/data";
 import { AddPhotoVideoButton, SharePostButton } from "../buttons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import * as ImagePicker from "expo-image-picker";
 import Post from "../../../model/PostModel";
 import { createPostRequest } from "../../../services/PostService";
-
-import getImagekitUrlFromSrc from "../../../../src/services/imagekit";
+import * as DocumentPicker from "expo-document-picker";
+import { uploadFile } from "../../../../src/services/imagekit";
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
-  const [selectedMediaURL, setSelectedMediaURL] = useState<string | undefined>(
+  const [selectedMedia, setSelectedMedia] = useState<string | undefined>(
     undefined
   );
 
   const handleMediaSelection = async () => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    try {
+      var result = await DocumentPicker.getDocumentAsync({
+        type: "*/*",
+      });
 
-    if (status !== "granted") {
-      console.log("Permission denied");
-      return;
-    }
-
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 0.8,
-    });
-
-    if (!result.canceled) {
-      // console.log(result.assets[0].uri);
-      // setSelectedMedia(result.assets[0].uri);
-      /**
-       * Transform the image URL to ImageKit URL
-       */
-      const transformedImageUrl = getImagekitUrlFromSrc(
-        result.assets[0].uri,
-        []
-      );
-      setSelectedMediaURL(transformedImageUrl);
-      Alert.alert("Image Uploaded", "1 item has been uploaded");
+      uploadFileToImagekit(result);
+    } catch (error: any) {
+      if (error.type === "cancel") {
+        Alert.alert("User cancelled the picker");
+      } else {
+        throw error;
+      }
     }
   };
+
+  async function uploadFileToImagekit(fileData: any) {
+    try {
+      const uploadedFile = await uploadFile(fileData);
+      setSelectedMedia(uploadedFile.url);
+    } catch (error) {
+      console.log("Error uploading file to imagekit", error);
+    }
+  }
 
   const handleSharePostButtonClick = async () => {
     console.log("Button pressed! Caption:", caption);
@@ -57,7 +51,7 @@ const CreatePost = () => {
 
       const post: Post = {
         caption,
-        content: selectedMediaURL || "",
+        content: selectedMedia || "",
         access_level: "public",
       };
 

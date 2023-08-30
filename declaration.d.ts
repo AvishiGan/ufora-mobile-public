@@ -17,3 +17,5 @@ declare module "*.jpg"
 declare module 'react-native-animated-input';
 
 declare module 'lucide-react-native';
+
+declare module 'expo-random';

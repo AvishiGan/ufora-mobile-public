@@ -1,15 +1,21 @@
 import axios from "axios";
-import BACKEND_SERVER from "@env";
+import * as SecureStore from "expo-secure-store";
 
 interface ApiResponse<T> {
   data: T;
 }
 
+// const token = await SecureStore.getItemAsync("token");
+
 const httpClient = axios.create({
-  baseURL: BACKEND_SERVER as unknown as string,
+  // baseURL: process.env.BACKEND_SERVER,
+  baseURL: process.env.HOST_NAME,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
+    // Authorization: `Bearer ${token}`,
+    // Authorization: `Bearer ${process.env.TOKEN}`,
+    Authorization:
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiaHR0ZjV3cjM5NDk5NXJ0dmhjaTIiLCJ1c2VyX3R5cGUiOiJ1bmRlcmdyYWR1YXRlIiwiaWF0IjoxNjkzMzE3MjU1LCJleHAiOjE2OTU5MDkyNTUsInVzZXJuYW1lIjpudWxsfQ.Yn9bbLJ8GFYVhb48xkagkhE4yrysrBnmzEJIfj0j5-A",
   },
 });
 
