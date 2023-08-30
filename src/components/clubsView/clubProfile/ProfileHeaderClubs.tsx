@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, Touchable } from "react-native";
 import { styles } from "../../../components/profile/styles";
 import { VerifiedIcon, UforaIcon } from "../../../../assets/svg";
 import { EditButton, ShareButton } from "../../../components/profile/buttons/profileHeader";
@@ -9,6 +9,8 @@ import {
   SemiBoldBig,
 } from "../../../constants";
 import ManageButton from "../../profile/buttons/profileHeader/ManageButton";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
 
 interface ProfileHeaderData {
   profilePic: any;
@@ -58,8 +60,13 @@ const ProfileHeaderClubs: React.FC<ProfileHeaderProps> = ({ data }) => {
       </View>
       <View style={styles.statusContainer}>
         <View style={styles.individualStatusContainer}>
-          <StatusCount count={data.memberCount} name="Members" />
-          <StatusCount count={data.followersCount} name="Followers" />
+          <TouchableOpacity>
+            <StatusCount count={data.memberCount} name="Members" />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <StatusCount count={data.followersCount} name="Followers" />
+          </TouchableOpacity>
+         
           <StatusCount count={data.postsCount} name="Posts" />
           <StatusCount count={data.eventsCount} name="Events" />
           

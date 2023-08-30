@@ -5,7 +5,7 @@ import React from "react";
 import { View, ScrollView } from "react-native";
 import { styles } from "../../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
-import EventCard from "./cards/eventCrads/EventCard";
+import EventCard from "./cards/eventCards/EventCard";
 import AddEvent from "../../../components/clubsView/clubProfile/events/AddEvent";
 import event1 from "../../../../assets/images/clubView/event1.png"
 import event2 from "../../../../assets/images/clubView/event2.png"
