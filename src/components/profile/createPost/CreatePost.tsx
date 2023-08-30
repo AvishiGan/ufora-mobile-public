@@ -11,20 +11,21 @@ import Post from "../../../model/PostModel";
 import { createPostRequest } from "../../../services/PostService";
 import * as DocumentPicker from "expo-document-picker";
 import { uploadFile } from "../../../../src/services/imagekit";
+import { FileData } from "../../../model";
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
-  const [selectedMedia, setSelectedMedia] = useState<string | undefined>(
-    undefined
-  );
+  const [selectedMedia, setSelectedMedia] = useState<FileData | null>(null);
 
   const handleMediaSelection = async () => {
     try {
-      var result = await DocumentPicker.getDocumentAsync({
+      var result = (await DocumentPicker.getDocumentAsync({
         type: "*/*",
-      });
+      })) as any;
+      const mediaFileData = new FileData(result);
 
-      uploadFileToImagekit(result);
+      if (mediaFileData.uri && mediaFileData.name)
+        setSelectedMedia(mediaFileData);
     } catch (error: any) {
       if (error.type === "cancel") {
         Alert.alert("User cancelled the picker");
@@ -34,14 +35,16 @@ const CreatePost = () => {
     }
   };
 
-  async function uploadFileToImagekit(fileData: any) {
+  const uploadFileToImageKit = async () => {
+    if (!selectedMedia) return Promise.reject("No media selected");
     try {
-      const uploadedFile = await uploadFile(fileData);
-      setSelectedMedia(uploadedFile.url);
+      const uploadedFile = await uploadFile(selectedMedia);
+      return Promise.resolve(uploadedFile);
     } catch (error) {
-      console.log("Error uploading file to imagekit", error);
+      console.log("Error uploading file to ImageKit", error);
+      return Promise.reject(error);
     }
-  }
+  };
 
   const handleSharePostButtonClick = async () => {
     console.log("Button pressed! Caption:", caption);
@@ -49,12 +52,13 @@ const CreatePost = () => {
     try {
       if (!caption) throw new Error("Caption is empty");
 
+      const result = await uploadFileToImageKit();
+
       const post: Post = {
         caption,
-        content: selectedMedia || "",
+        content: "imagekit.url",
         access_level: "public",
       };
-
       await createPostRequest(post);
       alert("Created post");
     } catch (error) {

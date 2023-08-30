@@ -1,20 +1,51 @@
 import ImageKit from "imagekit-javascript";
-import { urlEndpoint, publicKey } from "./config/imagekit";
-import * as Crypto from 'expo-crypto';
-import * as Random from 'expo-random';
-import { Buffer } from 'buffer';
+import { FileData } from "../model";
+import { generateImageKitAuth } from "../util/imageKitUtils";
 
-global.Buffer = Buffer;
+const urlEndpoint = process.env.IMAGE_KIT_URL_ENDPOINT || "";
+const publicKey = process.env.IMAGE_KIT_PUBLIC_KEY;
 
-const imagekit = new ImageKit({
+const imageKit = new ImageKit({
   publicKey,
   urlEndpoint,
 });
 
 /**
+ * Uploads a file to ImageKit
+ */
+export const uploadFile = async function (
+  file: FileData,
+  tags?: [string]
+): Promise<any> {
+  if (file.uri && file.name) {
+    const { token, expire, signature } = generateImageKitAuth();
+
+    const uploadOptions = {
+      file: file.uri,
+      fileName: file.name,
+      tags,
+      signature,
+      token,
+      expire,
+    };
+
+    return new Promise((resolve, reject) => {
+      imageKit.upload(uploadOptions, (err: any, result: any) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  }
+  return Promise.reject("File not provided");
+};
+
+/**
  * Returns the ImageKit URL for a given image source
  */
-export function getImagekitUrlFromSrc(
+export function getImageKitUrlFromSrc(
   imageSrc: string,
   transformationArr: any[]
 ): string {
@@ -22,7 +53,7 @@ export function getImagekitUrlFromSrc(
     src: imageSrc,
     transformation: transformationArr,
   };
-  const imageURL = imagekit.url(ikOptions);
+  const imageURL = imageKit.url(ikOptions);
 
   return imageURL;
 }
@@ -30,7 +61,7 @@ export function getImagekitUrlFromSrc(
 /**
  * Returns the ImageKit URL for a given image path
  */
-export function getImagekitUrlFromPath(
+export function getImageKitUrlFromPath(
   imagePath: string,
   transformationArr: any[]
 ): string {
@@ -40,58 +71,7 @@ export function getImagekitUrlFromPath(
     transformation: transformationArr,
   };
 
-  const imageURL = imagekit.url(ikOptions);
+  const imageURL = imageKit.url(ikOptions);
 
   return imageURL;
-}
-
-const secretKey = 'private_y0v9a/GGzdcw9kxujOvTm+uKBbw=';
-
-const expirationTime = Math.floor(Date.now() / 1000) + 3600; // 1 hour from now
-
-/**
- * Generates a signature for ImageKit
- */
-async function generateSignature(message: string): Promise<string> {
-  const signature = await Crypto.digestStringAsync(
-    Crypto.CryptoDigestAlgorithm.SHA256,
-    secretKey + message // secretKey is prepended to message
-  );
-  return signature;
-}
-
-/**
- * Uploads a file to ImageKit
- */
-export const uploadFile = async function(file: File): Promise<any> {
-  
-  const token = await randomBytes(16);
-  
-  const message = `fileName=${file.name}&expire=${expirationTime}`;
-  
-  const signature = await generateSignature(message);
-
-  const uploadOptions = {
-    file,
-    fileName: file.name,
-    tags: ["sample-tag-1", "sample-tag-2"],
-    signature,
-    token,
-    expire: expirationTime,
-  };
-
-  return new Promise((resolve, reject) => {
-    imagekit.upload(uploadOptions, (err: any, result: any) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result);
-      }
-    });
-  });
-};
-
-async function randomBytes(arg0: number): Promise<string> {
-  const randomBytes = await Random.getRandomBytesAsync(arg0);
-  return Buffer.from(randomBytes).toString('hex');
 }
