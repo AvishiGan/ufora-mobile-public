@@ -44,6 +44,7 @@ const CompanyProfilePostSection: React.FC = () => {
               likedCount={100}
               commentsCount={20}
               seeMore={true}
+              profileType="company"
             />
 
             <PostCard
@@ -53,6 +54,7 @@ const CompanyProfilePostSection: React.FC = () => {
               likedCount={10}
               commentsCount={5}
               seeMore={false}
+              profileType="company"
             />
 
             <PostCard
@@ -62,6 +64,7 @@ const CompanyProfilePostSection: React.FC = () => {
               likedCount={50}
               commentsCount={20}
               seeMore={true}
+              profileType="company"
             />
 
             <PostCard
@@ -71,6 +74,7 @@ const CompanyProfilePostSection: React.FC = () => {
               likedCount={120}
               commentsCount={0}
               seeMore={true}
+              profileType="company"
             />
           </View>
         </View>

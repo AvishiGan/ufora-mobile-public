@@ -19,7 +19,7 @@ interface ProjectCardData {
   date: string;
 }
 
-const ProjectCard: React.FC<ProjectCardData> = ({
+const JobCard: React.FC<ProjectCardData> = ({
   profilePic,
   jobTitle,
   organizationName,
@@ -42,4 +42,4 @@ const ProjectCard: React.FC<ProjectCardData> = ({
   );
 };
 
-export default ProjectCard;
+export default JobCard;

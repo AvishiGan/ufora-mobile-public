@@ -43,6 +43,7 @@ const MyProfilePostSection: React.FC = () => {
               likedCount={100}
               commentsCount={20}
               seeMore={true}
+              profileType="user"
             />
 
             <PostCard
@@ -52,6 +53,7 @@ const MyProfilePostSection: React.FC = () => {
               likedCount={10}
               commentsCount={5}
               seeMore={false}
+              profileType="user"
             />
 
             <PostCard
@@ -61,6 +63,7 @@ const MyProfilePostSection: React.FC = () => {
               likedCount={50}
               commentsCount={20}
               seeMore={false}
+              profileType="user"
             />
 
             <PostCard
@@ -70,6 +73,7 @@ const MyProfilePostSection: React.FC = () => {
               likedCount={120}
               commentsCount={0}
               seeMore={false}
+              profileType="user"
             />
           </View>
         </View>
