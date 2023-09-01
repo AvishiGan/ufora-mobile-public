@@ -59,6 +59,13 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ data, profileType }) => {
                 strokeColor="#FEFEFE"
               />
               {/* Ufora icon */}
+              {profileType === "user" && (
+                <UforaIcon
+                  size={21}
+                  fillColor="#111111"
+                  strokeColor="#FEFEFE"
+                />
+              )}
               <UforaIcon size={21} fillColor="#111111" strokeColor="#FEFEFE" />
             </View>
           </View>
