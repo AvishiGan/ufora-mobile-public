@@ -1,4 +1,4 @@
-import { profilePicture } from "../../../assets/images";
+import { profilePicture } from "../../../../assets/images";
 
 /**
  * @interface ProfileData

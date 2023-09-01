@@ -7,7 +7,7 @@ import {
   CardHeadingBold,
   RegularNormal,
   RegularSmall,
-} from "../../../../constants";
+} from "../../../../../constants";
 
 const ClubsAndSocietiesCard: React.FC = () => {
   return (

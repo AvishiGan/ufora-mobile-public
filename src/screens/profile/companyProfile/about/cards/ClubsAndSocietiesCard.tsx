@@ -1,29 +1,33 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { Text, View, Image } from "react-native";
 import { Card } from "react-native-paper";
 import { styles } from "./styles";
-import { achievementData } from "./data";
-import { CardHeadingBold, RegularNormal } from "../../../../constants";
+import { clubData } from "./data";
+import {
+  CardHeadingBold,
+  RegularNormal,
+  RegularSmall,
+} from "../../../../../constants";
 
-const AchievementCard: React.FC = () => {
+const ClubsAndSocietiesCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <CardHeadingBold>Achievements</CardHeadingBold>
+        <CardHeadingBold>Clubs and Societies</CardHeadingBold>
       </Card.Content>
       <Card.Content style={styles.contentWithGap}>
-        {achievementData.map((achievement, index) => (
+        {clubData.map((club, index) => (
           <Card.Content key={index} style={styles.iconAndDetailsContainer}>
             <View>
               <Image
                 style={styles.imageContainer}
-                source={achievement.image}
+                source={club.image}
                 resizeMode="contain"
               />
             </View>
             <View style={styles.detailsContainer}>
-              <RegularNormal>{achievement.title}</RegularNormal>
-              <RegularNormal>{achievement.contest}</RegularNormal>
+              <RegularNormal>{club.title}</RegularNormal>
+              <RegularSmall>{club.period}</RegularSmall>
             </View>
           </Card.Content>
         ))}
@@ -32,4 +36,4 @@ const AchievementCard: React.FC = () => {
   );
 };
 
-export default AchievementCard;
+export default ClubsAndSocietiesCard;

@@ -8,7 +8,7 @@ import {
   RegularNormal,
   RegularSmall,
   SmallItalic,
-} from "../../../../constants";
+} from "../../../../../constants";
 
 const EducationCard: React.FC = () => {
   return (

@@ -1,4 +1,4 @@
-import UserProfile from './UserProfile';
+import UserProfile from './MyProfile';
 
 export {default as ProfileAboutSection}  from './about';
 export {default as ProfilePostSection}  from './AllPosts';

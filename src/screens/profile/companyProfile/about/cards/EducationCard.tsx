@@ -2,28 +2,36 @@ import React from "react";
 import { View, Image } from "react-native";
 import { Card } from "react-native-paper";
 import { styles } from "./styles";
-import { otherAchievementData } from "./data";
-import { CardHeadingBold, RegularNormal } from "../../../../constants";
+import { educationData } from "./data";
+import {
+  CardHeadingBold,
+  RegularNormal,
+  RegularSmall,
+  SmallItalic,
+} from "../../../../../constants";
 
-const OtherAchievementCard: React.FC = () => {
+const EducationCard: React.FC = () => {
   return (
     <Card style={styles.individualCardContainer}>
       <Card.Content>
-        <CardHeadingBold>Other Achievements</CardHeadingBold>
+        <CardHeadingBold>Education</CardHeadingBold>
       </Card.Content>
       <Card.Content style={styles.contentWithGap}>
-        {otherAchievementData.map((otherAchievement, index) => (
+        {educationData.map((education, index) => (
           <Card.Content key={index} style={styles.iconAndDetailsContainer}>
             <View>
               <Image
                 style={styles.imageContainer}
-                source={otherAchievement.image}
+                source={education.image}
                 resizeMode="contain"
               />
             </View>
             <View style={styles.detailsContainer}>
-              <RegularNormal>{otherAchievement.title}</RegularNormal>
-              <RegularNormal>{otherAchievement.contest}</RegularNormal>
+              <RegularNormal>{education.general}</RegularNormal>
+              {education.university ? (
+                <SmallItalic>{education.university}</SmallItalic>
+              ) : null}
+              <RegularSmall>{education.period}</RegularSmall>
             </View>
           </Card.Content>
         ))}
@@ -31,4 +39,5 @@ const OtherAchievementCard: React.FC = () => {
     </Card>
   );
 };
-export default OtherAchievementCard;
+
+export default EducationCard;

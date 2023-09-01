@@ -11,8 +11,8 @@ import {
   badge6,
   badge7,
   badge8,
-} from "../../../../../assets/images";
-import { CardHeadingBold } from "../../../../constants";
+} from "../../../../../../assets/images";
+import { CardHeadingBold } from "../../../../../constants";
 
 const badgeImages = [
   badge1,

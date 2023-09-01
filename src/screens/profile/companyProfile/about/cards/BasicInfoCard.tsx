@@ -3,8 +3,8 @@ import { View } from "react-native";
 import { Card } from "react-native-paper";
 import { styles } from "./styles";
 import { basicData } from "./data";
-import { CakeIcon, MailIcon, PhoneIcon } from "../../../../../assets/svg";
-import { CardHeadingBold, RegularNormal } from "../../../../constants";
+import { CakeIcon, MailIcon, PhoneIcon } from "../../../../../../assets/svg";
+import { CardHeadingBold, RegularNormal } from "../../../../../constants";
 
 const BasicInfoCard: React.FC = () => {
   return (

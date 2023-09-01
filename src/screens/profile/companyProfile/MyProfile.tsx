@@ -1,8 +1,8 @@
 import React from "react";
-import MiddleTabNavigator from "../../navigation/navigator/middleTabNavigator/MiddleTabNavigator";
+import MiddleTabNavigator from "../../../navigation/navigator/middleTabNavigator/MiddleTabNavigator";
 import ProfileCommonSection from "./CommonSection";
 
-const UserProfile: React.FC = () => {
+const MyProfile: React.FC = () => {
   return (
     <React.Fragment>
       <ProfileCommonSection />
@@ -11,4 +11,4 @@ const UserProfile: React.FC = () => {
   );
 };
 
-export default UserProfile;
+export default MyProfile;

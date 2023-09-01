@@ -4,17 +4,17 @@
 
 import React from "react";
 import { View, ScrollView, Text, TouchableOpacity } from "react-native";
-import { PostCard, ContentAdditionBar, CreatePost } from "../../components";
+import { PostCard, ContentAdditionBar, CreatePost } from "../../../components";
 import {
   architecture,
   rugbyField,
   champions,
   office,
-} from "../../../assets/images";
-import { styles } from "../../components/profile/styles";
+} from "../../../../assets/images";
+import { styles } from "../../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
+import { RootStackParamList } from "../../../navigation/navigator/RootNavigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 

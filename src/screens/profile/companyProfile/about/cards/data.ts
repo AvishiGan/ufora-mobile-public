@@ -1,4 +1,4 @@
-import {achievement1, achievement2, achievement3, edu1, edu2, club1, club2, club3, otherAchievement1, otherAchievementCommon} from "../../../../../assets/images";
+import {achievement1, achievement2, achievement3, edu1, edu2, club1, club2, club3, otherAchievement1, otherAchievementCommon} from "../../../../../../assets/images";
 
 export const basicData = [
     {
