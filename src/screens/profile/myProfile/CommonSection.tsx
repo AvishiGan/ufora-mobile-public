@@ -10,7 +10,7 @@ const ProfileCommonSection: React.FC = () => {
     <SafeAreaView>
       <View style={styles.topSectionContainer}>
         <TopBar titleBarName={profileData.titleBarName} />
-        <ProfileHeader data={profileData} />
+        <ProfileHeader data={profileData} profileType="user" />
       </View>
     </SafeAreaView>
   );

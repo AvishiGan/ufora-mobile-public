@@ -11,7 +11,7 @@ import {
   badge6,
   badge7,
   badge8,
-} from "../../../../../../assets/images";
+} from "../../../../../../assets/images/profile/myProfile";
 import { CardHeadingBold } from "../../../../../constants";
 
 const badgeImages = [

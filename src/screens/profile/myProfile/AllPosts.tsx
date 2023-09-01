@@ -10,7 +10,7 @@ import {
   rugbyField,
   champions,
   office,
-} from "../../../../assets/images";
+} from "../../../../assets/images/profile/myProfile";
 import { styles } from "../../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
@@ -19,10 +19,9 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 
 // type Props = StackScreenProps<RootStackParamList, "AllPosts">;
-type Props =  NativeStackNavigationProp<RootStackParamList>;
+type Props = NativeStackNavigationProp<RootStackParamList>;
 
-
-const ProfilePostSection: React.FC = () => {
+const MyProfilePostSection: React.FC = () => {
   const navigation = useNavigation<Props>();
   return (
     <SafeAreaView>
@@ -79,4 +78,4 @@ const ProfilePostSection: React.FC = () => {
   );
 };
 
-export default ProfilePostSection;
+export default MyProfilePostSection;

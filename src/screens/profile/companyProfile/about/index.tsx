@@ -1,30 +1,12 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
 import { styles } from "./cards/styles";
-import {
-  IntroCard,
-  BasicInfoCard,
-  EducationCard,
-  DigitalBadgeCard,
-  SkillHexagonCard,
-  ClubCard,
-  AchievementCard,
-  OtherAchievementCard,
-} from "./cards/AllCards";
+import { IntroCard, BasicInfoCard } from "./cards/AllCards";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const cardComponents = [
-  IntroCard,
-  BasicInfoCard,
-  EducationCard,
-  DigitalBadgeCard,
-  SkillHexagonCard,
-  ClubCard,
-  AchievementCard,
-  OtherAchievementCard,
-];
+const cardComponents = [IntroCard, BasicInfoCard];
 
-const ProfileAboutSection: React.FC = () => {
+const CompanyProfileAboutSection: React.FC = () => {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -38,4 +20,4 @@ const ProfileAboutSection: React.FC = () => {
   );
 };
 
-export default ProfileAboutSection;
+export default CompanyProfileAboutSection;

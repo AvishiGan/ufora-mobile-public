@@ -6,11 +6,11 @@ import React from "react";
 import { View, ScrollView, Text, TouchableOpacity } from "react-native";
 import { PostCard, ContentAdditionBar, CreatePost } from "../../../components";
 import {
-  architecture,
-  rugbyField,
-  champions,
+  rotaractVisiting,
+  hiking,
+  staff,
   office,
-} from "../../../../assets/images";
+} from "../../../../assets/images/profile/companyProfile";
 import { styles } from "../../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
@@ -19,10 +19,9 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 
 // type Props = StackScreenProps<RootStackParamList, "AllPosts">;
-type Props =  NativeStackNavigationProp<RootStackParamList>;
+type Props = NativeStackNavigationProp<RootStackParamList>;
 
-
-const ProfilePostSection: React.FC = () => {
+const CompanyProfilePostSection: React.FC = () => {
   const navigation = useNavigation<Props>();
   return (
     <SafeAreaView>
@@ -36,10 +35,11 @@ const ProfilePostSection: React.FC = () => {
           <TouchableOpacity onPress={() => navigation.navigate("CreatePost")}>
             <Text>Add a new post</Text>
           </TouchableOpacity>
+
           <View style={styles.allPostsContainer}>
             <PostCard
-              postDescription="This is an amazing architectural concept which we can implement in our group project"
-              postImage={architecture}
+              postDescription="The Rotaract Fellowship visit has been successfully concluded"
+              postImage={rotaractVisiting}
               likedNames="Kasun"
               likedCount={100}
               commentsCount={20}
@@ -47,8 +47,8 @@ const ProfilePostSection: React.FC = () => {
             />
 
             <PostCard
-              postDescription="Me and my homies at the Bradby finals!!!"
-              postImage={rugbyField}
+              postDescription="Hiking for life"
+              postImage={hiking}
               likedNames="Kasun, Sumith"
               likedCount={10}
               commentsCount={5}
@@ -56,21 +56,21 @@ const ProfilePostSection: React.FC = () => {
             />
 
             <PostCard
-              postDescription="Recently we participated and became the champions at Realhack 5.0"
-              postImage={champions}
+              postDescription="Our developers working successfully on revamping our website"
+              postImage={staff}
               likedNames="You"
               likedCount={50}
               commentsCount={20}
-              seeMore={false}
+              seeMore={true}
             />
 
             <PostCard
-              postDescription="Interested in kickstarting your global career from Sri Lanka itself?"
+              postDescription="Meetings have never been more fun"
               postImage={office}
               likedNames=""
               likedCount={120}
               commentsCount={0}
-              seeMore={false}
+              seeMore={true}
             />
           </View>
         </View>
@@ -79,4 +79,4 @@ const ProfilePostSection: React.FC = () => {
   );
 };
 
-export default ProfilePostSection;
+export default CompanyProfilePostSection;

@@ -12,7 +12,7 @@ const EditButton: React.FC<ShareButtonProps> = ({ onPress }) => {
     <CustomButton
       onPress={onPress}
       icon={<MessageSquare size={16} color={COLORS.brandGrey} />}
-      title="Following"
+      title="Message"
     />
   );
 };

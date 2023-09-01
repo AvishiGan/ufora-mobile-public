@@ -4,7 +4,11 @@
 import React from "react";
 import { View, ScrollView } from "react-native";
 import { ProjectCard, ContentAdditionBar } from "../../../components";
-import { mobileApp, hostel, robotic } from "../../../../assets/images";
+import {
+  mobileApp,
+  hostel,
+  robotic,
+} from "../../../../assets/images/profile/myProfile";
 import { styles } from "../../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 

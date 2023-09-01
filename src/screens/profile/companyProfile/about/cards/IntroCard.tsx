@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "react-native-paper";
-import { View } from "react-native";
 import { styles } from "./styles";
 import { CardHeadingBold, NameSemiboldNormal } from "../../../../../constants";
 
@@ -12,8 +11,9 @@ const IntroCard: React.FC = () => {
       </Card.Content>
       <Card.Content style={styles.contentWithGap}>
         <NameSemiboldNormal>
-          Hey I am Isuru, an undergrad at UCSC. I love designing and creating
-          websites and posters
+          WSO2 is an open-source technology provider founded in 2005. It
+          delivers software and cloud solutions that provide foundational
+          technologies... see more
           {/* <NameSemiboldNormal style={styles.seeMore}>
             ... see more
           </NameSemiboldNormal> */}

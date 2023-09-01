@@ -1,4 +1,4 @@
-import { profilePicture } from "../../../../assets/images/profile/myProfile";
+import { profilePicture } from "../../../assets/images/profile/myProfile";
 
 /**
  * @interface ProfileData
@@ -8,9 +8,11 @@ export interface ProfileData {
   profilePic: any;
   profileName: string;
   firstName: string;
-  organization: string;
-  followersCount: number;
+  university: string;
+  friendsCount: number;
   postsCount: number;
+  blogsCount: number;
+  projectsCount: number;
   titleBarName: string;
   slideTitles: string[];
   time?: string;
@@ -22,11 +24,13 @@ export interface ProfileData {
  */
 export const profileData: ProfileData = {
   profilePic: profilePicture,
-  profileName: "WSO2",
-  firstName: "WSO2",
-  organization: "Software organization",
-  followersCount: 1045,
-  postsCount: 105,
-  titleBarName: "wso2",
-  slideTitles: ["Posts", "About", "Jobs"],
+  profileName: "Isuru Ranawaka",
+  firstName: "Isuru",
+  university: "Undergrad at University of Colombo",
+  friendsCount: 145,
+  postsCount: 35,
+  blogsCount: 5,
+  projectsCount: 4,
+  titleBarName: "isurur",
+  slideTitles: ["About", "Posts", "Blogs", "Portfolio"],
 };

@@ -1,10 +1,11 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { Card } from "react-native-paper";
 import { styles } from "./styles";
 import { basicData } from "./data";
-import { CakeIcon, MailIcon, PhoneIcon } from "../../../../../../assets/svg";
+import { MailIcon, PhoneIcon } from "../../../../../../assets/svg";
 import { CardHeadingBold, RegularNormal } from "../../../../../constants";
+import { MapPin } from "lucide-react-native";
 
 const BasicInfoCard: React.FC = () => {
   return (
@@ -18,9 +19,9 @@ const BasicInfoCard: React.FC = () => {
             {/* First singleBasicInfoContainer */}
             <View style={styles.singleBasicInfoContainer}>
               <View>
-                <CakeIcon width={31} height={30} color="#111111" />
+                <MapPin size={24} color="#111111" />
               </View>
-              <RegularNormal>{basicData.birthday}</RegularNormal>
+              <RegularNormal>{basicData.location}</RegularNormal>
             </View>
 
             {/* Second singleBasicInfoContainer */}
@@ -38,6 +39,12 @@ const BasicInfoCard: React.FC = () => {
               </View>
               <RegularNormal>{basicData.email}</RegularNormal>
             </View>
+
+            {/* Location map image */}
+            <Image
+              style={styles.imageContainer}
+              source={basicData.locationImage}
+            />
           </View>
         ))}
       </Card.Content>
