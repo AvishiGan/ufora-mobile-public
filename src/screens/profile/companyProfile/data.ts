@@ -1,4 +1,4 @@
-import { profilePicture } from "../../../../assets/images/profile/myProfile";
+import { wso2Logo } from "../../../../assets/images/profile/companyProfile";
 
 /**
  * @interface ProfileData
@@ -21,7 +21,7 @@ export interface ProfileData {
  * Object contain actual data
  */
 export const profileData: ProfileData = {
-  profilePic: profilePicture,
+  profilePic: wso2Logo,
   profileName: "WSO2",
   firstName: "WSO2",
   organization: "Software organization",
