@@ -1,10 +1,10 @@
 import { wso2Logo } from "../../../../assets/images/profile/companyProfile";
 
 /**
- * @interface ProfileData
+ * @interface CompanyProfileData
  *  This has all the data which contains in common profile sections
  */
-export interface ProfileData {
+export interface CompanyProfileData {
   profilePic: any;
   profileName: string;
   firstName: string;
@@ -17,10 +17,10 @@ export interface ProfileData {
 }
 
 /**
- * Instance of the ProfileData interface
+ * Instance of the CompanyProfileData interface
  * Object contain actual data
  */
-export const profileData: ProfileData = {
+export const companyProfileData: CompanyProfileData = {
   profilePic: wso2Logo,
   profileName: "WSO2",
   firstName: "WSO2",

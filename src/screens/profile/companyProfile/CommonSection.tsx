@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { styles } from "../../../components/profile/styles";
-import { profileData } from "./data";
+import { profileData } from "./CompanyProfileData";
 import { TopBar, ProfileHeader } from "../../../components";
 import { SafeAreaView } from "react-native-safe-area-context";
 

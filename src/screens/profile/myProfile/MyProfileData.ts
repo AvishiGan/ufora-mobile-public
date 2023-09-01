@@ -1,10 +1,10 @@
 import { profilePicture } from "../../../../assets/images/profile/myProfile";
 
 /**
- * @interface ProfileData
+ * @interface MyProfileData
  *  This has all the data which contains in common profile sections
  */
-export interface ProfileData {
+export interface MyProfileData {
   profilePic: any;
   profileName: string;
   firstName: string;
@@ -19,10 +19,10 @@ export interface ProfileData {
 }
 
 /**
- * Instance of the ProfileData interface
+ * Instance of the MyProfileData interface
  * Object contain actual data
  */
-export const profileData: ProfileData = {
+export const myProfileData: MyProfileData = {
   profilePic: profilePicture,
   profileName: "Isuru Ranawaka",
   firstName: "Isuru",
