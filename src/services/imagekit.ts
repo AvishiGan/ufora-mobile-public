@@ -1,4 +1,5 @@
 import ImageKit from "imagekit-javascript";
+
 import { FileData } from "../model";
 import { generateImageKitAuth } from "../util/imageKitUtils";
 
@@ -11,18 +12,23 @@ const imageKit = new ImageKit({
 });
 
 /**
- * Uploads a file to ImageKit
+ * Uploads media file to image kit
+ * @param file FileData File data object
+ * @param tags string[] Tags to be added to the file
+ * @returns Promise<any> Promise that resolves to the response from image kit
  */
-export const uploadFile = async function (
+export const uploadMediaToImageKit = async function (
   file: FileData,
   tags?: [string]
 ): Promise<any> {
-  if (file.uri && file.name) {
+  const { data, name: fileName } = file;
+
+  if (data && fileName) {
     const { token, expire, signature } = generateImageKitAuth();
 
     const uploadOptions = {
-      file: file.uri,
-      fileName: file.name,
+      file: data,
+      fileName,
       tags,
       signature,
       token,
@@ -42,36 +48,36 @@ export const uploadFile = async function (
   return Promise.reject("File not provided");
 };
 
-/**
- * Returns the ImageKit URL for a given image source
- */
-export function getImageKitUrlFromSrc(
-  imageSrc: string,
-  transformationArr: any[]
-): string {
-  const ikOptions = {
-    src: imageSrc,
-    transformation: transformationArr,
-  };
-  const imageURL = imageKit.url(ikOptions);
+// /**
+//  * Returns the ImageKit URL for a given image source
+//  */
+// export function getImageKitUrlFromSrc(
+//   imageSrc: string,
+//   transformationArr: any[]
+// ): string {
+//   const ikOptions = {
+//     src: imageSrc,
+//     transformation: transformationArr,
+//   };
+//   const imageURL = imageKit.url(ikOptions);
 
-  return imageURL;
-}
+//   return imageURL;
+// }
 
-/**
- * Returns the ImageKit URL for a given image path
- */
-export function getImageKitUrlFromPath(
-  imagePath: string,
-  transformationArr: any[]
-): string {
-  const ikOptions = {
-    urlEndpoint,
-    path: imagePath,
-    transformation: transformationArr,
-  };
+// /**
+//  * Returns the ImageKit URL for a given image path
+//  */
+// export function getImageKitUrlFromPath(
+//   imagePath: string,
+//   transformationArr: any[]
+// ): string {
+//   const ikOptions = {
+//     urlEndpoint,
+//     path: imagePath,
+//     transformation: transformationArr,
+//   };
 
-  const imageURL = imageKit.url(ikOptions);
+//   const imageURL = imageKit.url(ikOptions);
 
-  return imageURL;
-}
+//   return imageURL;
+// }
