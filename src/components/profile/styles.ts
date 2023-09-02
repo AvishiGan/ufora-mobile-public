@@ -232,6 +232,7 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     gap: 15,
+    backgroundColor: "#FEFEFE",
   },
   seeMore: {
     overflow: "hidden",
