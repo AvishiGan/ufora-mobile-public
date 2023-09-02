@@ -1,12 +1,13 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import {
+  COLORS,
   NameSemiboldNormal,
+  RegularSmall,
   SmallerMedium,
   SmallerRegular,
 } from "../../../constants";
-import { Button } from "react-native-paper";
 
 interface ProjectCardData {
   profilePic: any;
@@ -31,7 +32,9 @@ const JobCard: React.FC<ProjectCardData> = ({
         </View>
         <View style={styles.dateApplyButtonContainer}>
           <SmallerRegular>{date}</SmallerRegular>
-          <Button style={styles.applyButton}>Apply</Button>
+          <TouchableOpacity style={styles.applyButton}>
+            <RegularSmall fontColor={COLORS.brandWhite}>Apply</RegularSmall>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

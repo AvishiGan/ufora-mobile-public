@@ -456,6 +456,8 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#4F4E4E",
     flexDirection: "row",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
   buttonContent: {
     flexDirection: "row",
@@ -473,6 +475,8 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#2656FF",
     flexDirection: "row",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
 
   /** Member button */
@@ -485,6 +489,8 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#87929D",
     flexDirection: "row",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
 
   /*************************************************************Create Post Buttons*********************************************************************** */

@@ -10,10 +10,10 @@ type ButtonProps = TouchableOpacityProps & {
 
 const FollowingButton: React.FC<ButtonProps> = ({ onPress }) => (
   <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
-    <View style={styles.profileHeaderButtonContainer}>
+    <View style={styles.followingButtonContainer}>
       <View style={styles.buttonContent}>
         <CheckCircle size={16} color={COLORS.brandBlue} />
-        <RegularNormal>Following</RegularNormal>
+        <RegularNormal fontColor={COLORS.brandBlue}>Following</RegularNormal>
       </View>
     </View>
   </TouchableOpacity>

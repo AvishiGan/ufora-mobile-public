@@ -4,12 +4,11 @@ export const styles = StyleSheet.create({
   /********************************************************* Job card ********************************************************* */
   singleJobCardContainer: {
     display: "flex",
-    width: "100%",
+    width: "95%",
     padding: 10,
-    // justifyContent: "space-between",
+    justifyContent: "space-between",
     borderRadius: 15,
     backgroundColor: "#FEFEFE",
-    // marginHorizontal: 10,
     marginLeft: 10,
     marginRight: 10,
   },
@@ -21,6 +20,7 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     flexShrink: 0,
     flexBasis: 0,
+    justifyContent: "space-between", // To push the date and apply button to the right
   },
   organizationLogo: {
     width: 50,
@@ -30,12 +30,12 @@ export const styles = StyleSheet.create({
     borderStyle: "solid",
     borderColor: "#B8B8B8",
   },
-
   organizationNameJobContainer: {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
     gap: 5,
+    width: "55%", // To make the organization name and job title wrap to the next line
   },
   dateApplyButtonContainer: {
     display: "flex",
@@ -43,7 +43,6 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-end",
     alignSelf: "stretch",
-    gap: 5,
   },
   applyButton: {
     display: "flex",
@@ -51,5 +50,8 @@ export const styles = StyleSheet.create({
     gap: 10,
     borderRadius: 5,
     backgroundColor: "#2656FF",
+    color: "#FEFEFE",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
   },
 });
