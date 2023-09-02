@@ -1,7 +1,3 @@
-/**
- * This code is a common code for creating one single project card which we can use later to create multiple project cards
- */
-
 import React from "react";
 import { View, Image } from "react-native";
 import { styles } from "./styles";
