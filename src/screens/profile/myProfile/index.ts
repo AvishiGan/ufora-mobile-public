@@ -1,8 +1,9 @@
-import UserProfile from './MyProfile';
+import MyProfile from "./MyProfile";
 
-export {default as ProfileAboutSection}  from './about';
-export {default as ProfilePostSection}  from './AllPosts';
-export {default as ProfileBlogSection}  from './AllBlogs';
-export {default as ProfilePortfolioSection}  from './AllProjects';
-export {default as ProfileCommonSection}  from './CommonSection';
-export default UserProfile;
+export { default as MyProfileAboutSection } from "./about";
+export { default as MyProfilePostSection } from "./AllPosts";
+export { default as MyProfileBlogSection } from "./AllBlogs";
+export { default as MyProfilePortfolioSection } from "./AllProjects";
+export { default as MyProfileCommonSection } from "./CommonSection";
+
+export default MyProfile;

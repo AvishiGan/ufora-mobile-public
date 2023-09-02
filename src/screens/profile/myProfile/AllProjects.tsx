@@ -12,7 +12,7 @@ import {
 import { styles } from "../../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const ProfilePortfolioSection = () => {
+const MyProfilePortfolioSection = () => {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -43,4 +43,4 @@ const ProfilePortfolioSection = () => {
   );
 };
 
-export default ProfilePortfolioSection;
+export default MyProfilePortfolioSection;

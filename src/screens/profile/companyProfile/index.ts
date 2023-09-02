@@ -1,7 +1,8 @@
 import CompanyProfile from "./CompanyProfile";
 
-export { default as ProfileAboutSection } from "./about";
-export { default as ProfilePostSection } from "./AllPosts";
-export { default as ProfileJobSection } from "./AllJobs";
-export { default as ProfileCommonSection } from "./CommonSection";
+export { default as CompanyProfileAboutSection } from "./about";
+export { default as CompanyProfilePostSection } from "./AllPosts";
+export { default as CompanyProfileJobSection } from "./AllJobs";
+export { default as CompanyProfileCommonSection } from "./CommonSection";
+
 export default CompanyProfile;

@@ -1,12 +1,12 @@
 import React from "react";
-import MiddleTabNavigator from "../../../navigation/navigator/middleTabNavigator/MiddleTabNavigator";
 import ProfileCommonSection from "./CommonSection";
+import { MyProfileMiddleTabNavigator } from "../../../navigation";
 
 const MyProfile: React.FC = () => {
   return (
     <React.Fragment>
       <ProfileCommonSection />
-      <MiddleTabNavigator />
+      <MyProfileMiddleTabNavigator />
     </React.Fragment>
   );
 };

@@ -1,22 +1,16 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
-import { NavigationContainer, RouteProp } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { tabBarStyles, customTabBarStyles } from "./styles";
-import {
-  ProfileAboutSection,
-  ProfilePostSection,
-  ProfileBlogSection,
-  ProfilePortfolioSection,
-} from "../../../screens";
+
+type TabName = "About" | "Posts" | "Blog" | "Portfolio" | "Jobs";
+
+type ProfileSectionProps = {
+  sectionName: string;
+  component: React.ComponentType<any>;
+};
 
 const Tab = createMaterialTopTabNavigator();
 
-type TabName = "About" | "Posts" | "Blog" | "Portfolio";
-
-/**
- * Interface that defines the expected props for the CustomTab component
- */
 type CustomTabProps = {
   state: any;
   descriptors: any;
@@ -33,22 +27,15 @@ const CustomTab: React.FC<CustomTabProps> = ({
   handleTabPress,
 }) => {
   return (
-    <View style={customTabBarStyles.tabBar}>
+    <View>
       {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
         const label = options.tabBarLabel || route.name;
-
         const isActive = activeTab === route.name;
 
         return (
           <TouchableOpacity
             key={index}
-            style={[
-              customTabBarStyles.tabItem,
-              isActive
-                ? customTabBarStyles.activeTabItem
-                : customTabBarStyles.inactiveTabItem,
-            ]}
             onPress={() => {
               handleTabPress(route.name);
               const event = navigation.emit({
@@ -60,15 +47,7 @@ const CustomTab: React.FC<CustomTabProps> = ({
               }
             }}
           >
-            <Text
-              style={
-                isActive
-                  ? customTabBarStyles.activeText
-                  : customTabBarStyles.inactiveText
-              }
-            >
-              {label}
-            </Text>
+            <Text>{label}</Text>
           </TouchableOpacity>
         );
       })}
@@ -76,8 +55,14 @@ const CustomTab: React.FC<CustomTabProps> = ({
   );
 };
 
-const MiddleTabNavigator = () => {
-  const [activeTab, setActiveTab] = useState<TabName>("About");
+const ProfileMiddleTabNavigator = ({
+  initialTab,
+  sections,
+}: {
+  initialTab: TabName;
+  sections: ProfileSectionProps[];
+}) => {
+  const [activeTab, setActiveTab] = useState<TabName>(initialTab);
 
   const handleTabPress = (tabName: TabName) => {
     setActiveTab(tabName);
@@ -87,7 +72,7 @@ const MiddleTabNavigator = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <>
         <Tab.Navigator
-          initialRouteName="About"
+          initialRouteName={initialTab}
           tabBar={(props) => (
             <CustomTab
               {...props}
@@ -96,14 +81,17 @@ const MiddleTabNavigator = () => {
             />
           )}
         >
-          <Tab.Screen name="About" component={ProfileAboutSection} />
-          <Tab.Screen name="Posts" component={ProfilePostSection} />
-          <Tab.Screen name="Blog" component={ProfileBlogSection} />
-          <Tab.Screen name="Portfolio" component={ProfilePortfolioSection} />
+          {sections.map((section, index) => (
+            <Tab.Screen
+              key={index}
+              name={section.sectionName}
+              component={section.component}
+            />
+          ))}
         </Tab.Navigator>
       </>
     </SafeAreaView>
   );
 };
 
-export default MiddleTabNavigator;
+export default ProfileMiddleTabNavigator;
