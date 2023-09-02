@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
   },
   allPostsContainer: {
     display: "flex",
-    // width: 404,
     padding: 15,
     paddingLeft: 10,
     paddingTop: 0,
@@ -35,6 +34,8 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "flex-start",
     gap: 10,
+    marginTop: 25,
+    marginBottom: 25,
   },
 
   /*********************************Common********************************** */

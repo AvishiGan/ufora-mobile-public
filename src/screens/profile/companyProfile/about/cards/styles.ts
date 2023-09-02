@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   imageContainer: {
-    width: "80%",
+    width: "110%",
     height: 132,
     borderRadius: 15,
   },

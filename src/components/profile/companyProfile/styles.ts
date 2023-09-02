@@ -4,12 +4,14 @@ export const styles = StyleSheet.create({
   /********************************************************* Job card ********************************************************* */
   singleJobCardContainer: {
     display: "flex",
-    width: "90%",
+    width: "100%",
     padding: 10,
-    justifyContent: "space-between",
-    alignItems: "center",
+    // justifyContent: "space-between",
     borderRadius: 15,
     backgroundColor: "#FEFEFE",
+    // marginHorizontal: 10,
+    marginLeft: 10,
+    marginRight: 10,
   },
   organizationLogoNameJobContainer: {
     display: "flex",
@@ -41,11 +43,10 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-end",
     alignSelf: "stretch",
+    gap: 5,
   },
   applyButton: {
     display: "flex",
-    paddingHorizontal: 5,
-    paddingVertical: 10,
     alignItems: "center",
     gap: 10,
     borderRadius: 5,
