@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { customTabBarStyles } from "../styles";
 
 type TabName = "About" | "Posts" | "Blog" | "Portfolio" | "Jobs";
 
@@ -27,7 +28,7 @@ const CustomTab: React.FC<CustomTabProps> = ({
   handleTabPress,
 }) => {
   return (
-    <View>
+    <View style={customTabBarStyles.tabBar}>
       {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
         const label = options.tabBarLabel || route.name;
@@ -36,6 +37,12 @@ const CustomTab: React.FC<CustomTabProps> = ({
         return (
           <TouchableOpacity
             key={index}
+            style={[
+              customTabBarStyles.tabItem,
+              isActive
+                ? customTabBarStyles.activeTabItem
+                : customTabBarStyles.inactiveTabItem,
+            ]}
             onPress={() => {
               handleTabPress(route.name);
               const event = navigation.emit({
@@ -47,7 +54,15 @@ const CustomTab: React.FC<CustomTabProps> = ({
               }
             }}
           >
-            <Text>{label}</Text>
+            <Text
+              style={
+                isActive
+                  ? customTabBarStyles.activeText
+                  : customTabBarStyles.inactiveText
+              }
+            >
+              {label}
+            </Text>
           </TouchableOpacity>
         );
       })}
