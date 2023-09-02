@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { View, TextInput, Alert } from "react-native";
-import { styles } from "../styles";
-import { TopBar } from "../..";
+import { TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import { COLORS } from "../../../constants";
-import CreatePostHeader from "./Header";
+import { FileData, Post } from "../../../model";
+import { createPostRequest } from "../../../services/PostService";
+import { uploadMediaToImageKit } from "../../../services/imagekit";
+import { selectMediaFromDevice } from "../../../util/fileUtils";
+
+import { TopBar } from "../..";
 import { profileData } from "../../../screens/profile/data";
 import { AddPhotoVideoButton, SharePostButton } from "../buttons";
-import { SafeAreaView } from "react-native-safe-area-context";
-import Post from "../../../model/PostModel";
-import { createPostRequest } from "../../../services/PostService";
-import * as DocumentPicker from "expo-document-picker";
-import { uploadFile } from "../../../../src/services/imagekit";
-import { FileData } from "../../../model";
+import { styles } from "../styles";
+import CreatePostHeader from "./Header";
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
@@ -19,27 +20,18 @@ const CreatePost = () => {
 
   const handleMediaSelection = async () => {
     try {
-      var result = (await DocumentPicker.getDocumentAsync({
-        type: "*/*",
-      })) as any;
-      const mediaFileData = new FileData(result);
-
-      if (mediaFileData.uri && mediaFileData.name)
-        setSelectedMedia(mediaFileData);
-    } catch (error: any) {
-      if (error.type === "cancel") {
-        Alert.alert("User cancelled the picker");
-      } else {
-        throw error;
-      }
+      const fileData = await selectMediaFromDevice(1);
+      if (fileData.length) setSelectedMedia(fileData[0]);
+    } catch (error) {
+      console.log("Error selecting media", error);
     }
   };
 
-  const uploadFileToImageKit = async () => {
+  const uploadFileToImageKit = async (): Promise<string> => {
     if (!selectedMedia) return Promise.reject("No media selected");
     try {
-      const uploadedFile = await uploadFile(selectedMedia);
-      return Promise.resolve(uploadedFile);
+      const imageKitResponse = await uploadMediaToImageKit(selectedMedia);
+      return Promise.resolve(imageKitResponse.url);
     } catch (error) {
       console.log("Error uploading file to ImageKit", error);
       return Promise.reject(error);
@@ -52,11 +44,11 @@ const CreatePost = () => {
     try {
       if (!caption) throw new Error("Caption is empty");
 
-      const result = await uploadFileToImageKit();
+      const imageUrl = await uploadFileToImageKit();
 
       const post: Post = {
         caption,
-        content: "imagekit.url",
+        content: imageUrl,
         access_level: "public",
       };
       await createPostRequest(post);
