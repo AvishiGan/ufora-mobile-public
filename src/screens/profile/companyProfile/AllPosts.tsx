@@ -23,15 +23,6 @@ const CompanyProfilePostSection: React.FC = () => {
     <SafeAreaView>
       <ScrollView>
         <View style={styles.postActionContainer}>
-          {/* <ContentAdditionBar
-            title="Add a new post"
-            onPress={() => navigation.navigate("CreatePost")}
-          /> */}
-
-          <TouchableOpacity onPress={() => navigation.navigate("CreatePost")}>
-            <Text>Add a new post</Text>
-          </TouchableOpacity>
-
           <View style={styles.allPostsContainer}>
             <PostCard
               postDescription="The Rotaract Fellowship visit has been successfully concluded"
