@@ -4,7 +4,7 @@ import { Post } from "../model";
 
 export const createPostRequest = async (post: Post) => {
   try {
-    const response = await ApiClient.post("/post/create", post);
+    const response = await ApiClient.post("/api/post/create", post);
     console.log("Post created:", response);
     alert("Post created!");
   } catch (error) {

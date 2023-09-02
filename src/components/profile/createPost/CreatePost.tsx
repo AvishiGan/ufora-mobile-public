@@ -1,40 +1,48 @@
 import React, { useState } from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, Alert } from "react-native";
 import { styles } from "../styles";
 import { TopBar } from "../..";
 import { COLORS } from "../../../constants";
 import CreatePostHeader from "./Header";
-import { profileData } from "../../../screens/profile/data";
+import { myProfileData } from "../../../screens/profile/myProfile/MyProfileData";
 import { AddPhotoVideoButton, SharePostButton } from "../buttons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import * as ImagePicker from "expo-image-picker";
 import Post from "../../../model/PostModel";
 import { createPostRequest } from "../../../services/PostService";
+import * as DocumentPicker from "expo-document-picker";
+import { uploadFile } from "../../../../src/services/imagekit";
+import { FileData } from "../../../model";
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
-  const [selectedMedia, setSelectedMedia] = useState<string | undefined>(
-    undefined
-  );
+  const [selectedMedia, setSelectedMedia] = useState<FileData | null>(null);
 
   const handleMediaSelection = async () => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    try {
+      var result = (await DocumentPicker.getDocumentAsync({
+        type: "*/*",
+      })) as any;
+      const mediaFileData = new FileData(result);
 
-    if (status !== "granted") {
-      console.log("Permission denied");
-      return;
+      if (mediaFileData.uri && mediaFileData.name)
+        setSelectedMedia(mediaFileData);
+    } catch (error: any) {
+      if (error.type === "cancel") {
+        Alert.alert("User cancelled the picker");
+      } else {
+        throw error;
+      }
     }
+  };
 
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 0.8,
-    });
-
-    if (!result.canceled) {
-      console.log(result.assets[0].uri);
-      setSelectedMedia(result.assets[0].uri);
+  const uploadFileToImageKit = async () => {
+    if (!selectedMedia) return Promise.reject("No media selected");
+    try {
+      const uploadedFile = await uploadFile(selectedMedia);
+      return Promise.resolve(uploadedFile);
+    } catch (error) {
+      console.log("Error uploading file to ImageKit", error);
+      return Promise.reject(error);
     }
   };
 
@@ -44,12 +52,13 @@ const CreatePost = () => {
     try {
       if (!caption) throw new Error("Caption is empty");
 
+      const result = await uploadFileToImageKit();
+
       const post: Post = {
         caption,
-        content: selectedMedia || "",
+        content: "imagekit.url",
         access_level: "public",
       };
-
       await createPostRequest(post);
       alert("Created post");
     } catch (error) {
@@ -62,15 +71,15 @@ const CreatePost = () => {
       {/* Top bar */}
       <TopBar titleBarName="Create Post" />
       {/* Create post header */}
-      <CreatePostHeader data={profileData} />
+      <CreatePostHeader data={myProfileData} />
       {/* Input field */}
       <TextInput
         onChangeText={(val) => setCaption(val)} // Update the caption state
         value={caption} // Bind the value of the input field to the caption state
-        placeholder={`Hey ${profileData.firstName}, What’s special today?`}
+        placeholder={`Hey ${myProfileData.firstName}, What’s special today?`}
         placeholderTextColor={COLORS.placeHolder}
         style={[styles.inputField]}
-        multiline={true} // Enable multiline
+        multiline={true}
       />
       {/* Buttons */}
       <View style={styles.twoButtonsContainer}>

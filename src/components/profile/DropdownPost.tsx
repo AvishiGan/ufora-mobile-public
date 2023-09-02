@@ -32,8 +32,8 @@ const DropdownPost: FunctionComponent<DropdownProps> = ({
       color: "#2656FF",
     },
     icon: {
-      // marginRight: 5,
       marginLeft: 5,
+      marginRight: 10,
       color: "#2656FF",
     },
     picker: {
