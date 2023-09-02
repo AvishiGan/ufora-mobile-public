@@ -1,7 +1,3 @@
-/**
- * This file contains all the posts information
- */
-
 import React from "react";
 import { View, ScrollView } from "react-native";
 import { JobCard } from "../../../components";
@@ -16,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 // type Props = StackScreenProps<RootStackParamList, "AllPosts">;
 type Props = NativeStackNavigationProp<RootStackParamList>;
 
-const CompanyProfilePostSection: React.FC = () => {
+const CompanyProfileJobSection: React.FC = () => {
   const navigation = useNavigation<Props>();
   return (
     <SafeAreaView>
@@ -69,4 +65,4 @@ const CompanyProfilePostSection: React.FC = () => {
   );
 };
 
-export default CompanyProfilePostSection;
+export default CompanyProfileJobSection;

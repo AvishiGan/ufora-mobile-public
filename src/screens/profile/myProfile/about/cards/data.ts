@@ -11,6 +11,8 @@ import {
   otherAchievementCommon,
 } from "../../../../../../assets/images/profile/myProfile";
 
+export const intro = `Hey I am Isuru, an undergrad at UCSC. I love designing and creating websites and posters`;
+
 export const basicData = [
   {
     birthday: "28 June 2022",

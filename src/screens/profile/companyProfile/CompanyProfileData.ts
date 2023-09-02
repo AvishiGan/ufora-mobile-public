@@ -1,4 +1,7 @@
-import { wso2Logo } from "../../../../assets/images/profile/companyProfile";
+import {
+  wso2Logo,
+  locationImage,
+} from "../../../../assets/images/profile/companyProfile";
 
 /**
  * @interface CompanyProfileData
@@ -14,6 +17,11 @@ export interface CompanyProfileData {
   titleBarName: string;
   slideTitles: string[];
   time?: string;
+  address: string;
+  mobileNo: string;
+  email: string;
+  location: any;
+  intro: string;
 }
 
 /**
@@ -29,4 +37,10 @@ export const companyProfileData: CompanyProfileData = {
   postsCount: 105,
   titleBarName: "wso2",
   slideTitles: ["Posts", "About", "Jobs"],
+  address: "105, Bauddhaloka Mawatha, Colombo",
+  mobileNo: "+94 112 145 345",
+  email: "contact@wso2.com",
+  location: locationImage,
+  intro:
+    "WSO2 is a software company which offers open source and API-first integration, identity and cloud native solutions. WSO2 employs over 650 engineers, consultants and professionals worldwide and has offices in the US, the UK and Sri Lanka.",
 };

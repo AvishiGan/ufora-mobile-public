@@ -2,7 +2,7 @@ import React from "react";
 import MiddleTabNavigator from "../../../navigation/navigator/middleTabNavigator/MiddleTabNavigator";
 import ProfileCommonSection from "./CommonSection";
 
-const MyProfile: React.FC = () => {
+const CompanyProfile: React.FC = () => {
   return (
     <React.Fragment>
       <ProfileCommonSection />
@@ -11,4 +11,4 @@ const MyProfile: React.FC = () => {
   );
 };
 
-export default MyProfile;
+export default CompanyProfile;

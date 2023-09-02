@@ -1,7 +1,3 @@
-/**
- * This file contains all the posts information
- */
-
 import React from "react";
 import { View, ScrollView, Text, TouchableOpacity } from "react-native";
 import { PostCard, ContentAdditionBar, CreatePost } from "../../../components";
