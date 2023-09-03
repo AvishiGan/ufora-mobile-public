@@ -1,10 +1,10 @@
-import ApiClient from "../util/apiClient";
+import apiClient from "../util/apiClient";
 import { AccessLevel } from "../util";
 import { Post } from "../model";
 
 export const createPostRequest = async (post: Post) => {
   try {
-    const response = await ApiClient.post("/api/post/create", post);
+    const response = await apiClient.post("/api/post/create", post);
     console.log("Post created:", response);
     alert("Post created!");
   } catch (error) {
@@ -18,7 +18,7 @@ export const createPostRequest = async (post: Post) => {
 export const getPostsRequest = async () => {
   try {
     // Assuming Post is the type for the post objects
-    const response = await ApiClient.get<Post[]>("api/post");
+    const response = await apiClient.get<Post[]>("api/post");
     console.log("Posts retrieved:", response);
     return response;
   } catch (error) {
