@@ -507,7 +507,33 @@ export const styles = StyleSheet.create({
     marginRight: 13,
     marginBottom: 15,
   },
-  //   sharePostButton: {
-  //     backgroundColor: "#2656FF",
-  //   }
+
+  /****************************************************************Search Bar***************************************************************************** */
+  searchBarContainer: {
+    display: "flex",
+    width: "95%",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 20,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#B8B8B8",
+    borderStyle: "solid",
+    justifyContent: "center",
+    marginHorizontal: 10,
+  },
+  searchInput: {
+    display: "flex",
+    width: "100%",
+    fontFamily: "Text",
+    fontSize: 16,
+    fontStyle: "normal",
+    fontWeight: "400",
+    color: "#B8B8B8",
+  },
+  searchIcon: {
+    marginLeft: 50,
+  },
 });
