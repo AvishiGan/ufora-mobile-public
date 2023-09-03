@@ -1,10 +1,10 @@
 import CryptoES from "crypto-es";
-import * as Crypto from "expo-crypto";
+import { randomUUID } from "expo-crypto";
 
 const generateExpireTime = (expireDurationMin: number) =>
   Math.floor((Date.now() + 5 * 60 * 1000) / 1000);
 
-const generateToken = () => Crypto.randomUUID();
+const generateToken = () => randomUUID();
 
 const generateSignature = (apiKey: string, token: string, expire: number) =>
   CryptoES.HmacSHA1(`${token}${expire}`, apiKey).toString();

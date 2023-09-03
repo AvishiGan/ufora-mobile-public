@@ -1,4 +1,5 @@
 import ImageKit from "imagekit-javascript";
+import { randomUUID } from "expo-crypto";
 
 import { FileData } from "../model";
 import { generateImageKitAuth } from "../util/imageKitUtils";
@@ -21,14 +22,14 @@ export const uploadMediaToImageKit = async function (
   file: FileData,
   tags?: [string]
 ): Promise<any> {
-  const { data, name: fileName } = file;
+  const { data, uri } = file;
 
-  if (data && fileName) {
+  if (data && uri) {
     const { token, expire, signature } = generateImageKitAuth();
 
     const uploadOptions = {
       file: data,
-      fileName,
+      fileName: randomUUID(),
       tags,
       signature,
       token,

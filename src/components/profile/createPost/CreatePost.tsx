@@ -49,7 +49,7 @@ const CreatePost = () => {
       const post: Post = {
         caption,
         content: imageUrl,
-        access_level: "public",
+        access_level: "Public",
       };
       await createPostRequest(post);
       alert("Created post");

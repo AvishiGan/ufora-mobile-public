@@ -8,14 +8,13 @@ interface ApiResponse<T> {
 // const token = await SecureStore.getItemAsync("token");
 
 const httpClient = axios.create({
-  // baseURL: process.env.BACKEND_SERVER,
-  baseURL: process.env.HOST_NAME,
+  baseURL: process.env.BACKEND_LOCAL_URL,
   headers: {
     "Content-Type": "application/json",
     // Authorization: `Bearer ${token}`,
     // Authorization: `Bearer ${process.env.TOKEN}`,
     Authorization:
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiaHR0ZjV3cjM5NDk5NXJ0dmhjaTIiLCJ1c2VyX3R5cGUiOiJ1bmRlcmdyYWR1YXRlIiwiaWF0IjoxNjkzMzE3MjU1LCJleHAiOjE2OTU5MDkyNTUsInVzZXJuYW1lIjpudWxsfQ.Yn9bbLJ8GFYVhb48xkagkhE4yrysrBnmzEJIfj0j5-A",
+      "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiaHR0ZjV3cjM5NDk5NXJ0dmhjaTIiLCJ1c2VyX3R5cGUiOiJ1bmRlcmdyYWR1YXRlIiwiaWF0IjoxNjkzMzE3MjU1LCJleHAiOjE2OTU5MDkyNTUsInVzZXJuYW1lIjpudWxsfQ.Yn9bbLJ8GFYVhb48xkagkhE4yrysrBnmzEJIfj0j5-A",
   },
 });
 
