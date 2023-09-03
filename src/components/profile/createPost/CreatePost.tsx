@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { COLORS } from "../../../constants";
 import { FileData, Post } from "../../../model";
-import { createPostRequest } from "../../../services/PostService";
+import { createPostRequest } from "../../../services/postService";
 import { uploadMediaToImageKit } from "../../../services/imagekit";
 import { selectMediaFromDevice } from "../../../util/fileUtils";
 

@@ -1,4 +1,4 @@
-import ApiClient from "../util/ApiClient";
+import ApiClient from "../util/apiClient";
 import { Profile } from "../model";
 
 export const createProfileRequest = async (profile: Profile) => {

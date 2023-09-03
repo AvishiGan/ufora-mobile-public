@@ -1,4 +1,4 @@
-import ApiClient from "../util/ApiClient";
+import ApiClient from "../util/apiClient";
 import { AccessLevel } from "../util";
 import { Post } from "../model";
 
