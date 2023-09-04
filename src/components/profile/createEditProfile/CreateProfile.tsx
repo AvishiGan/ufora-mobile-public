@@ -4,7 +4,7 @@ import TopBar from "../TopBar";
 import CustomForm from "./CustomForm";
 import { COLORS } from "../../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Profile } from "../../../model/ProfileModel";
+import { Profile } from "../../../model/profileModel";
 
 interface Props {
   profileFormSubmit: (profile: Profile) => void;
