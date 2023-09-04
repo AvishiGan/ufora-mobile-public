@@ -1,5 +1,5 @@
-import apiClient from "../util/apiClient";
-import { Profile } from "../model";
+import apiClient from "../utils/apiClient";
+import { Profile } from "../models";
 
 export const createProfileRequest = async (profile: Profile) => {
   try {

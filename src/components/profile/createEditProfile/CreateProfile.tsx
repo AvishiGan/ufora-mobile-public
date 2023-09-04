@@ -1,29 +1,62 @@
-import React, { useState } from "react";
 import { AlignLeft, CalendarDays, PhoneCall } from "lucide-react-native";
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import { COLORS } from "../../../constants";
+import { FileData, Profile } from "../../../models";
+import { selectMediaFromDevice } from "../../../utils/fileUtils";
+import { uploadMediaToImageKit } from "../../../services/imagekit";
+
 import TopBar from "../TopBar";
 import CustomForm from "./CustomForm";
-import { COLORS } from "../../../constants";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Profile } from "../../../model/profileModel";
+import { createProfileRequest } from "../../../services/profileService";
 
-interface Props {
-  profileFormSubmit: (profile: Profile) => void;
-}
-
-const CreateProfile: React.FC<Props> = ({ profileFormSubmit }) => {
+const CreateProfile = () => {
   const [intro, setIntro] = useState("");
   const [dob, setDob] = useState("");
   const [mobileNo, setMobileNo] = useState("");
+  const [selectedMedia, setSelectedMedia] = useState<FileData | null>(null);
 
-  const handleCreateProfile = async () => {
-    const profile: Profile = {
-      intro,
-      date_of_birth: dob,
-      mobile_no: mobileNo,
-    };
-    profileFormSubmit(profile);
+  const handleMediaSelection = async () => {
+    try {
+      const fileData = await selectMediaFromDevice(1);
+      if (fileData.length) setSelectedMedia(fileData[0]);
+    } catch (error) {
+      console.log("Error selecting media", error);
+    }
   };
 
+  const uploadFileToImageKit = async (): Promise<string> => {
+    if (!selectedMedia) return Promise.reject("No media selected");
+    try {
+      const imageKitResponse = await uploadMediaToImageKit(selectedMedia);
+      return Promise.resolve(imageKitResponse.url);
+    } catch (error) {
+      console.log("Error uploading file to ImageKit", error);
+      return Promise.reject(error);
+    }
+  };
+
+  const handleCreateProfile = async () => {
+    try {
+      const imageUrl = await uploadFileToImageKit();
+
+      const profile: Profile = {
+        intro,
+        date_of_birth: dob,
+        mobile_no: mobileNo,
+        profile_picture: imageUrl,
+      };
+      await createProfileRequest(profile);
+      alert("Created profile");
+    } catch (error) {
+      alert("Failed to create profile" + error);
+    }
+  };
+
+  /**
+   * The fields array is used to render the input fields in the form.
+   */
   const fields = [
     {
       label: "Intro",
@@ -56,7 +89,9 @@ const CreateProfile: React.FC<Props> = ({ profileFormSubmit }) => {
         formTitle="Basic Information"
         fields={fields}
         includeButton={true}
+        handleMediaSelection={handleMediaSelection}
         handleSubmit={handleCreateProfile}
+        selectedMedia={selectedMedia}
       />
     </SafeAreaView>
   );

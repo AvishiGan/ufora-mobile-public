@@ -1,8 +1,18 @@
-import React, { ReactNode } from "react";
-import { View, Text, TextInput, Pressable } from "react-native";
-import { COLORS, SemiBoldBig, NameSemiboldNormal } from "../../../constants";
-import { styles } from "./styles";
 import { UserPlus2 } from "lucide-react-native";
+import React, { ReactNode } from "react";
+import {
+  Pressable,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Image,
+} from "react-native";
+
+import { COLORS, NameSemiboldNormal, SemiBoldBig } from "../../../constants";
+
+import { styles } from "./styles";
+import { FileData } from "../../../models";
 
 interface InputField {
   label: string;
@@ -17,7 +27,9 @@ interface Props {
   formTitle: string;
   fields: InputField[];
   includeButton: boolean;
+  handleMediaSelection?: () => void; // Pass this function from the parent component
   handleSubmit?: () => void;
+  selectedMedia: FileData | null;
 }
 
 const CustomForm: React.FC<Props> = ({
@@ -25,14 +37,25 @@ const CustomForm: React.FC<Props> = ({
   formTitle,
   fields,
   includeButton,
+  handleMediaSelection,
   handleSubmit,
+  selectedMedia,
 }) => {
   return (
     <View style={styles.profilePicAndFormContainer}>
-      <View style={styles.profilePicContainer}>
-        <UserPlus2 size={40} color={COLORS.placeHolder} />
-        <Text style={styles.uploadPhotoText}>{imagePlaceholderText}</Text>
-      </View>
+      <TouchableOpacity onPress={handleMediaSelection}>
+        {selectedMedia ? (
+          <Image
+            source={{ uri: selectedMedia.uri }}
+            style={styles.profilePicContainer}
+          />
+        ) : (
+          <View style={styles.profilePicContainer}>
+            <UserPlus2 size={40} color={COLORS.placeHolder} />
+            <Text style={styles.uploadPhotoText}>{imagePlaceholderText}</Text>
+          </View>
+        )}
+      </TouchableOpacity>
 
       <View style={styles.titleAndFormContainer}>
         <View style={styles.formTitle}>

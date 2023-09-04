@@ -3,10 +3,10 @@ import { TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { COLORS } from "../../../constants";
-import { FileData, Post } from "../../../model";
+import { FileData, Post } from "../../../models";
 import { createPostRequest } from "../../../services/postService";
 import { uploadMediaToImageKit } from "../../../services/imagekit";
-import { selectMediaFromDevice } from "../../../util/fileUtils";
+import { selectMediaFromDevice } from "../../../utils/fileUtils";
 
 import { TopBar } from "../..";
 import { profileData } from "../../../screens/profile/data";
