@@ -1,20 +1,34 @@
-import React, { useState } from "react";
-import { User, AlignLeft, CalendarDays, PhoneCall } from "lucide-react-native";
+import { AlignLeft, CalendarDays, PhoneCall, User } from "lucide-react-native";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import { COLORS } from "../../../constants";
+import { Profile } from "../../../models/profileModel";
+
 import TopBar from "../TopBar";
 import CustomForm from "./CustomForm";
-import { COLORS } from "../../../constants";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Profile } from "../../../model/profileModel";
 
 interface Props {
   profileFormSubmit: (profile: Profile) => void;
+  currentProfile: Profile; // The profile that is currently being edited
 }
 
-const EditProfile: React.FC<Props> = ({ profileFormSubmit }) => {
-  const [name, setName] = useState("");
-  const [intro, setIntro] = useState("");
-  const [dob, setDob] = useState("");
-  const [mobileNo, setMobileNo] = useState("");
+const EditProfile: React.FC<Props> = ({
+  profileFormSubmit,
+  currentProfile,
+}) => {
+  const [name, setName] = useState(currentProfile.name || "");
+  const [intro, setIntro] = useState(currentProfile.intro || "");
+  const [dob, setDob] = useState(currentProfile.date_of_birth || "");
+  const [mobileNo, setMobileNo] = useState(currentProfile.mobile_no || "");
+
+  // This useEffect hook is used to update the state of the input fields when the currentProfile prop changes
+  useEffect(() => {
+    setName(currentProfile.name || "");
+    setIntro(currentProfile.intro || "");
+    setDob(currentProfile.date_of_birth || "");
+    setMobileNo(currentProfile.mobile_no || "");
+  }, [currentProfile]);
 
   const handleEditProfile = async () => {
     const profile: Profile = {
@@ -37,8 +51,7 @@ const EditProfile: React.FC<Props> = ({ profileFormSubmit }) => {
     {
       label: "Intro",
       icon: <AlignLeft size={20} color={COLORS.placeHolder} />,
-      placeholder:
-        "Hey I am Isuru, an undergrad  at UCSC. I love designing and creating websites and posters. I also love playing cricket in my free time and going for a swim whenever possible!",
+      placeholder: "A small introduction to yourself",
       value: intro,
       onChange: setIntro,
     },
@@ -60,13 +73,14 @@ const EditProfile: React.FC<Props> = ({ profileFormSubmit }) => {
 
   return (
     <SafeAreaView>
-      <TopBar titleBarName="Edit " />
+      <TopBar titleBarName="Edit Profile" />
       <CustomForm
         imagePlaceholderText="Upload Photo"
         formTitle="Basic Information"
         fields={fields}
         includeButton={true}
         handleSubmit={handleEditProfile}
+        selectedMedia={null}
       />
     </SafeAreaView>
   );
