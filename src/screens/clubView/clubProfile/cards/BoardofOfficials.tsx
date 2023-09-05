@@ -10,12 +10,18 @@ import {
 } from "../../../../constants";
 import { UforaIcon, VerifiedIcon } from "../../../../../assets";
 
-const BoardofOfficials: React.FC = () => {
+interface BoardofOfficialsProps {
+  showTitle: boolean; // A prop to determine if the title should be visible or not
+}
+
+const BoardofOfficials: React.FC<BoardofOfficialsProps> = ({showTitle }) => {
   return (
     <Card style={styles.individualCardContainer}>
-      <Card.Content>
-        <CardHeadingBold>Board of Officials</CardHeadingBold>
-      </Card.Content>
+      {showTitle && (
+        <Card.Content>
+          <CardHeadingBold>Board of Officials</CardHeadingBold>
+        </Card.Content>
+      )}
       <Card.Content style={styles.contentWithGap}>
         {clubData.map((club, index) => (
           <Card.Content key={index} style={styles.iconAndDetailsContainer}>

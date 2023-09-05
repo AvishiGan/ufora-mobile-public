@@ -20,7 +20,7 @@ const AboutClub: React.FC = () => {
       <ScrollView>
         <View style={styles.allCardsContainer}>
           {cardComponents.map((CardComponent, index) => (
-            <CardComponent key={index} />
+            <CardComponent showTitle={true} key={index} />
           ))}
         </View>
       </ScrollView>

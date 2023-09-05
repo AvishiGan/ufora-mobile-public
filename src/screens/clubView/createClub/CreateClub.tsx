@@ -30,10 +30,13 @@ const validationSchema = Yup.object({
     name: Yup.string().required("Club Name is Required"),
     type: Yup.string().required("Club type is Required"),
     email: Yup.string().required("Club Email is Required"),
-    file: Yup.mixed().required('File is required'),
+    // file: Yup.mixed().required('File is required'),
   });
 
-const handlePress = async (values: FormValues) => {}
+const handlePress = async (values: FormValues) => {
+    console.log(values)
+    // alert("Hello");
+}
 
 
 const CreateClub: FunctionComponent<Props> = () => {
@@ -57,10 +60,11 @@ const CreateClub: FunctionComponent<Props> = () => {
         quality: 1,
       });
   
-      console.log(result);
+    //   console.log(result.assets[0].uri);
   
-      if (!result.canceled) {
-        setClubLogo(result.assets[0].uri);
+      if (!result.canceled && result.assets !== null) {
+        console.log(result.assets[0].uri);
+        // setClubLogo(result.assets[0].uri);
       }
   };
 
