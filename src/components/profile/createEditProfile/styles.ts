@@ -55,9 +55,9 @@ export const styles = StyleSheet.create({
   //   marginTop: 8,
   // },
   iconAndTextInputContainer: {
-    flexDirection: 'row',
-    height:  44.25,
-    alignItems: 'center',
+    flexDirection: "row",
+    height: 44.25,
+    alignItems: "center",
     gap: 18,
     flexGrow: 1,
   },
@@ -79,9 +79,9 @@ export const styles = StyleSheet.create({
   // },
   inputFieldOuterContainer: {
     width: "90%",
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    borderColor: '#87929D',
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    borderColor: "#87929D",
     borderWidth: 1,
     borderRadius: 15,
     flexGrow: 1,
@@ -89,22 +89,22 @@ export const styles = StyleSheet.create({
     paddingRight: 15,
     paddingTop: 5,
     paddingBottom: 5,
-    position: 'relative',
+    position: "relative",
   },
   button: {
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    backgroundColor: '#2656FF', 
-    paddingHorizontal: 24, 
-    paddingVertical: 12, 
-    borderRadius: 12, 
-    width: "100%", 
-    height:45, 
-    borderColor: '#2656FF', 
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#2656FF",
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 12,
+    width: "100%",
+    height: 45,
+    borderColor: "#2656FF",
     borderWidth: 1,
   },
   inputLabel: {
-    position: 'absolute',
+    position: "absolute",
     top: -8,
     left: 20,
     backgroundColor: "#FEFEFE",
@@ -114,7 +114,7 @@ export const styles = StyleSheet.create({
   },
   // Remove below three later
   container: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   errorMessage: {
     marginTop: 5,
@@ -131,4 +131,3 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
 });
-

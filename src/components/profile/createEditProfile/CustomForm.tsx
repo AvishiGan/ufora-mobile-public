@@ -9,7 +9,7 @@ import {
   Image,
 } from "react-native";
 
-import { COLORS, NameSemiboldNormal, SemiBoldBig } from "../../../constants";
+import { COLORS, NameSemiboldNormal, SemiboldBig } from "../../../constants";
 
 import { styles } from "./styles";
 import { FileData } from "../../../models";
@@ -79,11 +79,11 @@ const CustomForm: React.FC<Props> = ({
 
           {includeButton && (
             <View style={styles.buttonContainer}>
-              <Pressable style={styles.button} onPress={handleSubmit}>
-                <SemiBoldBig fontColor={COLORS.brandWhite}>
+              <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                <SemiboldBig fontColor={COLORS.brandWhite}>
                   Continue
-                </SemiBoldBig>
-              </Pressable>
+                </SemiboldBig>
+              </TouchableOpacity>
             </View>
           )}
         </View>
