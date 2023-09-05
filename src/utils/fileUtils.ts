@@ -3,6 +3,7 @@ import {
   ImagePickerAsset,
   MediaTypeOptions,
 } from "expo-image-picker";
+
 import { FileData } from "../models";
 
 export const selectMediaFromDevice = async (

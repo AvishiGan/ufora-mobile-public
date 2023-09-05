@@ -1,8 +1,8 @@
 import ImageKit from "imagekit-javascript";
 import { randomUUID } from "expo-crypto";
 
-import { FileData } from "../model";
-import { generateImageKitAuth } from "../util/imageKitUtils";
+import { FileData } from "../models";
+import { generateImageKitAuth } from "../utils/imageKitUtils";
 
 const urlEndpoint = process.env.IMAGE_KIT_URL_ENDPOINT || "";
 const publicKey = process.env.IMAGE_KIT_PUBLIC_KEY;
@@ -48,37 +48,3 @@ export const uploadMediaToImageKit = async function (
   }
   return Promise.reject("File not provided");
 };
-
-// /**
-//  * Returns the ImageKit URL for a given image source
-//  */
-// export function getImageKitUrlFromSrc(
-//   imageSrc: string,
-//   transformationArr: any[]
-// ): string {
-//   const ikOptions = {
-//     src: imageSrc,
-//     transformation: transformationArr,
-//   };
-//   const imageURL = imageKit.url(ikOptions);
-
-//   return imageURL;
-// }
-
-// /**
-//  * Returns the ImageKit URL for a given image path
-//  */
-// export function getImageKitUrlFromPath(
-//   imagePath: string,
-//   transformationArr: any[]
-// ): string {
-//   const ikOptions = {
-//     urlEndpoint,
-//     path: imagePath,
-//     transformation: transformationArr,
-//   };
-
-//   const imageURL = imageKit.url(ikOptions);
-
-//   return imageURL;
-// }

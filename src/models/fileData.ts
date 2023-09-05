@@ -13,7 +13,7 @@ class FileData {
    * Name of the file
    * @example "IMG20230829161515.jpg"
    */
-  name?: string; // Ex: "IMG20230829161515.jpg"
+  name?: string;
   /**
    * URI of the file
    * @example "file:///data/user/0/host.exp.exponent/cache/DocumentPicker/e8ff3d2a-0c01-4baa-bc6d-c5d4775c777e.jpg"
@@ -21,8 +21,9 @@ class FileData {
   uri?: string;
   /**
    * Type of the file
+   * @example "success"
    */
-  type?: string; // Ex: "success"
+  type?: string;
 
   constructor(imagePickerAsset: ImagePickerAsset) {
     this.data = imagePickerAsset.base64!;

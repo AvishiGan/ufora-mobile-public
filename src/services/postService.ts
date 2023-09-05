@@ -1,6 +1,6 @@
-import apiClient from "../util/apiClient";
-import { AccessLevel } from "../util";
-import { Post } from "../model";
+import apiClient from "../utils/apiClient";
+import { AccessLevel } from "../utils";
+import { Post } from "../models";
 
 export const createPostRequest = async (post: Post) => {
   try {
