@@ -7,7 +7,7 @@ import { NameSmallSemibold, SmallerRegular } from "../../constants";
 interface PostAuthorBioFooter {
   profilePic?: any; // 'profilePic' prop is optional
   profileName: string;
-  university: string;
+  organization: string;
   date?: string; // 'date' prop is optional
 }
 
@@ -33,7 +33,7 @@ const PostAuthorBioFooter: React.FC<PostAuthorBioFooterProps> = ({ data }) => {
           <VerifiedIcon size={12} fillColor="#2656FF" strokeColor="#fff" />
           <UforaIcon size={12} fillColor="#111" strokeColor="#fff" />
         </View>
-        <SmallerRegular>{data.university}</SmallerRegular>
+        <SmallerRegular>{data.organization}</SmallerRegular>
       </View>
       {data.date && <SmallerRegular>{data.date}</SmallerRegular>}
     </View>

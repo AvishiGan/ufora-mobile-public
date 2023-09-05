@@ -30,16 +30,16 @@ const UpperBody: React.FC<UpperBodyProps> = ({ navigation, route }) => {
       <View style={styles.wrapContainer}>
         <View style={styles.searchInput}>
           <Search color={COLORS.placeHolder} size={SIZES.iconSize} />
-          {/* <RegularBig> */}
-          <TextInput
-            placeholder={isBlogCentre ? "Find blogs..." : "Find projects..."}
-            placeholderTextColor={COLORS.placeHolder}
-            value=""
-          />
-          {/* </RegularBig> */}
+            {/* <RegularBig> */}
+              <TextInput
+                placeholder={isBlogCentre ? "Find blogs..." : "Find projects..."}
+                placeholderTextColor={COLORS.placeHolder}
+                value=""
+              />
+            {/* </RegularBig> */}
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.buttonCard} onPress={handleMyBlog}>
+        <TouchableOpacity style={styles.buttonCard} onPress={handleMyBlog}>
             <FileText color={COLORS.brandGrey} size={40} />
             <SemiboldBig>
               <Text>{isBlogCentre ? "My Articles" : "My Projects"}</Text>

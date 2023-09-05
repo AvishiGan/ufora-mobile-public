@@ -23,6 +23,8 @@ export type TabStackParamList = {
   Friends: undefined;
   Notification: undefined;
   More: undefined;
+  blogCenterScreen: undefined;
+  UserMenu: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabStackParamList>();

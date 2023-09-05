@@ -7,7 +7,8 @@ import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
 import { PostHeader } from "..";
-import { profileData } from "../../screens/profile/data";
+import { myProfileData } from "../../screens/profile/myProfile/MyProfileData";
+import { companyProfileData } from "../../screens/profile/companyProfile/CompanyProfileData";
 import { CommentIcon, LikeIcon, LikedIcon } from "../../../assets/svg";
 import PostShareIcon from "../../../assets/svg/myProfile/posts/postShareIcon";
 import { RegularNormal, RegularSmall, SmallerRegular } from "../../constants";
@@ -19,6 +20,7 @@ interface PostCardData {
   likedCount: number;
   commentsCount: number;
   seeMore: boolean;
+  profileType: "user" | "company" | "club";
 }
 
 const PostCard: React.FC<PostCardData> = ({
@@ -28,16 +30,21 @@ const PostCard: React.FC<PostCardData> = ({
   likedCount,
   commentsCount,
   seeMore,
+  profileType,
 }) => {
   return (
     <View style={styles.singlePostContainer}>
       {/* PostHeader component */}
-      <PostHeader data={profileData} />
-      {/* <View style={styles.descriptionContainer}> */}
-        <RegularNormal>
-          {postDescription}
-          {seeMore ? <Text style={styles.seeMore}>... see more</Text> : null}
-        </RegularNormal>
+      {profileType === "user" && (
+        <PostHeader data={myProfileData} profileType="user" />
+      )}
+      {profileType === "company" && (
+        <PostHeader data={companyProfileData} profileType="company" />
+      )}
+      <RegularNormal>
+        {postDescription}
+        {seeMore ? <Text style={styles.seeMore}>... see more</Text> : null}
+      </RegularNormal>
       {/* </View> */}
       <Image style={styles.postImage} source={postImage} />
       <View style={styles.feedbackContainer}>
