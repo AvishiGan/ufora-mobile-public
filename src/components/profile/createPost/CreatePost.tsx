@@ -63,12 +63,12 @@ const CreatePost = () => {
       {/* Top bar */}
       <TopBar titleBarName="Create Post" />
       {/* Create post header */}
-      <CreatePostHeader data={profileData} />
+      <CreatePostHeader data={myProfileData} />
       {/* Input field */}
       <TextInput
         onChangeText={(val) => setCaption(val)} // Update the caption state
         value={caption} // Bind the value of the input field to the caption state
-        placeholder={`Hey ${profileData.firstName}, What’s special today?`}
+        placeholder={`Hey ${myProfileData.firstName}, What’s special today?`}
         placeholderTextColor={COLORS.placeHolder}
         style={[styles.inputField]}
         multiline={true}

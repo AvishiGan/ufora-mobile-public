@@ -15,12 +15,13 @@ import { RegularSmall, SmallerMedium } from "../../constants";
 interface PostHeaderData {
   profilePic: any;
   profileName: string;
-  university?: string;
+  organization?: string;
   time?: string;
 }
 
 interface PostHeaderProps {
   data: PostHeaderData;
+  profileType: "user" | "company" | "club";
 }
 
 /**
@@ -28,7 +29,7 @@ interface PostHeaderProps {
  * @param param0 | This is the data which we are passing to the PostHeader component
  * @returns | This component returns the header of the post
  */
-const PostHeader: React.FC<PostHeaderProps> = ({ data }) => {
+const PostHeader: React.FC<PostHeaderProps> = ({ data, profileType }) => {
   return (
     <View style={styles.postHeaderContainer}>
       <View style={styles.profilePicNameUniTimeContainer}>
@@ -41,10 +42,16 @@ const PostHeader: React.FC<PostHeaderProps> = ({ data }) => {
               {/* Verified icon */}
               <VerifiedIcon size={16} fillColor="#2656FF" strokeColor="#fff" />
               {/* Ufora icon */}
-              <UforaIcon size={16} fillColor="#111111" strokeColor="#FEFEFE" />
+              {profileType === "user" && (
+                <UforaIcon
+                  size={16}
+                  fillColor="#111111"
+                  strokeColor="#FEFEFE"
+                />
+              )}
             </View>
           </View>
-          <RegularSmall>{data.university}</RegularSmall>
+          <RegularSmall>{data.organization}</RegularSmall>
           <View style={styles.timeAndGlobeIconContainer}>
             <SmallerMedium>{data.time}</SmallerMedium>
             {/* Dot icon */}
