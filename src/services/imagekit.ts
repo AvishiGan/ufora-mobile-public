@@ -1,6 +1,8 @@
 import ImageKit from "imagekit-javascript";
-import { FileData } from "../model";
-import { generateImageKitAuth } from "../util/imageKitUtils";
+import { randomUUID } from "expo-crypto";
+
+import { FileData } from "../models";
+import { generateImageKitAuth } from "../utils/imageKitUtils";
 
 const urlEndpoint = process.env.IMAGE_KIT_URL_ENDPOINT || "";
 const publicKey = process.env.IMAGE_KIT_PUBLIC_KEY;
@@ -11,18 +13,23 @@ const imageKit = new ImageKit({
 });
 
 /**
- * Uploads a file to ImageKit
+ * Uploads media file to image kit
+ * @param file FileData File data object
+ * @param tags string[] Tags to be added to the file
+ * @returns Promise<any> Promise that resolves to the response from image kit
  */
-export const uploadFile = async function (
+export const uploadMediaToImageKit = async function (
   file: FileData,
   tags?: [string]
 ): Promise<any> {
-  if (file.uri && file.name) {
+  const { data, uri } = file;
+
+  if (data && uri) {
     const { token, expire, signature } = generateImageKitAuth();
 
     const uploadOptions = {
-      file: file.uri,
-      fileName: file.name,
+      file: data,
+      fileName: randomUUID(),
       tags,
       signature,
       token,
@@ -41,37 +48,3 @@ export const uploadFile = async function (
   }
   return Promise.reject("File not provided");
 };
-
-/**
- * Returns the ImageKit URL for a given image source
- */
-export function getImageKitUrlFromSrc(
-  imageSrc: string,
-  transformationArr: any[]
-): string {
-  const ikOptions = {
-    src: imageSrc,
-    transformation: transformationArr,
-  };
-  const imageURL = imageKit.url(ikOptions);
-
-  return imageURL;
-}
-
-/**
- * Returns the ImageKit URL for a given image path
- */
-export function getImageKitUrlFromPath(
-  imagePath: string,
-  transformationArr: any[]
-): string {
-  const ikOptions = {
-    urlEndpoint,
-    path: imagePath,
-    transformation: transformationArr,
-  };
-
-  const imageURL = imageKit.url(ikOptions);
-
-  return imageURL;
-}

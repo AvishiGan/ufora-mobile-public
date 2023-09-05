@@ -1,8 +1,20 @@
-import React, { ReactNode } from "react";
-import { View, Text, TextInput, Pressable } from "react-native";
-import { COLORS, SemiBoldBig, NameSemiboldNormal } from "../../../constants";
-import { styles } from "./styles";
 import { UserPlus2 } from "lucide-react-native";
+import React, { ReactNode } from "react";
+import {
+  Pressable,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
+
+import { COLORS, NameSemiboldNormal, SemiboldBig } from "../../../constants";
+
+import { styles } from "./styles";
+import { FileData } from "../../../models";
 
 interface InputField {
   label: string;
@@ -17,7 +29,9 @@ interface Props {
   formTitle: string;
   fields: InputField[];
   includeButton: boolean;
+  handleMediaSelection?: () => void; // Pass this function from the parent component
   handleSubmit?: () => void;
+  selectedMedia: FileData | null;
 }
 
 const CustomForm: React.FC<Props> = ({
@@ -25,14 +39,29 @@ const CustomForm: React.FC<Props> = ({
   formTitle,
   fields,
   includeButton,
+  handleMediaSelection,
   handleSubmit,
+  selectedMedia,
 }) => {
   return (
-    <View style={styles.profilePicAndFormContainer}>
-      <View style={styles.profilePicContainer}>
-        <UserPlus2 size={40} color={COLORS.placeHolder} />
-        <Text style={styles.uploadPhotoText}>{imagePlaceholderText}</Text>
-      </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "android" ? "padding" : "height"}
+      keyboardVerticalOffset={255}
+      style={styles.profilePicAndFormContainer}
+    >
+      <TouchableOpacity onPress={handleMediaSelection}>
+        {selectedMedia ? (
+          <Image
+            source={{ uri: selectedMedia.uri }}
+            style={styles.profilePicContainer}
+          />
+        ) : (
+          <View style={styles.profilePicContainer}>
+            <UserPlus2 size={40} color={COLORS.placeHolder} />
+            <Text style={styles.uploadPhotoText}>{imagePlaceholderText}</Text>
+          </View>
+        )}
+      </TouchableOpacity>
 
       <View style={styles.titleAndFormContainer}>
         <View style={styles.formTitle}>
@@ -56,16 +85,16 @@ const CustomForm: React.FC<Props> = ({
 
           {includeButton && (
             <View style={styles.buttonContainer}>
-              <Pressable style={styles.button} onPress={handleSubmit}>
-                <SemiBoldBig fontColor={COLORS.brandWhite}>
+              <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                <SemiboldBig fontColor={COLORS.brandWhite}>
                   Continue
-                </SemiBoldBig>
-              </Pressable>
+                </SemiboldBig>
+              </TouchableOpacity>
             </View>
           )}
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

@@ -12,9 +12,10 @@ const StyledText = styled.Text<StyledTextProps>`
   font-weight: 600;
   font-size: 16px;
   font-style: normal;
+  color: ${(props: { fontColor: any }) => props.fontColor};
 `;
 
-const SemiBoldBig: FunctionComponent<
+const SemiboldBig: FunctionComponent<
   TextProps & { fontColor?: string; style?: any }
 > = (props) => {
   return (
@@ -24,6 +25,4 @@ const SemiBoldBig: FunctionComponent<
   );
 };
 
-export default SemiBoldBig;
-
-// color: ${props => props.fontColor};
+export default SemiboldBig;
