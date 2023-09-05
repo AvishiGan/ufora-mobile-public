@@ -1,6 +1,7 @@
 import { AlignLeft, CalendarDays, PhoneCall } from "lucide-react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ActivityIndicator } from "react-native";
 
 import { COLORS } from "../../../constants";
 import { FileData, Profile } from "../../../models";

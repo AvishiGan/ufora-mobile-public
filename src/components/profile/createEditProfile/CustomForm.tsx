@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   View,
   Image,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 
 import { COLORS, NameSemiboldNormal, SemiboldBig } from "../../../constants";
@@ -42,7 +44,11 @@ const CustomForm: React.FC<Props> = ({
   selectedMedia,
 }) => {
   return (
-    <View style={styles.profilePicAndFormContainer}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "android" ? "padding" : "height"}
+      keyboardVerticalOffset={255}
+      style={styles.profilePicAndFormContainer}
+    >
       <TouchableOpacity onPress={handleMediaSelection}>
         {selectedMedia ? (
           <Image
@@ -88,7 +94,7 @@ const CustomForm: React.FC<Props> = ({
           )}
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
