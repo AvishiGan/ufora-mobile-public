@@ -6,7 +6,7 @@ import { TopBar } from "../../components/";
 
 import {
   CardHeadingBold,
-  SemiboldBig,
+  SemiBoldBig,
   SubHeadingSemibold,
 } from "../../constants";
 import { VerifiedIcon } from "../../../assets/svg";
@@ -62,13 +62,13 @@ const UniversityScreen = () => {
           {/* data */}
           <View style={styles.dataContainer}>
             <Text>
-              <SemiboldBig>2500</SemiboldBig> People
+              <SemiBoldBig>2500</SemiBoldBig> People
             </Text>
             <Text>
-              <SemiboldBig>200</SemiboldBig> Blogs
+              <SemiBoldBig>200</SemiBoldBig> Blogs
             </Text>
             <Text>
-              <SemiboldBig>10</SemiboldBig> Projects
+              <SemiBoldBig>10</SemiBoldBig> Projects
             </Text>
           </View>
         </View>
@@ -101,7 +101,7 @@ const UniversityScreen = () => {
           {/* left button */}
           <View style={styles.row}>
             <PersonStanding color="#4F4E4E" size={24} />
-            <SemiboldBig>All Groups</SemiboldBig>
+            <SemiBoldBig>All Groups</SemiBoldBig>
           </View>
         </TouchableOpacity>
         {/* right button */}
@@ -111,7 +111,7 @@ const UniversityScreen = () => {
         >
           <View style={styles.row}>
             <Sprout color="#4F4E4E" size={24} />
-            <SemiboldBig>Mentorship</SemiboldBig>
+            <SemiBoldBig>Mentorship</SemiBoldBig>
           </View>
         </TouchableOpacity>
       </View>
