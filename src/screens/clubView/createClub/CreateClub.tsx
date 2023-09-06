@@ -75,13 +75,7 @@ const CreateClub: FunctionComponent<Props> = () => {
           <TopBar titleBarName="Create a Club" />
         </View>
 
-        <View
-          style={{
-            paddingHorizontal: 10,
-            marginTop: 10,
-            alignItems: "center",
-          }}
-        >
+        <View style={{paddingHorizontal: 10, marginTop: 10, alignItems: "center", }} >
             <Formik initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={handlePress}>
@@ -96,29 +90,12 @@ const CreateClub: FunctionComponent<Props> = () => {
                 <View>
                             
                 {/* Input field for uploading profile picture */}
-                <View
-                    style={{
-                    marginTop: 70,
-                    alignItems: "center",
-                    }}
-                >
+                <View style={{ marginTop: 70, alignItems: "center", }} >
 
                     {/* Rounded input field for file upload */}
                     <TouchableOpacity
                     onPress={handleClubLogoUpload}
-                    style={{
-                        marginTop: 0,
-                        alignItems: "center",
-                        backgroundColor: "transparent",
-                        borderRadius: 100,
-                        padding: 2,
-                        borderWidth: 1,
-                        borderColor: "#87929D",
-                        width: 110, 
-                        height: 110, 
-                        justifyContent: "center",
-                    }}
-                    >
+                    style={{ marginTop: 0, alignItems: "center", backgroundColor: "transparent", borderRadius: 100, padding: 2, borderWidth: 1, borderColor: "#87929D", width: 110,  height: 110, justifyContent: "center", }} >
                     {clubLogo ? (
                         <Image source={{ uri: clubLogo }} style={{ width: 100, height: 100, borderRadius: 100 }} />
                         ) : (
@@ -137,15 +114,7 @@ const CreateClub: FunctionComponent<Props> = () => {
                     <View style={{marginTop: 20, padding: 10,}}>
                         <NameSemiboldNormal>Basic Club Information</NameSemiboldNormal>
                     </View>
-                    <View
-                        style={{
-                            flexDirection: "row",
-                            alignItems: "center",
-                            backgroundColor: "transparent",
-                            borderRadius: 20,
-                            padding: 2,
-                        }}
-                    >
+                    <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
                     <Field
                         component={InputField}
                         error={touched.name && errors.name}
@@ -165,15 +134,7 @@ const CreateClub: FunctionComponent<Props> = () => {
                     />
                     </View>
                     <View
-                        style={{
-                            marginTop: 8,
-                            flexDirection: "row",
-                            alignItems: "center",
-                            backgroundColor: "transparent",
-                            borderRadius: 20,
-                            padding: 2,
-                        }}
-                    >
+                        style={{ marginTop: 8, flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
                         <Field
                             component={InputField}
                             error={touched.type && errors.type}
@@ -195,15 +156,7 @@ const CreateClub: FunctionComponent<Props> = () => {
                         />
                     </View>
                     <View
-                        style={{
-                            marginTop: 8,
-                            flexDirection: "row",
-                            alignItems: "center",
-                            backgroundColor: "transparent",
-                            borderRadius: 20,
-                            padding: 2,
-                        }}
-                    >
+                        style={{ marginTop: 8, flexDirection: "row", alignItems: "center", backgroundColor: "transparent", borderRadius: 20, padding: 2, }} >
                         <Field
                             component={InputField}
                             error={touched.email && errors.email}
@@ -225,10 +178,7 @@ const CreateClub: FunctionComponent<Props> = () => {
                         />
                     </View>
 
-                    <View style={{
-                            marginTop: 12,
-                            padding: 2,
-                        }}>
+                    <View style={{ marginTop: 12, padding: 2, }}>
                         <NameSemiboldNormal>Club Verification</NameSemiboldNormal>
                         <SmallerRegular>Upload the Club Certificate / Official Document for Verification</SmallerRegular>
                     </View>
@@ -253,12 +203,7 @@ const CreateClub: FunctionComponent<Props> = () => {
 
                     {/* backend error handling */}
                     <View
-                    style={{
-                        marginTop: 8,
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                    }}
-                    >
+                    style={{ marginTop: 8, flexDirection: "row", justifyContent: "space-between", }} >
                     <View style={{ marginLeft: 8 }}>
                         <RegularSmall>
                         {errorMessage ? (
@@ -272,12 +217,7 @@ const CreateClub: FunctionComponent<Props> = () => {
 
                     {/* button */}
                     <View
-                    style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        width: 330,
-                    }}
-                    >
+                    style={{ flexDirection: "row", alignItems: "center", width: 330, }} >
                     <RegularButton onPress={handleSubmit}>
                         <Text style={{ color: "#FEFEFE" }}>Continue</Text>
                     </RegularButton>
@@ -287,10 +227,7 @@ const CreateClub: FunctionComponent<Props> = () => {
             )}
 
             </Formik>
-            <View style={{
-                        marginTop: 20,
-                        alignItems: "center",
-                    }}>
+            <View style={{ marginTop: 20, alignItems: "center", }}>
                 <SmallerRegular>By creating this club, you will obtain Admin access to this club. </SmallerRegular>
                 <SmallerRegular>You can assign other Admins after verification of the account</SmallerRegular>
             </View>

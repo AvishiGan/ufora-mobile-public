@@ -10,7 +10,7 @@ import {
   rugbyField,
   champions,
   office,
-} from "../../../../assets/images";
+} from "../../../../assets/images/profile/myProfile/posts";
 import { styles } from "../../../components/profile/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
@@ -44,6 +44,7 @@ const ClubProfilePostsSection: React.FC = () => {
               likedCount={100}
               commentsCount={20}
               seeMore={true}
+              profileType = "club"
             />
 
             <PostCard
@@ -53,6 +54,7 @@ const ClubProfilePostsSection: React.FC = () => {
               likedCount={10}
               commentsCount={5}
               seeMore={false}
+              profileType = "club"
             />
 
             <PostCard
@@ -62,6 +64,7 @@ const ClubProfilePostsSection: React.FC = () => {
               likedCount={50}
               commentsCount={20}
               seeMore={false}
+              profileType = "club"
             />
 
             <PostCard
@@ -71,6 +74,7 @@ const ClubProfilePostsSection: React.FC = () => {
               likedCount={120}
               commentsCount={0}
               seeMore={false}
+              profileType = "club"
             />
           </View>
         </View>

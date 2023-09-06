@@ -61,7 +61,7 @@ const ManageMenu = () => {
       <View style={{marginTop: 20}}>
       <FriendRequests
         data={{
-          profilePic: require("../../../../../assets/images/myProfile/common/profile-picture.png"),
+          profilePic: require("../../../../../assets/images/profile/myProfile/common/profile-picture.png"),
           profileName: "Hasith Perera",
           mutualFriends: "140",
           university: "Undergrad at University of Colombo",
@@ -70,7 +70,7 @@ const ManageMenu = () => {
       />
       <FriendRequests
         data={{
-          profilePic: require("../../../../../assets/images/myProfile/common/profile-picture.png"),
+          profilePic: require("../../../../../assets/images/profile/myProfile/common/profile-picture.png"),
           profileName: "Hasith Perera",
           mutualFriends: "140",
           university: "Undergrad at University of Colombo",

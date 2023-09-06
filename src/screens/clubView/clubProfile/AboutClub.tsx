@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
-import { styles } from "../../profile/about/cards/styles";
+import { styles } from "../../profile/myProfile/about/cards/styles";
 import {
   IntroCard,
   BasicInfoCard,

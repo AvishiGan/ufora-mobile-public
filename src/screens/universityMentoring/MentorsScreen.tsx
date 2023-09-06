@@ -7,7 +7,7 @@ import UserProfileNameTagsCard from "../../components/universityMentoring/UserPr
 
 //  COMPONENT DETAILS
 const imageLink: string =
-  "../../../assets/images/myProfile/common/profile-picture.png";
+  "../../../assets/images/profile/myProfile/common/profile-picture.png";
 
 const MentorsScreen = () => {
   return (
@@ -28,7 +28,7 @@ const MentorsScreen = () => {
       {/* Mentors */}
       <UserProfileNameTagsCard
         data={{
-          profilePic: require( "../../../assets/images/myProfile/common/profile-picture.png"),
+          profilePic: require( "../../../assets/images/profile/myProfile/common/profile-picture.png"),
           profileName: "Hasith Perera",
           tag1: "DSA",
           tag2: "Tech Support",
@@ -38,7 +38,7 @@ const MentorsScreen = () => {
 
       <UserProfileNameTagsCard
         data={{
-          profilePic: require( "../../../assets/images/myProfile/common/pic2.jpg"),
+          profilePic: require( "../../../assets/images/profile/myProfile/common/pic2.jpg"),
           profileName: "Ravishi Silva",
           tag1: "HCI",
           tag2: "Machin Learning",
@@ -48,7 +48,7 @@ const MentorsScreen = () => {
 
       <UserProfileNameTagsCard
         data={{
-          profilePic: require( "../../../assets/images/myProfile/common/pic3.png"),
+          profilePic: require( "../../../assets/images/profile/myProfile/common/pic3.png"),
           profileName: "Sandul Gimhana",
           tag1: "Management",
           tag2: "MERN Stack",
@@ -58,7 +58,7 @@ const MentorsScreen = () => {
 
       <UserProfileNameTagsCard
         data={{
-          profilePic: require( "../../../assets/images/myProfile/common/pic4.png"),
+          profilePic: require( "../../../assets/images/profile/myProfile/common/pic4.png"),
           profileName: "Harsha Bandu",
           tag1: "DSA",
           tag2: "Tech Support",
@@ -68,7 +68,7 @@ const MentorsScreen = () => {
 
       <UserProfileNameTagsCard
         data={{
-          profilePic: require( "../../../assets/images/myProfile/common/pic5.png"),
+          profilePic: require( "../../../assets/images/profile/myProfile/common/pic5.png"),
           profileName: "Shashini Silva",
           tag1: "DSA",
           tag2: "Tech Support",
@@ -78,7 +78,7 @@ const MentorsScreen = () => {
 
       <UserProfileNameTagsCard
         data={{
-          profilePic: require( "../../../assets/images/myProfile/common/pic5.png"),
+          profilePic: require( "../../../assets/images/profile/myProfile/common/pic5.png"),
           profileName: "Kithmi Silva",
           tag1: "DSA",
           tag2: "Tech Support",
@@ -88,7 +88,7 @@ const MentorsScreen = () => {
 
       <UserProfileNameTagsCard
         data={{
-          profilePic: require( "../../../assets/images/myProfile/common/pic2.jpg"),
+          profilePic: require( "../../../assets/images/profile/myProfile/common/pic2.jpg"),
           profileName: "Pasani Gimhana",
           tag1: "DSA",
           tag2: "Tech Support",
@@ -98,7 +98,7 @@ const MentorsScreen = () => {
 
       <UserProfileNameTagsCard
         data={{
-          profilePic: require( "../../../assets/images/myProfile/common/profile-picture.png"),
+          profilePic: require( "../../../assets/images/profile/myProfile/common/profile-picture.png"),
           profileName: "Sarah Kariyawasam",
           tag1: "DSA",
           tag2: "Tech Support",

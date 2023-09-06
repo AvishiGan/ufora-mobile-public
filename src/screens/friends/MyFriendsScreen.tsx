@@ -15,7 +15,7 @@ import TopBar from "../../components/profile/TopBar";
 type Props = StackScreenProps<RootStackParamList, "MyFriendsScreen">;
 
 const imageLink: string =
-  "../../../assets/images/myProfile/common/profile-picture.png";
+  "../../../assets/images/profile/myProfile/common/profile-picture.png";
 
 const MyFriendsScreen: FunctionComponent = () => {
   return (
@@ -55,7 +55,7 @@ const MyFriendsScreen: FunctionComponent = () => {
       <View style={{}}>
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
             profileName: "Hasini Pereras",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -63,7 +63,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic2.jpg"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic2.jpg"),
             profileName: "Pasandi Withanage",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -71,7 +71,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic3.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic3.png"),
             profileName: "Dinethi Gopal",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -79,7 +79,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic4.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic4.png"),
             profileName: "Pasan Phelps",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -87,7 +87,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic5.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic5.png"),
             profileName: "Chathuni Gimhana",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -95,7 +95,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
             profileName: "Sasitha Gunapala",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -103,7 +103,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic3.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic3.png"),
             profileName: "Himara Gayashan",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -111,7 +111,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic4.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic4.png"),
             profileName: "Hathim Abbas",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -119,7 +119,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic2.jpg"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic2.jpg"),
             profileName: "Johnathon Perera",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -127,7 +127,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic3.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic3.png"),
             profileName: "Isuru Heshan",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",
@@ -135,7 +135,7 @@ const MyFriendsScreen: FunctionComponent = () => {
         />
         <MyFriends
           data={{
-            profilePic: require("../../../assets/images/myProfile/common/pic4.png"),
+            profilePic: require("../../../assets/images/profile/myProfile/common/pic4.png"),
             profileName: "Hemaka Gunawansha",
             mutualFriends: "140",
             university: "Undergrad at University of Colombo",

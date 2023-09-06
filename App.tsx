@@ -52,7 +52,8 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* <WelcomeNavigator /> */}
-      <CreatePost />
+      {/* <CreatePost /> */}
+      <RootNavigator />
     </NavigationContainer>
   );
 }

@@ -7,7 +7,7 @@ import UserProfileNameUniMutualCard from "../../components/universityMentoring/U
 
 //  COMPONENT DETAILS
 const imageLink: string =
-  "../../../assets/images/myProfile/common/profile-picture.png";
+  "../../../assets/images/profile/myProfile/common/profile-picture.png";
 
 const UniversityPeopleScreen = () => {
   return (

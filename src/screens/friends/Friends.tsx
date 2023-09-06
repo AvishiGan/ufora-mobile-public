@@ -14,10 +14,10 @@ import TopBar from '../../components/profile/TopBar'
 type Props = StackScreenProps<RootStackParamList, "Friends">;
 
 const imageLink: string =
-  "../../../assets/images/myProfile/common/profile-picture.png";
+  "../../../assets/images/profile/myProfile/common/profile-picture.png";
 
 const authorData = {
-    profilePicture: require("../../../assets/images/myProfile/common/pic2.jpg"),
+    profilePicture: require("../../../assets/images/profile/myProfile/common/pic2.jpg"),
     userName: "Kulith Perera",
     universityName: "University of Colombo",
     mutualFriends: "104 Mutual Friends",
@@ -26,7 +26,7 @@ const authorData = {
   };
 
   const authorData1 = {
-    profilePicture: require("../../../assets/images/myProfile/common/pic3.png"),
+    profilePicture: require("../../../assets/images/profile/myProfile/common/pic3.png"),
     userName: "Pasani Phelps",
     universityName: "University of Colombo",
     mutualFriends: "104 Mutual Friends",
@@ -35,7 +35,7 @@ const authorData = {
   };
 
   const authorData2 = {
-    profilePicture: require("../../../assets/images/myProfile/common/profile-picture.png"),
+    profilePicture: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
     userName: "Shanaka Fernando",
     universityName: "University of Colombo",
     mutualFriends: "104 Mutual Friends",
@@ -71,7 +71,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
                 <>
                   <FriendRequests
                     data={{
-                      profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+                      profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
                       profileName: "Hasith Perera",
                       mutualFriends: "140",
                       university: "Undergrad at University of Colombo",
@@ -81,7 +81,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
                   />
                   <FriendRequests
                     data={{
-                      profilePic: require("../../../assets/images/myProfile/common/pic3.png"),
+                      profilePic: require("../../../assets/images/profile/myProfile/common/pic3.png"),
                       profileName: "Sanduni Kiren",
                       mutualFriends: "140",
                       university: "Undergrad at University of Colombo",
@@ -90,7 +90,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
                   />
                   <FriendRequests
                     data={{
-                      profilePic: require("../../../assets/images/myProfile/common/pic4.png"),
+                      profilePic: require("../../../assets/images/profile/myProfile/common/pic4.png"),
                       profileName: "Pasan Phelps",
                       mutualFriends: "140",
                       university: "Undergrad at University of Colombo",
@@ -99,7 +99,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
                   />
                   <FriendRequests
                     data={{
-                      profilePic: require("../../../assets/images/myProfile/common/pic5.png"),
+                      profilePic: require("../../../assets/images/profile/myProfile/common/pic5.png"),
                       profileName: "Pasan Phelps",
                       mutualFriends: "140",
                       university: "Undergrad at University of Colombo",
@@ -108,7 +108,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
                   />
                   <FriendRequests
                     data={{
-                      profilePic: require("../../../assets/images/myProfile/common/pic2.jpg"),
+                      profilePic: require("../../../assets/images/profile/myProfile/common/pic2.jpg"),
                       profileName: "Pasan Phelps",
                       mutualFriends: "140",
                       university: "Undergrad at University of Colombo",
@@ -120,7 +120,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
                 <>
                   <FriendRequests
                     data={{
-                      profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+                      profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
                       profileName: "Sanduni Kiren",
                       mutualFriends: "140",
                       university: "Undergrad at University of Colombo",
@@ -129,7 +129,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
                   />
                   <FriendRequests
                     data={{
-                      profilePic: require("../../../assets/images/myProfile/common/pic3.png"),
+                      profilePic: require("../../../assets/images/profile/myProfile/common/pic3.png"),
                       profileName: "Hasith Perera",
                       mutualFriends: "140",
                       university: "Undergrad at University of Colombo",
@@ -164,7 +164,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
           <View style={{marginTop: 10}}>
             <MyFriends
               data={{
-                profilePic: require("../../../assets/images/myProfile/common/pic4.png"),
+                profilePic: require("../../../assets/images/profile/myProfile/common/pic4.png"),
                 profileName: "Hasith Perera",
                 mutualFriends: "140",
                 university: "Undergrad at University of Colombo"
@@ -172,7 +172,7 @@ const Friends:FunctionComponent<Props> = ({navigation}) => {
             />
             <MyFriends
               data={{
-                profilePic: require("../../../assets/images/myProfile/common/pic5.png"),
+                profilePic: require("../../../assets/images/profile/myProfile/common/pic5.png"),
                 profileName: "Sanduni Kiren",
                 mutualFriends: "140",
                 university: "Undergrad at University of Colombo"

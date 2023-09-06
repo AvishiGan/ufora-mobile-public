@@ -1,4 +1,4 @@
-import club1  from "../../../../assets/images/myProfile/about/clubs/club1.png";
+import club1  from "../../../../assets/images/profile/myProfile/about/clubs/club1.png";
 
 /**
  * @interface ProfileData

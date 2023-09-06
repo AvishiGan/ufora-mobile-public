@@ -8,7 +8,7 @@ import UniAnnouncementCard from '../../components/universityMentoring/UniAnnounc
 import OlderNotification from '../../components/notification/OlderNotification'
 
 const authordata1 = {
-  profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+  profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
   profileName: "Herath Perera",
   tag1: "Student Representative",
   tag2: "UCSC 18",
@@ -18,7 +18,7 @@ const authordata1 = {
 };
 
 const authordata2 = {
-  profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+  profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
   profileName: "Helika Amasha",
   tag1: "Secretory",
   tag2: "IEEE Student Branch of UCSC",
@@ -28,7 +28,7 @@ const authordata2 = {
 };
 
 const authordata3 = {
-  profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+  profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
   profileName: "Helika Amasha",
   date: "Today",
   description:
@@ -45,7 +45,7 @@ const NotificationScreen = () => {
       <View>
       <FriendRequests
         data={{
-          profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+          profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
           profileName: "Hasith Perera",
           mutualFriends: "140",
           university: "Undergrad at University of Colombo",
@@ -55,7 +55,7 @@ const NotificationScreen = () => {
       />
       <FriendRequests
         data={{
-          profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+          profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
           profileName: "Sanduni Kiren",
           mutualFriends: "110",
           university: "Undergrad at University of Colombo",

@@ -6,7 +6,7 @@ import { TopBar } from "../../components/";
 
 import {
   CardHeadingBold,
-  SemiBoldBig,
+  SemiboldBig,
   SubHeadingSemibold,
 } from "../../constants";
 import { VerifiedIcon } from "../../../assets/svg";
@@ -18,7 +18,7 @@ import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
 import UniAnnouncementCard from "../../components/universityMentoring/UniAnnouncementCard";
 
 const imageLink: string =
-  "../../../assets/images/myProfile/common/profile-picture.png";
+  "../../../assets/images/profile/myProfile/common/profile-picture.png";
 
 // University screen navitagation prop
 export type UniversityScreenProps =
@@ -62,13 +62,13 @@ const UniversityScreen = () => {
           {/* data */}
           <View style={styles.dataContainer}>
             <Text>
-              <SemiBoldBig>2500</SemiBoldBig> People
+              <SemiboldBig>2500</SemiboldBig> People
             </Text>
             <Text>
-              <SemiBoldBig>200</SemiBoldBig> Blogs
+              <SemiboldBig>200</SemiboldBig> Blogs
             </Text>
             <Text>
-              <SemiBoldBig>10</SemiBoldBig> Projects
+              <SemiboldBig>10</SemiboldBig> Projects
             </Text>
           </View>
         </View>
@@ -101,7 +101,7 @@ const UniversityScreen = () => {
           {/* left button */}
           <View style={styles.row}>
             <PersonStanding color="#4F4E4E" size={24} />
-            <SemiBoldBig>All Groups</SemiBoldBig>
+            <SemiboldBig>All Groups</SemiboldBig>
           </View>
         </TouchableOpacity>
         {/* right button */}
@@ -111,7 +111,7 @@ const UniversityScreen = () => {
         >
           <View style={styles.row}>
             <Sprout color="#4F4E4E" size={24} />
-            <SemiBoldBig>Mentorship</SemiBoldBig>
+            <SemiboldBig>Mentorship</SemiboldBig>
           </View>
         </TouchableOpacity>
       </View>
