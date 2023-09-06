@@ -9,13 +9,14 @@ import { Formik } from 'formik';
 import RegularSmall from '../../../constants/fonts/RegularSmall';
 import RegularNormal from '../../../constants/fonts/RegularNormal';
 import { RegularBig } from '../../../constants';
+import axios from 'axios';
 type Props = StackScreenProps<RootStackParamList, "clubOTP">;
 
 interface FormValues {
     [key: string]: string;
   }
 
-const ClubOTP: FunctionComponent<Props> = () => {
+const ClubOTP: FunctionComponent<Props> = ({ route, navigation }) => {
     const [errorMessage, setErrorMessage] = useState<string>("");
 
   const inputRefs = [
@@ -42,7 +43,26 @@ const ClubOTP: FunctionComponent<Props> = () => {
     }
   };
 
-  const handleVerify = async () => {}
+  const handleVerify = async (values: FormValues) => {
+    const token = route.params.token;
+    const otp = `${values.num1}${values.num2}${values.num3}${values.num4}${values.num5}${values.num6}`;
+    console.log(otp);
+
+    try {
+      // const otpResponse = await axios.post(`${API_PATH}/otp/request`, {
+      const otpVerify = await axios.post("http://192.168.1.5:3000/api/club/email/verification", {
+        otp: otp,
+        token: token
+      }, {headers : {
+        'Authorization' : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWZ5OTJ1Y2g2OWk2OHVkd2Z5dGEiLCJ1c2VyX3R5cGUiOiJ1bmRlcmdyYWR1YXRlIiwiaWF0IjoxNjkyMTI1MDg4LCJleHAiOjE2OTQ3MTcwODgsInVzZXJuYW1lIjpudWxsfQ.yinLBy2sx0gAW5jvWJrv_EFfnvUShA0ylKckUNWGhU0"
+        }
+      });
+      console.log("OTP Request Response: ", otpVerify.data);
+      navigation.navigate("SuccessScreen")
+    } catch (otpError) {
+      console.error("OTP Request Error: ", otpError);
+    }
+  }
 
   const handleResendOTP = async () => {}
 

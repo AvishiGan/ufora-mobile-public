@@ -55,7 +55,7 @@ export type RootStackParamList = {
   ProjectCentre: undefined;
   ProjectContent: undefined;
   createClub: undefined;
-  clubOTP: undefined;
+  clubOTP: {token: string};
   SuccessScreen: undefined;
   ClubView: undefined
   Followers: undefined
