@@ -9,9 +9,7 @@ import { uploadMediaToImageKit } from "../../../services/imagekit";
 import { selectMediaFromDevice } from "../../../utils/fileUtils";
 
 import { TopBar } from "../..";
-// import { profileData } from "../../../screens/profile/data";
 import { myProfileData } from "../../../screens/profile/myProfile/MyProfileData";
-
 import { AddPhotoVideoButton, SharePostButton } from "../buttons";
 import { styles } from "../styles";
 import CreatePostHeader from "./Header";
