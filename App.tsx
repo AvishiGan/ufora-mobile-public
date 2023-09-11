@@ -3,14 +3,11 @@ import { Text, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
+
 import WelcomeNavigator from "./src/navigation/navigator/WelcomeNavigator";
 import RootNavigator from "./src/navigation/navigator/RootNavigator";
-import React, { useState, useEffect } from 'react';
-
- //remove the following 3 lines after interim
-// import { LogBox } from 'react-native';
-// LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
-// LogBox.ignoreAllLogs();//Ignore all log notifications
+import React, { useState, useEffect } from "react";
+import { CreatePost } from "./src/components";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,9 +23,8 @@ export default function App() {
       try {
         // This will prevent the splash screen from hiding too soon
         await SplashScreen.preventAutoHideAsync();
-        
+
         // Do any other app preparation logic you might have here
-        
       } catch (e) {
         console.warn(e);
       } finally {
@@ -54,9 +50,10 @@ export default function App() {
   }
 
   return (
-    
     <NavigationContainer>
+      {/* <WelcomeNavigator /> */}
+      {/* <CreatePost /> */}
       <RootNavigator />
     </NavigationContainer>
-  );
+  );
 }

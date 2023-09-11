@@ -1,6 +1,13 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 import React, { FunctionComponent, useState } from "react";
-import { TextInput, View, TouchableOpacity, Image, StyleSheet, Text} from "react-native";
+import {
+  TextInput,
+  View,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Text,
+} from "react-native";
 import { EyeOff } from "lucide-react-native";
 
 interface InputFieldProps {
@@ -11,11 +18,11 @@ interface InputFieldProps {
   secureTextEntry?: boolean;
   showPasswordToggle?: boolean;
   style?: object;
-  error: string
+  error: string;
   onBlur?: () => void;
 }
 
-const InputField:FunctionComponent <InputFieldProps> = ({
+const InputField: FunctionComponent<InputFieldProps> = ({
   iconComponent,
   placeholder,
   value,
@@ -35,26 +42,26 @@ const InputField:FunctionComponent <InputFieldProps> = ({
 
   const styles = StyleSheet.create({
     inputText: {
-      fontSize: 16,
+      fontSize: 14,
       fontWeight: "400",
-      //borderColor: "black"
     },
     errorText: {
-      color: '#CC3535',
+      color: "#CC3535",
       fontSize: 12,
       marginTop: 0,
-      marginLeft: 4
+      marginLeft: 4,
+      // fontFamily: "Switzer Variable",
     },
     input: {
-      flexDirection: "row", 
-      alignItems: "center", 
-      backgroundColor: "transparent", 
-      borderWidth: 1, 
-      borderRadius: 15, 
-      marginBottom: 2, 
-      padding: 8, 
-      width:320, 
-      borderColor:"#87929D",
+      flexDirection: "row",
+      alignItems: "center",
+      backgroundColor: "transparent",
+      borderWidth: 1,
+      borderRadius: 15,
+      marginBottom: 2,
+      padding: 8,
+      width: 320,
+      borderColor: "#87929D",
     },
     inputError: {
       borderColor: "#CC3535",
@@ -64,30 +71,32 @@ const InputField:FunctionComponent <InputFieldProps> = ({
       marginLeft: 4,
       padding: 5,
     },
-
   });
 
   return (
     <View>
-    <View style={[styles.input, error ? styles.inputError : null]}>
-      {/* <Image source={imageSource} style={{ marginRight: 18,marginLeft: 4, padding: 5, tintColor: error ? "#CC3535" : "#B8B8B8", }} /> */}
-      <View style={styles.icon}>{iconComponent}</View>
-      <TextInput
-        placeholder={placeholder}
-        placeholderTextColor={error ? "#CC3535" : "#B8B8B8"}
-        value={value}
-        secureTextEntry={secureTextEntry && !showPassword}
-        onChangeText={onChangeText}
-        style={[styles.inputText, { flex: 1 }, style]}
-        onBlur={onBlur}
-      />
-      {showPasswordToggle && (
-        <TouchableOpacity onPress={togglePasswordVisibility} style={{ marginLeft: 8 }}>
-          <EyeOff color={error ? "#CC3535" : "#B8B8B8"} size={24} />
-        </TouchableOpacity>
-      )}
-    </View>
-    {error? <Text style={styles.errorText}>{error}</Text> : null}
+      <View style={[styles.input, error ? styles.inputError : null]}>
+        {/* <Image source={imageSource} style={{ marginRight: 18,marginLeft: 4, padding: 5, tintColor: error ? "#CC3535" : "#B8B8B8", }} /> */}
+        <View style={styles.icon}>{iconComponent}</View>
+        <TextInput
+          placeholder={placeholder}
+          placeholderTextColor={error ? "#CC3535" : "#B8B8B8"}
+          value={value}
+          secureTextEntry={secureTextEntry && !showPassword}
+          onChangeText={onChangeText}
+          style={[styles.inputText, { flex: 1 }, style]}
+          onBlur={onBlur}
+        />
+        {showPasswordToggle && (
+          <TouchableOpacity
+            onPress={togglePasswordVisibility}
+            style={{ marginLeft: 8 }}
+          >
+            <EyeOff color={error ? "#CC3535" : "#B8B8B8"} size={24} />
+          </TouchableOpacity>
+        )}
+      </View>
+      {error ? <Text style={styles.errorText}>{error}</Text> : null}
     </View>
   );
 };

@@ -18,7 +18,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+              source={require("../../../assets/images/profile/myProfile/common/profile-picture.png")}
               style={styles.image}
             />
           </View>
@@ -28,7 +28,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/pic2.jpg")}
+              source={require("../../../assets/images/profile/myProfile/common/pic2.jpg")}
               style={styles.image}
             />
           </View>
@@ -37,7 +37,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/pic3.png")}
+              source={require("../../../assets/images/profile/myProfile/common/pic3.png")}
               style={styles.image}
             />
           </View>
@@ -46,7 +46,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/pic4.png")}
+              source={require("../../../assets/images/profile/myProfile/common/pic4.png")}
               style={styles.image}
             />
           </View>
@@ -55,7 +55,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/pic5.png")}
+              source={require("../../../assets/images/profile/myProfile/common/pic5.png")}
               style={styles.image}
             />
           </View>
@@ -64,7 +64,7 @@ const Story_section = () => {
         <TouchableOpacity style={styles.story}>
           <View style={styles.imageContainer}>
             <Image
-              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+              source={require("../../../assets/images/profile/myProfile/common/profile-picture.png")}
               style={styles.image}
             />
           </View>

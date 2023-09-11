@@ -6,8 +6,8 @@ import React from "react";
 import { View, Image } from "react-native";
 import { styles } from "./styles";
 import PropTypes from "prop-types";
-import { PostAuthorBioFooter } from "..";
-import { profileData } from "../../screens/profile/data";
+import PostAuthorBioFooter from "../profile/PostAuthorBioFooter";
+import { myProfileData } from "../../screens/profile/myProfile/MyProfileData";
 import { CardHeadingBold, RegularSmall } from "../../constants";
 
 interface ProjectCardData {
@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardData> = ({
           <RegularSmall>{projectDescription}</RegularSmall>
         </View>
         <View style={styles.projectArticleContainer}>
-          <PostAuthorBioFooter data={profileData} />
+          <PostAuthorBioFooter data={myProfileData} />
         </View>
       </View>
       {/* PostAuthorBioFooter component */}

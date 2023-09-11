@@ -18,7 +18,7 @@ import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
 import UniAnnouncementCard from "../../components/universityMentoring/UniAnnouncementCard";
 
 const imageLink: string =
-  "../../../assets/images/myProfile/common/profile-picture.png";
+  "../../../assets/images/profile/myProfile/common/profile-picture.png";
 
 // University screen navitagation prop
 export type UniversityScreenProps =

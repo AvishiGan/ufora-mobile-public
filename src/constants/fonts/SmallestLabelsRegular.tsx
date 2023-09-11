@@ -2,17 +2,21 @@ import React, { FunctionComponent } from 'react';
 import {TextProps} from "./types";
 import styled from "styled-components/native";
 
-{/*weight-600 */}
-const StyledText = styled.Text`
-    font-family: Text;
+interface StyledTextProps {
+  textStyles: any;
+  fontColor?: string;
+}
+
+const StyledText = styled.Text<StyledTextProps>`
+    font-family: Text; 
     font-size: 8px;
     font-style: normal;
     font-weight: 400;
-    //line-height: normal;
+    color: ${(props) => props.fontColor || 'inherit'};
 `;
 
-const SmallestLabelsRegular: FunctionComponent<TextProps> = (props) => {
-  return <StyledText style={props.textStyles}>{props.children} </StyledText>
+const SmallestLabelsRegular: FunctionComponent<TextProps & { fontColor?: string }> = (props) => {
+  return <StyledText style={props.textStyles} fontColor={props.fontColor}>{props.children} </StyledText>
 };
 
 export default SmallestLabelsRegular;

@@ -24,9 +24,12 @@ import { HeaderRight, HeaderLeft } from "../../components";
 import FeedScreen from "../../screens/Feed/FeedScreen";
 // import TabNavigator from "./TabNavigator";
 
-// Profile related navigation
+/**
+ * Profile related navigation
+ */
 import CreatePost from "../../components/profile/createPost/CreatePost";
-import AllPosts from "../../screens/profile/AllPosts";
+import AllPosts from "../../screens/profile/myProfile/AllPosts";
+// import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -49,6 +52,7 @@ export type RootStackParamList = {
   Main: undefined;
   AllPosts: undefined;
   CreatePost: undefined;
+  CreateProfile: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -163,6 +167,11 @@ const WelcomeNavigator = () => {
         component={AllPosts}
         options={{ headerShown: false }}
       />
+      {/* <Stack.Screen
+        name="CreateProfile"
+        component={CreateProfile}
+        options={{ headerShown: false }}
+      /> */}
     </Stack.Navigator>
   );
 };

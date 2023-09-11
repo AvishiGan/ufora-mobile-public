@@ -44,7 +44,7 @@ const FeedScreen = () => {
           {/* profile picture */}
           <TouchableOpacity style={styles.profilePicture} onPress={() => navigation.navigate("UserProfileScreen")}>
             <Image
-              source={require("../../../assets/images/myProfile/common/profile-picture.png")}
+              source={require("../../../assets/images/profile/myProfile/common/profile-picture.png")}
               style={styles.image}
             />
           </TouchableOpacity>

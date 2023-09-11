@@ -6,7 +6,7 @@ import React from "react";
 import { MessageCircle, Share2, ThumbsUp } from "lucide-react-native";
 
 // dummy data
-const imageLink: string = "../../../assets/images/myProfile/common/pic2.jpg";
+const imageLink: string = "../../../assets/images/profile/myProfile/common/pic2.jpg";
 const imageUOC: string = "../../../assets/images/feedPosts/post1.jpg";
 
 const PostCard = () => {

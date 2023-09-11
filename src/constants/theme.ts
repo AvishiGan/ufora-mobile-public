@@ -7,12 +7,14 @@ const COLORS = {
   placeHolder: "#B8B8B8",
   brandBlue: "#2656FF",
   lightGrayHalf: "rgba(211, 211, 211, 0.5)",
+  red: "#CC3535",
+  formFieldOutline: "#87929D",
 };
 
 const SIZES = {
   marginSide: 13,
   iconSize: 24,
-  gap: 10
-}
+  gap: 10,
+};
 
 export { COLORS, SIZES };
