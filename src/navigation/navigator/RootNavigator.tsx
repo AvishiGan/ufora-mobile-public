@@ -75,7 +75,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="createClub">
+    <RootStack.Navigator initialRouteName="Main">
       <RootStack.Screen
         name="CreatePost"
         component={CreatePost}
