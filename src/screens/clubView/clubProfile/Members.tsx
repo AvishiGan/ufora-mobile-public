@@ -20,7 +20,7 @@ const authordata1 = {
   };
 
   const authordata3 = {
-    profilePic: require("../../../../assets/images/myProfile/common/profile-picture.png"),
+    profilePic: require("../../../../assets/images/profile/myProfile/common/profile-picture.png"),
     profileName: "Helika Amasha",
     university: "Undergraduate at University of Colombo"
   };

@@ -15,7 +15,7 @@ import UserProfileNameUniMutualCard from "../../components/universityMentoring/U
 
 //  COMPONENT DETAILS
 const imageLink: string =
-  "../../../assets/images/myProfile/common/profile-picture.png";
+  "../../../assets/images/profile/myProfile/common/profile-picture.png";
 
 const MyMentorshipScreen = () => {
   return (
@@ -58,7 +58,7 @@ const MyMentorshipScreen = () => {
             {/* Image */}
             <Image
               style={styles.image}
-              source={require("../../../assets/images/myProfile/common/pic3.png")}
+              source={require("../../../assets/images/profile/myProfile/common/pic3.png")}
             />
 
             <View>
@@ -104,7 +104,7 @@ const MyMentorshipScreen = () => {
             {/* Image */}
             <Image
               style={styles.image}
-              source={require("../../../assets/images/myProfile/common/pic4.png")}
+              source={require("../../../assets/images/profile/myProfile/common/pic4.png")}
             />
 
             <View>
@@ -150,7 +150,7 @@ const MyMentorshipScreen = () => {
             {/* Image */}
             <Image
               style={styles.image}
-              source={require("../../../assets/images/myProfile/common/pic5.png")}
+              source={require("../../../assets/images/profile/myProfile/common/pic5.png")}
             />
 
             <View>
@@ -198,19 +198,19 @@ const MyMentorshipScreen = () => {
       {/* LOOP HERE */}
       <UserProfileNameUniMutualCard
         data={{
-          profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+          profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
           profileName: "Ravien Harith",
         }}
       />
       <UserProfileNameUniMutualCard
         data={{
-          profilePic: require("../../../assets/images/myProfile/common/pic2.jpg"),
+          profilePic: require("../../../assets/images/profile/myProfile/common/pic2.jpg"),
           profileName: "Sheila Perera",
         }}
       />
       <UserProfileNameUniMutualCard
         data={{
-          profilePic: require("../../../assets/images/myProfile/common/pic3.png"),
+          profilePic: require("../../../assets/images/profile/myProfile/common/pic3.png"),
           profileName: "Kaveen Heshaka",
         }}
       />

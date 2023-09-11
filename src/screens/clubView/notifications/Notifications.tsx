@@ -6,7 +6,7 @@ import SemiboldBig  from '../../../constants/fonts/SemiboldBig'
 import OlderNotification from '../../../components/notification/OlderNotification'
 
 const authordata1 = {
-  profilePic: require("../../../../assets/images/myProfile/common/profile-picture.png"),
+  profilePic: require("../../../../assets/images/profile/myProfile/common/profile-picture.png"),
   profileName: "Herath Perera",
   date: "Today",
   description:
@@ -14,7 +14,7 @@ const authordata1 = {
 };
 
 const authordata2 = {
-  profilePic: require("../../../../assets/images/myProfile/common/profile-picture.png"),
+  profilePic: require("../../../../assets/images/profile/myProfile/common/profile-picture.png"),
   profileName: "Helika Amasha",
   date: "Today",
   description:
@@ -22,7 +22,7 @@ const authordata2 = {
 };
 
 const authordata3 = {
-  profilePic: require("../../../../assets/images/myProfile/common/profile-picture.png"),
+  profilePic: require("../../../../assets/images/profile/myProfile/common/profile-picture.png"),
   profileName: "Helika Amasha",
   date: "Today",
   description:

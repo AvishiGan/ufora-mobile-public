@@ -17,14 +17,14 @@ import { useNavigation } from "@react-navigation/native";
 
 //  COMPONENT DETAILS
 const imageLink: string =
-  "../../../assets/images/myProfile/common/profile-picture.png";
+  "../../../assets/images/profile/myProfile/common/profile-picture.png";
 
 export type UniversityScreenProps =
   NativeStackNavigationProp<RootStackParamList>;
 
 // Example data for the author bio
 const authorData2 = {
-  profilePic: require("../../../assets/images/myProfile/common/profile-picture.png"),
+  profilePic: require("../../../assets/images/profile/myProfile/common/profile-picture.png"),
   profileName: "Hasith Perera",
   tag1: "DSA",
   tag2: "TechSupport",
@@ -32,7 +32,7 @@ const authorData2 = {
 };
 
 const authorData3 = {
-  profilePic: require("../../../assets/images/myProfile/common/pic2.jpg"),
+  profilePic: require("../../../assets/images/profile/myProfile/common/pic2.jpg"),
   profileName: "Ravishi Silva",
   tag1: "HCI",
   tag2: "Machine Learning",
@@ -40,7 +40,7 @@ const authorData3 = {
 };
 
 const authorData4 = {
-  profilePic: require("../../../assets/images/myProfile/common/pic3.png"),
+  profilePic: require("../../../assets/images/profile/myProfile/common/pic3.png"),
   profileName: "Sandul Gimhana",
   tag1: "Management",
   tag2: "MERN Stack",
@@ -48,7 +48,7 @@ const authorData4 = {
 };
 
 const authorData6 = {
-  profilePicture: require("../../../assets/images/myProfile/common/pic4.png"),
+  profilePicture: require("../../../assets/images/profile/myProfile/common/pic4.png"),
   userName: "Shanaka Fernando",
   universityName: "",
   mutualFriends: "",
@@ -57,7 +57,7 @@ const authorData6 = {
 };
 
 const authorData7 = {
-  profilePicture: require("../../../assets/images/myProfile/common/pic5.png"),
+  profilePicture: require("../../../assets/images/profile/myProfile/common/pic5.png"),
   userName: "Shanaka Fernando",
   universityName: "",
   mutualFriends: "",
@@ -66,7 +66,7 @@ const authorData7 = {
 };
 
 const authorData8 = {
-  profilePicture: require("../../../assets/images/myProfile/common/pic3.png"),
+  profilePicture: require("../../../assets/images/profile/myProfile/common/pic3.png"),
   userName: "Shanaka Fernando",
   universityName: "",
   mutualFriends: "",

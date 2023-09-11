@@ -10,7 +10,7 @@ import FollowersCard from '../../../../components/clubsView/clubProfile/Follower
 import {
   BoardofOfficials,
 } from "../../../clubView/clubProfile/cards/AllCards";
-import { styles } from "../../../profile/about/cards/styles";
+import { styles } from "../../../profile/myProfile/about/cards/styles";
 
   const cardComponents = [
     BoardofOfficials,

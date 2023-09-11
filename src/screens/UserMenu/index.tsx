@@ -8,6 +8,8 @@ import menuStyles from "./userMenuStyles.styles";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../navigation/navigator/RootNavigator";
 import { useNavigation } from "@react-navigation/native";
+import { profilePicture } from "../../../assets";
+import ProfileCard from "../../components/userMenu/ProfileCard";
 
 export type MoreScreenProps =
   NativeStackNavigationProp<RootStackParamList>;
@@ -21,6 +23,17 @@ const UserMenu: React.FC<UserMenuProps> = ({ navigation }) => {
 
   const screenWidth = Dimensions.get('window').width;
   const cardWidth = screenWidth-26;
+
+  const profileCardData1 = {
+    personName: "Isuru Ranawaka",
+    personProfilePic: profilePicture,
+  };
+
+  const profileCardData2 = {
+    personName: "Rotaract Club of UCSC",
+    personProfilePic: profilePicture,
+  };
+
 
   const handleBlog = () => {
     navigation.navigate('BlogCentre');
@@ -36,7 +49,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ navigation }) => {
             <View style={{...menuStyles.menuContainer, width: cardWidth}}>
                 <View style={menuStyles.myProfiles}>
                     <CardHeadingBold><Text style={{color: COLORS.brandGrey}}>My Profiles</Text></CardHeadingBold>
-                    
+                    <View style={menuStyles.profileCardContainer}>
+                        <ProfileCard data={profileCardData1} navigation={navigation} />
+                        <ProfileCard data={profileCardData2} navigation={navigation} />
+                    </View>
                 </View>
                 <View style={menuStyles.shortcutsWrap}>
                     <CardHeadingBold><Text style={{color: COLORS.brandGrey}}>Shortcuts</Text></CardHeadingBold>

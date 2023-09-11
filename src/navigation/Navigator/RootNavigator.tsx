@@ -9,7 +9,7 @@ import MentorhipScreen from "../../screens/universityMentoring/MentorhipScreen";
 import MentorsScreen from "../../screens/universityMentoring/MentorsScreen";
 import MyMentorshipScreen from "../../screens/universityMentoring/MyMentorshipScreen";
 import UniversityPeopleScreen from "../../screens/universityMentoring/UniversityPeopleScreen";
-import UserProfileScreen from "../../screens/profile";
+import UserProfileScreen from "../../screens/profile/myProfile/MyProfile";
 import BlogCentre from "../../screens/blog/blogCentreScreen";
 import BlogContent from "../../screens/blog/blogContentScreen";
 import AddBlog from "../../screens/blog/blogEditorScreen";
@@ -27,7 +27,7 @@ import SuccessScreen from "../../screens/clubView/createClub/SuccessScreen";
 import CreatePost from "../../components/profile/createPost/CreatePost";
 import TabNavigatorClub from "./TabNavigatorClub";
 // import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
-import CreateProfile from "../../components/profile/createEditProfile/createProfile/CreateProfile";
+import CreateProfile from "../../components/profile/createEditProfile/CreateProfile";
 
 import Followers from "../../screens/clubView/clubProfile/Followers";
 import Members from "../../screens/clubView/clubProfile/Members";
@@ -55,7 +55,7 @@ export type RootStackParamList = {
   ProjectCentre: undefined;
   ProjectContent: undefined;
   createClub: undefined;
-  clubOTP: undefined;
+  clubOTP: {token: string};
   SuccessScreen: undefined;
   ClubView: undefined
   Followers: undefined
@@ -75,7 +75,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="createClub">
+    <RootStack.Navigator initialRouteName="Main">
       <RootStack.Screen
         name="CreatePost"
         component={CreatePost}
