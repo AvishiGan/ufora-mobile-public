@@ -7,6 +7,11 @@ interface StyledTextProps {
   fontColor?: string;
 }
 
+interface StyledTextProps {
+  textStyles: any;
+  fontColor?: string;
+}
+
 {
   /*weight-400*/
 }

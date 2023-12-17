@@ -1,16 +1,18 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
+import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 
 import WelcomeNavigator from "./src/navigation/navigator/WelcomeNavigator";
 import RootNavigator from "./src/navigation/navigator/RootNavigator";
-import React, { useState, useEffect } from "react";
-import { CreatePost } from "./src/components";
+import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
+    Text: require("./assets/fonts/Switzer-Variable.ttf"),
+    ItalicText: require("./assets/fonts/Switzer-VariableItalic.ttf"),
     Text: require("./assets/fonts/Switzer-Variable.ttf"),
     ItalicText: require("./assets/fonts/Switzer-VariableItalic.ttf"),
   });
@@ -23,8 +25,9 @@ export default function App() {
       try {
         // This will prevent the splash screen from hiding too soon
         await SplashScreen.preventAutoHideAsync();
-
+        
         // Do any other app preparation logic you might have here
+        
       } catch (e) {
         console.warn(e);
       } finally {
@@ -50,10 +53,9 @@ export default function App() {
   }
 
   return (
+    
     <NavigationContainer>
-      {/* <WelcomeNavigator /> */}
-      {/* <CreatePost /> */}
-      <RootNavigator />
+      <WelcomeNavigator />
     </NavigationContainer>
-  );
+  );
 }

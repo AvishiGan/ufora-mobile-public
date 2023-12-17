@@ -1,2 +1,2 @@
-export * from "./images/profile/myProfile";
-export * from "./svg";
+export * from './images';
+export * from './svg';
