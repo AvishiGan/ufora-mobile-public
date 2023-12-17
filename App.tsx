@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
+import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 
@@ -10,6 +11,8 @@ import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
+    Text: require("./assets/fonts/Switzer-Variable.ttf"),
+    ItalicText: require("./assets/fonts/Switzer-VariableItalic.ttf"),
     Text: require("./assets/fonts/Switzer-Variable.ttf"),
     ItalicText: require("./assets/fonts/Switzer-VariableItalic.ttf"),
   });

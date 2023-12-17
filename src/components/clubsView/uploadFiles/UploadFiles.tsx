@@ -26,12 +26,12 @@ const UploadFiles: FunctionComponent<UploadFilesProps> = ({icon, error, style = 
       console.log("doc: ", doc);
       console.log("doc.assets: ", doc.assets)
   
-    //   if (!doc.canceled) {
-    //     console.log(doc);
-    //   }
+      // if (!doc.canceled) {
+      //   console.log(doc);
+      // }
 
-      if (!doc.canceled) {
-        console.log(doc.assets[1].uri);
+      if (!doc.canceled && doc.assets !== null) {
+        console.log(doc.assets[0].uri);
       }
     } catch (err) {
       console.log("Error", err);
@@ -68,12 +68,12 @@ const UploadFiles: FunctionComponent<UploadFilesProps> = ({icon, error, style = 
           >
               {icon}
               {error ? <Text style={styles.errorText}>{error}</Text> : null}
-              {uploadedFile ? (
+              {/* {uploadedFile ? (
                 <Text style={{ color: 'green' }}>File Uploaded: {uploadedFile}</Text>
                 ) : (
                 <Text style={{ color: 'red' }}>No File Uploaded</Text>
                 )
-              }
+              } */}
           <View style={{marginLeft: 10}}>
               <RegularNormal fontColor='#87929D'>Upload file</RegularNormal>
               <SmallestLabelsRegular fontColor='#87929D'>PDF,JPG,PNG</SmallestLabelsRegular>

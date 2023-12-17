@@ -8,7 +8,7 @@ import { styles } from "./styles";
 import PropTypes from "prop-types";
 import { DotIcon } from "../../../assets/svg";
 import { PostAuthorBioFooter } from "..";
-import { profileData } from "../../screens/profile/data";
+import { myProfileData } from "../../screens/profile/myProfile/MyProfileData";
 import { CardHeadingBold, RegularSmall } from "../../constants";
 
 interface BlogCardData {
@@ -40,7 +40,7 @@ const BlogCard: React.FC<BlogCardData> = ({
             <RegularSmall>{time}</RegularSmall>
           </View>
           {/* PostAuthorBioFooter component */}
-          <PostAuthorBioFooter data={profileData} />
+          <PostAuthorBioFooter data={myProfileData} />
         </View>
       </View>
     </View>

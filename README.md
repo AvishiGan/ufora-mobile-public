@@ -1,1 +1,1 @@
-# ufora-mobile
+# ufora-mobile-public

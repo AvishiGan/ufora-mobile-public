@@ -28,7 +28,7 @@ import FeedScreen from "../../screens/Feed/FeedScreen";
  * Profile related navigation
  */
 import CreatePost from "../../components/profile/createPost/CreatePost";
-import AllPosts from "../../screens/profile/AllPosts";
+import AllPosts from "../../screens/profile/myProfile/AllPosts";
 // import CreateProfile from "../../components/profile/createOrEditProfile/CreateMyProfile";
 
 export type RootStackParamList = {
